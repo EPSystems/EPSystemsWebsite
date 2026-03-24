@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
   @apply bg-[#f3f4f6] text-zinc-900 antialiased overflow-x-hidden;
   background-size: 40px 40px;
   background-image:
