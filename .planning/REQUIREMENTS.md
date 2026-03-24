@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Routing
 
-- [ ] **ROUT-01**: Site uses React Router with BrowserRouter replacing hash-based navigation
+- [x] **ROUT-01**: Site uses React Router with BrowserRouter replacing hash-based navigation
 - [ ] **ROUT-02**: All existing anchor links (#services, #seo, etc.) continue to work as smooth-scroll within pages
-- [ ] **ROUT-03**: Language-prefixed URL structure implemented (/en/..., /bg/...)
-- [ ] **ROUT-04**: Root URL (/) redirects to default language route
+- [x] **ROUT-03**: Language-prefixed URL structure implemented (/en/..., /bg/...)
+- [x] **ROUT-04**: Root URL (/) redirects to default language route
 - [ ] **ROUT-05**: All broken and placeholder links across the site are fixed or removed
 
 ### Bilingual
@@ -77,10 +77,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUT-01 | Phase 1 | Pending |
+| ROUT-01 | Phase 1 | Complete |
 | ROUT-02 | Phase 1 | Pending |
-| ROUT-03 | Phase 1 | Pending |
-| ROUT-04 | Phase 1 | Pending |
+| ROUT-03 | Phase 1 | Complete |
+| ROUT-04 | Phase 1 | Complete |
 | ROUT-05 | Phase 1 | Pending |
 | BILN-01 | Phase 2 | Pending |
 | BILN-02 | Phase 2 | Pending |
