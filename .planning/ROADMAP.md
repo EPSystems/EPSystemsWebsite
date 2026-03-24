@@ -29,11 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. All previously working anchor links (#services, #seo, etc.) scroll smoothly to their sections
   4. No broken or placeholder links exist anywhere on the site
   5. Page loads at the top when navigating between routes (scroll restoration works)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Install React Router, create language-prefixed route structure with root redirect and 404 page
+- [ ] 01-02-PLAN.md — Migrate all hash links to smooth-scroll, remove placeholder links, verify navigation end-to-end
 
 ### Phase 2: i18n Infrastructure
 **Goal**: Users can switch between English and Bulgarian, with nav and footer content translating immediately
@@ -88,7 +88,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Router Foundation | 0/0 | Not started | - |
+| 1. Router Foundation | 0/2 | Planning complete | - |
 | 2. i18n Infrastructure | 0/0 | Not started | - |
 | 3. Full Content Translation | 0/0 | Not started | - |
 | 4. New Pages and Content | 0/0 | Not started | - |
