@@ -12,7 +12,7 @@ Transform the existing single-page English-only React SPA into a fully bilingual
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Router Foundation** - Replace hash navigation with React Router and language-prefixed URL structure
+- [x] **Phase 1: Router Foundation** - Replace hash navigation with React Router and language-prefixed URL structure
 - [ ] **Phase 2: i18n Infrastructure** - Wire up bilingual translation system with language switcher on nav/footer
 - [ ] **Phase 3: Full Content Translation** - Translate all existing page content to Bulgarian
 - [ ] **Phase 4: New Pages and Content** - Build service detail pages and team section, fully bilingual
@@ -32,8 +32,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Install React Router, create language-prefixed route structure with root redirect and 404 page
-- [ ] 01-02-PLAN.md — Migrate all hash links to smooth-scroll, remove placeholder links, verify navigation end-to-end
+- [x] 01-01-PLAN.md — Install React Router, create language-prefixed route structure with root redirect and 404 page
+- [x] 01-02-PLAN.md — Migrate all hash links to smooth-scroll, remove placeholder links, verify navigation end-to-end
 
 ### Phase 2: i18n Infrastructure
 **Goal**: Users can switch between English and Bulgarian, with nav and footer content translating immediately
@@ -88,7 +88,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Router Foundation | 0/2 | Planning complete | - |
+| 1. Router Foundation | 2/2 | Complete | 2026-03-24 |
 | 2. i18n Infrastructure | 0/0 | Not started | - |
 | 3. Full Content Translation | 0/0 | Not started | - |
 | 4. New Pages and Content | 0/0 | Not started | - |

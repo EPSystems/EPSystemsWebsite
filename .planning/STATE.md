@@ -9,28 +9,28 @@ See: .planning/PROJECT.md (updated 2026-03-24)
 
 ## Current Position
 
-Phase: 1 of 4 (Router Foundation)
-Plan: 1 of 2 in current phase
-Status: Executing
-Last activity: 2026-03-24 — Completed 01-01-PLAN.md
+Phase: 1 of 4 (Router Foundation) -- COMPLETE
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-03-24 — Completed 01-02-PLAN.md
 
-Progress: [█░░░░░░░░░] 10%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 1min
-- Total execution time: 0.02 hours
+- Total plans completed: 2
+- Average duration: 2min
+- Total execution time: 0.07 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-router-foundation | 1 | 1min | 1min |
+| 01-router-foundation | 2 | 4min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (1min)
+- Last 5 plans: 01-01 (1min), 01-02 (3min)
 - Trend: -
 
 *Updated after each plan completion*
@@ -46,6 +46,9 @@ Recent decisions affecting current work:
 - [Roadmap]: Strict phase ordering: Router -> i18n -> Translation -> New Pages (each phase depends on prior)
 - [01-01]: Extracted homepage content into src/pages/HomePage.tsx, App.tsx is now route config only
 - [01-01]: NotFoundPage uses URL lang param with fallback to 'en' for back link
+- [01-02]: scrollToSection utility wraps getElementById + scrollIntoView for reuse across components
+- [01-02]: Removed Legal column from Footer -- better no link than broken link
+- [01-02]: Service cards conditionally render Learn more only when detailHeadline exists
 
 ### Pending Todos
 
@@ -60,5 +63,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-24
-Stopped at: Completed 01-01-PLAN.md
+Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
 Resume file: None
