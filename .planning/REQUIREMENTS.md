@@ -77,32 +77,32 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUT-01 | — | Pending |
-| ROUT-02 | — | Pending |
-| ROUT-03 | — | Pending |
-| ROUT-04 | — | Pending |
-| ROUT-05 | — | Pending |
-| BILN-01 | — | Pending |
-| BILN-02 | — | Pending |
-| BILN-03 | — | Pending |
-| BILN-04 | — | Pending |
-| BILN-05 | — | Pending |
-| BILN-06 | — | Pending |
-| BILN-07 | — | Pending |
-| SERV-01 | — | Pending |
-| SERV-02 | — | Pending |
-| SERV-03 | — | Pending |
-| SERV-04 | — | Pending |
-| CONT-01 | — | Pending |
-| CONT-02 | — | Pending |
-| CONT-03 | — | Pending |
-| CONT-04 | — | Pending |
+| ROUT-01 | Phase 1 | Pending |
+| ROUT-02 | Phase 1 | Pending |
+| ROUT-03 | Phase 1 | Pending |
+| ROUT-04 | Phase 1 | Pending |
+| ROUT-05 | Phase 1 | Pending |
+| BILN-01 | Phase 2 | Pending |
+| BILN-02 | Phase 2 | Pending |
+| BILN-03 | Phase 2 | Pending |
+| BILN-04 | Phase 3 | Pending |
+| BILN-05 | Phase 3 | Pending |
+| BILN-06 | Phase 3 | Pending |
+| BILN-07 | Phase 2 | Pending |
+| SERV-01 | Phase 4 | Pending |
+| SERV-02 | Phase 4 | Pending |
+| SERV-03 | Phase 4 | Pending |
+| SERV-04 | Phase 4 | Pending |
+| CONT-01 | Phase 4 | Pending |
+| CONT-02 | Phase 4 | Pending |
+| CONT-03 | Phase 2 | Pending |
+| CONT-04 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 ⚠️
+- Mapped to phases: 20
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-24*
-*Last updated: 2026-03-24 after initial definition*
+*Last updated: 2026-03-24 after roadmap creation*
