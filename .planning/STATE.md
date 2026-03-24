@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-24T21:36:18.305Z"
+last_updated: "2026-03-24T22:16:49Z"
 progress:
-  total_phases: 1
+  total_phases: 2
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
 ---
 
 # Project State
@@ -18,32 +18,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** The site must present E&P Systems as a credible, professional software agency that potential clients trust enough to reach out to.
-**Current focus:** Phase 1: Router Foundation
+**Current focus:** Phase 2: i18n Infrastructure
 
 ## Current Position
 
-Phase: 1 of 4 (Router Foundation) -- COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-03-24 — Completed 01-02-PLAN.md
+Phase: 2 of 4 (i18n Infrastructure)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-03-24 — Completed 02-01-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: 2min
-- Total execution time: 0.07 hours
+- Total execution time: 0.10 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-router-foundation | 2 | 4min | 2min |
+| 02-i18n-infrastructure | 1 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (1min), 01-02 (3min)
+- Last 5 plans: 01-01 (1min), 01-02 (3min), 02-01 (2min)
 - Trend: -
 
 *Updated after each plan completion*
@@ -62,6 +63,9 @@ Recent decisions affecting current work:
 - [01-02]: scrollToSection utility wraps getElementById + scrollIntoView for reuse across components
 - [01-02]: Removed Legal column from Footer -- better no link than broken link
 - [01-02]: Service cards conditionally render Learn more only when detailHeadline exists
+- [02-01]: Bundled JSON resources for synchronous i18n init (no async loading)
+- [02-01]: Inter font as Cyrillic fallback in CSS font stack
+- [02-01]: useLanguageSync sets document.documentElement.lang for accessibility
 
 ### Pending Todos
 
@@ -76,5 +80,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-24
-Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None

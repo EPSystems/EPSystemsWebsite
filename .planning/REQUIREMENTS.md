@@ -17,13 +17,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Bilingual
 
-- [ ] **BILN-01**: react-i18next integrated with JSON translation files for EN and BG
+- [x] **BILN-01**: react-i18next integrated with JSON translation files for EN and BG
 - [ ] **BILN-02**: Language switcher in Navbar toggles between English and Bulgarian
-- [ ] **BILN-03**: Language preference persists across page navigation via URL prefix
+- [x] **BILN-03**: Language preference persists across page navigation via URL prefix
 - [ ] **BILN-04**: All JSX text content translated to Bulgarian
 - [ ] **BILN-05**: All service data (titles, descriptions, features in services.ts) translated to Bulgarian
 - [ ] **BILN-06**: Meta tags and page titles reflect current language
-- [ ] **BILN-07**: Cyrillic font support verified for Bricolage Grotesque (fallback if needed)
+- [x] **BILN-07**: Cyrillic font support verified for Bricolage Grotesque (fallback if needed)
 
 ### Service Pages
 
@@ -82,13 +82,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUT-03 | Phase 1 | Complete |
 | ROUT-04 | Phase 1 | Complete |
 | ROUT-05 | Phase 1 | Complete |
-| BILN-01 | Phase 2 | Pending |
+| BILN-01 | Phase 2 | Complete |
 | BILN-02 | Phase 2 | Pending |
-| BILN-03 | Phase 2 | Pending |
+| BILN-03 | Phase 2 | Complete |
 | BILN-04 | Phase 3 | Pending |
 | BILN-05 | Phase 3 | Pending |
 | BILN-06 | Phase 3 | Pending |
-| BILN-07 | Phase 2 | Pending |
+| BILN-07 | Phase 2 | Complete |
 | SERV-01 | Phase 4 | Pending |
 | SERV-02 | Phase 4 | Pending |
 | SERV-03 | Phase 4 | Pending |
