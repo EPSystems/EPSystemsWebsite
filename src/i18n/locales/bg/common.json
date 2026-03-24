@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "services": "Услуги",
+    "seo": "SEO",
+    "ecommerce": "Е-Комерс",
+    "projects": "Проекти",
+    "getStarted": "Започнете"
+  },
+  "footer": {
+    "cta": "Нека изградим нещо страхотно заедно. Готови сме да превърнем вашата дигитална визия в реалност.",
+    "getInTouch": "Свържете се",
+    "sitemap": "Карта на сайта",
+    "home": "Начало",
+    "services": "Услуги",
+    "projects": "Проекти",
+    "servicesColumn": "Услуги",
+    "seo": "SEO",
+    "ecommerce": "Е-Комерс",
+    "aiAutomation": "AI и Автоматизация",
+    "contact": "Контакт",
+    "email": "Имейл",
+    "phone": "Телефон",
+    "copyright": "E&P Systems. Всички права запазени."
+  }
+}

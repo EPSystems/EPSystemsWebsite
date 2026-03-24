@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "services": "Services",
+    "seo": "SEO",
+    "ecommerce": "E-Commerce",
+    "projects": "Projects",
+    "getStarted": "Get Started"
+  },
+  "footer": {
+    "cta": "Let's build something great together. We're ready to bring your digital vision to life.",
+    "getInTouch": "Get in touch",
+    "sitemap": "Sitemap",
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "servicesColumn": "Services",
+    "seo": "SEO",
+    "ecommerce": "E-Commerce",
+    "aiAutomation": "AI & Automation",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "copyright": "E&P Systems. All rights reserved."
+  }
+}
