@@ -1,3 +1,4 @@
+import { useLanguageSync } from '../hooks/useLanguageSync'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { Hero } from '../components/sections/Hero'
@@ -31,6 +32,8 @@ const detailSections = [
 ]
 
 export function HomePage() {
+  useLanguageSync()
+
   return (
     <>
       <Navbar />

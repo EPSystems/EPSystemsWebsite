@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { scrollToSection } from '../../utils/scroll'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { lang } = useParams<{ lang: string }>()
+  const { t } = useTranslation()
 
   const handleScroll = (sectionId: string) => {
     scrollToSection(sectionId)
@@ -25,19 +28,20 @@ export function Navbar() {
       </Link>
 
       <div className="hidden lg:flex items-center gap-10 text-lg font-bold text-zinc-800 bg-white px-8 py-3 rounded-full border-2 border-black brutalist-shadow">
-        <button onClick={() => handleScroll('services')} className="hover:text-[#88cc33] transition-colors">Services</button>
-        <button onClick={() => handleScroll('seo')} className="hover:text-[#88cc33] transition-colors">SEO</button>
-        <button onClick={() => handleScroll('ecommerce')} className="hover:text-[#88cc33] transition-colors">E-Commerce</button>
-        <button onClick={() => handleScroll('case-studies')} className="hover:text-[#88cc33] transition-colors">Projects</button>
+        <button onClick={() => handleScroll('services')} className="hover:text-[#88cc33] transition-colors">{t('nav.services')}</button>
+        <button onClick={() => handleScroll('seo')} className="hover:text-[#88cc33] transition-colors">{t('nav.seo')}</button>
+        <button onClick={() => handleScroll('ecommerce')} className="hover:text-[#88cc33] transition-colors">{t('nav.ecommerce')}</button>
+        <button onClick={() => handleScroll('case-studies')} className="hover:text-[#88cc33] transition-colors">{t('nav.projects')}</button>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:flex items-center gap-4">
         <button
           onClick={() => handleScroll('contact')}
           className="bg-[#B9FF66] border-2 border-black rounded-xl px-8 py-4 text-black font-bold text-lg brutalist-shadow"
         >
-          Get Started
+          {t('nav.getStarted')}
         </button>
+        <LanguageSwitcher />
       </div>
 
       <button
@@ -49,11 +53,12 @@ export function Navbar() {
 
       {mobileOpen && (
         <div className="absolute top-full left-0 right-0 bg-white border-2 border-black rounded-2xl mx-6 mt-2 p-6 flex flex-col gap-4 text-lg font-bold brutalist-shadow-static lg:hidden z-50">
-          <button onClick={() => handleMobileScroll('services')} className="hover:text-[#88cc33] text-left">Services</button>
-          <button onClick={() => handleMobileScroll('seo')} className="hover:text-[#88cc33] text-left">SEO</button>
-          <button onClick={() => handleMobileScroll('ecommerce')} className="hover:text-[#88cc33] text-left">E-Commerce</button>
-          <button onClick={() => handleMobileScroll('case-studies')} className="hover:text-[#88cc33] text-left">Projects</button>
-          <button onClick={() => handleMobileScroll('contact')} className="bg-[#B9FF66] border-2 border-black rounded-xl px-6 py-3 text-center">Get Started</button>
+          <LanguageSwitcher className="mb-2" />
+          <button onClick={() => handleMobileScroll('services')} className="hover:text-[#88cc33] text-left">{t('nav.services')}</button>
+          <button onClick={() => handleMobileScroll('seo')} className="hover:text-[#88cc33] text-left">{t('nav.seo')}</button>
+          <button onClick={() => handleMobileScroll('ecommerce')} className="hover:text-[#88cc33] text-left">{t('nav.ecommerce')}</button>
+          <button onClick={() => handleMobileScroll('case-studies')} className="hover:text-[#88cc33] text-left">{t('nav.projects')}</button>
+          <button onClick={() => handleMobileScroll('contact')} className="bg-[#B9FF66] border-2 border-black rounded-xl px-6 py-3 text-center">{t('nav.getStarted')}</button>
         </div>
       )}
     </nav>
