@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, TrendingUp } from 'lucide-react'
+import { scrollToSection } from '../../utils/scroll'
 
 export function Hero() {
   return (
@@ -51,12 +52,12 @@ export function Hero() {
               Get in Touch
               <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform" />
             </a>
-            <a
-              href="#services"
+            <button
+              onClick={() => scrollToSection('services')}
               className="bg-white text-black text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3"
             >
               See Our Work
-            </a>
+            </button>
           </motion.div>
         </motion.div>
 

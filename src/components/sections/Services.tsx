@@ -2,6 +2,7 @@ import { ArrowUpRight, Target, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { services } from '../../data/services'
 import { AnimatedSection } from '../ui/AnimatedSection'
+import { scrollToSection } from '../../utils/scroll'
 
 const variantStyles = {
   light: {
@@ -51,6 +52,7 @@ export function Services() {
         {services.map((service, i) => {
           const styles = variantStyles[service.variant]
           const Icon = service.icon
+          const hasDetail = Boolean(service.detailHeadline)
           return (
             <motion.div
               key={service.id}
@@ -66,15 +68,17 @@ export function Services() {
                   {service.title}<br />{service.titleBreak}
                 </h3>
               </div>
-              <a
-                href={`#${service.id}`}
-                className={`flex items-center gap-4 text-xl font-bold mt-auto ${styles.text}`}
-              >
-                <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>
-                  <ArrowUpRight size={24} />
-                </div>
-                Learn more
-              </a>
+              {hasDetail && (
+                <button
+                  onClick={() => scrollToSection(service.id)}
+                  className={`flex items-center gap-4 text-xl font-bold mt-auto ${styles.text}`}
+                >
+                  <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>
+                    <ArrowUpRight size={24} />
+                  </div>
+                  Learn more
+                </button>
+              )}
             </motion.div>
           )
         })}

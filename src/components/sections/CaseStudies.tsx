@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { AnimatedSection } from '../ui/AnimatedSection'
+import { scrollToSection } from '../../utils/scroll'
 
 const cases = [
   {
@@ -60,10 +61,13 @@ export function CaseStudies() {
                 )
               )}
             </p>
-            <a href="#contact" className="flex items-center gap-3 text-[#B9FF66] text-xl font-bold group">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="flex items-center gap-3 text-[#B9FF66] text-xl font-bold group"
+            >
               View Project
               <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
+            </button>
           </div>
         ))}
       </div>

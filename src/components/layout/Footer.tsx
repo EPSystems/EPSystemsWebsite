@@ -1,7 +1,11 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
 import { AnimatedSection } from '../ui/AnimatedSection'
+import { scrollToSection } from '../../utils/scroll'
 
 export function Footer() {
+  const { lang } = useParams<{ lang: string }>()
+
   return (
     <footer className="bg-black pt-20 pb-10" id="footer">
       <div className="max-w-7xl mx-auto px-6">
@@ -31,22 +35,25 @@ export function Footer() {
                   >
                     Get in touch
                   </a>
-                  <button className="w-16 h-16 rounded-xl bg-zinc-800 hover:bg-[#B9FF66] text-white hover:text-black flex items-center justify-center transition-colors duration-300 group border-4 border-zinc-800 hover:border-[#B9FF66]">
+                  <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="w-16 h-16 rounded-xl bg-zinc-800 hover:bg-[#B9FF66] text-white hover:text-black flex items-center justify-center transition-colors duration-300 group border-4 border-zinc-800 hover:border-[#B9FF66]"
+                  >
                     <ArrowUpRight size={28} className="group-hover:rotate-45 transition-transform" />
                   </button>
                 </div>
               </div>
 
               {/* Links */}
-              <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-10 lg:pl-10 w-full">
+              <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:pl-10 w-full">
                 <div className="flex flex-col gap-6">
                   <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
                     Sitemap
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><a href="#" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Home</a></li>
-                    <li><a href="#services" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Services</a></li>
-                    <li><a href="#case-studies" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Projects</a></li>
+                    <li><Link to={`/${lang || 'en'}/`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Home</Link></li>
+                    <li><button onClick={() => scrollToSection('services')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Services</button></li>
+                    <li><button onClick={() => scrollToSection('case-studies')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Projects</button></li>
                   </ul>
                 </div>
 
@@ -55,9 +62,9 @@ export function Footer() {
                     Services
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><a href="#seo" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">SEO</a></li>
-                    <li><a href="#ecommerce" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">E-Commerce</a></li>
-                    <li><a href="#ai" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">AI & Automation</a></li>
+                    <li><button onClick={() => scrollToSection('seo')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">SEO</button></li>
+                    <li><button onClick={() => scrollToSection('ecommerce')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">E-Commerce</button></li>
+                    <li><button onClick={() => scrollToSection('ai')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">AI & Automation</button></li>
                   </ul>
                 </div>
 
@@ -68,16 +75,6 @@ export function Footer() {
                   <ul className="flex flex-col gap-4">
                     <li><a href="mailto:engineering@epsystems.org" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Email</a></li>
                     <li><a href="tel:+359879503151" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">Phone</a></li>
-                  </ul>
-                </div>
-
-                <div className="flex flex-col gap-6">
-                  <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
-                    Legal
-                  </span>
-                  <ul className="flex flex-col gap-4">
-                    <li><a href="#" className="text-lg text-zinc-500 hover:text-white transition-colors font-bold tracking-tight">Privacy Policy</a></li>
-                    <li><a href="#" className="text-lg text-zinc-500 hover:text-white transition-colors font-bold tracking-tight">Terms of Use</a></li>
                   </ul>
                 </div>
               </div>
