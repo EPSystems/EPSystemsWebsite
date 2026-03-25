@@ -50,10 +50,10 @@ Plans:
   2. If submission fails, user sees an error message with a way to retry
   3. Each CTA location displays a context-specific heading on the form (e.g., "Tell us about your SEO goals")
   4. Form shows a loading/disabled state while submission is in progress, preventing double-submit
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] 06-01-PLAN.md — Per-context i18n headings/descriptions, ContactModal heading logic update, form states verification
 
 ### Phase 7: CTA Conversion
 **Goal**: Every CTA across the entire site opens a contact form instead of triggering mailto or scroll-to-contact
@@ -82,5 +82,5 @@ Phases execute in numeric order: 5 -> 6 -> 7
 | 3. Full Content Translation | v1.0 | 2/2 | Complete | 2026-03-25 |
 | 4. New Pages and Content | v1.0 | 3/3 | Complete | 2026-03-25 |
 | 5. Form Infrastructure | v1.1 | Complete    | 2026-03-25 | - |
-| 6. Form UI and States | v1.1 | 0/? | Not started | - |
+| 6. Form UI and States | v1.1 | 0/1 | Not started | - |
 | 7. CTA Conversion | v1.1 | 0/? | Not started | - |
