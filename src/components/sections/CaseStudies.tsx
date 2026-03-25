@@ -1,10 +1,11 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
-import { scrollToSection } from '../../utils/scroll'
+import { useContactModal } from '../../hooks/useContactModal'
 
 export function CaseStudies() {
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
 
   const cases = [0, 1, 2].map((i) => ({
     description: t(`caseStudies.cases.${i}.description`),
@@ -53,7 +54,7 @@ export function CaseStudies() {
               )}
             </p>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => openContactForm({ subject: 'general', source: 'case-studies' })}
               className="flex items-center gap-3 text-[#B9FF66] text-xl font-bold group"
             >
               {t('caseStudies.viewProject')}

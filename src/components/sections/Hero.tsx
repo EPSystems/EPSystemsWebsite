@@ -2,9 +2,11 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, TrendingUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { scrollToSection } from '../../utils/scroll'
+import { useContactModal } from '../../hooks/useContactModal'
 
 export function Hero() {
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
   return (
     <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative">
       <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -47,13 +49,13 @@ export function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
           >
-            <a
-              href="mailto:engineering@epsystems.org"
+            <button
+              onClick={() => openContactForm({ subject: 'general', source: 'hero-contact' })}
               className="bg-black text-[#B9FF66] text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3 group"
             >
               {t('hero.cta.contact')}
               <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform" />
-            </a>
+            </button>
             <button
               onClick={() => scrollToSection('services')}
               className="bg-white text-black text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3"

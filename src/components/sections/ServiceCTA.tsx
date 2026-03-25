@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
+import { useContactModal } from '../../hooks/useContactModal'
 
 interface ServiceCTAProps {
   slug: string
@@ -7,6 +8,7 @@ interface ServiceCTAProps {
 
 export function ServiceCTA({ slug }: ServiceCTAProps) {
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-24">
@@ -18,12 +20,12 @@ export function ServiceCTA({ slug }: ServiceCTAProps) {
           <p className="text-xl text-zinc-600 font-medium mb-10">
             {t(`servicePages.${slug}.cta.description`)}
           </p>
-          <a
-            href="mailto:engineering@epsystems.org"
+          <button
+            onClick={() => openContactForm({ subject: slug, source: `service-${slug}-cta` })}
             className="inline-block bg-[#B9FF66] border-4 border-black rounded-xl px-10 py-5 text-xl font-black brutalist-shadow hover:shadow-none transition-shadow"
           >
             {t(`servicePages.${slug}.cta.button`)}
-          </a>
+          </button>
         </div>
       </AnimatedSection>
     </section>

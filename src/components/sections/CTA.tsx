@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
+import { useContactModal } from '../../hooks/useContactModal'
 
 export function CTA() {
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
 
   return (
     <section id="contact" className="max-w-7xl mx-auto px-6 pb-24">
@@ -15,12 +17,12 @@ export function CTA() {
               {t('cta.description')}
             </p>
           </div>
-          <a
-            href="mailto:engineering@epsystems.org"
+          <button
+            onClick={() => openContactForm({ subject: 'general', source: 'homepage-cta' })}
             className="bg-black text-white text-xl font-bold px-10 py-5 rounded-2xl brutalist-shadow border-4 border-black whitespace-nowrap hover:bg-zinc-800 transition-colors relative z-10 w-full md:w-auto text-center"
           >
             {t('cta.button')}
-          </a>
+          </button>
         </div>
       </AnimatedSection>
     </section>

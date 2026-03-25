@@ -3,12 +3,14 @@ import { Menu, X } from 'lucide-react'
 import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { scrollToSection } from '../../utils/scroll'
+import { useContactModal } from '../../hooks/useContactModal'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { lang } = useParams<{ lang: string }>()
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -51,7 +53,7 @@ export function Navbar() {
 
       <div className="hidden lg:flex items-center gap-4">
         <button
-          onClick={() => handleScroll('contact')}
+          onClick={() => openContactForm({ subject: 'general', source: 'navbar-get-started' })}
           className="bg-[#B9FF66] border-2 border-black rounded-xl px-8 py-4 text-black font-bold text-lg brutalist-shadow"
         >
           {t('nav.getStarted')}
@@ -73,7 +75,7 @@ export function Navbar() {
           <Link to={`/${lang || 'en'}/services/seo`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.seo')}</Link>
           <Link to={`/${lang || 'en'}/services/ecommerce`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.ecommerce')}</Link>
           <button onClick={() => handleMobileScroll('case-studies')} className="hover:text-[#88cc33] text-left">{t('nav.projects')}</button>
-          <button onClick={() => handleMobileScroll('contact')} className="bg-[#B9FF66] border-2 border-black rounded-xl px-6 py-3 text-center">{t('nav.getStarted')}</button>
+          <button onClick={() => { setMobileOpen(false); openContactForm({ subject: 'general', source: 'navbar-get-started' }) }} className="bg-[#B9FF66] border-2 border-black rounded-xl px-6 py-3 text-center">{t('nav.getStarted')}</button>
         </div>
       )}
     </nav>

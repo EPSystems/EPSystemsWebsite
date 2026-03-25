@@ -3,10 +3,12 @@ import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import { scrollToSection } from '../../utils/scroll'
+import { useContactModal } from '../../hooks/useContactModal'
 
 export function Footer() {
   const { lang } = useParams<{ lang: string }>()
   const { t } = useTranslation()
+  const { openContactForm } = useContactModal()
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -45,12 +47,12 @@ export function Footer() {
                   {t('footer.cta')}
                 </p>
                 <div className="flex items-center gap-4">
-                  <a
-                    href="mailto:engineering@epsystems.org"
+                  <button
+                    onClick={() => openContactForm({ subject: 'general', source: 'footer-cta' })}
                     className="bg-[#B9FF66] hover:bg-white text-black px-8 py-4 rounded-xl text-lg font-black transition-colors duration-300 border-4 border-[#B9FF66] hover:border-white tracking-tighter"
                   >
                     {t('footer.getInTouch')}
-                  </a>
+                  </button>
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="w-16 h-16 rounded-xl bg-zinc-800 hover:bg-[#B9FF66] text-white hover:text-black flex items-center justify-center transition-colors duration-300 group border-4 border-zinc-800 hover:border-[#B9FF66]"
@@ -89,7 +91,7 @@ export function Footer() {
                     {t('footer.contact')}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><a href="mailto:engineering@epsystems.org" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.email')}</a></li>
+                    <li><button onClick={() => openContactForm({ subject: 'general', source: 'footer-email' })} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.email')}</button></li>
                     <li><a href="tel:+359879503151" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.phone')}</a></li>
                   </ul>
                 </div>
