@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A client-facing landing page for E&P Systems, a software agency. Built with React, TypeScript, Tailwind CSS, and Framer Motion in a bold Brutalist design style. Currently a single-page site with service cards, case studies, and contact CTA. Being enhanced into a full bilingual (EN/BG), multi-page professional agency website.
+A client-ready bilingual (EN/BG) website for E&P Systems, a software agency. Built with React 19, TypeScript, Tailwind CSS, and Framer Motion in a bold Brutalist design style. Features a multi-page architecture with dedicated service pages, a team section, and full i18n support via react-i18next with language-prefixed URLs.
 
 ## Core Value
 
@@ -12,11 +12,8 @@ The site must present E&P Systems as a credible, professional software agency th
 
 ### Validated
 
-<!-- Shipped and confirmed valuable. Inferred from existing code. -->
-
 - ✓ Hero section with agency positioning and CTAs — existing
 - ✓ Services overview grid with styled cards — existing
-- ✓ Detailed service sections (SEO, E-Commerce, AI/Automation) — existing
 - ✓ Case studies showcase section — existing
 - ✓ Scrolling marquee of services — existing
 - ✓ Contact CTA section — existing
@@ -24,50 +21,67 @@ The site must present E&P Systems as a credible, professional software agency th
 - ✓ Footer with sitemap and contact info — existing
 - ✓ Scroll-triggered animations via Framer Motion — existing
 - ✓ Brutalist design system with custom tokens — existing
+- ✓ React Router with BrowserRouter and language-prefixed URLs — v1.0
+- ✓ All anchor links work as smooth-scroll within pages — v1.0
+- ✓ Root URL redirects to default language route — v1.0
+- ✓ All broken and placeholder links fixed — v1.0
+- ✓ react-i18next integrated with JSON translation files (EN/BG) — v1.0
+- ✓ Language switcher in Navbar (EN/BG text toggle) — v1.0
+- ✓ Language preference persists via URL prefix — v1.0
+- ✓ Cyrillic font support via Inter fallback — v1.0
+- ✓ All JSX and service data content translated to Bulgarian — v1.0
+- ✓ Dynamic meta tags and page titles per language — v1.0
+- ✓ Content across all sections reviewed and updated — v1.0
+- ✓ Dedicated service pages (SEO, E-Commerce, AI, Custom Software) with unique URLs — v1.0
+- ✓ Service pages with Hero, Features, Process, CTA sections — v1.0
+- ✓ Service pages fully bilingual — v1.0
+- ✓ Seamless navigation between service pages and homepage — v1.0
+- ✓ Team members section on homepage with profiles and roles — v1.0
+- ✓ Team section bilingual — v1.0
 
 ### Active
 
-<!-- Current scope. Building toward these. -->
-
-- [ ] Full bilingual support (English/Bulgarian) with language switcher
-- [ ] Dedicated service pages with unique URLs (e.g., /services/web-development)
-- [ ] Team page with member profiles, roles, and bios
-- [ ] Content updates across existing sections
-- [ ] Fix all broken and placeholder links
-- [ ] Component polish and visual refinement
-- [ ] New sections/pages consistent with existing Brutalist design
+(None — planning next milestone)
 
 ### Out of Scope
 
-- Blog/Insights section — not needed for v1, can add later
+- Blog/Insights section — requires ongoing content commitment
 - Backend/CMS — site is static, content lives in code
 - Contact form with email delivery — defer to later milestone
-- Portfolio detail pages beyond case studies — current case studies section sufficient
+- Accessibility audit (WCAG) — deferred to v1.1
+- Page transition animations — deferred to v1.1
+- Client logo bar / trust badges — need client permission
+- Pre-rendering for SEO — depends on hosting platform choice
 
 ## Context
 
-- Existing codebase is a React SPA with hash-based anchor navigation
-- Moving to multi-page requires routing (React Router or similar)
-- Bilingual support needs i18n solution — all existing content is English only
-- Design system uses Tailwind with custom Brutalist tokens (lime #B9FF66, bold borders, shadow effects, Bricolage Grotesque font)
-- Site is fully static, deployed as SPA — no backend dependencies
-- Codebase map available at `.planning/codebase/`
+- Shipped v1.0 with 1,262 LOC TypeScript across 30 source files
+- Tech stack: React 19 + Vite 5 + Tailwind 3 + Framer Motion + react-i18next
+- Bricolage Grotesque font doesn't support Cyrillic — Inter used as fallback
+- "Custom Websites" renamed to "Custom Software" throughout
+- Team member data uses placeholders — user will provide real photos and details
+- Site is fully static SPA — needs SPA fallback config on hosting platform
 
 ## Constraints
 
-- **Tech stack**: React + TypeScript + Tailwind CSS + Vite — keep existing stack
-- **Design**: Must match existing Brutalist design language — bold borders, lime accents, rounded corners
-- **Font**: Bricolage Grotesque — already loaded from Google Fonts
-- **Static deployment**: No server-side rendering or backend — keep it client-only
+- **Tech stack**: React + TypeScript + Tailwind CSS + Vite — established
+- **Design**: Brutalist design language — bold borders, lime #B9FF66 accents, rounded corners
+- **Fonts**: Bricolage Grotesque (Latin) + Inter (Cyrillic fallback)
+- **Static deployment**: No server-side rendering or backend — client-only
 - **Languages**: English and Bulgarian only
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Dedicated service pages over modals | Better for SEO, more content space, shareable URLs | — Pending |
-| Full bilingual (EN/BG) with switcher | Agency serves Bulgarian market, needs local language presence | — Pending |
-| Keep static architecture | No backend needed for agency landing page, simpler deployment | — Pending |
+| Dedicated service pages over modals | Better for SEO, more content space, shareable URLs | ✓ Good |
+| Full bilingual (EN/BG) with switcher | Agency serves Bulgarian market, needs local language presence | ✓ Good |
+| Keep static architecture | No backend needed for agency landing page, simpler deployment | ✓ Good |
+| Language-prefixed URLs (/en/, /bg/) | SEO-friendly, shareable, bookmarkable per language | ✓ Good |
+| Inter as Cyrillic fallback font | Bricolage Grotesque lacks Cyrillic; Inter pairs well visually | ✓ Good |
+| Shared ServicePage template | All 4 service pages have same structure, differentiated by content | ✓ Good |
+| "Custom Websites" → "Custom Software" | Better reflects agency's actual service offering | ✓ Good |
+| Team section on homepage (not separate page) | Minimal team data, doesn't warrant full page | ✓ Good |
 
 ---
-*Last updated: 2026-03-24 after initialization*
+*Last updated: 2026-03-25 after v1.0 milestone*
