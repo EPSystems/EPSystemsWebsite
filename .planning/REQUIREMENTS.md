@@ -27,10 +27,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Service Pages
 
-- [ ] **SERV-01**: Each service has a dedicated page with unique URL (e.g., /en/services/seo)
-- [ ] **SERV-02**: Service pages include detailed description, features, and relevant content
+- [x] **SERV-01**: Each service has a dedicated page with unique URL (e.g., /en/services/seo)
+- [x] **SERV-02**: Service pages include detailed description, features, and relevant content
 - [x] **SERV-03**: Service pages are fully bilingual (EN/BG)
-- [ ] **SERV-04**: Navigation between service pages and homepage is seamless
+- [x] **SERV-04**: Navigation between service pages and homepage is seamless
 
 ### Content
 
@@ -89,10 +89,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BILN-05 | Phase 3 | Complete |
 | BILN-06 | Phase 3 | Complete |
 | BILN-07 | Phase 2 | Complete |
-| SERV-01 | Phase 4 | Pending |
-| SERV-02 | Phase 4 | Pending |
+| SERV-01 | Phase 4 | Complete |
+| SERV-02 | Phase 4 | Complete |
 | SERV-03 | Phase 4 | Complete |
-| SERV-04 | Phase 4 | Pending |
+| SERV-04 | Phase 4 | Complete |
 | CONT-01 | Phase 4 | Pending |
 | CONT-02 | Phase 4 | Complete |
 | CONT-03 | Phase 2 | Complete |
