@@ -34,7 +34,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content
 
-- [ ] **CONT-01**: Team members section added to homepage with member profiles, roles, and bios
+- [x] **CONT-01**: Team members section added to homepage with member profiles, roles, and bios
 - [x] **CONT-02**: Team members section is bilingual (EN/BG)
 - [x] **CONT-03**: Navbar updated to support multi-page routing and language switcher
 - [x] **CONT-04**: Content across existing sections reviewed and updated
@@ -93,7 +93,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SERV-02 | Phase 4 | Complete |
 | SERV-03 | Phase 4 | Complete |
 | SERV-04 | Phase 4 | Complete |
-| CONT-01 | Phase 4 | Pending |
+| CONT-01 | Phase 4 | Complete |
 | CONT-02 | Phase 4 | Complete |
 | CONT-03 | Phase 2 | Complete |
 | CONT-04 | Phase 3 | Complete |
