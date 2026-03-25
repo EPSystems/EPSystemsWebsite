@@ -1,216 +1,191 @@
 # Project Research Summary
 
-**Project:** E&P Systems — Bilingual Agency Website
-**Domain:** Bilingual multi-page React SPA (i18n + routing addition to existing site)
-**Researched:** 2026-03-24
+**Project:** E&P Systems — v1.1 CTA Forms
+**Domain:** Contact form integration into bilingual React SPA (agency site)
+**Researched:** 2026-03-25
 **Confidence:** HIGH
 
 ## Executive Summary
 
-E&P Systems has an existing React 19 + Vite + TypeScript SPA with a strong Brutalist design identity. The site currently has no router — all navigation is hash-anchor scrolling — and all content is hardcoded in English. The two core engineering tasks are: (1) add client-side routing with React Router v7 in declarative mode, using language-prefixed URLs (`/en/...`, `/bg/...`) as the single source of truth for locale, and (2) layer in react-i18next backed by JSON translation files to deliver full EN/BG bilingual content. These two additions are tightly coupled by design: the `:lang` URL param must drive both routing and i18next simultaneously. Done correctly, the result is a fully bilingual, multi-page agency website where every URL is shareable, language-specific, and independently indexable by search engines.
+This milestone replaces every `mailto:` link and scroll-to-contact call across the E&P Systems website with a functional contact form system. The site is a fully bilingual (EN/BG) React 19 SPA with React Router, react-i18next, Framer Motion, and Tailwind CSS already installed and operational. All research confirms the correct approach is a single shared `ContactForm` component surfaced via two wrappers: an inline form embedded into existing CTA card sections (homepage CTA, all four service CTAs), and a modal form for locations where no layout space exists (Hero button, Footer button, Navbar "Get Started" on service pages). The form backend is Web3Forms — 250 free submissions per month, zero npm dependencies, JSON POST API — chosen over alternatives because it offers 5x more free submissions than Formspree and far better React documentation than any other zero-cost option.
 
-The recommended approach is incremental migration in four tightly sequenced phases. Phase 1 installs the router shell without changing any visible behavior. Phase 2 wires up i18n for nav/footer only. Phase 3 translates all page content. Phase 4 adds the new pages (service detail pages, team/about page). This phased order is non-negotiable: the router must precede i18n because the `:lang` param is how i18n detects locale, and content translation must precede new pages so the infrastructure is proven before new routes are added. Attempting a big-bang migration risks regressions across a codebase that currently has 11+ hash navigation links and content spread across both JSX components and TypeScript data files.
+The recommended architecture centers on a single `ContactModalProvider` React Context placed at the app root. All 9 CTA touchpoints being converted call `openContactForm({ subject, source })` via a convenience hook. This eliminates the anti-pattern of duplicating form logic across the codebase. A custom `useContactForm` hook handles all field state, validation, submission lifecycle, and status tracking. No new npm packages are required: native `fetch`, React `useState`, and the existing Framer Motion cover everything. Total new code is approximately 300 lines across 4 new files, plus 30 lines of modifications to 6 existing files.
 
-The primary risks are (1) broken hash navigation when React Router is introduced — there are at least 11 `#anchor` links that must be migrated to scroll handlers on day one, (2) incomplete string extraction leaving English fragments in service cards, case studies, and `<title>` tags, and (3) Bulgarian text running 15–30% longer than English breaking the tight Brutalist layout. All three are well-understood and have clear prevention strategies. The most consequential architectural decision — URL-prefixed locale over state/localStorage — must be made before any routing code is written, because retrofitting it later requires a full routing rewrite.
+The principal risk is spam exhausting the free-tier quota. Honeypot alone is insufficient — sophisticated bots bypass hidden fields — so hCaptcha (available on the Web3Forms free tier) must be enabled at the same time the form goes live, not as a follow-up task. The second architectural risk is the existing scroll-to-contact navigation pattern silently breaking once `scrollToSection('contact')` has no DOM target to reach. This failure is invisible in the console and creates a "nothing happens" user experience. It must be the first design decision addressed before any form code is written.
 
 ## Key Findings
 
 ### Recommended Stack
 
-The stack additions are a tight, well-supported set: React Router v7.13.2 (declarative mode), i18next 25.10.9, react-i18next 16.6.6, i18next-browser-languagedetector 8.2.1, and i18next-resources-to-backend 1.2.1. All are fully compatible with the project's existing React 19.2.4 and TypeScript 6.0.2. The version constraints have been verified via npm. No build tooling changes are required — React Router declarative mode has no Vite plugin requirement, and resources-to-backend uses Vite's native dynamic imports instead of adding an HTTP fetch layer. See `.planning/research/STACK.md` for full alternatives analysis.
+The entire v1.1 milestone adds zero new npm packages. Web3Forms operates as an external API endpoint reached via native `fetch`. Form field state and validation use React `useState`. Animations use Framer Motion `AnimatePresence`, already installed at v12.38.0. The modal renders via `createPortal` to `document.body` to avoid z-index conflicts with the Brutalist design system's heavy box-shadows and border layers. See `.planning/research/STACK.md` for the full service comparison matrix.
 
 **Core technologies:**
-- `react-router@7.13.2`: Client-side routing with `/:lang/*` URL structure — v7 consolidates react-router-dom into a single package, declarative mode is the correct choice for a static SPA (no SSR, no loaders)
-- `i18next@25.10.9`: Translation engine — dominant runtime (2.1M weekly downloads), namespace support, TypeScript-native
-- `react-i18next@16.6.6`: React bindings — `useTranslation` hook, `Trans` for JSX interpolation, Suspense support
-- `i18next-browser-languagedetector@8.2.1`: Auto-detects user language from navigator/localStorage on first visit
-- `i18next-resources-to-backend@1.2.1`: Lazy-loads translation JSON via Vite dynamic imports — eliminates extra HTTP fetches for a static site
+- Web3Forms API: form submission backend — 250 free submissions per month, zero npm dependency, JSON POST, built-in spam protection, CORS-enabled from any origin
+- Native `fetch` API: HTTP POST to Web3Forms — single async function, zero additional cost, no wrapper library needed
+- React `useState` + `useContext`: form state and modal state — standard React 19, nothing new to install
+- React `createPortal`: modal rendering — prevents z-index conflicts with existing `brutalist-shadow` and Navbar `z-50` layers
+- Framer Motion `AnimatePresence` (already installed at v12.38.0): modal open/close animation — consistent with existing site animation language
+- react-i18next (already installed at v16.6.6): all form text in EN and BG — mandatory; the site is fully bilingual
+
+**Access key handling:** `VITE_WEB3FORMS_KEY` environment variable. This is a public API key — safe to embed in the client bundle at build time. Store in `.env`; confirm `.env` is in `.gitignore`.
 
 ### Expected Features
 
-The feature picture is clear: the site needs a credible multi-page bilingual presence. The Brutalist design and Framer Motion animations are existing strengths to preserve and extend. The must-have list is constrained and achievable in a single focused effort. See `.planning/research/FEATURES.md` for the full prioritization matrix and competitor analysis.
+**Must have (table stakes — v1.1 launch):**
+- Name, Email, Phone (optional), Notes fields — minimum viable contact form
+- Client-side validation with inline per-field errors — users expect immediate feedback
+- `noValidate` on the form element with all validation via `t()` calls — browser-native validation cannot be translated to Bulgarian
+- Loading/submitting state with disabled button — prevents double-submit
+- Success confirmation with "what happens next" copy — users must know their message was received
+- Error state with retry option and obfuscated fallback email address — network failures are not edge cases
+- Honeypot spam prevention — hidden input bots fill, humans skip
+- hCaptcha as second spam layer — honeypot alone is insufficient for quota protection
+- Full bilingual support EN/BG for all labels, placeholders, validation messages, and states
+- Context-aware hidden subject field auto-populated per CTA location — agency lead routing
+- Mobile-responsive layout — single column, minimum 44px tap targets
+- Brutalist-styled inputs matching existing design system (thick borders, lime `#B9FF66` focus accent)
 
-**Must have (table stakes — P1):**
-- React Router multi-page structure — foundational for everything else; without this nothing below is possible
-- Bilingual i18n (EN/BG) with language switcher — the explicit core requirement of this project
-- Dedicated service pages with unique URLs — SEO surface area and shareability; currently anchor-scroll only
-- Team/About page — clients hire people, not logos; trust signal missing entirely from current site
-- Updated case studies with real outcomes — proof of delivery; current content is too generic
-- Fix all placeholder/broken links — minimum credibility bar
-- Accessibility basics (alt text, semantic HTML, focus styles) — EU Accessibility Act 2025 compliance
-
-**Should have (competitive — P2):**
-- Per-page SEO meta tags with react-helmet — requires routing + i18n to be in place first
-- Technology stack showcase — quick win for technical prospects
-- Page transition animations with Framer Motion AnimatePresence — premium feel, extends existing system
-- Interactive process/methodology section — differentiator from generic templates
+**Should have (competitive — add if time allows):**
+- Context-specific form headings per CTA ("Interested in SEO?" vs "Get in Touch")
+- Framer Motion form entrance animation — consistent with existing site animations
+- Focus trap and focus restoration in modal — keyboard accessibility and professional presentation
 
 **Defer (v2+):**
-- Blog/Insights section — empty blog damages more than it helps; only with committed content strategy
-- Contact form with email delivery — requires backend/serverless; start with prominent email/phone
-- CMS integration — over-engineering for current team size and update frequency
-- Additional languages beyond EN/BG — build the infrastructure to support it, don't implement it
+- Form analytics tracking (which CTA generates most leads)
+- Multi-step project brief form
+- File attachment support
+- Calendar/meeting booking integration
+- Auto-reply confirmation emails
+
+**Anti-features confirmed by research:** CAPTCHA/reCAPTCHA (hurts conversion, accessibility nightmare — use honeypot plus hCaptcha instead), multi-step wizard form (overkill for 4 fields), file uploads on free tier, dedicated `/contact` page route (fragments the section-based architecture), budget range field (scares prospects before first conversation).
 
 ### Architecture Approach
 
-The architecture centers on a single foundational pattern: the URL is the single source of truth for language. `BrowserRouter` with `/:lang/*` routes provides language-prefixed URLs. A custom `useLanguageSync` hook reads the `:lang` param and calls `i18next.changeLanguage()` to keep the translation engine in sync. A `Layout` component provides the Navbar + `<Outlet />` + Footer shell shared across all pages. A `LocalizedLink` wrapper around React Router's `<Link>` auto-prepends the current language prefix to every internal link, eliminating an entire class of "wrong language" navigation bugs. Translation files live in `public/locales/{lang}/{namespace}.json`, organized by page namespace, and are loaded at runtime via i18next-resources-to-backend. Existing section components (`Hero`, `Services`, `CaseStudies`, etc.) are unchanged in location and responsibility — they gain `useTranslation()` calls internally but are not restructured. See `.planning/research/ARCHITECTURE.md` for full component map, code patterns, and directory structure.
+One `ContactModalProvider` wraps the entire app at `App.tsx`. It owns `{ isOpen, context }` state and exposes `openContactForm(ctx)` and `closeContactForm()` via React Context. All 7 CTA component files are modified to call `openContactForm()` instead of `mailto:` or `scrollToSection`. A single `ContactModal` renders via `createPortal` to `document.body` and contains the shared form. The inline form pattern — used in `CTA.tsx` and `ServiceCTA.tsx` — embeds the same form component directly in the CTA card layout rather than in a modal wrapper. See `.planning/research/ARCHITECTURE.md` for complete component map, data flow diagrams, code patterns, and exact CTA file locations with line numbers.
 
 **Major components:**
-1. `BrowserRouter` + `/:lang/*` route tree — URL parsing, history management, language routing
-2. `LanguageLayout` (new) — extracts `:lang`, calls `useLanguageSync`, renders `Layout` with `<Outlet />`
-3. `Layout` (new) — shared Navbar + page content area + Footer shell
-4. `useLanguageSync` hook (new) — syncs URL `:lang` param to i18next, updates `document.documentElement.lang`
-5. `LocalizedLink` (new) — auto-prepends current `:lang` to all internal links
-6. `LanguageSwitcher` (new) — navigates to same page in other locale via `useNavigate`
-7. `HomePage` (new) — composes existing section components under the new routing structure
-8. `ServicePage` (new) — individual service detail route
-9. `TeamPage` (new) — team member profiles, bilingual
+1. `ContactModalProvider` (new) — holds modal open/close state and form context; renders `ContactModal` internally; approximately 30 lines
+2. `ContactModal` (new) — portal-rendered overlay with Framer Motion animations, scroll lock, Escape key handler, backdrop click to close; approximately 150 lines
+3. `useContactForm` (new) — all form field state, validation, Web3Forms POST, status lifecycle (idle/submitting/success/error); approximately 60 lines
+4. `useContactModal` (new) — thin convenience hook wrapping `useContext` with error guard; approximately 5 lines
+5. 7 modified CTA components — replace `<a href="mailto:">` and `scrollToSection()` calls with `openContactForm({ subject, source })`
+6. i18n JSON files (EN + BG) — new `contactForm.*` key namespace covering all form text, labels, validation messages, and states
+
+**Build order (dependency-safe):**
+Steps 1-3 are independent and can be built in parallel: `ContactModalProvider` plus `useContactModal` plus types; `useContactForm` hook; i18n keys in both JSON files. Step 4 is the main UI work: `ContactModal` component (requires steps 1, 2, 3). Steps 5-7 are integration: wrap `App.tsx` with provider, convert all 7 CTA touchpoints, wire Web3Forms API key.
 
 ### Critical Pitfalls
 
-Six critical pitfalls are identified, all specific to this codebase and well-evidenced. See `.planning/research/PITFALLS.md` for recovery cost estimates, phase mappings, and the complete "Looks Done But Isn't" checklist.
+1. **Spam floods exhaust free-tier quota** — Enable honeypot AND hCaptcha simultaneously when the form goes live. Deploying the endpoint without hCaptcha active, even temporarily, creates a window where the 250/month quota can be burned by bots within hours. hCaptcha is available on the Web3Forms free tier. Load hCaptcha lazily (on first modal open) — not globally in `index.html` — to avoid adding 50-100KB to every page load.
 
-1. **Hash navigation broken by React Router** — The existing 11+ `href="#anchor"` links in Navbar, Footer, Hero, and CTA will all break when BrowserRouter is introduced. Must be audited and migrated to scroll handlers (`scrollIntoView`) or `react-router-hash-link` in the same commit that installs the router — not separately.
+2. **Scroll-to-contact silently breaks** — Audit every `scrollToSection('contact')` call and every `id="contact"` DOM element before writing any form code. The Navbar cross-page pattern (`navigate(homePath)` plus `setTimeout(scrollToSection, 100)`) silently fails when the scroll target disappears. No console errors appear. Decision: replace all `scrollToSection('contact')` calls with `openContactForm()` via modal context.
 
-2. **Incomplete string extraction leaving English fragments** — Content is spread across JSX, `services.ts`, `CaseStudies.tsx` highlight arrays, `index.html` meta tags, and alt text. A dedicated grep-based string audit is mandatory before any translation work begins. `services.ts` data must become language-agnostic (IDs and keys only); strings move to JSON files.
+3. **Modal unusable on mobile with soft keyboard** — Center-positioned fixed modals (`top: 50%; transform: translateY(-50%)`) push content behind the soft keyboard on iOS Safari. Use `overflow-y: auto` inside the modal container so users can scroll within it. Test on a real iOS device — Chrome DevTools mobile emulation does not simulate soft keyboard viewport behavior.
 
-3. **Locale not reflected in URL structure** — Storing language in state/localStorage only is the highest-recovery-cost pitfall (essentially a routing rewrite). The `:lang` URL prefix decision must be made before any routing code is written. This is the only correct approach for a bilingual site where SEO and shareability matter.
+4. **Validation messages not translated** — Add `noValidate` to the `<form>` element. All validation messages must use `t('contactForm.validation.*')` keys stored in both `en/common.json` and `bg/common.json`. Browser-native validation messages render in the browser's locale, not the app's selected language. A Bulgarian user with an English-locale browser sees English errors on the Bulgarian version of the site.
 
-4. **Bulgarian text expansion breaking Brutalist layout** — Bulgarian runs 15–30% longer than English. The tight Brutalist aesthetic (hard borders, fixed-width cards, Marquee animation) makes overflow visually catastrophic, not subtle. Every component must be visually QA'd in Bulgarian. The Marquee animation's `-50%` translateX endpoint will break with longer Bulgarian content and needs recalculation.
-
-5. **SPA SEO blindspot for new pages** — Adding service pages creates routes that serve empty `<div id="root"></div>` to crawlers. For an agency offering SEO services, having unindexable pages is a credibility problem. Add `vite-plugin-prerender` or `vite-ssg` in the same phase as new page creation, not deferred. At minimum, use react-helmet for per-page `<title>` and `<meta description>`.
-
-6. **Scroll restoration loss on route changes** — SPAs don't restore scroll position by default. A `ScrollToTop` component must be added with the router. Also verify Framer Motion `whileInView` animations replay correctly on route return.
+5. **Email address left in source code after migration** — After wiring the form backend, `grep -r "mailto:" src/` and `grep -r "epsystems.org" src/` must return zero results. The recipient email lives in the Web3Forms dashboard, not client code. In error state fallback copy, construct the address dynamically (e.g., `['engineering', 'epsystems.org'].join('@')`) to prevent scraper harvesting.
 
 ## Implications for Roadmap
 
-Based on the dependency graph confirmed across all four research files, the work has a strict sequential backbone with one parallelizable branch. The architecture explicitly defines four phases in order. The routing layer must precede i18n (the `:lang` param is the i18n trigger), and both must precede new pages. The pitfall research confirms this order by identifying which pitfalls belong to which phase.
+Based on the dependency graph from ARCHITECTURE.md and the pitfall phase warnings from PITFALLS.md, a three-phase implementation is recommended. All three research files converge on the same sequencing: infrastructure before UI, spam protection concurrent with form launch, CTA conversion last.
 
-### Phase 1: Router Foundation
+### Phase 1: Foundation (Infrastructure and Architecture)
 
-**Rationale:** Router is the dependency root for everything else. No i18n URL integration, no new pages, and no language switcher are possible without the routing layer. This phase also resolves the most dangerous pitfall (hash navigation conflict) immediately — before any other work is layered on top.
+**Rationale:** The context-passing architecture must be established first. Every subsequent phase depends on it. Building CTA integrations or the form UI before the provider and hooks exist forces rework. This phase has no user-visible UI — it is pure infrastructure. i18n keys must be written in this phase so validation logic can reference them without hardcoded strings.
 
-**Delivers:** Working multi-page URL structure at `/en` and `/bg` routes, with the app behaving identically to the current site visually. Hash navigation migrated to scroll handlers. `ScrollToTop` implemented. SPA fallback configured on the deployment host.
+**Delivers:** `ContactModalProvider`, `useContactModal`, `useContactForm`, `App.tsx` updated with the provider wrapper, all `contactForm.*` i18n keys populated in both EN and BG JSON files.
 
-**Addresses:** React Router multi-page structure (P1), placeholder link fixes (P1 subset)
+**Addresses:** Context-aware hidden subject field system (architecture), bilingual form content foundation (i18n), prevents context-lost-across-CTAs pitfall by designing the passing mechanism before individual CTAs are wired.
 
-**Avoids:** Hash navigation conflict (Pitfall 1), scroll restoration loss (Pitfall 4), locale not in URL (Pitfall 5 — architectural commitment made here)
+**Avoids:** Pitfall 7 (context field not passed — must be designed in, not retrofitted), Pitfall 5 (validation messages not translated — keys established before any validation logic is written).
 
-**Research flag:** Standard patterns — React Router declarative mode setup is well-documented. No additional research phase needed.
+**Research flag:** Standard patterns. React Context with `useState` for modal state is the canonical React pattern; well-documented in official React docs. No research-phase needed.
 
-### Phase 2: i18n Infrastructure and Nav/Footer
+### Phase 2: Form UI and Spam Protection
 
-**Rationale:** i18n wiring must come before content translation, and it is most safely validated on the smallest surface area first (Navbar and Footer strings are the smallest scope, highest visibility). The `:lang` param from Phase 1 is the i18n trigger — this phase activates it. The language switcher ships here as the primary feature users interact with.
+**Rationale:** With hooks and context interfaces established, the modal and inline form UI can be built against real, stable APIs. Spam protection ships in this same phase — it is not polish. Deploying the form endpoint without hCaptcha active risks exhausting the monthly quota before Phase 3 is even complete.
 
-**Delivers:** Working EN/BG language switcher in the Navbar. Navigation and footer content fully bilingual. `useLanguageSync` hook operational. i18next initialized and configured. Translation JSON file structure established. Font Cyrillic support verified.
+**Delivers:** `ContactModal` component (portal rendering, scroll lock, Escape key, Framer Motion animations, Brutalist design system styling); `ContactForm` with all 4 fields, all validation states, success/error/loading UI; honeypot field; hCaptcha integration (lazy-loaded on first modal open).
 
-**Addresses:** Bilingual i18n system (P1), language switcher (P1)
+**Uses:** Framer Motion `AnimatePresence` (existing), lucide-react X icon (existing), Tailwind Brutalist design tokens (existing), Web3Forms API (external service).
 
-**Uses:** i18next@25.10.9, react-i18next@16.6.6, i18next-browser-languagedetector@8.2.1, i18next-resources-to-backend@1.2.1
+**Implements:** Portal pattern with `createPortal`, focus trap, mobile keyboard-safe layout, inline validation with `noValidate`.
 
-**Avoids:** Locale not in URL (Pitfall 5 — enforced by Phase 1 architecture), flash of untranslated content (initialize i18next before ReactDOM.createRoot)
+**Avoids:** Pitfall 1 (spam floods — honeypot plus hCaptcha in same phase as form launch), Pitfall 3 (mobile keyboard overlap — modal scroll layout), Pitfall 4 (focus trap failures), Pitfall 6 (no loading/success/error states), Pitfall 10 (Framer Motion AnimatePresence conflicts with form state — manage state outside animated wrapper).
 
-**Research flag:** Standard patterns — react-i18next setup with `useTranslation` and namespace-per-page is thoroughly documented. No additional research needed.
+**Research flag:** Mobile keyboard layout on iOS Safari warrants real-device testing before the phase is marked done. Chrome DevTools emulation is explicitly insufficient for this validation.
 
-### Phase 3: Full Content Translation
+### Phase 3: CTA Integration and Cleanup
 
-**Rationale:** With infrastructure proven on nav/footer, the full string extraction can proceed safely. This phase is the most labor-intensive — the string audit alone is a dedicated task. Doing this before new pages ensures the translation pipeline is battle-tested before being applied to brand-new components.
+**Rationale:** Convert all 7 CTA touchpoints last, after the form component is tested and stable in isolation. This is also when the scroll-to-contact navigation rework happens and the `mailto:` cleanup is performed. Doing cleanup before the form is stable complicates debugging — broken navigation states become entangled with form bugs.
 
-**Delivers:** Complete EN/BG bilingual homepage. All section components (`Hero`, `Services`, `ServiceDetail`, `CaseStudies`, `CTA`) use `t('key')` calls. `services.ts` refactored to language-agnostic keys. `index.html` title and meta description dynamic via react-helmet. Translation JSON files complete for both languages.
+**Delivers:** All 7 modified CTA component files (Hero, CTA, ServiceCTA x4, Navbar desktop, Navbar mobile, Footer, CaseStudies); all `scrollToSection('contact')` calls replaced with `openContactForm()`; all `mailto:` links and email addresses removed from source; Web3Forms access key wired via `.env`; end-to-end submission tested from every CTA location.
 
-**Addresses:** Bilingual content throughout site (P1), per-page SEO meta tags (P2 foundation)
+**Avoids:** Pitfall 2 (scroll-to-contact breaks — all scroll calls replaced), Pitfall 8 (email address in source — grep verification as exit criterion), Pitfall 7 (context not passed — verified by submitting from each CTA and confirming distinct subjects in Web3Forms inbox).
 
-**Avoids:** Incomplete string extraction (Pitfall 2 — dedicated audit task), Bulgarian text expansion breaking layout (Pitfall 3 — visual QA of every component in Bulgarian is exit criterion for this phase)
-
-**Research flag:** Standard patterns for string extraction. Visual QA of Bulgarian layout is execution work, not research.
-
-### Phase 4: New Pages and Content
-
-**Rationale:** With routing proven and full translation infrastructure operational, new pages can be built against the established patterns. Service pages and the team page both require routing (Phase 1) and bilingual support (Phases 2-3). This phase also handles real content — case studies, team bios, service descriptions — which is content work that runs in parallel with component development.
-
-**Delivers:** Individual service pages at `/:lang/services/:serviceId`. Team/About page at `/:lang/team`. Updated case studies with real outcomes and metrics. Navbar updated with links to all new pages. Pre-rendering configured for SEO. hreflang tags on all pages.
-
-**Addresses:** Dedicated service pages (P1), Team/About page (P1), updated case studies (P1), SEO meta per page (P2), hreflang (P2)
-
-**Avoids:** SPA SEO blindspot (Pitfall 6 — pre-rendering added in this phase, not deferred), accessibility gaps (audit all new pages)
-
-**Research flag:** Pre-rendering configuration (`vite-plugin-prerender` or `vite-ssg`) may benefit from a focused research spike — the build config options have trade-offs and the right choice depends on hosting environment. Flag for research-phase during planning.
-
-### Phase 5: Polish and Accessibility
-
-**Rationale:** Polish layers (animations, micro-interactions, accessibility audit) are correctly deferred until all content and structure are stable. Accessibility audit in particular requires final components to be in place. Page transition animations require all routes to exist before AnimatePresence can be configured correctly.
-
-**Delivers:** Page transition animations with Framer Motion AnimatePresence. Full accessibility audit (alt text, ARIA labels, keyboard navigation, color contrast). Mobile QA of language switcher. Any remaining Bulgarian layout tweaks from visual regression review.
-
-**Addresses:** Page transitions (P2), accessibility compliance (P1 completion), technology stack showcase (P2)
-
-**Avoids:** Framer Motion + React Router animation conflicts (use AnimatePresence with `mode="wait"` and unique page keys)
-
-**Research flag:** Standard patterns — Framer Motion AnimatePresence with React Router is well-documented.
+**Research flag:** Standard patterns. CTA conversion is mechanical once the architecture is in place. No research-phase needed.
 
 ### Phase Ordering Rationale
 
-- **Router before i18n:** The `:lang` URL param is the trigger that feeds i18next. You cannot implement URL-based locale detection without the router in place first.
-- **Nav/footer i18n before full content translation:** Validates the entire i18n pipeline on a small, controlled surface. Catches setup errors (flash of untranslated content, missing font Cyrillic glyphs) before the scope expands to 10+ components.
-- **Full translation before new pages:** New pages built against proven i18n patterns avoid repeating setup mistakes. Also ensures the string audit catches everything before surface area grows.
-- **New pages before polish:** Polish must be applied to final components. Animating a component that will be restructured wastes effort.
-- **Pitfall 1 (hash navigation) and Pitfall 5 (URL locale) are both Phase 1 decisions** — they cannot be deferred. Both require architectural commitments before any subsequent code is written.
+- Infrastructure before UI: `useContactForm` and `ContactModalProvider` are consumed by `ContactModal`. Building the modal before the hook would require immediate refactoring.
+- Spam protection concurrent with form launch: the form endpoint and spam protection must ship together. There is no safe "deploy now, add protection later" window when the free tier is capped at 250/month.
+- i18n keys in Phase 1: all translation keys must exist before writing the form UI, so validation logic can reference `t()` calls instead of hardcoded strings that need to be refactored later.
+- CTA conversion last: converting CTAs while the form is still being built creates a broken running app. Phase 3 is a clean cut-over once the form is stable and tested.
+- Pitfall 2 (scroll-to-contact) and the architectural commitment to modal-based triggering must be the very first design decision — before any code — because retrofitting it later requires revisiting every component touched in Phases 2 and 3.
 
 ### Research Flags
 
-Needs research during planning:
-- **Phase 4 (pre-rendering):** `vite-plugin-prerender` vs `vite-ssg` trade-offs depend on hosting environment and build pipeline. Current host is unknown — this decision needs a spike before Phase 4 planning is finalized.
+Phases needing deeper research during planning:
+- **Phase 2 (hCaptcha lazy loading strategy):** The mechanism for lazy-loading the hCaptcha script on first modal open — whether via `@hcaptcha/react-hcaptcha`, manual script tag injection, or another approach — should be decided during planning, not improvised during implementation. This decision affects whether a new npm dependency is introduced.
+- **Phase 2 (mobile keyboard layout validation):** Real-device iOS Safari testing is required before Phase 2 is closed. The pitfalls research confirms the problem and mitigation direction but cannot substitute for device verification.
 
-Standard patterns (skip research-phase):
-- **Phase 1 (React Router declarative mode):** Thoroughly documented, no ambiguity in the approach.
-- **Phase 2 (react-i18next setup):** Official docs are comprehensive and the pattern (namespace-per-page, URL-driven language) is established.
-- **Phase 3 (string extraction):** Mechanical work with clear tooling (`i18next-parser`, grep audit).
-- **Phase 5 (Framer Motion + AnimatePresence):** Documented integration pattern.
+Phases with standard patterns (skip research-phase):
+- **Phase 1:** React Context plus `useState` for modal state is canonical React. Thoroughly documented.
+- **Phase 3:** Replacing `<a href="mailto:">` with `<button onClick>` and updating scroll handlers to context calls is mechanical work. No novel patterns.
 
 ## Confidence Assessment
 
 | Area | Confidence | Notes |
 |------|------------|-------|
-| Stack | HIGH | All package versions verified via npm CLI. Compatibility matrix confirmed against project's React 19.2.4 and TypeScript 6.0.2. Official docs consulted for all three core libraries. |
-| Features | HIGH | Multiple independent sources (agency website studies, B2B best practice guides, competitor analysis). Feature list is conservative and well-grounded. |
-| Architecture | HIGH | Patterns sourced from official React Router and react-i18next documentation. `useLanguageSync` and `LocalizedLink` patterns are established in the community. Architecture is grounded in the actual current codebase structure. |
-| Pitfalls | HIGH | Pitfalls 1 and 2 verified by direct codebase inspection (Navbar.tsx hash links, services.ts English strings). Pitfalls 3–6 sourced from multiple independent i18n and SPA SEO references. |
+| Stack | HIGH | Web3Forms API endpoint and request shape verified from official docs. All existing dependencies confirmed from installed package versions. Zero new npm packages removes compatibility risk entirely. |
+| Features | HIGH | CTA inventory derived from direct codebase inspection of actual source files. Feature decisions grounded in multiple UX research sources and validated against the zero-cost, zero-infrastructure project constraints. |
+| Architecture | HIGH | Pattern is canonical React (Context plus Portal plus custom hooks). All 7 CTA locations identified with exact file paths and line numbers from codebase inspection. Build order derived from the actual dependency graph. |
+| Pitfalls | HIGH | Critical pitfalls sourced from official Web3Forms documentation and MDN. Mobile keyboard pitfall is a widely documented iOS Safari behavior. Codebase-specific pitfalls (scroll-to-contact, email in source) confirmed by direct source file inspection. |
 
 **Overall confidence:** HIGH
 
 ### Gaps to Address
 
-- **Hosting environment for SPA fallback and pre-rendering:** The current deployment host is unknown. SPA fallback configuration (redirecting all paths to `index.html`) and pre-rendering plugin choice depend on the host (Netlify, Vercel, GitHub Pages, Nginx, etc.). This must be confirmed before Phase 1 is executed and Phase 4 is planned.
-
-- **Bulgarian translation sourcing:** Research confirms the technical i18n architecture but cannot assess the quality or availability of Bulgarian translations. If professional translation is needed (rather than in-house), this should be scoped as a content task that runs in parallel with Phase 3 component work, not as a dependency that blocks it.
-
-- **Bricolage Grotesque Cyrillic coverage:** Research flags this as a risk (Bulgarian Cyrillic glyphs may not be included in the current Google Fonts load), but verification requires rendering actual Bulgarian text in the browser. This is an early Phase 2 exit criterion, not a blocker to starting.
-
-- **Hosting SSL status:** SSL/HTTPS is a table-stakes requirement. Assumed to be in place given the site is live, but should be confirmed — especially if the host changes during this migration.
+- **Web3Forms domain restriction is Pro-only:** The free tier cannot lock the access key to the production domain, meaning the key is embeddable from any origin. Mitigation is hCaptcha, which validates submissions server-side. Confirm this is acceptable during implementation planning, or decide if upgrading to Pro tier (~$10/month) is warranted.
+- **hCaptcha test key for local development:** hCaptcha production site keys reject requests from unregistered domains including `localhost`. The test key (`10000000-ffff-ffff-ffff-000000000001`) must be used locally and the production key set via environment variable in the deployment environment. Document this separation in the Phase 2 implementation task.
+- **Web3Forms pricing page inaccessible during research:** The pricing page returned a 403 during research. The 250/month free limit was corroborated from multiple secondary sources and the official FAQ. Re-verify the limit when setting up the account — terms may have changed.
 
 ## Sources
 
 ### Primary (HIGH confidence)
-- [React Router v7 Modes Documentation](https://reactrouter.com/start/modes) — declarative mode selection
-- [React Router Declarative Mode Installation](https://reactrouter.com/start/declarative/installation) — setup patterns
-- [React Router SPA Mode](https://reactrouter.com/how-to/spa) — BrowserRouter for static SPAs
-- [react-i18next documentation](https://react.i18next.com/) — useTranslation, namespace loading
-- [react-i18next Multiple Translation Files](https://react.i18next.com/guides/multiple-translation-files) — namespace-per-page pattern
-- [npm registry](https://www.npmjs.com/) — all version numbers verified
-- [Multilingual SEO URL Structure (Search Engine Journal)](https://www.searchenginejournal.com/multilingual-seo-url-structure/298747/) — subdirectory locale URL approach
-- Codebase analysis: `Navbar.tsx`, `App.tsx`, `services.ts`, `index.html`, `CONCERNS.md` — direct hash link audit
+- Web3Forms React Integration Docs (`https://docs.web3forms.com/how-to-guides/js-frameworks/react-js/react-js`) — endpoint, request body shape, response format verified by fetch
+- Web3Forms Spam Protection Docs (`https://docs.web3forms.com/getting-started/customizations/spam-protection`) — honeypot field configuration and hCaptcha integration
+- Web3Forms FAQ (`https://docs.web3forms.com/getting-started/faq`) — free tier limits and policy details
+- MDN Client-side Form Validation (`https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation`) — `noValidate` plus custom validation pattern
+- Formspree Pricing and Account Limits pages — verified 50/month free limit; confirms Web3Forms selection
+- Codebase direct inspection — all 7 CTA locations with exact file paths and line numbers; scroll-to-contact pattern identified
 
 ### Secondary (MEDIUM confidence)
-- [DEV Community: Best i18n Libraries 2026](https://dev.to/erayg/best-i18n-libraries-for-nextjs-react-react-native-in-2026-honest-comparison-3m8f) — ecosystem overview
-- [Locize Blog: react-intl vs react-i18next](https://www.locize.com/blog/react-intl-vs-react-i18next/) — library comparison
-- [LogRocket: React Router v7 modes](https://blog.logrocket.com/react-router-v7-modes/) — mode selection guidance
-- [Caffeine Marketing: Top Software Dev Landing Pages](https://www.caffeinemarketing.com/blog/top-15-software-development-landing-page-designs) — feature expectations
-- [Directive Consulting: B2B Website Best Practices 2026](https://directiveconsulting.com/blog/15-b2b-website-best-practices-for-2026-built-for-buyers-not-just-browsers/) — trust signals
-- [Evil Martians: 100 Dev Tool Landing Pages Study](https://evilmartians.com/chronicles/we-studied-100-devtool-landing-pages-here-is-what-actually-works-in-2025) — data-driven landing page analysis
-- [DEV: Why SPAs Still Struggle with SEO (2025)](https://dev.to/arkhan/why-spas-still-struggle-with-seo-and-what-developers-can-actually-do-in-2025-237b) — SPA SEO pitfalls
-- [20 i18n Mistakes in React Apps](https://www.translatedright.com/blog/20-i18n-mistakes-developers-make-in-react-apps-and-how-to-fix-them/) — pitfall catalog
-- [Scroll Restoration in React Router](https://dev.to/tene/scroll-restoration-in-react-router-4gnm) — scroll handling patterns
+- UX Planet — Modal vs Page decision framework
+- LogRocket — Modal UX design patterns and accessibility
+- Friendly Captcha — Honeypot vs CAPTCHA conversion rate tradeoffs
+- Venture Harbour — Contact form design examples and best practices
+- Eleken — Modal UX best practices
+- Creative Bloq — Form UX patterns and when to avoid them
+- DEV Community — Netlify Forms alternatives 2026 (landscape overview for backend comparison)
+- Phrase Blog — Localized form validation patterns
+- Reform Blog — Common ARIA mistakes in forms
+
+### Tertiary (LOW confidence)
+- Static Forms FAQ — Free submission limit not stated in official FAQ; sourced from comparison articles (~500/month)
+- Getform/Forminit pricing — Rebranded January 2026; pricing details unverifiable during research window; excluded from recommendation
 
 ---
-*Research completed: 2026-03-24*
+*Research completed: 2026-03-25*
 *Ready for roadmap: yes*

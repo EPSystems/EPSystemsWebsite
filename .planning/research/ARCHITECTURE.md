@@ -1,462 +1,424 @@
 # Architecture Research
 
-**Domain:** Bilingual multi-page React agency website (SPA with client-side routing and i18n)
-**Researched:** 2026-03-24
+**Domain:** Contact form modal integration into existing React SPA
+**Researched:** 2026-03-25
 **Confidence:** HIGH
 
 ## Current State Assessment
 
-The existing codebase is a React 19 SPA with no router. Navigation uses hash-based anchor scrolling (`#services`, `#seo`, etc.). All content is hardcoded in English within components. App.tsx composes sections sequentially -- Navbar, Hero, Marquee, Services, ServiceDetail(x3), CTA, CaseStudies, Footer. State is minimal (one `useState` for mobile menu). There is no global state management and none is needed.
+The existing codebase is a fully functional bilingual React 19 SPA with React Router, react-i18next, Framer Motion, and Tailwind CSS. There are 7 CTA touchpoints across the site that currently use either `mailto:` links or `scrollToSection('contact')` calls. The v1.1 milestone replaces all of these with a modal contact form that receives contextual metadata about which CTA triggered it.
 
-The transformation required: add client-side routing for multi-page navigation and wrap all user-visible strings in an i18n translation layer supporting English and Bulgarian.
+No new routing is needed. No new major dependencies are needed. The architecture change is: add a React Context provider for modal state, a single modal component rendered via portal, and a custom hook for form logic.
 
 ## System Overview
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        Browser / URL Bar                        │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │              React Router (BrowserRouter)                  │  │
-│  │         /:lang/* route structure                           │  │
-│  └───────────────────┬───────────────────────────────────────┘  │
-│                      │                                          │
-│  ┌───────────────────▼───────────────────────────────────────┐  │
-│  │              i18n Context (react-i18next)                  │  │
-│  │         Language from URL param → i18next.changeLanguage   │  │
-│  └───────────────────┬───────────────────────────────────────┘  │
-│                      │                                          │
-│  ┌───────────────────▼───────────────────────────────────────┐  │
-│  │                   Layout Shell                             │  │
-│  │    ┌─────────┐  ┌──────────────────┐  ┌──────────┐        │  │
-│  │    │ Navbar  │  │  <Outlet /> Page  │  │  Footer  │        │  │
-│  │    │ + Lang  │  │   Content Area    │  │          │        │  │
-│  │    │ Switch  │  │                   │  │          │        │  │
-│  │    └─────────┘  └──────────────────┘  └──────────┘        │  │
-│  └────────────────────────────────────────────────────────────┘  │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐  │
-│  │                    Data Layer                               │  │
-│  │  ┌──────────┐  ┌──────────────┐  ┌──────────────────────┐  │  │
-│  │  │ services │  │ translations │  │ team members (new)   │  │  │
-│  │  │ .ts      │  │ /en/*.json   │  │ .ts                  │  │  │
-│  │  │          │  │ /bg/*.json   │  │                      │  │  │
-│  │  └──────────┘  └──────────────┘  └──────────────────────┘  │  │
-│  └────────────────────────────────────────────────────────────┘  │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                      App.tsx (Routes)                       │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │         ContactModalProvider (React Context)         │    │
+│  │  state: { isOpen, formContext }                      │    │
+│  │  actions: openContactForm(ctx), closeContactForm()   │    │
+│  └──────────────┬──────────────────────────┬───────────┘    │
+│                 │                          │                 │
+│    ┌────────────┴──────────┐    ┌─────────┴──────────┐      │
+│    │   CTA Trigger Sites   │    │   ContactModal      │      │
+│    │  Hero, Navbar, CTA,   │    │  (Portal to body)   │      │
+│    │  ServiceCTA, Footer,  │    │  ┌───────────────┐  │      │
+│    │  CaseStudies          │    │  │useContactForm │  │      │
+│    │                       │    │  │ fields/errors │  │      │
+│    │  useContactModal()    │    │  │ validate/POST │  │      │
+│    │  -> openContactForm() │    │  └───────────────┘  │      │
+│    └───────────────────────┘    └─────────────────────┘      │
+├─────────────────────────────────────────────────────────────┤
+│                   Form Backend (Web3Forms)                   │
+│              POST https://api.web3forms.com/submit           │
+└─────────────────────────────────────────────────────────────┘
 ```
-
-## Recommended Architecture
-
-### Routing: React Router v7 Declarative Mode
-
-Use `react-router` (v7) in **declarative mode** with `BrowserRouter`, `Routes`, and `Route`. This is the lightest integration path for the existing Vite + React SPA.
-
-**Why declarative mode, not framework or data mode:**
-- The site is static content -- no loaders, no actions, no server-side data fetching
-- Framework mode would require restructuring the entire project to file-based routing conventions
-- Data mode (`createBrowserRouter`) adds unnecessary complexity for a site with no async data needs
-- Declarative mode drops in with minimal changes to the existing architecture
-
-**URL structure:**
-
-```
-/                     → redirect to /en
-/en                   → English homepage
-/bg                   → Bulgarian homepage
-/en/services/seo      → English SEO service page
-/bg/services/seo      → Bulgarian SEO service page
-/en/team              → English team page
-/bg/team              → Bulgarian team page
-```
-
-The `:lang` param drives both routing and i18n language selection.
-
-### i18n: react-i18next with JSON Translation Files
-
-Use `react-i18next` + `i18next` with `i18next-browser-languagedetector`. Translation files stored as JSON in `public/locales/`.
-
-**Why react-i18next:**
-- De facto standard for React i18n (most downloaded, best documented)
-- Works perfectly with React hooks (`useTranslation`)
-- Namespace support maps cleanly to page boundaries
-- No build-time complexity -- translations loaded at runtime from JSON
-- Supports interpolation, pluralization, and nested keys out of the box
-
-**Why NOT alternatives:**
-- `next-intl` / `next-i18next`: Next.js specific, irrelevant for Vite SPA
-- `react-intl` (FormatJS): More ceremony, less ergonomic hooks API, overkill for two languages
-- `Intlayer`: Newer, smaller ecosystem, less battle-tested
-- Custom solution: Reinventing the wheel for a solved problem
 
 ### Component Responsibilities
 
-| Component | Responsibility | Communicates With |
-|-----------|----------------|-------------------|
-| `BrowserRouter` | URL parsing, history management | All route-aware components |
-| `LanguageRoute` (new) | Extracts `:lang` from URL, syncs i18next language | i18next instance, child routes |
-| `Layout` (new) | Wraps Navbar + Outlet + Footer, shared across all pages | Navbar, Footer, page components |
-| `Navbar` (updated) | Navigation links using `<Link>`, language switcher | React Router (`Link`, `useParams`), i18next |
-| `Footer` (updated) | Sitemap links using `<Link>` | React Router (`Link`) |
-| `HomePage` (new) | Composes existing sections (Hero, Marquee, Services, etc.) | Section components |
-| `ServicePage` (new) | Individual service detail page | Service data, i18next |
-| `TeamPage` (new) | Team member profiles | Team data, i18next |
-| `useLanguageSync` (new) | Custom hook: sync URL `:lang` param to i18next | React Router params, i18next |
+| Component | Responsibility | Typical Implementation |
+|-----------|----------------|------------------------|
+| `ContactModalProvider` | Holds modal open/close state and form context (subject, source). Provides `openContactForm()` and `closeContactForm()` via React Context. Renders `ContactModal` internally. | React Context + `useState`. ~30 lines. |
+| `ContactModal` | Modal overlay UI: form fields, validation feedback, submission states (idle/submitting/success/error). Reads context from provider. | Framer Motion `AnimatePresence` + `createPortal`. ~150 lines. |
+| `useContactForm` | Form field state, field validation, POST submission to backend, status tracking, reset. | Custom hook with `useState` + `fetch`. ~60 lines. |
+| `useContactModal` | Convenience consumer hook. Wraps `useContext` with error guard. | One-liner hook. ~5 lines. |
+| CTA trigger sites (7 locations) | Call `openContactForm({ subject, source })` instead of `mailto:` or scroll-to-contact. | Replace `<a href="mailto:">` with `<button onClick={() => openContactForm(ctx)}>`. |
 
 ## Recommended Project Structure
 
+New and modified files only (existing structure unchanged):
+
 ```
 src/
-├── i18n.ts                        # i18next initialization and config
-├── main.tsx                       # React entry, wraps App in BrowserRouter
-├── App.tsx                        # Route definitions, LanguageRoute wrapper
 ├── components/
+│   ├── contact/                       # NEW folder
+│   │   ├── ContactModalProvider.tsx    # Context provider + renders ContactModal
+│   │   └── ContactModal.tsx           # Modal UI: form, states, animations
 │   ├── layout/
-│   │   ├── Layout.tsx             # NEW: Navbar + Outlet + Footer shell
-│   │   ├── Navbar.tsx             # UPDATED: <Link> instead of <a href="#...">
-│   │   ├── Footer.tsx             # UPDATED: <Link> instead of <a>
-│   │   └── LanguageSwitcher.tsx   # NEW: EN/BG toggle, changes URL prefix
-│   ├── sections/                  # UNCHANGED: Hero, Services, etc.
-│   │   ├── Hero.tsx
-│   │   ├── Marquee.tsx
-│   │   ├── Services.tsx
-│   │   ├── ServiceDetail.tsx
-│   │   ├── CaseStudies.tsx
-│   │   └── CTA.tsx
-│   ├── ui/
-│   │   └── AnimatedSection.tsx    # UNCHANGED
-│   └── common/                    # NEW: shared components
-│       └── LocalizedLink.tsx      # NEW: Link that preserves :lang prefix
-├── pages/                         # NEW: page-level components
-│   ├── HomePage.tsx               # Composes existing sections
-│   ├── ServicePage.tsx            # Individual service route
-│   └── TeamPage.tsx               # Team member profiles
-├── hooks/                         # NEW
-│   └── useLanguageSync.ts         # Sync URL :lang to i18next
-├── data/
-│   ├── services.ts                # UNCHANGED: service definitions
-│   └── team.ts                    # NEW: team member data
-└── types/                         # NEW: shared TypeScript types
-    └── index.ts
-
-public/
-└── locales/
-    ├── en/
-    │   ├── common.json            # Shared strings (nav, footer, buttons)
-    │   ├── home.json              # Homepage section content
-    │   ├── services.json          # Service descriptions
-    │   └── team.json              # Team page content
-    └── bg/
-        ├── common.json
-        ├── home.json
-        ├── services.json
-        └── team.json
+│   │   ├── Navbar.tsx                 # MODIFIED: openContactForm instead of scroll
+│   │   └── Footer.tsx                 # MODIFIED: openContactForm instead of mailto
+│   └── sections/
+│       ├── Hero.tsx                   # MODIFIED: openContactForm instead of mailto
+│       ├── CTA.tsx                    # MODIFIED: openContactForm instead of mailto
+│       ├── ServiceCTA.tsx             # MODIFIED: openContactForm instead of mailto
+│       └── CaseStudies.tsx            # MODIFIED: openContactForm instead of scroll
+├── hooks/
+│   ├── useContactForm.ts             # NEW: form state + validation + submission
+│   └── useContactModal.ts            # NEW: context consumer convenience hook
+├── App.tsx                            # MODIFIED: wrap routes in ContactModalProvider
+└── i18n/
+    └── locales/
+        ├── en/common.json             # MODIFIED: add contactForm.* keys
+        └── bg/common.json             # MODIFIED: add contactForm.* keys
 ```
 
 ### Structure Rationale
 
-- **`pages/`**: Separates route-level components (what the router renders) from reusable sections. HomePage simply composes existing section components -- no duplication.
-- **`public/locales/`**: JSON files in public directory so they can be loaded at runtime without bundling. Keeps translation strings out of component code.
-- **`hooks/`**: The language sync hook is reused across the app. Centralizing hooks follows standard React convention.
-- **`components/common/`**: `LocalizedLink` is a thin wrapper around React Router's `Link` that auto-prepends the current language prefix. Used everywhere instead of raw `<Link>`.
-- **Existing `sections/` unchanged**: Section components stay where they are. They gain `useTranslation()` calls internally but their file locations and responsibilities do not change.
+- **components/contact/:** Groups all contact-form-specific components in one folder. The provider and modal are tightly coupled, so they belong together. Follows the existing pattern of `components/layout/` and `components/sections/`.
+- **hooks/useContactForm.ts:** Separates form logic from UI. Testable in isolation. Follows the existing pattern of `hooks/useServices.ts`, `hooks/useLanguageSync.ts`, and `hooks/usePageMeta.ts`.
+- **hooks/useContactModal.ts:** Thin consumer wrapper. Lives with other hooks for discoverability.
 
 ## Architectural Patterns
 
-### Pattern 1: URL-Driven Language with Sync Hook
+### Pattern 1: Single Modal Instance via Context
 
-**What:** The URL is the single source of truth for current language. A custom hook reads `:lang` from React Router params and calls `i18next.changeLanguage()` to keep them in sync.
+**What:** One `ContactModal` rendered at the app root inside `ContactModalProvider`. All CTA buttons trigger the same modal via `openContactForm(context)`. The modal is not duplicated at each CTA site.
 
-**When to use:** On every route that has the `:lang` parameter (all of them in this app).
+**When to use:** Always for this project. Multiple trigger points for the same modal is the textbook use case for React Context.
 
-**Trade-offs:** Simple, shareable URLs per language. Slight coupling between router and i18n, but that coupling is isolated in one hook.
+**Trade-offs:** Requires wrapping the app with a provider (trivial one-line change to App.tsx). Slightly more indirection than `useState` in a parent, but prop drilling through 4+ component layers is far worse.
 
 **Example:**
 ```typescript
-// src/hooks/useLanguageSync.ts
-import { useEffect } from 'react';
-import { useParams } from 'react-router';
-import { useTranslation } from 'react-i18next';
+// src/components/contact/ContactModalProvider.tsx
+interface FormContext {
+  subject: string  // "general" | "seo" | "ecommerce" | "ai" | "software"
+  source: string   // "hero" | "navbar" | "service-page-seo" | etc.
+}
 
-export function useLanguageSync() {
-  const { lang } = useParams<{ lang: string }>();
-  const { i18n } = useTranslation();
+interface ContactModalContextType {
+  isOpen: boolean
+  context: FormContext | null
+  openContactForm: (ctx: FormContext) => void
+  closeContactForm: () => void
+}
 
-  useEffect(() => {
-    if (lang && lang !== i18n.language) {
-      i18n.changeLanguage(lang);
-      document.documentElement.lang = lang;
-    }
-  }, [lang, i18n]);
+const ContactModalContext = createContext<ContactModalContextType | null>(null)
 
-  return lang || 'en';
+export function ContactModalProvider({ children }: { children: ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [context, setContext] = useState<FormContext | null>(null)
+
+  const openContactForm = useCallback((ctx: FormContext) => {
+    setContext(ctx)
+    setIsOpen(true)
+  }, [])
+
+  const closeContactForm = useCallback(() => {
+    setIsOpen(false)
+    setContext(null)
+  }, [])
+
+  return (
+    <ContactModalContext.Provider value={{ isOpen, context, openContactForm, closeContactForm }}>
+      {children}
+      <ContactModal />
+    </ContactModalContext.Provider>
+  )
 }
 ```
 
-### Pattern 2: Layout Route with Outlet
+### Pattern 2: Portal + Scroll Lock + Escape Key
 
-**What:** A `Layout` component renders Navbar, `<Outlet />`, and Footer. All page routes are nested inside it, so the shell is rendered once and only page content swaps on navigation.
+**What:** Render the modal via `createPortal` to `document.body`. Lock body scroll when open. Close on Escape keypress and backdrop click.
 
-**When to use:** Standard pattern for any multi-page SPA with shared header/footer.
+**When to use:** Every modal in this codebase. The Brutalist design uses heavy `border-4`, `brutalist-shadow`, and `overflow` contexts that would clip or z-fight with an inline-rendered modal.
 
-**Trade-offs:** Clean separation. Navbar/Footer render once and survive navigation. Scroll position needs explicit management (scroll to top on route change).
-
-**Example:**
-```typescript
-// src/App.tsx (simplified route structure)
-<Routes>
-  <Route path="/" element={<Navigate to="/en" replace />} />
-  <Route path="/:lang" element={<LanguageLayout />}>
-    <Route index element={<HomePage />} />
-    <Route path="services/:serviceId" element={<ServicePage />} />
-    <Route path="team" element={<TeamPage />} />
-  </Route>
-</Routes>
-```
-
-### Pattern 3: Namespace-Per-Page Translation Loading
-
-**What:** Each page declares which i18n namespace(s) it needs. The `useTranslation('home')` call loads only the `home.json` file for the current language.
-
-**When to use:** When you have multiple pages with distinct content to avoid loading all translations upfront.
-
-**Trade-offs:** For a two-language, five-page site, the total translation payload is small. Namespaces add organizational value more than performance value here. But they keep translation files manageable and scoped.
+**Trade-offs:** Portal renders outside the React tree visually but stays inside it logically (Context still works through portals). Minor complexity increase vs inline rendering, but necessary for correct stacking.
 
 **Example:**
 ```typescript
-// In HomePage.tsx
-const { t } = useTranslation('home');
-// Reads from public/locales/en/home.json or public/locales/bg/home.json
+// Inside ContactModal.tsx
+useEffect(() => {
+  if (!isOpen) return
+  document.body.style.overflow = 'hidden'
+  const handleEsc = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') closeContactForm()
+  }
+  document.addEventListener('keydown', handleEsc)
+  return () => {
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleEsc)
+  }
+}, [isOpen, closeContactForm])
 
-// In Navbar.tsx
-const { t } = useTranslation('common');
-// Reads from public/locales/en/common.json
+return createPortal(
+  <AnimatePresence>
+    {isOpen && (
+      <motion.div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <motion.div
+          className="absolute inset-0 bg-black/60"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeContactForm}
+        />
+        <motion.div
+          className="relative bg-white border-4 border-black rounded-[30px] p-8 lg:p-10 w-full max-w-lg brutalist-shadow"
+          initial={{ y: 40, opacity: 0, scale: 0.95 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 40, opacity: 0, scale: 0.95 }}
+        >
+          {/* form content */}
+        </motion.div>
+      </motion.div>
+    )}
+  </AnimatePresence>,
+  document.body
+)
 ```
 
-### Pattern 4: LocalizedLink Component
+### Pattern 3: Context-Driven Form Heading
 
-**What:** A wrapper around React Router's `<Link>` that automatically prepends the current language prefix to all internal links.
+**What:** The modal heading adapts based on which CTA opened it. Service-specific CTAs show a service-relevant heading; general CTAs show "Get in Touch".
 
-**When to use:** Every internal link in the application. Prevents manually passing `:lang` everywhere.
+**When to use:** Every time the modal opens.
 
-**Trade-offs:** One extra component, but eliminates an entire class of bugs (links forgetting the language prefix).
+**Trade-offs:** Small i18n lookup, but makes the form feel contextual rather than generic. Better UX when a user clicks "Get a Free SEO Audit" and the form acknowledges that context.
 
 **Example:**
 ```typescript
-// src/components/common/LocalizedLink.tsx
-import { Link, useParams } from 'react-router';
-
-export function LocalizedLink({ to, ...props }: { to: string } & React.ComponentProps<typeof Link>) {
-  const { lang } = useParams<{ lang: string }>();
-  const localizedTo = `/${lang || 'en'}${to.startsWith('/') ? to : '/' + to}`;
-  return <Link to={localizedTo} {...props} />;
-}
+const heading = context?.subject === 'general'
+  ? t('contactForm.heading.general')
+  : t('contactForm.heading.service', {
+      service: t(`contactForm.services.${context?.subject}`)
+    })
 ```
+
+### Pattern 4: Reset Form State on Close
+
+**What:** When the modal closes, reset all form fields, errors, and status back to idle. When it reopens, it is always fresh.
+
+**When to use:** Every close action (X button, backdrop click, Escape key, success close).
+
+**Trade-offs:** Users lose partially-filled data if they accidentally close. Acceptable for a short 4-field form. The alternative (preserving state) creates confusing stale data when opening from a different CTA context.
 
 ## Data Flow
 
-### Language Change Flow
+### Modal Trigger Flow
 
 ```
-User clicks EN/BG toggle (LanguageSwitcher)
-    │
-    ▼
-navigate(`/${newLang}/${currentPath}`)  ← React Router navigation
-    │
-    ▼
-URL changes: /en/services/seo → /bg/services/seo
-    │
-    ▼
-useLanguageSync() detects :lang param change
-    │
-    ▼
-i18next.changeLanguage('bg')  ← triggers re-render of all useTranslation consumers
-    │
-    ▼
-document.documentElement.lang = 'bg'  ← accessibility
-    │
-    ▼
-All components re-render with Bulgarian translations
+User clicks CTA (e.g., "Get a Free SEO Audit" on /en/services/seo)
+    |
+    v
+openContactForm({ subject: "seo", source: "service-page-seo" })
+    |
+    v
+ContactModalProvider sets state: { isOpen: true, context: { subject: "seo", ... } }
+    |
+    v
+ContactModal reads isOpen=true, renders portal with animated form
+    |
+    v
+Heading reads context.subject, displays "Interested in SEO?"
 ```
 
-### Page Navigation Flow
+### Form Submission Flow
 
 ```
-User clicks nav link (LocalizedLink)
-    │
-    ▼
-React Router matches new route
-    │
-    ▼
-Layout stays rendered (Navbar + Footer persist)
-    │
-    ▼
-<Outlet /> swaps to new page component
-    │
-    ▼
-Page component calls useTranslation('namespace')
-    │
-    ▼
-i18next loads namespace JSON if not cached
-    │
-    ▼
-Page renders with translated content
+User fills fields (name, email, phone, notes) and clicks Submit
+    |
+    v
+useContactForm.handleSubmit(context) called
+    |-- Validates: name required, email required + format
+    |-- If errors: set errors state, return early
+    |
+    v (valid)
+Set status = 'submitting' (disable fields, show spinner on button)
+    |
+    v
+fetch POST to form backend with:
+  { access_key, name, email, phone, notes, subject, source }
+    |
+    +---> 200 OK --> status = 'success' (show success message + close button)
+    |
+    +---> Error  --> status = 'error' (show error banner, fields still filled, retry button)
 ```
 
-### Translation Data Flow
+### Form State Lifecycle
 
 ```
-public/locales/{lang}/{namespace}.json
-    │
-    ▼ (loaded by i18next-http-backend at runtime)
-    │
-i18next store (in-memory cache)
-    │
-    ▼ (accessed via useTranslation hook)
-    │
-Component renders t('key') → translated string
+Modal opens --> status: 'idle', fields: empty, errors: empty
+    |
+    v (user types, blur triggers validation)
+    |
+    v (user clicks submit)
+status: 'submitting' --> fetch POST
+    |
+    +---> status: 'success' (form replaced with success view)
+    |         |
+    |         v (user clicks Close or backdrop)
+    |         --> modal closes, full reset
+    |
+    +---> status: 'error' (error banner shown, fields preserved)
+              |
+              v (user clicks Retry)
+              --> status: 'submitting' again
 ```
 
-## Integration Strategy: Existing SPA to Multi-Page
+## CTA Touchpoint Inventory
 
-This is the critical path. The migration must be incremental to avoid a risky big-bang rewrite.
+These are the exact code locations that must change:
 
-### Phase 1: Add Router Shell (no content changes)
+| File | Line(s) | Current Code | Form Context | Change |
+|------|---------|-------------|--------------|--------|
+| `Hero.tsx` | 50-56 | `<a href="mailto:...">` | `{ subject: 'general', source: 'hero' }` | Replace `<a>` with `<button>`, add `useContactModal()` |
+| `CTA.tsx` | 18-23 | `<a href="mailto:...">` | `{ subject: 'general', source: 'homepage-cta' }` | Replace `<a>` with `<button>`, add `useContactModal()` |
+| `ServiceCTA.tsx` | 21-26 | `<a href="mailto:...">` | `{ subject: slug, source: 'service-' + slug }` | Replace `<a>` with `<button>`, use slug prop as subject |
+| `Navbar.tsx` | 53-56 | `scrollToSection('contact')` | `{ subject: 'general', source: 'navbar' }` | Replace scroll handler with openContactForm |
+| `Navbar.tsx` | 76 | Mobile scroll-to-contact | `{ subject: 'general', source: 'navbar-mobile' }` | Replace scroll + close mobile menu |
+| `Footer.tsx` | 48-52 | `<a href="mailto:...">` (CTA button) | `{ subject: 'general', source: 'footer' }` | Replace `<a>` with `<button>` |
+| `CaseStudies.tsx` | 56 | `scrollToSection('contact')` | `{ subject: 'general', source: 'case-studies' }` | Replace scroll handler with openContactForm |
 
-1. Install `react-router`
-2. Wrap app in `BrowserRouter`
-3. Create `Layout` component that renders Navbar + `<Outlet />` + Footer
-4. Create `HomePage` that imports and renders all existing sections in order
-5. Set up route: `/:lang` → `Layout` → `HomePage`
-6. Add redirect: `/` → `/en`
-7. Replace hash `<a href="#...">` links in Navbar with smooth-scroll behavior within the page
-
-**Result:** App works exactly as before, but URL is now `/en` instead of `/`. No visual changes.
-
-### Phase 2: Add i18n Infrastructure (no translations yet)
-
-1. Install `react-i18next`, `i18next`, `i18next-http-backend`, `i18next-browser-languagedetector`
-2. Create `src/i18n.ts` config file
-3. Create `public/locales/en/common.json` with English strings extracted from Navbar and Footer
-4. Add `useTranslation('common')` to Navbar and Footer
-5. Add `LanguageSwitcher` component to Navbar
-6. Create `public/locales/bg/common.json` with Bulgarian translations for nav/footer
-
-**Result:** Nav and footer are bilingual. Toggle works. Page content still hardcoded.
-
-### Phase 3: Translate Page Content
-
-1. Extract all hardcoded strings from section components into `home.json`, `services.json`
-2. Replace strings with `t('key')` calls
-3. Create Bulgarian translation files
-
-**Result:** Full bilingual homepage.
-
-### Phase 4: Add New Routes
-
-1. Create `ServicePage` component for individual service pages
-2. Add route: `/:lang/services/:serviceId`
-3. Create `TeamPage` component
-4. Add route: `/:lang/team`
-5. Update Navbar with links to new pages
-
-**Result:** Multi-page bilingual site.
-
-### Build Order Dependencies
-
-```
-Router Shell (Phase 1)
-    │
-    ├──► i18n Infrastructure (Phase 2)  [depends on router for :lang param]
-    │        │
-    │        └──► Translate Content (Phase 3)  [depends on i18n setup]
-    │
-    └──► New Pages (Phase 4)  [depends on router, can parallel with Phase 3]
-```
+**Keep as-is:** `Footer.tsx` line 92 -- the email link in the contact info column (`engineering@epsystems.org`). This is informational, displaying the actual address. It stays as `mailto:`.
 
 ## Anti-Patterns
 
-### Anti-Pattern 1: Storing Language in React State Instead of URL
+### Anti-Pattern 1: Duplicating Forms at Each CTA Location
 
-**What people do:** Use `useState` or React Context to track current language, with no URL reflection.
-**Why it is wrong:** URLs are not shareable per-language. Refreshing loses language selection. No SEO benefit from language-specific URLs. Breaks browser back/forward for language changes.
-**Do this instead:** Language lives in the URL path (`/en/...`, `/bg/...`). URL is the source of truth. React state syncs from URL, never the other way around.
+**What people do:** Copy-paste a `<form>` into Hero, CTA, ServiceCTA, Navbar, Footer.
+**Why it is wrong:** 6+ copies of form state, validation, and submission logic. Bug fixes must be applied everywhere. Inconsistent behavior guaranteed.
+**Do this instead:** Single modal instance at root, context-based triggering.
 
-### Anti-Pattern 2: Translating at the Data Layer
+### Anti-Pattern 2: Form Library for 4 Fields
 
-**What people do:** Create separate `services-en.ts` and `services-bg.ts` data files, or put translation objects inside the service data.
-**Why it is wrong:** Duplicates data structure. Translation changes require touching TypeScript files. Cannot leverage i18next features (interpolation, fallback). Scales poorly.
-**Do this instead:** Keep data files language-agnostic (IDs, icons, structural data). Put all translatable strings in JSON translation files referenced by key.
+**What people do:** Install react-hook-form or Formik + Zod for a name/email/phone/notes form.
+**Why it is wrong:** These libraries pay off at 10+ fields or complex conditional validation. Two required fields need roughly 20 lines of validation. Adding 10-40KB of dependencies for this is not justified.
+**Do this instead:** Custom `useContactForm` hook with manual validation. Revisit if form complexity grows.
 
-### Anti-Pattern 3: Big-Bang Router Migration
+### Anti-Pattern 3: Mixed CTA Behaviors
 
-**What people do:** Rewrite the entire app structure to add routing all at once, changing component hierarchy, navigation, and content simultaneously.
-**Why it is wrong:** High risk of regressions. Impossible to test incrementally. Merge conflicts if any other work is in progress.
-**Do this instead:** Follow the phased approach above. Phase 1 changes zero visual behavior. Each phase is independently testable and deployable.
+**What people do:** Keep some CTAs as scroll-to-contact, others as modal triggers, others as mailto links.
+**Why it is wrong:** Inconsistent UX. Users expect the same-looking button to do the same thing everywhere.
+**Do this instead:** ALL prominent CTA buttons open the modal. The homepage CTA section remains visually as a call-to-action area, but its button opens the modal.
 
-### Anti-Pattern 4: Hardcoding Language Prefix in Links
+### Anti-Pattern 4: Inline Modal Without Portal
 
-**What people do:** Write `<Link to="/en/services/seo">` directly in components.
-**Why it is wrong:** Every link must know the current language. Easy to forget, creating links that jump to the wrong language.
-**Do this instead:** Use the `LocalizedLink` component that reads current `:lang` from URL params and prepends it automatically.
+**What people do:** Render the modal inside the component tree without `createPortal`.
+**Why it is wrong:** This site uses `brutalist-shadow` (hard box-shadows), `border-4`, and z-index layers (Navbar at `z-50`). An inline modal will z-fight or get clipped.
+**Do this instead:** `createPortal(modal, document.body)` with `z-[100]`.
 
-## Deployment Considerations
+### Anti-Pattern 5: State Management Library for Modal State
 
-### SPA Fallback
+**What people do:** Add Zustand or Jotai for `{ isOpen: boolean, context: object }`.
+**Why it is wrong:** Over-engineering. React Context with `useState` is the standard pattern for this exact use case. The state is two values with two setter functions.
+**Do this instead:** `ContactModalProvider` with `useState`.
 
-All URLs must resolve to `index.html` for client-side routing to work. Current hash-based navigation does not require this, so deployment configuration must be updated.
+### Anti-Pattern 6: Keeping the Scroll-to-Contact Section
 
-| Host | Configuration |
-|------|--------------|
-| Netlify | `_redirects` file: `/* /index.html 200` |
-| Vercel | `vercel.json`: `{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }` |
-| GitHub Pages | Use `404.html` redirect trick or a hash router fallback |
-| Nginx | `try_files $uri $uri/ /index.html` |
-| Apache | `.htaccess` with `FallbackResource /index.html` |
-
-### SEO for Client-Side Rendered SPA
-
-This site is client-rendered (no SSR). For a bilingual agency site, this is acceptable because:
-- Agency sites are discovered via referrals and direct traffic, not primarily organic search
-- Google's crawler renders JavaScript well enough for simple SPAs
-- If SEO becomes critical later, prerendering can be added via `vite-plugin-ssr` or migration to a framework with SSR
-
-To improve crawlability without SSR:
-- Set `<html lang="...">` attribute dynamically
-- Use `<link rel="alternate" hreflang="en" href="/en/..." />` tags
-- Generate a sitemap with all language variants
+**What people do:** Keep the `#contact` section as the scroll target and have the Navbar/CaseStudies buttons scroll to it, while other CTAs open a modal.
+**Why it is wrong:** Two different interaction patterns for the same intent. The `#contact` section becomes redundant once all CTAs open a modal.
+**Do this instead:** The CTA section on the homepage stays as a visual banner, but its button opens the modal. Remove all `scrollToSection('contact')` calls.
 
 ## Integration Points
-
-### Internal Boundaries
-
-| Boundary | Communication | Notes |
-|----------|---------------|-------|
-| Router ↔ i18n | URL `:lang` param synced via `useLanguageSync` hook | One-directional: URL drives language, never reverse |
-| Pages ↔ Sections | Pages import and compose section components | Sections are reusable, pages are route-specific |
-| Components ↔ Translations | `useTranslation(namespace)` hook | Components never import JSON directly |
-| Navbar ↔ Router | `<Link>` / `LocalizedLink` for navigation | Replace all `<a href="#...">` with router-aware links |
-| LanguageSwitcher ↔ Router | `useNavigate` to swap `:lang` in current path | Preserves current page, only changes language prefix |
 
 ### External Services
 
 | Service | Integration Pattern | Notes |
 |---------|---------------------|-------|
-| Google Fonts | `<link>` in `index.html` | Already configured for Bricolage Grotesque, no change needed |
-| Translation files | HTTP fetch from `/public/locales/` | Served as static assets by Vite dev server and production host |
-| Future contact form | Would be a new route + API integration | Out of scope, but architecture supports adding it as a page |
+| Web3Forms (or similar free tier) | POST JSON to `https://api.web3forms.com/submit` with `access_key` field | Free tier: 250 submissions/month. No CORS issues from client-side. API key stored in `VITE_WEB3FORMS_KEY` env var. Not committed to git. |
+
+### Internal Boundaries
+
+| Boundary | Communication | Notes |
+|----------|---------------|-------|
+| CTA sites <-> ContactModalProvider | React Context via `useContactModal` hook | One-way: CTAs call `openContactForm()`, never read form state |
+| ContactModal <-> useContactForm | Hook return values (fields, errors, status, handlers) | Modal is the only consumer of this hook |
+| ContactModal <-> i18n | `useTranslation()` | All text from `contactForm.*` keys in common.json |
+| ContactModal <-> Framer Motion | `AnimatePresence` + `motion` components | Enter/exit animations, consistent with existing site animations |
+| Form backend <-> useContactForm | `fetch` POST, JSON response | Hook handles the async lifecycle, modal just reads status |
+
+### i18n Keys to Add
+
+New keys under `contactForm` namespace in both `en/common.json` and `bg/common.json`:
+
+```json
+{
+  "contactForm": {
+    "heading": {
+      "general": "Get in Touch",
+      "service": "Interested in {{service}}?"
+    },
+    "services": {
+      "seo": "SEO",
+      "ecommerce": "E-Commerce",
+      "ai": "AI & Automation",
+      "software": "Custom Software"
+    },
+    "fields": {
+      "name": { "label": "Your Name", "placeholder": "John Doe" },
+      "email": { "label": "Email", "placeholder": "john@example.com" },
+      "phone": { "label": "Phone (optional)", "placeholder": "+359..." },
+      "notes": { "label": "Tell us about your project", "placeholder": "Describe what you need..." }
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": {
+      "heading": "Message Sent!",
+      "description": "We will get back to you within 24 hours.",
+      "close": "Close"
+    },
+    "error": {
+      "heading": "Something went wrong",
+      "description": "Please try again or email us directly at engineering@epsystems.org",
+      "retry": "Try Again"
+    }
+  }
+}
+```
+
+### Styling Integration
+
+The modal must follow the established Brutalist design system:
+- Card: `border-4 border-black rounded-[30px] brutalist-shadow bg-white`
+- Submit button: `bg-[#B9FF66] border-4 border-black rounded-xl font-black` (matches existing CTA buttons)
+- Input fields: `border-2 border-black rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66]`
+- Error text: `text-red-600 text-sm font-bold`
+- Close button: `X` icon from lucide-react (already in project, used in Navbar mobile menu)
+- Backdrop: `bg-black/60` with blur optional
+
+## Build Order
+
+Based on dependency analysis:
+
+| Step | What | Depends On | Effort |
+|------|------|-----------|--------|
+| 1 | `ContactModalProvider` + `useContactModal` hook + types | Nothing | Small |
+| 2 | `useContactForm` hook (state, validation, submission) | Nothing | Small |
+| 3 | i18n keys for EN and BG | Nothing | Small |
+| 4 | `ContactModal` component (form UI, all states, animations) | Steps 1, 2, 3 | Medium |
+| 5 | Wrap App.tsx with `ContactModalProvider` | Step 1 | Trivial |
+| 6 | Convert all 7 CTA touchpoints to `openContactForm()` | Steps 1, 4, 5 | Medium |
+| 7 | Wire form backend (Web3Forms API key, real POST) | Step 2 | Small |
+
+Steps 1, 2, and 3 are independent and can be built in parallel. Step 4 is the main UI work. Steps 5-7 are integration. Total estimated new code: ~300 lines across 4 new files, plus ~30 lines of modifications across 6 existing files.
 
 ## Sources
 
-- [React Router SPA Mode documentation](https://reactrouter.com/how-to/spa) - HIGH confidence
-- [React Router Picking a Mode](https://reactrouter.com/start/modes) - HIGH confidence
-- [React Router Declarative Mode Installation](https://reactrouter.com/start/declarative/installation) - HIGH confidence
-- [react-i18next documentation](https://react.i18next.com/) - HIGH confidence
-- [react-i18next useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) - HIGH confidence
-- [react-i18next Multiple Translation Files guide](https://react.i18next.com/guides/multiple-translation-files) - HIGH confidence
-- [React Router + i18n discussion](https://github.com/remix-run/react-router/discussions/10510) - MEDIUM confidence
-- [LogRocket: Choosing React Router v7 modes](https://blog.logrocket.com/react-router-v7-modes/) - MEDIUM confidence
+- Existing codebase: all source files read directly, CTA locations identified via grep (HIGH confidence)
+- React Context API: standard React 19 pattern (HIGH confidence)
+- React `createPortal`: standard ReactDOM API (HIGH confidence)
+- Framer Motion `AnimatePresence`: already used throughout project for animations (HIGH confidence)
+- Web3Forms free tier: referenced in PROJECT.md as candidate backend (MEDIUM confidence -- API specifics to verify during implementation)
 
 ---
-*Architecture research for: Bilingual multi-page React agency website*
-*Researched: 2026-03-24*
+*Architecture research for: Contact form modal integration into E&P Systems SPA*
+*Researched: 2026-03-25*

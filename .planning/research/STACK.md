@@ -1,100 +1,170 @@
 # Stack Research
 
 **Domain:** Bilingual i18n + routing for existing React SPA
-**Researched:** 2026-03-24
+**Researched:** 2026-03-24 (v1.0), updated 2026-03-25 (v1.1 forms)
 **Confidence:** HIGH
 
-## Recommended Stack
+---
+
+## v1.0 Stack (Established -- Already Installed)
 
 ### Core Technologies
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| react-router | 7.13.2 | Client-side routing with dedicated service page URLs | The standard React routing library. v7 consolidates react-router-dom into a single package, supports React 19, and offers declarative mode that fits a Vite SPA perfectly. No migration overhead since the project has no existing router. |
-| i18next | 25.10.9 | Translation engine and namespace management | Dominant i18n runtime with 2.1M weekly downloads, plugin ecosystem, namespace support for lazy-loading translations per page, and mature TypeScript support. |
-| react-i18next | 16.6.6 | React bindings for i18next (hooks, components, HOC) | The official React integration. Provides `useTranslation` hook, `Trans` component for JSX interpolation, and `Suspense` support for async translation loading. Requires i18next >= 25.10.9 and TypeScript ^5 or ^6 (project uses TS 6.0.2). |
+| Technology | Version | Purpose | Status |
+|------------|---------|---------|--------|
+| react-router-dom | 7.13.2 | Client-side routing with language-prefixed URLs | Installed |
+| i18next | 25.10.9 | Translation engine | Installed |
+| react-i18next | 16.6.6 | React bindings for i18next | Installed |
+| framer-motion | 12.38.0 | Scroll-triggered animations | Installed |
+| lucide-react | 1.5.0 | Icon library | Installed |
 
-### Supporting Libraries
+---
 
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| i18next-browser-languagedetector | 8.2.1 | Auto-detect user language from browser settings | On first visit to determine initial language (EN vs BG) from Accept-Language header, localStorage, or navigator.language. |
-| i18next-resources-to-backend | 1.2.1 | Lazy-load translation JSON files via dynamic import | Use instead of i18next-http-backend for Vite SPAs. Leverages Vite's native dynamic imports so translations are code-split without needing a separate HTTP fetch layer. Smaller and simpler than http-backend for static sites. |
+## v1.1 Stack Addition: Contact Form Backend
 
-### Development Tools
+### Recommendation: Web3Forms
 
-| Tool | Purpose | Notes |
-|------|---------|-------|
-| i18next-parser | Extract translation keys from source code | Run as npm script to generate/update EN and BG JSON files from `t()` calls. Prevents missing keys. Optional but recommended after initial setup. |
+**Use Web3Forms because** it offers 5x more free submissions than Formspree (250 vs 50/month), requires zero npm packages (plain fetch POST), needs only an email to get an access key, and has first-class React documentation with proven integration patterns. For a low-traffic agency landing page, 250 submissions/month is effectively unlimited.
+
+### Comparison Matrix
+
+| Criterion | Web3Forms | Formspree | Static Forms | Getform/Forminit |
+|-----------|-----------|-----------|--------------|------------------|
+| **Free submissions/month** | 250 | 50 | ~500 | 25-50 |
+| **Signup required** | Email only (for access key) | Account required | Account required | Account required |
+| **npm package needed** | No (optional plugin exists) | No | No | No |
+| **Integration method** | POST JSON to API | POST to form endpoint | POST to API | POST to endpoint |
+| **Spam protection** | Built-in botcheck + hCaptcha option | reCAPTCHA | reCAPTCHA v2 | Basic |
+| **Custom subject line** | Yes (free) | Yes | Yes | Yes |
+| **Custom redirect** | Yes (free) | Paid only | Unknown | Yes |
+| **File uploads (free)** | No | No | No (Pro only) | No |
+| **Submission storage** | 30 days | 30 days | Unknown | Limited |
+| **Email notifications** | Yes | Yes | Yes | Yes |
+| **React documentation** | Excellent (official guides) | Good | Minimal | Minimal |
+| **Confidence level** | HIGH | HIGH | MEDIUM | LOW |
+
+### Why NOT the Alternatives
+
+| Service | Why Not |
+|---------|---------|
+| **Formspree** | Only 50 submissions/month free -- too restrictive even for low traffic. First paid tier is $15/month, violating zero-cost constraint. |
+| **Static Forms** | Higher free limit (~500/mo) but less React documentation, newer service, less community adoption. Acceptable fallback if Web3Forms changes terms. |
+| **Getform/Forminit** | Rebranded to Forminit in Jan 2026 (instability signal), only 25-50 free submissions, least generous free tier. |
+| **Netlify Forms** | Only works on Netlify hosting. Locks deployment platform. 100 submissions/month free. |
+| **EmailJS** | 200/month free but exposes email service credentials client-side. More complex setup with template IDs and service IDs. |
+| **Formcarry** | 100 submissions/month free, less documentation, smaller community. |
+| **Self-hosted (EasyForm, etc.)** | Requires a server -- violates static-only deployment constraint. |
+| **`@web3forms/react` plugin** | Unnecessary wrapper around a single fetch call. Adds an npm dependency for zero benefit on a 4-field form. Use native fetch instead. |
+| **react-hook-form** | Overkill. One form with 4 visible fields + 1 hidden context field. Native controlled inputs with useState are simpler and zero-dependency. |
+| **formik** | Same reasoning as react-hook-form -- unnecessary complexity for a simple contact form. |
+| **yup / zod** | Client-side validation for Name/Email/Phone/Notes does not warrant a schema validation library. Inline validation is sufficient. |
+
+### Form Backend Service
+
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| Web3Forms API | Current | Form submission endpoint | 250 free submissions/month, JSON POST API, zero npm dependencies, built-in spam protection, CORS-enabled for any domain |
+
+### Form Handling (Client-Side) -- Zero New Dependencies
+
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| Native fetch API | N/A | HTTP POST to Web3Forms | Zero dependencies. A single async function. |
+| React useState | N/A | Form state, loading/success/error states | Already available in React 19. No external state library needed. |
+| Inline validation | N/A | Required fields, email format check | 4 fields do not justify a validation library. |
+
+### Integration Pattern
+
+**API Endpoint:**
+```
+POST https://api.web3forms.com/submit
+Content-Type: application/json
+```
+
+**Request body:**
+```json
+{
+  "access_key": "YOUR_ACCESS_KEY",
+  "name": "User Name",
+  "email": "user@example.com",
+  "phone": "+359 888 123 456",
+  "message": "User's notes",
+  "subject": "SEO Inquiry",
+  "from_name": "E&P Systems Website",
+  "botcheck": false
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Email sent successfully"
+}
+```
+
+**Key implementation details:**
+
+1. **Access key**: Get from web3forms.com (free, email-only signup). Store as `VITE_WEB3FORMS_KEY` environment variable -- this is a public API key (not a secret), safe to embed in client bundle at build time.
+
+2. **Hidden context field**: Each CTA passes a different `subject` value so the agency knows which page/service generated the lead:
+   - Hero CTA: "General Inquiry"
+   - SEO service page: "SEO Inquiry"
+   - E-Commerce service page: "E-Commerce Inquiry"
+   - AI service page: "AI Solutions Inquiry"
+   - Custom Software page: "Custom Software Inquiry"
+   - Navbar contact button: "General Contact"
+
+3. **Spam protection**: Include a hidden `botcheck` checkbox field (CSS `display: none`). Bots fill hidden fields; humans cannot see them. Web3Forms validates this server-side.
+
+4. **Bilingual labels**: Form field labels, placeholders, validation messages, and success/error text come from react-i18next translation JSON files. The `subject` field stays English for internal lead routing consistency.
+
+5. **No CORS issues**: Web3Forms API allows cross-origin requests from any domain. No proxy, backend, or hosting-specific config needed.
+
+### Free Tier Sustainability
+
+| Concern | Assessment |
+|---------|------------|
+| **250 submissions/month sufficient?** | Yes. An agency landing page receiving 250+ form submissions/month would be an exceptional success problem. At that volume, upgrading to Pro (~$10/mo) is trivially justified by client acquisition ROI. |
+| **Service reliability** | Web3Forms has operated since ~2020, widely used in the static site community. Low risk of sudden shutdown. |
+| **Vendor lock-in risk** | Minimal. Integration is a single fetch POST. Switching to Formspree or any other service means changing one URL and the request body shape -- a 30-minute migration. |
+| **Data retention** | 30 days on free tier. Email notifications serve as the primary record. For an agency contact form, leads are acted on immediately, not archived long-term. |
+| **Rate limiting** | Warning email at 90% of monthly limit. Submissions pause at 100% until next billing cycle. No overage charges. |
 
 ## Installation
 
 ```bash
-# Core - routing
-npm install react-router@7.13.2
-
-# Core - i18n
-npm install i18next@25.10.9 react-i18next@16.6.6
-
-# Supporting - language detection and lazy loading
-npm install i18next-browser-languagedetector@8.2.1 i18next-resources-to-backend@1.2.1
-
-# Dev dependencies (optional, for key extraction)
-npm install -D i18next-parser
+# v1.1 forms milestone: NO new npm packages needed.
+# Web3Forms works with native fetch -- zero dependencies to add.
 ```
 
-## Alternatives Considered
+**Setup steps:**
 
-| Recommended | Alternative | When to Use Alternative |
-|-------------|-------------|-------------------------|
-| react-router (declarative mode) | React Router framework mode | Only if you need SSR/SSG. This project is a static SPA deployed client-only, so declarative mode is correct. Framework mode requires a Vite plugin and server runtime. |
-| react-router (declarative mode) | TanStack Router | If you want file-based routing with first-class type safety. Overkill for a small agency site with ~10 routes. Better suited for large apps with complex data loading. |
-| i18next + react-i18next | LinguiJS (@lingui/react 5.9.3) | If bundle size is the top priority. Lingui compiles translations at build time for smaller runtime (~5KB vs ~22KB). However, it requires a Babel/SWC macro pipeline, complicates the build, and has a much smaller community. Not worth the tradeoff for a 2-language site. |
-| i18next + react-i18next | react-intl (FormatJS) | If you need advanced ICU message formatting (complex plurals, gender, ordinals). This site has simple string translations in 2 languages -- i18next's simpler API is a better DX fit. |
-| i18next-resources-to-backend | i18next-http-backend 3.0.2 | If translations are served from a separate API or CDN. For this static SPA where JSON files live in the repo, resources-to-backend with Vite dynamic imports is simpler and eliminates extra HTTP requests in production. |
-
-## What NOT to Use
-
-| Avoid | Why | Use Instead |
-|-------|-----|-------------|
-| react-router-dom (v6 package name) | Deprecated naming in v7. The `react-router-dom` package still publishes but v7 consolidates everything into `react-router`. Using the old name causes confusion about imports. | `react-router` with `import { BrowserRouter } from "react-router"` |
-| i18next-http-backend | Adds unnecessary HTTP fetching layer for a static site where translations are bundled. Creates a loading flash on language switch. | `i18next-resources-to-backend` with Vite dynamic imports for code-split but instant loading |
-| next-i18next / next-intl | Next.js-specific libraries. This project is Vite + React, not Next.js. | `react-i18next` (framework-agnostic) |
-| Manual i18n with React Context | Reinventing the wheel. No pluralization, no interpolation, no namespace support, no tooling ecosystem. | `i18next` which solves all of these out of the box |
-| HashRouter | The project currently uses hash-based anchor navigation but dedicated service pages need clean URLs for SEO (`/services/web-development` not `/#services-web-development`). | `BrowserRouter` from react-router -- requires static host to redirect all paths to index.html (standard SPA config) |
-
-## Stack Patterns
-
-**For language-prefixed URLs (recommended for this project):**
-- Use react-router with a `/:lang` prefix on all routes: `/:lang/services/web-development`
-- Sync the language param with i18next via a layout route that calls `i18n.changeLanguage(lang)`
-- Default `/` redirects to `/en` or `/bg` based on browser detection
-- This gives each language version a unique, shareable, bookmarkable URL
-
-**For non-prefixed URLs (simpler but worse for SEO):**
-- Store language in localStorage only, no URL reflection
-- Simpler routing but loses shareability of language-specific URLs
-- Not recommended for a bilingual agency site where Bulgarian clients may share links
-
-## Version Compatibility
-
-| Package | Compatible With | Notes |
-|---------|-----------------|-------|
-| react-router@7.13.2 | react@>=18, react-dom@>=18 | Project has React 19.2.4 -- fully compatible |
-| react-i18next@16.6.6 | i18next@>=25.10.9, react@>=16.8.0, typescript@^5 or ^6 | Project has TS 6.0.2 -- fully compatible |
-| i18next-browser-languagedetector@8.2.1 | i18next@>=25.0.0 | Compatible with i18next 25.10.9 |
-| i18next-resources-to-backend@1.2.1 | i18next@>=25.0.0 | Compatible with i18next 25.10.9 |
-| All packages above | Vite 5.4.21 | No Vite-specific issues. react-router declarative mode has no Vite plugin requirement. |
+1. Go to https://web3forms.com/ and enter the target email (e.g., engineering@epsystems.org)
+2. Receive access key via email
+3. Create `.env` file with `VITE_WEB3FORMS_KEY=your-access-key-here`
+4. Ensure `.env` is in `.gitignore`
+5. Build ContactForm component that POSTs to the API
 
 ## Sources
 
-- [React Router v7 Modes Documentation](https://reactrouter.com/start/modes) -- Confirmed declarative mode for SPAs (HIGH confidence)
-- [React Router v6 to v7 Upgrade Guide](https://reactrouter.com/upgrading/v6) -- Confirmed package consolidation to `react-router` (HIGH confidence)
-- [npm registry](https://www.npmjs.com/) -- All version numbers verified via `npm view` CLI (HIGH confidence)
-- [i18next Comparison to Others](https://www.i18next.com/overview/comparison-to-others) -- Official comparison page (HIGH confidence)
-- [DEV Community: Best i18n Libraries 2026](https://dev.to/erayg/best-i18n-libraries-for-nextjs-react-react-native-in-2026-honest-comparison-3m8f) -- Ecosystem overview, bundle size data (MEDIUM confidence)
-- [Locize Blog: react-intl vs react-i18next](https://www.locize.com/blog/react-intl-vs-react-i18next/) -- Detailed comparison (MEDIUM confidence)
+### v1.1 Form Backend Research
+
+- [Web3Forms Official Site](https://web3forms.com/) -- MEDIUM confidence (403 on pricing page, details corroborated by multiple search results)
+- [Web3Forms React Hook Form Integration](https://docs.web3forms.com/how-to-guides/js-frameworks/react-js/react-js) -- HIGH confidence (fetched and verified: endpoint, body shape, response format)
+- [Web3Forms React Plugin on npm](https://www.npmjs.com/package/@web3forms/react) -- MEDIUM confidence
+- [Formspree Pricing Page](https://formspree.io/plans) -- HIGH confidence (fetched: 50 submissions/month free, $15/mo personal tier)
+- [Formspree Account Limits](https://help.formspree.io/hc/en-us/articles/47605896654227-Account-limits) -- HIGH confidence
+- [Static Forms FAQ](https://www.staticforms.dev/faq) -- MEDIUM confidence (exact free limit not in FAQ, ~500/mo from comparison articles)
+- [Getform/Forminit Pricing](https://getform.io/pricing) -- LOW confidence (Jan 2026 rebrand complicates verification)
+- [DEV Community: Netlify Forms Alternatives 2026](https://dev.to/allenarduino/netlify-forms-is-getting-expensive-here-are-the-best-alternatives-in-2026-3a7k) -- LOW confidence (community article, useful for landscape overview)
+- [DEV Community: Getform Alternatives 2026](https://dev.to/allenarduino/getform-alternatives-in-2026-cheaper-open-source-and-self-hostable-5h62) -- LOW confidence
+
+### v1.0 Stack Research (Prior)
+
+- [React Router v7 Modes Documentation](https://reactrouter.com/start/modes) -- HIGH confidence
+- [npm registry](https://www.npmjs.com/) -- HIGH confidence
+- [i18next Comparison to Others](https://www.i18next.com/overview/comparison-to-others) -- HIGH confidence
 
 ---
-*Stack research for: Bilingual i18n + routing addition to React SPA*
-*Researched: 2026-03-24*
+*Stack research updated: 2026-03-25 for v1.1 CTA Forms milestone*
