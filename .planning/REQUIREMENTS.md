@@ -20,8 +20,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **BILN-01**: react-i18next integrated with JSON translation files for EN and BG
 - [x] **BILN-02**: Language switcher in Navbar toggles between English and Bulgarian
 - [x] **BILN-03**: Language preference persists across page navigation via URL prefix
-- [ ] **BILN-04**: All JSX text content translated to Bulgarian
-- [ ] **BILN-05**: All service data (titles, descriptions, features in services.ts) translated to Bulgarian
+- [x] **BILN-04**: All JSX text content translated to Bulgarian
+- [x] **BILN-05**: All service data (titles, descriptions, features in services.ts) translated to Bulgarian
 - [ ] **BILN-06**: Meta tags and page titles reflect current language
 - [x] **BILN-07**: Cyrillic font support verified for Bricolage Grotesque (fallback if needed)
 
@@ -85,8 +85,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BILN-01 | Phase 2 | Complete |
 | BILN-02 | Phase 2 | Complete |
 | BILN-03 | Phase 2 | Complete |
-| BILN-04 | Phase 3 | Pending |
-| BILN-05 | Phase 3 | Pending |
+| BILN-04 | Phase 3 | Complete |
+| BILN-05 | Phase 3 | Complete |
 | BILN-06 | Phase 3 | Pending |
 | BILN-07 | Phase 2 | Complete |
 | SERV-01 | Phase 4 | Pending |
