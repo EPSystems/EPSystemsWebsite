@@ -60,11 +60,11 @@ Plans:
   2. All service card titles, descriptions, and feature lists display in the selected language
   3. Browser tab title and meta description reflect the current language
   4. Existing content across all sections is reviewed and up-to-date (not placeholder text)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Expand EN/BG translation JSON with all section keys, convert services.ts to i18n, wire Hero/Marquee/Services/CTA to t() calls
+- [ ] 03-02-PLAN.md — Wire CaseStudies/ServiceDetail/NotFound to t(), add dynamic meta tags, human-verify full translation quality
 
 ### Phase 4: New Pages and Content
 **Goal**: Users can visit dedicated service pages and a team section, all fully bilingual and integrated into site navigation
@@ -90,5 +90,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Router Foundation | 2/2 | Complete    | 2026-03-24 |
 | 2. i18n Infrastructure | 2/2 | Complete    | 2026-03-25 |
-| 3. Full Content Translation | 0/0 | Not started | - |
+| 3. Full Content Translation | 0/2 | Planning complete | - |
 | 4. New Pages and Content | 0/0 | Not started | - |
