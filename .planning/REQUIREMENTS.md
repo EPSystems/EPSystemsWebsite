@@ -22,7 +22,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **BILN-03**: Language preference persists across page navigation via URL prefix
 - [x] **BILN-04**: All JSX text content translated to Bulgarian
 - [x] **BILN-05**: All service data (titles, descriptions, features in services.ts) translated to Bulgarian
-- [ ] **BILN-06**: Meta tags and page titles reflect current language
+- [x] **BILN-06**: Meta tags and page titles reflect current language
 - [x] **BILN-07**: Cyrillic font support verified for Bricolage Grotesque (fallback if needed)
 
 ### Service Pages
@@ -37,7 +37,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CONT-01**: Team members section added to homepage with member profiles, roles, and bios
 - [ ] **CONT-02**: Team members section is bilingual (EN/BG)
 - [x] **CONT-03**: Navbar updated to support multi-page routing and language switcher
-- [ ] **CONT-04**: Content across existing sections reviewed and updated
+- [x] **CONT-04**: Content across existing sections reviewed and updated
 
 ## v2 Requirements
 
@@ -87,7 +87,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BILN-03 | Phase 2 | Complete |
 | BILN-04 | Phase 3 | Complete |
 | BILN-05 | Phase 3 | Complete |
-| BILN-06 | Phase 3 | Pending |
+| BILN-06 | Phase 3 | Complete |
 | BILN-07 | Phase 2 | Complete |
 | SERV-01 | Phase 4 | Pending |
 | SERV-02 | Phase 4 | Pending |
@@ -96,7 +96,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-01 | Phase 4 | Pending |
 | CONT-02 | Phase 4 | Pending |
 | CONT-03 | Phase 2 | Complete |
-| CONT-04 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 20 total
