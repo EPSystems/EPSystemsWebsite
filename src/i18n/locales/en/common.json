@@ -21,5 +21,105 @@
     "email": "Email",
     "phone": "Phone",
     "copyright": "E&P Systems. All rights reserved."
+  },
+  "hero": {
+    "badge": "We build digital solutions that work",
+    "heading1": "Elevate Your",
+    "heading2": "Digital Presence",
+    "subheading": "We don't just build websites. We create complete digital solutions — from custom web apps and e-commerce to AI automation and SEO.",
+    "cta": {
+      "contact": "Get in Touch",
+      "work": "See Our Work"
+    },
+    "dashboard": {
+      "title": "Project Growth"
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "heading": "We offer a full range of digital services to help your business grow and succeed online.",
+    "learnMore": "Learn more",
+    "seo": {
+      "title": "Search Engine",
+      "titleBreak": "Optimization",
+      "description": "Data-driven SEO strategies to dominate search results and capture high-intent traffic.",
+      "features": {
+        "0": "Technical SEO Audits",
+        "1": "On-Page Optimization",
+        "2": "Authority Link Building"
+      },
+      "detailHeadline": "Dominate search results and capture high-intent traffic.",
+      "detailDescription": "We use data-driven strategies, technical audits, and high-quality link building to push your website to the top of Google. Stop hiding on page two.",
+      "ctaText": "Get a Free SEO Audit"
+    },
+    "websites": {
+      "title": "Custom",
+      "titleBreak": "Websites",
+      "description": "Beautiful, fast, responsive websites tailored to your brand and business goals.",
+      "features": {
+        "0": "Responsive Design",
+        "1": "Performance Optimized",
+        "2": "CMS Integration"
+      }
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "titleBreak": "Solutions",
+      "description": "Full-featured online stores with payment integration, inventory management, and analytics.",
+      "features": {
+        "0": "Payment Integration",
+        "1": "Inventory Management",
+        "2": "Order Tracking Dashboards"
+      },
+      "detailHeadline": "Launch your online store and start selling worldwide.",
+      "detailDescription": "We build full-featured e-commerce platforms with secure payments, inventory management, and analytics dashboards that turn browsers into buyers.",
+      "ctaText": "Start Selling Online"
+    },
+    "ai": {
+      "title": "AI &",
+      "titleBreak": "Automation",
+      "description": "Smart chatbots, workflow automation, and AI-powered tools to streamline your business.",
+      "features": {
+        "0": "AI Chatbots",
+        "1": "Workflow Automation",
+        "2": "Custom AI Tools"
+      },
+      "detailHeadline": "Automate your business with intelligent AI solutions.",
+      "detailDescription": "From smart chatbots that handle customer inquiries to workflow automations that save hours of manual work, we build AI-powered tools that let you focus on growth.",
+      "ctaText": "Explore AI Solutions"
+    },
+    "landing": {
+      "title": "Landing",
+      "titleBreak": "Pages",
+      "description": "High-converting campaign pages designed to capture leads and drive action.",
+      "features": {
+        "0": "A/B Testing Ready",
+        "1": "Lead Capture Forms",
+        "2": "Analytics Integration"
+      }
+    },
+    "support": {
+      "title": "Maintenance &",
+      "titleBreak": "Support",
+      "description": "Ongoing updates, hosting management, performance monitoring, and technical support.",
+      "features": {
+        "0": "24/7 Monitoring",
+        "1": "Regular Updates",
+        "2": "Performance Optimization"
+      }
+    }
+  },
+  "marquee": {
+    "0": "Web Development",
+    "1": "E-Commerce",
+    "2": "SEO",
+    "3": "AI Automation",
+    "4": "Landing Pages",
+    "5": "Custom Apps"
+  },
+  "cta": {
+    "heading": "Let's build something great",
+    "description": "Contact us today to discuss how we can help bring your digital vision to life — from websites and e-commerce to AI-powered automation.",
+    "button": "Get your free proposal"
   }
 }
