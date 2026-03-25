@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { usePageMeta } from '../hooks/usePageMeta'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 
@@ -7,6 +8,7 @@ export function NotFoundPage() {
   const { lang } = useParams<{ lang: string }>()
   const language = lang || 'en'
   const { t } = useTranslation()
+  usePageMeta('notFound.meta.title')
 
   return (
     <>

@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "E&P Systems - Digital Solutions That Work",
+    "description": "E&P Systems - Web Development & Digital Solutions Agency. Custom websites, e-commerce, AI automation, and SEO services."
+  },
   "nav": {
     "services": "Services",
     "seo": "SEO",
@@ -146,7 +150,10 @@
   "notFound": {
     "heading": "404",
     "message": "Page not found",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "meta": {
+      "title": "Page Not Found - E&P Systems"
+    }
   },
   "marquee": {
     "0": "Web Development",

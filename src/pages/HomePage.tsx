@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useLanguageSync } from '../hooks/useLanguageSync'
+import { usePageMeta } from '../hooks/usePageMeta'
 import { useServices } from '../hooks/useServices'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
@@ -19,6 +20,7 @@ const detailConfig = [
 
 export function HomePage() {
   useLanguageSync()
+  usePageMeta('meta.title', 'meta.description')
   const { t } = useTranslation()
   const services = useServices()
 
