@@ -41,17 +41,22 @@ The site must present E&P Systems as a credible, professional software agency th
 
 ### Active
 
-(None — planning next milestone)
+- [ ] Contact forms replacing all mailto CTA links
+- [ ] Different form context per CTA (service-specific subject/context)
+- [ ] Form fields: Name, Email, Phone, Notes
+- [ ] Form submission via free backend (no additional costs)
+- [ ] All forms bilingual (EN/BG)
+- [ ] Success state after submission
 
 ### Out of Scope
 
 - Blog/Insights section — requires ongoing content commitment
 - Backend/CMS — site is static, content lives in code
-- Contact form with email delivery — defer to later milestone
-- Accessibility audit (WCAG) — deferred to v1.1
-- Page transition animations — deferred to v1.1
+- Accessibility audit (WCAG) — deferred
+- Page transition animations — deferred
 - Client logo bar / trust badges — need client permission
 - Pre-rendering for SEO — depends on hosting platform choice
+- Paid form backend services — user requires zero cost
 
 ## Context
 
@@ -83,5 +88,17 @@ The site must present E&P Systems as a credible, professional software agency th
 | "Custom Websites" → "Custom Software" | Better reflects agency's actual service offering | ✓ Good |
 | Team section on homepage (not separate page) | Minimal team data, doesn't warrant full page | ✓ Good |
 
+## Current Milestone: v1.1 CTA Forms
+
+**Goal:** Replace all mailto CTA links with functional contact forms, each tailored to its context (homepage, service pages, navbar, hero).
+
+**Target features:**
+- Modal/inline contact forms on all CTA buttons
+- Form fields: Name, Email, Phone, Notes
+- Hidden context field per CTA (e.g., "SEO Inquiry", "General Contact")
+- Free form backend (Web3Forms, Formspree free tier, or similar)
+- All forms bilingual
+- Success feedback after submission
+
 ---
-*Last updated: 2026-03-25 after v1.0 milestone*
+*Last updated: 2026-03-25 after v1.1 milestone start*
