@@ -18,7 +18,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Bilingual
 
 - [x] **BILN-01**: react-i18next integrated with JSON translation files for EN and BG
-- [ ] **BILN-02**: Language switcher in Navbar toggles between English and Bulgarian
+- [x] **BILN-02**: Language switcher in Navbar toggles between English and Bulgarian
 - [x] **BILN-03**: Language preference persists across page navigation via URL prefix
 - [ ] **BILN-04**: All JSX text content translated to Bulgarian
 - [ ] **BILN-05**: All service data (titles, descriptions, features in services.ts) translated to Bulgarian
@@ -36,7 +36,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **CONT-01**: Team members section added to homepage with member profiles, roles, and bios
 - [ ] **CONT-02**: Team members section is bilingual (EN/BG)
-- [ ] **CONT-03**: Navbar updated to support multi-page routing and language switcher
+- [x] **CONT-03**: Navbar updated to support multi-page routing and language switcher
 - [ ] **CONT-04**: Content across existing sections reviewed and updated
 
 ## v2 Requirements
@@ -83,7 +83,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUT-04 | Phase 1 | Complete |
 | ROUT-05 | Phase 1 | Complete |
 | BILN-01 | Phase 2 | Complete |
-| BILN-02 | Phase 2 | Pending |
+| BILN-02 | Phase 2 | Complete |
 | BILN-03 | Phase 2 | Complete |
 | BILN-04 | Phase 3 | Pending |
 | BILN-05 | Phase 3 | Pending |
@@ -95,7 +95,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SERV-04 | Phase 4 | Pending |
 | CONT-01 | Phase 4 | Pending |
 | CONT-02 | Phase 4 | Pending |
-| CONT-03 | Phase 2 | Pending |
+| CONT-03 | Phase 2 | Complete |
 | CONT-04 | Phase 3 | Pending |
 
 **Coverage:**

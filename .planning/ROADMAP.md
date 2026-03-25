@@ -13,7 +13,7 @@ Transform the existing single-page English-only React SPA into a fully bilingual
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Router Foundation** - Replace hash navigation with React Router and language-prefixed URL structure
-- [ ] **Phase 2: i18n Infrastructure** - Wire up bilingual translation system with language switcher on nav/footer
+- [x] **Phase 2: i18n Infrastructure** - Wire up bilingual translation system with language switcher on nav/footer (completed 2026-03-25)
 - [ ] **Phase 3: Full Content Translation** - Translate all existing page content to Bulgarian
 - [ ] **Phase 4: New Pages and Content** - Build service detail pages and team section, fully bilingual
 
@@ -45,11 +45,11 @@ Plans:
   3. Language preference persists when navigating between pages (URL prefix is maintained)
   4. Bulgarian text renders correctly with proper Cyrillic font support (no missing glyphs)
   5. Navbar supports multi-page routing with links to all site sections
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Install i18next, create EN/BG translation files, build language sync hook, add Cyrillic fallback font
-- [ ] 02-02-PLAN.md — Create language switcher component, translate Navbar and Footer via t() calls, verify end-to-end
+- [x] 02-01-PLAN.md — Install i18next, create EN/BG translation files, build language sync hook, add Cyrillic fallback font
+- [x] 02-02-PLAN.md — Create language switcher component, translate Navbar and Footer via t() calls, verify end-to-end
 
 ### Phase 3: Full Content Translation
 **Goal**: The entire existing site is fully bilingual -- every visible string appears in both English and Bulgarian
@@ -89,6 +89,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Router Foundation | 2/2 | Complete    | 2026-03-24 |
-| 2. i18n Infrastructure | 0/2 | Not started | - |
+| 2. i18n Infrastructure | 2/2 | Complete   | 2026-03-25 |
 | 3. Full Content Translation | 0/0 | Not started | - |
 | 4. New Pages and Content | 0/0 | Not started | - |
