@@ -11,8 +11,8 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 - [x] **FORM-01**: Reusable contact form with Name, Email, Phone, and Notes fields
 - [x] **FORM-02**: Form submits to Web3Forms free backend (no additional costs)
-- [ ] **FORM-03**: Form shows success state after successful submission
-- [ ] **FORM-04**: Form shows error state if submission fails
+- [x] **FORM-03**: Form shows success state after successful submission
+- [x] **FORM-04**: Form shows error state if submission fails
 - [x] **FORM-05**: Bilingual form labels, placeholders, and button text (EN/BG)
 
 ### Validation
@@ -23,7 +23,7 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 ### Context
 
-- [ ] **CTXT-01**: Each CTA triggers a form with context-specific heading (e.g., "Tell us about your SEO goals")
+- [x] **CTXT-01**: Each CTA triggers a form with context-specific heading (e.g., "Tell us about your SEO goals")
 - [x] **CTXT-02**: Hidden subject field sent with submission identifying the CTA source (e.g., "SEO Inquiry")
 
 ### CTA Conversion
@@ -56,13 +56,13 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 |-------------|-------|--------|
 | FORM-01 | Phase 5 | Complete |
 | FORM-02 | Phase 5 | Complete |
-| FORM-03 | Phase 6 | Pending |
-| FORM-04 | Phase 6 | Pending |
+| FORM-03 | Phase 6 | Complete |
+| FORM-04 | Phase 6 | Complete |
 | FORM-05 | Phase 5 | Complete |
 | VALD-01 | Phase 5 | Complete |
 | VALD-02 | Phase 5 | Complete |
 | VALD-03 | Phase 5 | Complete |
-| CTXT-01 | Phase 6 | Pending |
+| CTXT-01 | Phase 6 | Complete |
 | CTXT-02 | Phase 5 | Complete |
 | CTA-01 | Phase 7 | Pending |
 | CTA-02 | Phase 7 | Pending |

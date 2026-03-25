@@ -20,7 +20,7 @@
 ### v1.1 CTA Forms
 
 - [x] **Phase 5: Form Infrastructure** - Reusable contact form component with validation, bilingual support, Web3Forms backend, and context-passing architecture (completed 2026-03-25)
-- [ ] **Phase 6: Form UI and States** - Modal/inline presentation, success/error/loading states, context-specific headings, Brutalist styling
+- [x] **Phase 6: Form UI and States** - Modal/inline presentation, success/error/loading states, context-specific headings, Brutalist styling (completed 2026-03-25)
 - [ ] **Phase 7: CTA Conversion** - Wire all CTA buttons site-wide to open contact forms, remove all mailto links
 
 ## Phase Details
@@ -53,7 +53,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 06-01-PLAN.md — Per-context i18n headings/descriptions, ContactModal heading logic update, form states verification
+- [x] 06-01-PLAN.md — Per-context i18n headings/descriptions, ContactModal heading logic update, form states verification
 
 ### Phase 7: CTA Conversion
 **Goal**: Every CTA across the entire site opens a contact form instead of triggering mailto or scroll-to-contact
@@ -82,5 +82,5 @@ Phases execute in numeric order: 5 -> 6 -> 7
 | 3. Full Content Translation | v1.0 | 2/2 | Complete | 2026-03-25 |
 | 4. New Pages and Content | v1.0 | 3/3 | Complete | 2026-03-25 |
 | 5. Form Infrastructure | v1.1 | Complete    | 2026-03-25 | - |
-| 6. Form UI and States | v1.1 | 0/1 | Not started | - |
+| 6. Form UI and States | v1.1 | 1/1 | Complete | 2026-03-25 |
 | 7. CTA Conversion | v1.1 | 0/? | Not started | - |
