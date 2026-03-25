@@ -170,5 +170,153 @@
     "heading": "Let's build something great",
     "description": "Contact us today to discuss how we can help bring your digital vision to life — from websites and e-commerce to AI-powered automation.",
     "button": "Get your free proposal"
+  },
+  "servicePages": {
+    "backToServices": "All Services",
+    "seo": {
+      "meta": {
+        "title": "SEO Services - E&P Systems",
+        "description": "Data-driven SEO strategies to boost your search rankings. Technical audits, on-page optimization, and authority link building."
+      },
+      "hero": {
+        "badge": "SEO Services",
+        "heading": "Dominate Search Results",
+        "subheading": "Data-driven SEO strategies that push your website to the top of Google and capture high-intent traffic that converts."
+      },
+      "features": {
+        "heading": "What We Deliver",
+        "items": {
+          "0": { "title": "Technical SEO Audits", "description": "Comprehensive analysis of your site's technical health — crawlability, indexing, Core Web Vitals, and structured data." },
+          "1": { "title": "On-Page Optimization", "description": "Strategic keyword placement, meta tags, content structure, and internal linking to maximize relevance." },
+          "2": { "title": "Authority Link Building", "description": "White-hat outreach campaigns that earn high-quality backlinks and build your domain authority." },
+          "3": { "title": "Performance Reporting", "description": "Monthly reports with ranking changes, traffic growth, and actionable recommendations." }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": { "title": "Audit", "description": "We analyze your current SEO health and identify opportunities." },
+          "1": { "title": "Strategy", "description": "We build a custom roadmap based on your goals and competition." },
+          "2": { "title": "Execute", "description": "We implement technical fixes, optimize content, and build links." },
+          "3": { "title": "Report", "description": "We track progress and refine the strategy monthly." }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Rank Higher?",
+        "description": "Get a comprehensive SEO audit and discover untapped growth opportunities for your website.",
+        "button": "Get a Free SEO Audit"
+      }
+    },
+    "ecommerce": {
+      "meta": {
+        "title": "E-Commerce Solutions - E&P Systems",
+        "description": "Full-featured online stores with secure payments, inventory management, and analytics dashboards."
+      },
+      "hero": {
+        "badge": "E-Commerce",
+        "heading": "Launch Your Online Store",
+        "subheading": "Full-featured e-commerce platforms with secure payments, real-time inventory, and analytics that turn browsers into buyers."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": { "title": "Secure Payment Integration", "description": "Stripe, PayPal, and local payment methods — all PCI-compliant and conversion-optimized." },
+          "1": { "title": "Inventory Management", "description": "Real-time stock tracking, automated alerts, and multi-warehouse support." },
+          "2": { "title": "Order Tracking Dashboards", "description": "Customer-facing tracking and admin dashboards for complete order lifecycle visibility." },
+          "3": { "title": "Analytics & Insights", "description": "Sales funnels, customer behavior, and revenue reporting to drive data-backed decisions." }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": { "title": "Discovery", "description": "We map your product catalog, payment needs, and customer journey." },
+          "1": { "title": "Design", "description": "We create a storefront that converts — mobile-first, fast, and on-brand." },
+          "2": { "title": "Build", "description": "We develop your store with secure payments, inventory, and shipping." },
+          "3": { "title": "Launch", "description": "We test everything end-to-end and launch with monitoring in place." }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Sell Online?",
+        "description": "Let's build an online store that turns visitors into customers and scales with your business.",
+        "button": "Start Selling Online"
+      }
+    },
+    "ai": {
+      "meta": {
+        "title": "AI & Automation - E&P Systems",
+        "description": "Intelligent AI chatbots, workflow automation, and custom AI tools to streamline your business operations."
+      },
+      "hero": {
+        "badge": "AI & Automation",
+        "heading": "Automate Your Business",
+        "subheading": "Intelligent AI solutions that handle customer inquiries, automate repetitive tasks, and give your team superpowers."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": { "title": "AI Chatbots", "description": "Custom conversational agents that handle customer inquiries, qualify leads, and provide 24/7 support." },
+          "1": { "title": "Workflow Automation", "description": "Eliminate repetitive tasks — from data entry and email sequences to invoice processing." },
+          "2": { "title": "Custom AI Tools", "description": "Purpose-built AI solutions for content generation, data analysis, and business intelligence." },
+          "3": { "title": "Integration & APIs", "description": "Connect AI capabilities to your existing tools — CRM, helpdesk, e-commerce, and more." }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": { "title": "Assess", "description": "We identify which processes benefit most from automation." },
+          "1": { "title": "Prototype", "description": "We build a working proof-of-concept to validate the approach." },
+          "2": { "title": "Develop", "description": "We build the production system with proper error handling and monitoring." },
+          "3": { "title": "Optimize", "description": "We measure results and fine-tune for maximum impact." }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Work Smarter?",
+        "description": "Discover how AI and automation can save your team hours of manual work every week.",
+        "button": "Explore AI Solutions"
+      }
+    },
+    "software": {
+      "meta": {
+        "title": "Custom Software - E&P Systems",
+        "description": "Tailored web applications, internal tools, and APIs built for your exact business needs."
+      },
+      "hero": {
+        "badge": "Custom Software",
+        "heading": "Software Built for You",
+        "subheading": "Tailored solutions — from web applications and internal tools to complex platforms that scale with your business."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": { "title": "Web Applications", "description": "Full-stack web apps with modern frameworks — React, Node.js, and cloud-native architecture." },
+          "1": { "title": "Internal Business Tools", "description": "Dashboards, admin panels, and workflow tools that streamline your team's daily operations." },
+          "2": { "title": "API Development", "description": "RESTful and GraphQL APIs that connect your systems and power your digital ecosystem." },
+          "3": { "title": "Cloud & DevOps", "description": "Scalable infrastructure, CI/CD pipelines, and monitoring for reliable, production-grade software." }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": { "title": "Define", "description": "We map your requirements, user flows, and technical constraints." },
+          "1": { "title": "Architect", "description": "We design the system architecture and choose the right tech stack." },
+          "2": { "title": "Build", "description": "We develop iteratively with regular demos and feedback cycles." },
+          "3": { "title": "Deploy", "description": "We launch to production with testing, documentation, and support." }
+        }
+      },
+      "cta": {
+        "heading": "Have a Project in Mind?",
+        "description": "Tell us about your idea and we'll help you turn it into production-ready software.",
+        "button": "Discuss Your Project"
+      }
+    }
+  },
+  "team": {
+    "badge": "Our Team",
+    "heading": "The People Behind E&P Systems",
+    "members": {
+      "member1": { "name": "Emil Petrov", "role": "Founder & Lead Developer" },
+      "member2": { "name": "Petar Ivanov", "role": "Full-Stack Developer" },
+      "member3": { "name": "Maria Dimitrova", "role": "UI/UX Designer" }
+    }
   }
 }
