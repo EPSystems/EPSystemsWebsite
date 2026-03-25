@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: CTA Forms
-status: planning
+status: executing
 last_updated: "2026-03-25"
 progress:
   total_phases: 7
   completed_phases: 4
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 11
+  completed_plans: 10
 ---
 
 # Project State
@@ -23,18 +23,18 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 5 of 7 (Form Infrastructure)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-03-25 — Roadmap created for v1.1 CTA Forms milestone
+Plan: 1 of 2 in current phase
+Status: Executing phase 5
+Last activity: 2026-03-25 — Completed 05-01 form infrastructure (provider, hooks, i18n)
 
-Progress: [██████░░░░] 57% (v1.0 complete, v1.1 starting)
+Progress: [█████████░] 91% (10/11 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 2.89min
-- Total execution time: 0.37 hours
+- Total plans completed: 10
+- Average duration: 2.8min
+- Total execution time: 0.4 hours
 
 **By Phase:**
 
@@ -44,9 +44,10 @@ Progress: [██████░░░░] 57% (v1.0 complete, v1.1 starting)
 | 02-i18n-infrastructure | 2 | 4min | 2min |
 | 03-full-content-translation | 2 | 7min | 3.5min |
 | 04-new-pages-and-content | 3 | 11min | 3.7min |
+| 05-form-infrastructure | 1 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (4min), 03-02 (3min), 04-01 (3min), 04-02 (3min), 04-03 (5min)
+- Last 5 plans: 03-02 (3min), 04-01 (3min), 04-02 (3min), 04-03 (5min), 05-01 (2min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -62,6 +63,8 @@ Recent decisions affecting current work:
 - [v1.1 Roadmap]: Web3Forms as form backend (250 free/month, zero npm deps, JSON POST)
 - [v1.1 Roadmap]: ContactModalProvider context pattern for form triggering across all CTAs
 - [v1.1 Roadmap]: All scrollToSection('contact') calls replaced with openContactForm() via modal context
+- [05-01]: FormContext carries subject and source for analytics-ready form submissions
+- [05-01]: Web3Forms access key via VITE_WEB3FORMS_KEY env var with .env.example documentation
 
 ### Pending Todos
 
@@ -76,5 +79,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-25
-Stopped at: v1.1 roadmap created, Phase 5 ready to plan
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
