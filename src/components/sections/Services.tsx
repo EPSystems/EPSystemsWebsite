@@ -1,6 +1,7 @@
 import { ArrowUpRight, Target, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { services } from '../../data/services'
+import { useTranslation } from 'react-i18next'
+import { useServices } from '../../hooks/useServices'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import { scrollToSection } from '../../utils/scroll'
 
@@ -26,16 +27,19 @@ const variantStyles = {
 }
 
 export function Services() {
+  const { t } = useTranslation()
+  const services = useServices()
+
   return (
     <section id="services" className="max-w-7xl mx-auto px-6 py-24">
       <AnimatedSection>
         <div className="grid lg:grid-cols-12 gap-10 items-center mb-20">
           <div className="lg:col-span-8">
             <div className="inline-block bg-[#B9FF66] text-black font-bold px-4 py-2 border-2 border-black rounded-lg mb-6 transform -rotate-2">
-              Our Services
+              {t('services.badge')}
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight">
-              We offer a full range of digital services to help your business grow and succeed online.
+              {t('services.heading')}
             </h2>
           </div>
           <div className="lg:col-span-4 flex justify-center lg:justify-end relative">
@@ -76,7 +80,7 @@ export function Services() {
                   <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>
                     <ArrowUpRight size={24} />
                   </div>
-                  Learn more
+                  {t('services.learnMore')}
                 </button>
               )}
             </motion.div>
