@@ -90,5 +90,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Router Foundation | 2/2 | Complete    | 2026-03-24 |
 | 2. i18n Infrastructure | 2/2 | Complete    | 2026-03-25 |
-| 3. Full Content Translation | 2/2 | Complete | 2026-03-25 |
+| 3. Full Content Translation | 2/2 | Complete    | 2026-03-25 |
 | 4. New Pages and Content | 0/0 | Not started | - |
