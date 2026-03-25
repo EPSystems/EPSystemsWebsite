@@ -9,8 +9,8 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 ### Form Component
 
-- [ ] **FORM-01**: Reusable contact form with Name, Email, Phone, and Notes fields
-- [ ] **FORM-02**: Form submits to Web3Forms free backend (no additional costs)
+- [x] **FORM-01**: Reusable contact form with Name, Email, Phone, and Notes fields
+- [x] **FORM-02**: Form submits to Web3Forms free backend (no additional costs)
 - [ ] **FORM-03**: Form shows success state after successful submission
 - [ ] **FORM-04**: Form shows error state if submission fails
 - [x] **FORM-05**: Bilingual form labels, placeholders, and button text (EN/BG)
@@ -54,8 +54,8 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FORM-01 | Phase 5 | Pending |
-| FORM-02 | Phase 5 | Pending |
+| FORM-01 | Phase 5 | Complete |
+| FORM-02 | Phase 5 | Complete |
 | FORM-03 | Phase 6 | Pending |
 | FORM-04 | Phase 6 | Pending |
 | FORM-05 | Phase 5 | Complete |
