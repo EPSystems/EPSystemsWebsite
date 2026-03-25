@@ -1,15 +1,10 @@
 import { Star } from 'lucide-react'
-
-const items = [
-  'Web Development',
-  'E-Commerce',
-  'SEO',
-  'AI Automation',
-  'Landing Pages',
-  'Custom Apps',
-]
+import { useTranslation } from 'react-i18next'
 
 export function Marquee() {
+  const { t } = useTranslation()
+  const items = [0, 1, 2, 3, 4, 5].map((i) => t(`marquee.${i}`))
+
   return (
     <div className="w-full overflow-hidden bg-[#B9FF66] border-y-4 border-black py-4 mt-12 transform -rotate-1 relative z-20 shadow-[0_8px_0_0_rgba(0,0,0,1)]">
       <div className="flex whitespace-nowrap">

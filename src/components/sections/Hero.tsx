@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, TrendingUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { scrollToSection } from '../../utils/scroll'
 
 export function Hero() {
+  const { t } = useTranslation()
   return (
     <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative">
       <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -18,7 +20,7 @@ export function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            We build digital solutions that work
+            {t('hero.badge')}
           </motion.div>
           <motion.h1
             className="text-6xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.9] mb-8 uppercase"
@@ -26,9 +28,9 @@ export function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
           >
-            Elevate Your <br />
+            {t('hero.heading1')} <br />
             <span className="text-[#B9FF66]" style={{ WebkitTextStroke: '2px black' }}>
-              Digital Presence
+              {t('hero.heading2')}
             </span>
           </motion.h1>
           <motion.p
@@ -37,7 +39,7 @@ export function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
-            We don't just build websites. We create complete digital solutions — from custom web apps and e-commerce to AI automation and SEO.
+            {t('hero.subheading')}
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-6 font-bold"
@@ -49,14 +51,14 @@ export function Hero() {
               href="mailto:engineering@epsystems.org"
               className="bg-black text-[#B9FF66] text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3 group"
             >
-              Get in Touch
+              {t('hero.cta.contact')}
               <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform" />
             </a>
             <button
               onClick={() => scrollToSection('services')}
               className="bg-white text-black text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3"
             >
-              See Our Work
+              {t('hero.cta.work')}
             </button>
           </motion.div>
         </motion.div>
@@ -77,7 +79,7 @@ export function Hero() {
                   <div className="w-4 h-4 rounded-full bg-zinc-200 border-2 border-black" />
                   <div className="w-4 h-4 rounded-full bg-zinc-200 border-2 border-black" />
                 </div>
-                <div className="text-xl font-bold tracking-tighter uppercase">Project Growth</div>
+                <div className="text-xl font-bold tracking-tighter uppercase">{t('hero.dashboard.title')}</div>
               </div>
               <div className="flex-1 flex items-end justify-between gap-4 relative">
                 <div className="w-1/4 h-[30%] bg-zinc-100 border-4 border-black rounded-t-xl hover:bg-zinc-200 transition-colors" />
