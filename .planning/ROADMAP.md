@@ -35,11 +35,11 @@
   3. Name and Email are required; submitting without them shows inline error messages in the current language (EN or BG)
   4. Email field rejects invalid formats with a translated error message
   5. A hidden subject field is included in the submission payload identifying the CTA source
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — Context provider, hooks (useContactForm + useContactModal), i18n keys, App.tsx wiring
+- [ ] 05-02-PLAN.md — ContactModal component with form UI, portal rendering, validation display, submission states
 
 ### Phase 6: Form UI and States
 **Goal**: Users see polished form presentation with clear feedback for every submission outcome
@@ -81,6 +81,6 @@ Phases execute in numeric order: 5 -> 6 -> 7
 | 2. i18n Infrastructure | v1.0 | 2/2 | Complete | 2026-03-25 |
 | 3. Full Content Translation | v1.0 | 2/2 | Complete | 2026-03-25 |
 | 4. New Pages and Content | v1.0 | 3/3 | Complete | 2026-03-25 |
-| 5. Form Infrastructure | v1.1 | 0/? | Not started | - |
+| 5. Form Infrastructure | v1.1 | 0/2 | Not started | - |
 | 6. Form UI and States | v1.1 | 0/? | Not started | - |
 | 7. CTA Conversion | v1.1 | 0/? | Not started | - |
