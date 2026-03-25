@@ -54,28 +54,28 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FORM-01 | — | Pending |
-| FORM-02 | — | Pending |
-| FORM-03 | — | Pending |
-| FORM-04 | — | Pending |
-| FORM-05 | — | Pending |
-| VALD-01 | — | Pending |
-| VALD-02 | — | Pending |
-| VALD-03 | — | Pending |
-| CTXT-01 | — | Pending |
-| CTXT-02 | — | Pending |
-| CTA-01 | — | Pending |
-| CTA-02 | — | Pending |
-| CTA-03 | — | Pending |
-| CTA-04 | — | Pending |
-| CTA-05 | — | Pending |
-| CTA-06 | — | Pending |
+| FORM-01 | Phase 5 | Pending |
+| FORM-02 | Phase 5 | Pending |
+| FORM-03 | Phase 6 | Pending |
+| FORM-04 | Phase 6 | Pending |
+| FORM-05 | Phase 5 | Pending |
+| VALD-01 | Phase 5 | Pending |
+| VALD-02 | Phase 5 | Pending |
+| VALD-03 | Phase 5 | Pending |
+| CTXT-01 | Phase 6 | Pending |
+| CTXT-02 | Phase 5 | Pending |
+| CTA-01 | Phase 7 | Pending |
+| CTA-02 | Phase 7 | Pending |
+| CTA-03 | Phase 7 | Pending |
+| CTA-04 | Phase 7 | Pending |
+| CTA-05 | Phase 7 | Pending |
+| CTA-06 | Phase 7 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 16 total
-- Mapped to phases: 0
-- Unmapped: 16 ⚠️
+- Mapped to phases: 16
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-25*
-*Last updated: 2026-03-25 after initial definition*
+*Last updated: 2026-03-25 after roadmap phase mapping*
