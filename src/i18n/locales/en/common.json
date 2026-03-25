@@ -109,6 +109,45 @@
       }
     }
   },
+  "caseStudies": {
+    "badge": "Our Projects",
+    "heading": "Real Projects We've Built and Shipped.",
+    "viewProject": "View Project",
+    "cases": {
+      "0": {
+        "description": "For a Bulgarian gift shop, we built a full e-commerce platform with Supabase backend, resulting in a complete digital storefront ready for launch.",
+        "highlight1": "full e-commerce",
+        "highlight2": "ready for launch"
+      },
+      "1": {
+        "description": "For our own agency, we developed an affiliate portal with commission tracking, multi-tier rewards, and bilingual support for partner management.",
+        "highlight1": "affiliate portal",
+        "highlight2": "multi-tier rewards"
+      },
+      "2": {
+        "description": "We created an AI-powered business audit tool that generates comprehensive reports with niche-specific scoring across multiple industries.",
+        "highlight1": "AI-powered",
+        "highlight2": "niche-specific scoring"
+      }
+    }
+  },
+  "serviceDetail": {
+    "illustration": {
+      "roiTracked": "ROI Tracked",
+      "leads": "10.5k Leads",
+      "rankFirst": "Rank #1"
+    },
+    "labels": {
+      "seo": "SEO Services",
+      "ecommerce": "E-Commerce",
+      "ai": "AI & Automation"
+    }
+  },
+  "notFound": {
+    "heading": "404",
+    "message": "Page not found",
+    "backHome": "Back to Home"
+  },
   "marquee": {
     "0": "Web Development",
     "1": "E-Commerce",

@@ -1,4 +1,5 @@
 import { CheckCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import type { LucideIcon } from 'lucide-react'
 
@@ -23,6 +24,7 @@ export function ServiceDetail({
   ctaText,
   variant,
 }: ServiceDetailProps) {
+  const { t } = useTranslation()
   const isReversed = variant === 'right-boxed'
   const wrapperClass = variant === 'right-boxed'
     ? 'bg-zinc-100 rounded-[50px] my-10 border-x-4 border-b-4 border-black brutalist-shadow-static'
@@ -59,7 +61,7 @@ export function ServiceDetail({
               </div>
               <div className="w-full h-[40%] bg-[#B9FF66] border-4 border-black rounded-xl p-4 flex items-center justify-between">
                 <span className="text-2xl font-black uppercase tracking-tighter">
-                  {variant === 'right-boxed' ? 'ROI Tracked' : variant === 'left-lime' ? '10.5k Leads' : 'Rank #1'}
+                  {variant === 'right-boxed' ? t('serviceDetail.illustration.roiTracked') : variant === 'left-lime' ? t('serviceDetail.illustration.leads') : t('serviceDetail.illustration.rankFirst')}
                 </span>
                 <Icon size={36} />
               </div>

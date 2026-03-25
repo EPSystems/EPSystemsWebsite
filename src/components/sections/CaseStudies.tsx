@@ -1,34 +1,25 @@
 import { ArrowUpRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import { scrollToSection } from '../../utils/scroll'
 
-const cases = [
-  {
-    description: 'For a Bulgarian gift shop, we built a full e-commerce platform with Supabase backend, resulting in a complete digital storefront ready for launch.',
-    highlight1: 'full e-commerce',
-    highlight2: 'ready for launch',
-  },
-  {
-    description: 'For our own agency, we developed an affiliate portal with commission tracking, multi-tier rewards, and bilingual support for partner management.',
-    highlight1: 'affiliate portal',
-    highlight2: 'multi-tier rewards',
-  },
-  {
-    description: 'We created an AI-powered business audit tool that generates comprehensive reports with niche-specific scoring across multiple industries.',
-    highlight1: 'AI-powered',
-    highlight2: 'niche-specific scoring',
-  },
-]
-
 export function CaseStudies() {
+  const { t } = useTranslation()
+
+  const cases = [0, 1, 2].map((i) => ({
+    description: t(`caseStudies.cases.${i}.description`),
+    highlight1: t(`caseStudies.cases.${i}.highlight1`),
+    highlight2: t(`caseStudies.cases.${i}.highlight2`),
+  }))
+
   return (
     <section id="case-studies" className="max-w-7xl mx-auto px-6 py-20 border-t-4 border-black border-dashed">
       <AnimatedSection className="mb-16 max-w-3xl">
         <div className="inline-block bg-white text-black font-bold px-4 py-2 border-2 border-black rounded-lg mb-6 transform rotate-2 brutalist-shadow">
-          Our Projects
+          {t('caseStudies.badge')}
         </div>
         <h2 className="text-4xl lg:text-5xl font-black tracking-tighter leading-tight">
-          Real Projects We've Built and Shipped.
+          {t('caseStudies.heading')}
         </h2>
       </AnimatedSection>
 
@@ -65,7 +56,7 @@ export function CaseStudies() {
               onClick={() => scrollToSection('contact')}
               className="flex items-center gap-3 text-[#B9FF66] text-xl font-bold group"
             >
-              View Project
+              {t('caseStudies.viewProject')}
               <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
