@@ -28,12 +28,12 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 
 ### CTA Conversion
 
-- [ ] **CTA-01**: All mailto links removed from the entire site
-- [ ] **CTA-02**: Homepage CTA section button opens contact form
-- [ ] **CTA-03**: All 4 service page CTA buttons open service-specific contact forms
-- [ ] **CTA-04**: Hero "Contact us" button opens contact form
-- [ ] **CTA-05**: Navbar "Get Started" button opens contact form
-- [ ] **CTA-06**: Footer contact CTA opens contact form
+- [x] **CTA-01**: All mailto links removed from the entire site
+- [x] **CTA-02**: Homepage CTA section button opens contact form
+- [x] **CTA-03**: All 4 service page CTA buttons open service-specific contact forms
+- [x] **CTA-04**: Hero "Contact us" button opens contact form
+- [x] **CTA-05**: Navbar "Get Started" button opens contact form
+- [x] **CTA-06**: Footer contact CTA opens contact form
 
 ## Future Requirements
 
@@ -64,12 +64,12 @@ Requirements for CTA forms milestone. Each maps to roadmap phases.
 | VALD-03 | Phase 5 | Complete |
 | CTXT-01 | Phase 6 | Complete |
 | CTXT-02 | Phase 5 | Complete |
-| CTA-01 | Phase 7 | Pending |
-| CTA-02 | Phase 7 | Pending |
-| CTA-03 | Phase 7 | Pending |
-| CTA-04 | Phase 7 | Pending |
-| CTA-05 | Phase 7 | Pending |
-| CTA-06 | Phase 7 | Pending |
+| CTA-01 | Phase 7 | Complete |
+| CTA-02 | Phase 7 | Complete |
+| CTA-03 | Phase 7 | Complete |
+| CTA-04 | Phase 7 | Complete |
+| CTA-05 | Phase 7 | Complete |
+| CTA-06 | Phase 7 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 16 total

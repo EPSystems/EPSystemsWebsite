@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: CTA Forms
 status: unknown
-last_updated: "2026-03-25T15:34:51.635Z"
+last_updated: "2026-03-25T19:04:27.325Z"
 progress:
-  total_phases: 2
-  completed_phases: 2
-  total_plans: 3
-  completed_plans: 3
+  total_phases: 3
+  completed_phases: 3
+  total_plans: 4
+  completed_plans: 4
 ---
 
 # Project State
@@ -22,19 +22,19 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 
 ## Current Position
 
-Phase: 6 of 7 (Form UI and States)
+Phase: 7 of 7 (CTA Conversion)
 Plan: 1 of 1 in current phase (COMPLETE)
-Status: Phase 6 complete
-Last activity: 2026-03-25 — Completed 06-01 per-context form headings/descriptions and state verification
+Status: Phase 7 complete -- v1.1 CTA Forms milestone complete
+Last activity: 2026-03-25 — Completed 07-01 CTA conversion wiring
 
-Progress: [████████████] 100% (12/12 plans complete)
+Progress: [█████████████] 100% (13/13 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 2.7min
-- Total execution time: 0.5 hours
+- Total plans completed: 12
+- Average duration: 2.8min
+- Total execution time: 0.6 hours
 
 **By Phase:**
 
@@ -48,7 +48,10 @@ Progress: [████████████] 100% (12/12 plans complete)
 | 06-form-ui-and-states | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (3min), 04-03 (5min), 05-01 (2min), 05-02 (2min), 06-01 (3min)
+| 07-cta-conversion | 1 | 3min | 3min |
+
+**Recent Trend:**
+- Last 5 plans: 04-03 (5min), 05-01 (2min), 05-02 (2min), 06-01 (3min), 07-01 (3min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -70,6 +73,7 @@ Recent decisions affecting current work:
 - [05-02]: Error state shows inline banner above submit with retry button
 - [06-01]: Flat context key lookup for per-context form copy instead of generic interpolation
 - [06-01]: Kept existing contactForm.heading/services keys for backward compatibility
+- [Phase 07]: Kept scrollToSection in Hero/Navbar/Footer for non-contact navigation; removed from CaseStudies
 
 ### Pending Todos
 
@@ -84,5 +88,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-25
-Stopped at: Completed 06-01-PLAN.md
+Stopped at: Completed 07-01-PLAN.md
 Resume file: None
