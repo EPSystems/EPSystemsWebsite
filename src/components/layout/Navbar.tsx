@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { scrollToSection } from '../../utils/scroll'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -9,19 +9,34 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { lang } = useParams<{ lang: string }>()
   const { t } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const homePath = `/${lang || 'en'}/`
+  const isHomePage = location.pathname === homePath || location.pathname === `/${lang || 'en'}`
 
   const handleScroll = (sectionId: string) => {
-    scrollToSection(sectionId)
+    if (isHomePage) {
+      scrollToSection(sectionId)
+    } else {
+      navigate(homePath)
+      setTimeout(() => scrollToSection(sectionId), 100)
+    }
   }
 
   const handleMobileScroll = (sectionId: string) => {
     setMobileOpen(false)
-    scrollToSection(sectionId)
+    if (isHomePage) {
+      scrollToSection(sectionId)
+    } else {
+      navigate(homePath)
+      setTimeout(() => scrollToSection(sectionId), 100)
+    }
   }
 
   return (
     <nav className="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center relative z-50">
-      <Link to={`/${lang || 'en'}/`} className="flex items-center gap-2">
+      <Link to={homePath} className="flex items-center gap-2">
         <span className="text-4xl font-bold tracking-tighter">
           E&P Systems
         </span>

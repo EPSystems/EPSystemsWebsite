@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import { scrollToSection } from '../../utils/scroll'
@@ -7,6 +7,20 @@ import { scrollToSection } from '../../utils/scroll'
 export function Footer() {
   const { lang } = useParams<{ lang: string }>()
   const { t } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const homePath = `/${lang || 'en'}/`
+  const isHomePage = location.pathname === homePath || location.pathname === `/${lang || 'en'}`
+
+  const handleScroll = (sectionId: string) => {
+    if (isHomePage) {
+      scrollToSection(sectionId)
+    } else {
+      navigate(homePath)
+      setTimeout(() => scrollToSection(sectionId), 100)
+    }
+  }
 
   return (
     <footer className="bg-black pt-20 pb-10" id="footer">
@@ -53,9 +67,9 @@ export function Footer() {
                     {t('footer.sitemap')}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><Link to={`/${lang || 'en'}/`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.home')}</Link></li>
-                    <li><button onClick={() => scrollToSection('services')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.services')}</button></li>
-                    <li><button onClick={() => scrollToSection('case-studies')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.projects')}</button></li>
+                    <li><Link to={homePath} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.home')}</Link></li>
+                    <li><button onClick={() => handleScroll('services')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.services')}</button></li>
+                    <li><button onClick={() => handleScroll('case-studies')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.projects')}</button></li>
                   </ul>
                 </div>
 
@@ -64,9 +78,9 @@ export function Footer() {
                     {t('footer.servicesColumn')}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><button onClick={() => scrollToSection('seo')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.seo')}</button></li>
-                    <li><button onClick={() => scrollToSection('ecommerce')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.ecommerce')}</button></li>
-                    <li><button onClick={() => scrollToSection('ai')} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.aiAutomation')}</button></li>
+                    <li><Link to={`/${lang || 'en'}/services/seo`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.seo')}</Link></li>
+                    <li><Link to={`/${lang || 'en'}/services/ecommerce`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.ecommerce')}</Link></li>
+                    <li><Link to={`/${lang || 'en'}/services/ai`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.aiAutomation')}</Link></li>
                   </ul>
                 </div>
 

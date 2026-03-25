@@ -1,9 +1,16 @@
 import { ArrowUpRight, Target, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useServices } from '../../hooks/useServices'
 import { AnimatedSection } from '../ui/AnimatedSection'
-import { scrollToSection } from '../../utils/scroll'
+
+const SERVICE_SLUGS: Record<string, string> = {
+  seo: 'seo',
+  ecommerce: 'ecommerce',
+  ai: 'ai',
+  software: 'software',
+}
 
 const variantStyles = {
   light: {
@@ -28,6 +35,7 @@ const variantStyles = {
 
 export function Services() {
   const { t } = useTranslation()
+  const { lang } = useParams<{ lang: string }>()
   const services = useServices()
 
   return (
@@ -56,7 +64,7 @@ export function Services() {
         {services.map((service, i) => {
           const styles = variantStyles[service.variant]
           const Icon = service.icon
-          const hasDetail = Boolean(service.detailHeadline)
+          const hasPage = Boolean(SERVICE_SLUGS[service.id])
           return (
             <motion.div
               key={service.id}
@@ -72,16 +80,16 @@ export function Services() {
                   {service.title}<br />{service.titleBreak}
                 </h3>
               </div>
-              {hasDetail && (
-                <button
-                  onClick={() => scrollToSection(service.id)}
+              {hasPage && (
+                <Link
+                  to={`/${lang || 'en'}/services/${SERVICE_SLUGS[service.id]}`}
                   className={`flex items-center gap-4 text-xl font-bold mt-auto ${styles.text}`}
                 >
                   <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>
                     <ArrowUpRight size={24} />
                   </div>
                   {t('services.learnMore')}
-                </button>
+                </Link>
               )}
             </motion.div>
           )
