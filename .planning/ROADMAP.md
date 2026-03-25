@@ -75,11 +75,12 @@ Plans:
   2. Service pages display full descriptions, features, and relevant content in both English and Bulgarian
   3. User can view a team section with member profiles, roles, and bios in both languages
   4. Navigation between service pages, team section, and homepage is seamless with consistent header/footer
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Rename "Custom Websites" to "Custom Software" site-wide, add all bilingual content for 4 service pages and team section
+- [ ] 04-02-PLAN.md — Create ServicePage template with 4 section components, register routes, update navigation (homepage, navbar, footer)
+- [ ] 04-03-PLAN.md — Add Team section component to homepage, human-verify all Phase 4 deliverables
 
 ## Progress
 
@@ -91,4 +92,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 1. Router Foundation | 2/2 | Complete    | 2026-03-24 |
 | 2. i18n Infrastructure | 2/2 | Complete    | 2026-03-25 |
 | 3. Full Content Translation | 2/2 | Complete    | 2026-03-25 |
-| 4. New Pages and Content | 0/0 | Not started | - |
+| 4. New Pages and Content | 0/3 | Not started | - |
