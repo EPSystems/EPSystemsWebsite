@@ -343,6 +343,28 @@
       "heading": "Something went wrong",
       "description": "Please try again or reach out directly.",
       "retry": "Try Again"
+    },
+    "contexts": {
+      "general": {
+        "heading": "Get in Touch",
+        "description": "Tell us about your project and we'll get back to you within 24 hours."
+      },
+      "seo": {
+        "heading": "Ready to Rank Higher?",
+        "description": "Tell us about your SEO goals and we'll show you the opportunities."
+      },
+      "ecommerce": {
+        "heading": "Ready to Sell Online?",
+        "description": "Tell us about your store vision and we'll bring it to life."
+      },
+      "ai": {
+        "heading": "Ready to Work Smarter?",
+        "description": "Tell us which processes you want to automate."
+      },
+      "software": {
+        "heading": "Have a Project in Mind?",
+        "description": "Tell us about your idea and we'll help you build it."
+      }
     }
   },
   "team": {

@@ -34,12 +34,10 @@ export function ContactModal() {
 
   if (!isOpen) return null
 
-  const heading =
-    context?.subject && context.subject !== 'general'
-      ? t('contactForm.heading.service', {
-          service: t('contactForm.services.' + context.subject),
-        })
-      : t('contactForm.heading.general')
+  const subject = context?.subject || 'general'
+  const contextKey = subject === 'general' ? 'general' : subject
+  const heading = t(`contactForm.contexts.${contextKey}.heading`)
+  const description = t(`contactForm.contexts.${contextKey}.description`)
 
   const inputClass = (hasError: boolean) =>
     `w-full border-2 rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] ${
@@ -94,7 +92,8 @@ export function ContactModal() {
           <X size={24} strokeWidth={3} />
         </button>
 
-        <h2 className="text-2xl lg:text-3xl font-black mb-6">{heading}</h2>
+        <h2 className="text-2xl lg:text-3xl font-black mb-2">{heading}</h2>
+        <p className="text-gray-600 mb-6">{description}</p>
 
         <form
           noValidate
