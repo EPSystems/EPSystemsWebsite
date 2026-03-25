@@ -6,6 +6,7 @@ import { Hero } from '../components/sections/Hero'
 import { Marquee } from '../components/sections/Marquee'
 import { Services } from '../components/sections/Services'
 import { CaseStudies } from '../components/sections/CaseStudies'
+import { Team } from '../components/sections/Team'
 import { CTA } from '../components/sections/CTA'
 
 export function HomePage() {
@@ -18,8 +19,9 @@ export function HomePage() {
       <Hero />
       <Marquee />
       <Services />
-      <CTA />
       <CaseStudies />
+      <Team />
+      <CTA />
       <Footer />
     </>
   )
