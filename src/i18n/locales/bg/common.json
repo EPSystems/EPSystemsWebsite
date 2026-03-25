@@ -310,6 +310,41 @@
       }
     }
   },
+  "contactForm": {
+    "heading": {
+      "general": "Свържете се с нас",
+      "service": "Интересувате се от {{service}}?"
+    },
+    "services": {
+      "seo": "SEO оптимизация",
+      "ecommerce": "Електронна търговия",
+      "ai": "AI и автоматизация",
+      "software": "Софтуер по поръчка"
+    },
+    "fields": {
+      "name": { "label": "Вашето име", "placeholder": "Иван Иванов" },
+      "email": { "label": "Имейл", "placeholder": "ivan@example.com" },
+      "phone": { "label": "Телефон (по избор)", "placeholder": "+359..." },
+      "notes": { "label": "Разкажете ни за вашия проект", "placeholder": "Опишете от какво имате нужда..." }
+    },
+    "validation": {
+      "nameRequired": "Моля, въведете име",
+      "emailRequired": "Моля, въведете имейл",
+      "emailInvalid": "Моля, въведете валиден имейл адрес"
+    },
+    "submit": "Изпратете съобщение",
+    "submitting": "Изпращане...",
+    "success": {
+      "heading": "Съобщението е изпратено!",
+      "description": "Ще се свържем с вас до 24 часа.",
+      "close": "Затвори"
+    },
+    "error": {
+      "heading": "Нещо се обърка",
+      "description": "Моля, опитайте отново или се свържете директно с нас.",
+      "retry": "Опитайте отново"
+    }
+  },
   "team": {
     "badge": "Нашият екип",
     "heading": "Хората зад E&P Systems",

@@ -310,6 +310,41 @@
       }
     }
   },
+  "contactForm": {
+    "heading": {
+      "general": "Get in Touch",
+      "service": "Interested in {{service}}?"
+    },
+    "services": {
+      "seo": "SEO",
+      "ecommerce": "E-Commerce",
+      "ai": "AI & Automation",
+      "software": "Custom Software"
+    },
+    "fields": {
+      "name": { "label": "Your Name", "placeholder": "John Doe" },
+      "email": { "label": "Email", "placeholder": "john@example.com" },
+      "phone": { "label": "Phone (optional)", "placeholder": "+359..." },
+      "notes": { "label": "Tell us about your project", "placeholder": "Describe what you need..." }
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": {
+      "heading": "Message Sent!",
+      "description": "We'll get back to you within 24 hours.",
+      "close": "Close"
+    },
+    "error": {
+      "heading": "Something went wrong",
+      "description": "Please try again or reach out directly.",
+      "retry": "Try Again"
+    }
+  },
   "team": {
     "badge": "Our Team",
     "heading": "The People Behind E&P Systems",
