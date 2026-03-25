@@ -65,10 +65,10 @@ Plans:
   3. All 4 service page CTA buttons open service-specific contact forms with correct subject context
   4. Hero "Contact us", Navbar "Get Started", and Footer contact CTA all open the contact form
   5. No email addresses appear in client-side source code
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: TBD
+- [ ] 07-01-PLAN.md — Wire all CTAs to openContactForm, remove mailto links and email addresses from source
 
 ## Progress
 
@@ -83,4 +83,4 @@ Phases execute in numeric order: 5 -> 6 -> 7
 | 4. New Pages and Content | v1.0 | 3/3 | Complete | 2026-03-25 |
 | 5. Form Infrastructure | v1.1 | Complete    | 2026-03-25 | - |
 | 6. Form UI and States | v1.1 | Complete    | 2026-03-25 | 2026-03-25 |
-| 7. CTA Conversion | v1.1 | 0/? | Not started | - |
+| 7. CTA Conversion | v1.1 | 0/1 | Not started | - |
