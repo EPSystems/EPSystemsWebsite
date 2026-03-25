@@ -1,4 +1,5 @@
 import { createContext, useState, useCallback, type ReactNode } from 'react'
+import { ContactModal } from './ContactModal'
 
 export interface FormContext {
   subject: string
@@ -34,6 +35,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
       value={{ isOpen, context, openContactForm, closeContactForm }}
     >
       {children}
+      <ContactModal />
     </ContactModalContext.Provider>
   )
 }
