@@ -1,17 +1,38 @@
-/* TODO: Replace with real client logos and names */
 import { useTranslation } from 'react-i18next'
 
-const LOGO_KEYS = ['0', '1', '2', '3', '4', '5'] as const
+interface Partner {
+  key: string
+  logo?: string
+}
+
+const PARTNERS: Partner[] = [
+  { key: '0', logo: '/partners/discipline.png' },
+  { key: '1' },
+  { key: '2' },
+  { key: '3' },
+  { key: '4' },
+  { key: '5' },
+]
 
 export function TrustedBy() {
   const { t } = useTranslation()
 
-  const logos = LOGO_KEYS.map((key) => (
+  const logos = PARTNERS.map(({ key, logo }) => (
     <div
       key={key}
-      className="w-40 h-14 flex-shrink-0 bg-white/5 border border-[#B9FF66]/20 rounded-lg flex items-center justify-center text-zinc-500 font-bold text-sm"
+      className="w-72 h-32 flex-shrink-0 bg-white/5 border border-[#B9FF66]/20 rounded-lg flex items-center justify-center"
     >
-      {t(`trustedBy.logos.${key}`)}
+      {logo ? (
+        <img
+          src={logo}
+          alt={t(`trustedBy.logos.${key}`)}
+          className="h-full w-auto object-contain p-1"
+        />
+      ) : (
+        <span className="text-zinc-500 font-bold text-sm">
+          {t(`trustedBy.logos.${key}`)}
+        </span>
+      )}
     </div>
   ))
 
