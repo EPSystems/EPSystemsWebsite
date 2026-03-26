@@ -512,6 +512,172 @@
           }
         }
       }
+    },
+    "landing": {
+      "meta": {
+        "title": "Landing Pages - E&P Systems",
+        "description": "High-converting landing pages designed to capture leads, drive action, and maximize your ad spend ROI."
+      },
+      "hero": {
+        "badge": "Landing Pages",
+        "heading": "Pages That Convert",
+        "subheading": "Purpose-built landing pages designed to turn ad clicks into leads, sign-ups, and sales - fast, focused, and optimized for results."
+      },
+      "features": {
+        "heading": "What We Deliver",
+        "items": {
+          "0": {
+            "title": "Conversion-First Design",
+            "description": "Every element is placed with intent - compelling headlines, clear CTAs, and layouts proven to drive action."
+          },
+          "1": {
+            "title": "A/B Testing Ready",
+            "description": "Built-in support for split testing headlines, CTAs, and layouts so you can continuously improve performance."
+          },
+          "2": {
+            "title": "Lead Capture & Forms",
+            "description": "Smart forms with validation, multi-step flows, and direct integration with your CRM or email platform."
+          },
+          "3": {
+            "title": "Analytics Integration",
+            "description": "Google Analytics, Meta Pixel, and conversion tracking set up from day one so you know exactly what's working."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Brief",
+            "description": "We define your campaign goal, target audience, and key messaging."
+          },
+          "1": {
+            "title": "Design",
+            "description": "We create a high-impact layout optimized for your specific conversion goal."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop the page with blazing-fast load times and pixel-perfect responsiveness."
+          },
+          "3": {
+            "title": "Launch",
+            "description": "We deploy with tracking in place and provide optimization recommendations."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Launch Your Campaign?",
+        "description": "Get a landing page that turns your ad budget into measurable results.",
+        "button": "Get a Landing Page"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "How fast can you deliver a landing page?",
+            "a": "Most landing pages are delivered in 5–10 business days, depending on complexity and content readiness."
+          },
+          "1": {
+            "q": "Do you write the copy too?",
+            "a": "Yes, we offer copywriting as part of the package. We craft persuasive, conversion-focused copy tailored to your audience."
+          },
+          "2": {
+            "q": "Can I run A/B tests?",
+            "a": "Absolutely. We build pages with A/B testing in mind so you can test different headlines, images, and CTAs to maximize conversions."
+          },
+          "3": {
+            "q": "Will it work with my ad campaigns?",
+            "a": "Yes. We integrate with Google Ads, Meta Ads, LinkedIn, and any other platform. Tracking pixels and UTM parameters are set up from the start."
+          },
+          "4": {
+            "q": "What platform do you build on?",
+            "a": "We build custom pages with React for maximum performance, or use platforms like WordPress or Webflow if that better fits your workflow."
+          }
+        }
+      }
+    },
+    "maintenance": {
+      "meta": {
+        "title": "Maintenance & Support - E&P Systems",
+        "description": "Ongoing website maintenance, security updates, performance monitoring, and dedicated technical support."
+      },
+      "hero": {
+        "badge": "Maintenance & Support",
+        "heading": "Keep Your Site Running Smoothly",
+        "subheading": "Proactive maintenance, security updates, and dedicated support so your website stays fast, secure, and always online."
+      },
+      "features": {
+        "heading": "What's Included",
+        "items": {
+          "0": {
+            "title": "Security Updates",
+            "description": "Regular patching of frameworks, plugins, and dependencies to keep your site protected against vulnerabilities."
+          },
+          "1": {
+            "title": "Performance Monitoring",
+            "description": "24/7 uptime monitoring, load time tracking, and proactive alerts so issues are caught before your users notice."
+          },
+          "2": {
+            "title": "Content & Feature Updates",
+            "description": "Need a new section, updated pricing, or a seasonal banner? We handle content changes and minor feature additions."
+          },
+          "3": {
+            "title": "Backup & Recovery",
+            "description": "Automated daily backups with tested recovery procedures, so your data is always safe and restorable."
+          }
+        }
+      },
+      "process": {
+        "heading": "How It Works",
+        "steps": {
+          "0": {
+            "title": "Audit",
+            "description": "We assess your current site's health, security, and performance baseline."
+          },
+          "1": {
+            "title": "Plan",
+            "description": "We create a tailored maintenance schedule based on your site's needs."
+          },
+          "2": {
+            "title": "Maintain",
+            "description": "We handle updates, fixes, and improvements on a regular cadence."
+          },
+          "3": {
+            "title": "Report",
+            "description": "You receive monthly reports on uptime, performance, and work completed."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Want Peace of Mind?",
+        "description": "Let us handle the technical upkeep so you can focus on growing your business.",
+        "button": "Get a Maintenance Plan"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "What does a maintenance plan include?",
+            "a": "Our plans cover security updates, performance monitoring, backups, content changes, and priority support. We tailor each plan to your site's needs."
+          },
+          "1": {
+            "q": "How much does maintenance cost?",
+            "a": "Plans start from €99/month. The exact cost depends on your site's complexity and the level of support you need."
+          },
+          "2": {
+            "q": "Do I need maintenance if my site is new?",
+            "a": "Yes. Even new sites need regular updates, security patches, and monitoring. Proactive maintenance prevents costly emergency fixes down the line."
+          },
+          "3": {
+            "q": "How quickly do you respond to issues?",
+            "a": "Critical issues are addressed within 4 hours during business hours. Non-critical requests are handled within 24–48 hours."
+          },
+          "4": {
+            "q": "Can I cancel anytime?",
+            "a": "Yes, our maintenance plans are month-to-month with no long-term commitment. You can cancel or change your plan at any time."
+          }
+        }
+      }
     }
   },
   "contactForm": {
@@ -523,7 +689,9 @@
       "seo": "SEO",
       "ecommerce": "E-Commerce",
       "ai": "AI & Automation",
-      "software": "Custom Software"
+      "software": "Custom Software",
+      "landing": "Landing Pages",
+      "maintenance": "Maintenance & Support"
     },
     "fields": {
       "name": { "label": "Your Name", "placeholder": "John Doe" },

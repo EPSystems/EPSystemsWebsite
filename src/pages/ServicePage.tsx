@@ -9,7 +9,7 @@ import { ServiceProcess } from '../components/sections/ServiceProcess'
 import { ServiceFAQ } from '../components/sections/ServiceFAQ'
 import { ServiceCTA } from '../components/sections/ServiceCTA'
 
-const VALID_SLUGS = ['seo', 'ecommerce', 'ai', 'software'] as const
+const VALID_SLUGS = ['seo', 'ecommerce', 'ai', 'software', 'landing', 'maintenance'] as const
 type ValidSlug = (typeof VALID_SLUGS)[number]
 
 function isValidSlug(slug: string): slug is ValidSlug {

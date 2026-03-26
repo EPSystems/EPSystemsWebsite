@@ -14,8 +14,8 @@ const services = [
   { key: 'ecommerce', icon: ShoppingCart, href: 'ecommerce', enabled: true },
   { key: 'seo', icon: Search, href: 'seo', enabled: true },
   { key: 'ai', icon: Bot, href: 'ai', enabled: true },
-  { key: 'landing', icon: FileText, href: '', enabled: false },
-  { key: 'maintenance', icon: Wrench, href: '', enabled: false },
+  { key: 'landing', icon: FileText, href: 'landing', enabled: true },
+  { key: 'maintenance', icon: Wrench, href: 'maintenance', enabled: true },
 ] as const
 
 const differentiators = [
