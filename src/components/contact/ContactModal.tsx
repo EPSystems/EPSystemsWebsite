@@ -241,9 +241,8 @@ export function ContactModal() {
               : t('contactForm.submit')}
           </button>
 
-          {/* [REPLACE: Set your Calendly URL below] */}
           <a
-            href="https://calendly.com/[REPLACE-WITH-YOUR-CALENDLY-SLUG]/30min"
+            href="https://www.cal.eu/epsystems"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full mt-3 block text-center border-4 border-black rounded-xl py-3 font-black text-lg hover:bg-zinc-100 transition-colors"

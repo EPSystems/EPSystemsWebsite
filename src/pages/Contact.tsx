@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useLanguageSync } from '../hooks/useLanguageSync'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { Navbar } from '../components/layout/Navbar'
@@ -68,16 +68,6 @@ export function Contact() {
   const selectClass =
     'w-full border-2 border-black rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] bg-white appearance-none'
 
-  // Load Calendly widget script
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
 
   const contactInfo = [
     { icon: Mail, labelKey: 'contactPage.info.email', value: 'hello@epsystems.bg', href: 'mailto:hello@epsystems.bg' },
@@ -335,9 +325,8 @@ export function Contact() {
                   <p className="text-zinc-400 font-bold mb-6">
                     {t('contactPage.bookCall.description')}
                   </p>
-                  {/* [REPLACE: Set your Calendly URL below] */}
                   <a
-                    href="https://calendly.com/[REPLACE-WITH-YOUR-CALENDLY-SLUG]/30min"
+                    href="https://www.cal.eu/epsystems"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-[#B9FF66] border-4 border-[#B9FF66] hover:bg-white hover:border-white text-black px-8 py-3 rounded-xl text-lg font-black transition-colors duration-300 tracking-tighter"
@@ -351,19 +340,23 @@ export function Contact() {
         </div>
       </section>
 
-      {/* Calendly Embed */}
-      {/* [REPLACE: Set your Calendly URL in the data-url attribute below] */}
+      {/* Book a Call Embed */}
       <section className="py-16 bg-zinc-100">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
             <h2 className="text-3xl lg:text-4xl font-black tracking-tighter text-center mb-8">
               {t('contactPage.calendly.heading', { defaultValue: 'Or book a free 30-minute call' })}
             </h2>
-            <div
-              className="calendly-inline-widget rounded-[30px] overflow-hidden border-4 border-black"
-              data-url="https://calendly.com/[REPLACE-WITH-YOUR-CALENDLY-SLUG]/30min"
-              style={{ minWidth: '320px', height: '700px' }}
-            />
+            <div className="text-center">
+              <a
+                href="https://www.cal.eu/epsystems"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#B9FF66] border-4 border-black text-black px-10 py-4 rounded-xl text-xl font-black transition-colors duration-300 tracking-tighter hover:bg-white"
+              >
+                {t('contactPage.bookCall.button', { defaultValue: 'Book a Call' })}
+              </a>
+            </div>
           </AnimatedSection>
         </div>
       </section>
