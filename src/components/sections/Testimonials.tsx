@@ -3,7 +3,7 @@ import { Star } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
-const TESTIMONIAL_KEYS = ['0', '1', '2', '3', '4'] as const
+const TESTIMONIAL_KEYS = ['0', '1', '2'] as const
 
 export function Testimonials() {
   const { t } = useTranslation()

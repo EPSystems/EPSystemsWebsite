@@ -1144,34 +1144,22 @@
     "heading": "What Our Clients Say",
     "items": {
       "0": {
-        "initials": "JD",
-        "name": "[REPLACE WITH REAL]",
-        "company": "[REPLACE WITH REAL]",
-        "quote": "E&P Systems completely transformed our online presence. Our organic traffic doubled in 3 months."
+        "initials": "SB",
+        "name": "Silvia Bostandzhieva",
+        "company": "Law Firm Owner",
+        "quote": "E&P Systems built a professional, polished website for our law firm with an automated contact form that sends inquiries straight to our email. The whole process was smooth, fast, and hassle-free. Highly recommend!"
       },
       "1": {
-        "initials": "AS",
-        "name": "[REPLACE WITH REAL]",
-        "company": "[REPLACE WITH REAL]",
-        "quote": "Professional, fast, and transparent. Exactly what I needed for my e-commerce store."
+        "initials": "ER",
+        "name": "Emran Raykov",
+        "company": "Owner, InfinityStore",
+        "quote": "They built a fully customized e-commerce store tailored to my brand. Clean design, smooth checkout, and everything works exactly how I wanted. E&P Systems delivered beyond my expectations."
       },
       "2": {
-        "initials": "MK",
-        "name": "[REPLACE WITH REAL]",
-        "company": "[REPLACE WITH REAL]",
-        "quote": "The AI automation they built saves our team 10 hours per week. Incredible ROI."
-      },
-      "3": {
-        "initials": "NP",
-        "name": "[REPLACE WITH REAL]",
-        "company": "[REPLACE WITH REAL]",
-        "quote": "Best investment we made. The website now generates leads on autopilot."
-      },
-      "4": {
-        "initials": "VT",
-        "name": "[REPLACE WITH REAL]",
-        "company": "[REPLACE WITH REAL]",
-        "quote": "They built our site in Bulgarian AND English. Our international inquiries went up immediately."
+        "initials": "VL",
+        "name": "Velizar Letkov",
+        "company": "Insurance Agent",
+        "quote": "E&P Systems built InsurancePro for me - a custom internal tool that manages all my insurance data and sends automatic SMS reminders to clients. It completely streamlined my workflow and my clients love the timely notifications."
       }
     }
   },
