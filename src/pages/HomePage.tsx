@@ -8,6 +8,8 @@ import { Services } from '../components/sections/Services'
 import { CaseStudies } from '../components/sections/CaseStudies'
 import { Team } from '../components/sections/Team'
 import { CTA } from '../components/sections/CTA'
+import { Testimonials } from '../components/sections/Testimonials'
+import { TrustedBy } from '../components/sections/TrustedBy'
 
 export function HomePage() {
   useLanguageSync()
@@ -19,6 +21,8 @@ export function HomePage() {
       <Hero />
       <Marquee />
       <Services />
+      <Testimonials />
+      <TrustedBy />
       <CaseStudies />
       <Team />
       <CTA />

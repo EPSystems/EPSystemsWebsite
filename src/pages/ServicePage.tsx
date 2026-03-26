@@ -6,6 +6,7 @@ import { Footer } from '../components/layout/Footer'
 import { ServiceHero } from '../components/sections/ServiceHero'
 import { ServiceFeatures } from '../components/sections/ServiceFeatures'
 import { ServiceProcess } from '../components/sections/ServiceProcess'
+import { ServiceFAQ } from '../components/sections/ServiceFAQ'
 import { ServiceCTA } from '../components/sections/ServiceCTA'
 
 const VALID_SLUGS = ['seo', 'ecommerce', 'ai', 'software'] as const
@@ -32,6 +33,7 @@ export function ServicePage() {
       <ServiceHero slug={slug} />
       <ServiceFeatures slug={slug} />
       <ServiceProcess slug={slug} />
+      <ServiceFAQ slug={slug} />
       <ServiceCTA slug={slug} />
       <Footer />
     </>

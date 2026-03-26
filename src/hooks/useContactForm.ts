@@ -6,18 +6,21 @@ interface FormFields {
   name: string
   email: string
   phone: string
+  service: string
+  budget: string
   notes: string
 }
 
 interface FormErrors {
   name: string
   email: string
+  notes: string
 }
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
-const initialFields: FormFields = { name: '', email: '', phone: '', notes: '' }
-const initialErrors: FormErrors = { name: '', email: '' }
+const initialFields: FormFields = { name: '', email: '', phone: '', service: '', budget: '', notes: '' }
+const initialErrors: FormErrors = { name: '', email: '', notes: '' }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -38,7 +41,7 @@ export function useContactForm(formContext: FormContext | null) {
   )
 
   const validate = useCallback((): boolean => {
-    const newErrors: FormErrors = { name: '', email: '' }
+    const newErrors: FormErrors = { name: '', email: '', notes: '' }
     let valid = true
 
     if (!fields.name.trim()) {
@@ -51,6 +54,11 @@ export function useContactForm(formContext: FormContext | null) {
       valid = false
     } else if (!EMAIL_REGEX.test(fields.email)) {
       newErrors.email = t('contactForm.validation.emailInvalid')
+      valid = false
+    }
+
+    if (!fields.notes.trim()) {
+      newErrors.notes = t('contactForm.validation.notesRequired')
       valid = false
     }
 
@@ -77,6 +85,8 @@ export function useContactForm(formContext: FormContext | null) {
           name: fields.name,
           email: fields.email,
           phone: fields.phone || undefined,
+          service_interest: fields.service || undefined,
+          budget_range: fields.budget || undefined,
           message: fields.notes,
           subject,
           from_name: 'E&P Systems Website',
@@ -88,6 +98,7 @@ export function useContactForm(formContext: FormContext | null) {
 
       if (response.ok && data.success) {
         setStatus('success')
+        setFields(initialFields)
       } else {
         setStatus('error')
       }

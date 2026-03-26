@@ -44,6 +44,9 @@ export function ContactModal() {
       hasError ? 'border-red-500' : 'border-black'
     }`
 
+  const selectClass =
+    'w-full border-2 border-black rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] bg-white appearance-none'
+
   if (status === 'success') {
     return createPortal(
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -104,7 +107,7 @@ export function ContactModal() {
         >
           <div className="mb-4">
             <label className="block text-sm font-bold mb-1">
-              {t('contactForm.fields.name.label')}
+              {t('contactForm.fields.name.label')} *
             </label>
             <input
               type="text"
@@ -120,7 +123,7 @@ export function ContactModal() {
 
           <div className="mb-4">
             <label className="block text-sm font-bold mb-1">
-              {t('contactForm.fields.email.label')}
+              {t('contactForm.fields.email.label')} *
             </label>
             <input
               type="email"
@@ -149,15 +152,56 @@ export function ContactModal() {
 
           <div className="mb-4">
             <label className="block text-sm font-bold mb-1">
-              {t('contactForm.fields.notes.label')}
+              {t('contactForm.fields.service.label')}
+            </label>
+            <select
+              value={fields.service}
+              onChange={(e) => updateField('service', e.target.value)}
+              className={selectClass}
+            >
+              <option value="">{t('contactForm.fields.service.placeholder')}</option>
+              <option value="web-development">{t('contactForm.fields.service.options.webDev')}</option>
+              <option value="ecommerce">{t('contactForm.fields.service.options.ecommerce')}</option>
+              <option value="seo">{t('contactForm.fields.service.options.seo')}</option>
+              <option value="ai-automation">{t('contactForm.fields.service.options.ai')}</option>
+              <option value="landing-page">{t('contactForm.fields.service.options.landing')}</option>
+              <option value="maintenance">{t('contactForm.fields.service.options.maintenance')}</option>
+              <option value="other">{t('contactForm.fields.service.options.other')}</option>
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold mb-1">
+              {t('contactForm.fields.budget.label')}
+            </label>
+            <select
+              value={fields.budget}
+              onChange={(e) => updateField('budget', e.target.value)}
+              className={selectClass}
+            >
+              <option value="">{t('contactForm.fields.budget.placeholder')}</option>
+              <option value="under-500">{t('contactForm.fields.budget.options.under500')}</option>
+              <option value="500-1500">{t('contactForm.fields.budget.options.500to1500')}</option>
+              <option value="1500-5000">{t('contactForm.fields.budget.options.1500to5000')}</option>
+              <option value="5000-plus">{t('contactForm.fields.budget.options.5000plus')}</option>
+              <option value="not-sure">{t('contactForm.fields.budget.options.notSure')}</option>
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold mb-1">
+              {t('contactForm.fields.notes.label')} *
             </label>
             <textarea
               rows={4}
               placeholder={t('contactForm.fields.notes.placeholder')}
               value={fields.notes}
               onChange={(e) => updateField('notes', e.target.value)}
-              className={inputClass(false)}
+              className={inputClass(!!errors.notes)}
             />
+            {errors.notes && (
+              <p className="text-red-500 text-sm mt-1">{errors.notes}</p>
+            )}
           </div>
 
           <input
@@ -196,6 +240,16 @@ export function ContactModal() {
               ? t('contactForm.submitting')
               : t('contactForm.submit')}
           </button>
+
+          {/* [REPLACE: Set your Calendly URL below] */}
+          <a
+            href="https://calendly.com/[REPLACE-WITH-YOUR-CALENDLY-SLUG]/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full mt-3 block text-center border-4 border-black rounded-xl py-3 font-black text-lg hover:bg-zinc-100 transition-colors"
+          >
+            {t('contactPage.bookCall.button', { defaultValue: 'Book a Call' })}
+          </a>
         </form>
       </div>
     </div>,
