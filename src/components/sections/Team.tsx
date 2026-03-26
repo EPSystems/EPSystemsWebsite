@@ -9,6 +9,11 @@ const INITIALS: Record<string, string> = {
   member3: 'MD',
 }
 
+const PHOTOS: Record<string, string> = {
+  member1: '/team/emil.png',
+  member3: '/team/emi.jpg',
+}
+
 export function Team() {
   const { t } = useTranslation()
 
@@ -32,9 +37,18 @@ export function Team() {
               viewport={{ once: true, margin: '-20%' }}
               transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
             >
-              {/* [REPLACE: Upload real headshot for each team member] */}
-              <div className="w-[120px] h-[120px] mx-auto mb-6 bg-gray-800 border-2 border-[#B9FF66] rounded-none flex items-center justify-center">
-                <span className="text-[#B9FF66] text-3xl font-black">{INITIALS[member.id] || '??'}</span>
+              <div className="w-[160px] h-[160px] mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#B9FF66]">
+                {PHOTOS[member.id] ? (
+                  <img
+                    src={PHOTOS[member.id]}
+                    alt={t(`team.members.${member.id}.name`)}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                    <span className="text-[#B9FF66] text-3xl font-black">{INITIALS[member.id] || '??'}</span>
+                  </div>
+                )}
               </div>
               <div className="flex items-center justify-center gap-2 mb-1">
                 <h3 className="text-2xl font-black tracking-tighter">
