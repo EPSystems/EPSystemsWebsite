@@ -1199,32 +1199,32 @@
     "services": {
       "webDev": {
         "starter": {
-          "price": "From €499",
+          "price": "From €199",
           "features": {
             "0": "Single-page website",
             "1": "Fully responsive design",
             "2": "Contact form integration",
             "3": "Basic SEO setup",
-            "4": "2 weeks delivery"
+            "4": "1 weeks delivery"
           }
         },
         "growth": {
-          "price": "From €1,299",
+          "price": "From €449",
           "features": {
             "0": "Up to 5 pages",
             "1": "Content management system",
             "2": "Smooth animations",
             "3": "Analytics integration",
-            "4": "4 weeks delivery"
+            "4": "3 weeks delivery"
           }
         },
         "pro": {
-          "price": "From €2,999",
+          "price": "From €549",
           "features": {
             "0": "Custom multi-page website",
             "1": "Bilingual support (EN/BG)",
             "2": "Advanced animations & interactions",
-            "3": "1 month post-launch support",
+            "3": "Monthly post-launch support",
             "4": "Performance optimization"
           }
         }
@@ -1261,7 +1261,7 @@
       },
       "ecommerce": {
         "starter": {
-          "price": "From €799",
+          "price": "From €199",
           "features": {
             "0": "Up to 50 products",
             "1": "Shopify or WooCommerce",
@@ -1269,7 +1269,7 @@
           }
         },
         "growth": {
-          "price": "From €1,999",
+          "price": "From €499",
           "features": {
             "0": "Up to 500 products",
             "1": "Custom storefront design",
@@ -1279,7 +1279,7 @@
           }
         },
         "pro": {
-          "price": "From €3,999",
+          "price": "From €599",
           "features": {
             "0": "Custom e-commerce platform",
             "1": "Advanced automation workflows",
@@ -1291,7 +1291,7 @@
       },
       "ai": {
         "starter": {
-          "price": "€399 + €99/mo",
+          "price": "€199 + €19/mo",
           "features": {
             "0": "1 automation workflow",
             "1": "AI chatbot setup",
@@ -1299,9 +1299,9 @@
           }
         },
         "growth": {
-          "price": "€799 + €199/mo",
+          "price": "€499 + €49/mo",
           "features": {
-            "0": "Up to 3 automation workflows",
+            "0": "Up to 5 automation workflows",
             "1": "CRM integration",
             "2": "Weekly performance reports"
           }
