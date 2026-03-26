@@ -1,29 +1,29 @@
 export interface BlogPost {
-  slug: string
-  category: string
-  date: string
-  readTime: string
-  title: { en: string; bg: string }
-  excerpt: { en: string; bg: string }
-  content: { en: string; bg: string }
+  slug: string;
+  category: string;
+  date: string;
+  readTime: string;
+  title: { en: string; bg: string };
+  excerpt: { en: string; bg: string };
+  content: { en: string; bg: string };
 }
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'how-much-does-a-website-cost-in-bulgaria',
-    category: 'web-development',
-    date: '2026-03-20',
-    readTime: '8',
+    slug: "how-much-does-a-website-cost-in-bulgaria",
+    category: "web-development",
+    date: "2026-03-20",
+    readTime: "8",
     title: {
-      en: 'How Much Does a Website Cost in Bulgaria in 2026?',
-      bg: 'Колко струва уебсайт в България през 2026?',
+      en: "How Much Does a Website Cost in Bulgaria in 2026?",
+      bg: "Колко струва уебсайт в България през 2026?",
     },
     excerpt: {
-      en: 'A transparent breakdown of website pricing in Bulgaria — from simple landing pages to complex e-commerce platforms. Learn what affects cost and how to evaluate quotes.',
-      bg: 'Прозрачен преглед на цените за уебсайтове в България — от прости лендинг страници до сложни онлайн магазини. Научете какво влияе на цената и как да оцените офертите.',
+      en: "A transparent breakdown of website pricing in Bulgaria - from simple landing pages to complex e-commerce platforms. Learn what affects cost and how to evaluate quotes.",
+      bg: "Прозрачен преглед на цените за уебсайтове в България - от прости лендинг страници до сложни онлайн магазини. Научете какво влияе на цената и как да оцените офертите.",
     },
     content: {
-      en: `<p>If you're a business owner in Bulgaria looking to build a new website or redesign an existing one, the first question on your mind is likely: <strong>how much will it cost?</strong> The honest answer is that it depends — but that doesn't mean you should walk into the process blind. This guide breaks down realistic pricing for different types of websites in Bulgaria in 2026, so you can budget properly and avoid overpaying.</p>
+      en: `<p>If you're a business owner in Bulgaria looking to build a new website or redesign an existing one, the first question on your mind is likely: <strong>how much will it cost?</strong> The honest answer is that it depends - but that doesn't mean you should walk into the process blind. This guide breaks down realistic pricing for different types of websites in Bulgaria in 2026, so you can budget properly and avoid overpaying.</p>
 
 <h2>Website Types and Price Ranges</h2>
 
@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
 
 <ul>
 <li><strong>Simple Landing Page (1-3 pages):</strong> €300 – €800. Ideal for promoting a single product, service, or event. Includes responsive design, a contact form, and basic SEO setup.</li>
-<li><strong>Business Website (5-15 pages):</strong> €800 – €2,500. A standard company website with multiple pages — about, services, portfolio, contact. Often includes a blog section and basic analytics integration.</li>
+<li><strong>Business Website (5-15 pages):</strong> €800 – €2,500. A standard company website with multiple pages - about, services, portfolio, contact. Often includes a blog section and basic analytics integration.</li>
 <li><strong>E-Commerce Store:</strong> €2,000 – €8,000+. An online store with product catalog, shopping cart, secure payment processing, inventory management, and order tracking. Price depends heavily on the number of products and required integrations.</li>
 <li><strong>Custom Web Application:</strong> €5,000 – €25,000+. A tailored software solution such as a booking platform, client portal, or internal business tool. These require extensive planning, custom logic, and often API integrations.</li>
 </ul>
@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
 <p>Every additional feature adds development time. Common features that increase cost include: user authentication, payment processing, booking systems, multilingual support, third-party API integrations, content management systems, and admin dashboards.</p>
 
 <h3>3. Content Creation</h3>
-<p>Many agencies quote only for design and development — content (copywriting, photography, video) is often an add-on. Professional copywriting for a 10-page site can add €300–€800 to the total. High-quality product photography for an e-commerce store can add even more.</p>
+<p>Many agencies quote only for design and development - content (copywriting, photography, video) is often an add-on. Professional copywriting for a 10-page site can add €300–€800 to the total. High-quality product photography for an e-commerce store can add even more.</p>
 
 <h3>4. SEO and Performance</h3>
 <p>A website that nobody can find on Google is a wasted investment. Basic on-page SEO should be included in any reputable agency's quote. However, ongoing SEO work, keyword research, and content strategy are typically separate services billed monthly.</p>
@@ -86,7 +86,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>It's tempting to go with the lowest quote, but cheap websites often cost more in the long run. Here's why:</p>
 
-<p>A poorly built website loads slowly, ranks poorly on Google, and frustrates potential customers. Within a year, most businesses with cheap websites end up paying for a complete rebuild — effectively paying twice. A €500 website that generates zero leads is infinitely more expensive than a €2,000 website that brings in consistent business.</p>
+<p>A poorly built website loads slowly, ranks poorly on Google, and frustrates potential customers. Within a year, most businesses with cheap websites end up paying for a complete rebuild - effectively paying twice. A €500 website that generates zero leads is infinitely more expensive than a €2,000 website that brings in consistent business.</p>
 
 <p>The right investment depends on your business goals. A local bakery doesn't need the same website as a nationwide e-commerce brand. The key is to match the investment to the expected return.</p>
 
@@ -94,9 +94,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>At E&P Systems, we provide detailed, itemized proposals with no hidden fees. Every quote includes a clear scope, timeline, and technology breakdown so you know exactly what you're paying for. Whether you need a simple business site or a complex e-commerce platform, we'll help you find the right solution for your budget.</p>
 
-<p><strong>Get your free consultation today</strong> — tell us about your project and we'll send you a no-obligation proposal within 48 hours.</p>`,
+<p><strong>Get your free consultation today</strong> - tell us about your project and we'll send you a no-obligation proposal within 48 hours.</p>`,
 
-      bg: `<p>Ако сте собственик на бизнес в България и искате да създадете нов уебсайт или да преработите съществуващ, първият въпрос е: <strong>колко ще струва?</strong> Честният отговор е, че зависи — но това не означава, че трябва да влизате в процеса на сляпо. Това ръководство разбива реалистичните цени за различни видове уебсайтове в България през 2026 г., за да можете да бюджетирате правилно и да избегнете надплащане.</p>
+      bg: `<p>Ако сте собственик на бизнес в България и искате да създадете нов уебсайт или да преработите съществуващ, първият въпрос е: <strong>колко ще струва?</strong> Честният отговор е, че зависи - но това не означава, че трябва да влизате в процеса на сляпо. Това ръководство разбива реалистичните цени за различни видове уебсайтове в България през 2026 г., за да можете да бюджетирате правилно и да избегнете надплащане.</p>
 
 <h2>Видове уебсайтове и ценови диапазони</h2>
 
@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
 
 <ul>
 <li><strong>Проста лендинг страница (1-3 страници):</strong> €300 – €800. Идеална за промотиране на единичен продукт, услуга или събитие. Включва респонсив дизайн, контактна форма и базова SEO настройка.</li>
-<li><strong>Бизнес уебсайт (5-15 страници):</strong> €800 – €2 500. Стандартен фирмен уебсайт с множество страници — за нас, услуги, портфолио, контакт. Често включва блог секция и базова интеграция на аналитика.</li>
+<li><strong>Бизнес уебсайт (5-15 страници):</strong> €800 – €2 500. Стандартен фирмен уебсайт с множество страници - за нас, услуги, портфолио, контакт. Често включва блог секция и базова интеграция на аналитика.</li>
 <li><strong>Онлайн магазин:</strong> €2 000 – €8 000+. Онлайн магазин с каталог продукти, количка, сигурно обработване на плащания, управление на инвентара и проследяване на поръчки. Цената зависи силно от броя продукти и необходимите интеграции.</li>
 <li><strong>Персонализирано уеб приложение:</strong> €5 000 – €25 000+. Решение по поръчка като платформа за резервации, клиентски портал или вътрешен бизнес инструмент. Изискват обширно планиране, персонализирана логика и често API интеграции.</li>
 </ul>
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
 <p>Всяка допълнителна функция добавя време за разработка. Често срещани функции, които увеличават цената, включват: автентикация на потребители, обработка на плащания, системи за резервации, многоезична поддръжка, интеграции с API на трети страни, системи за управление на съдържание и администраторски панели.</p>
 
 <h3>3. Създаване на съдържание</h3>
-<p>Много агенции предлагат оферта само за дизайн и разработка — съдържанието (копирайтинг, фотография, видео) често е допълнение. Професионалният копирайтинг за сайт от 10 страници може да добави €300–€800 към общата сума. Висококачествената продуктова фотография за онлайн магазин може да добави още повече.</p>
+<p>Много агенции предлагат оферта само за дизайн и разработка - съдържанието (копирайтинг, фотография, видео) често е допълнение. Професионалният копирайтинг за сайт от 10 страници може да добави €300–€800 към общата сума. Висококачествената продуктова фотография за онлайн магазин може да добави още повече.</p>
 
 <h3>4. SEO и производителност</h3>
 <p>Уебсайт, който никой не може да намери в Google, е пропиляна инвестиция. Базовото on-page SEO трябва да бъде включено в офертата на всяка уважаваща себе си агенция. Въпреки това текущата SEO работа, проучването на ключови думи и стратегията за съдържание обикновено са отделни услуги, таксувани месечно.</p>
@@ -159,7 +159,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Изкушаващо е да изберете най-ниската оферта, но евтините уебсайтове често струват повече в дългосрочен план. Ето защо:</p>
 
-<p>Лошо изграден уебсайт се зарежда бавно, класира се ниско в Google и фрустрира потенциалните клиенти. В рамките на една година повечето бизнеси с евтини уебсайтове плащат за пълна преработка — на практика плащат два пъти. Уебсайт за €500, който генерира нула запитвания, е безкрайно по-скъп от уебсайт за €2 000, който носи постоянен бизнес.</p>
+<p>Лошо изграден уебсайт се зарежда бавно, класира се ниско в Google и фрустрира потенциалните клиенти. В рамките на една година повечето бизнеси с евтини уебсайтове плащат за пълна преработка - на практика плащат два пъти. Уебсайт за €500, който генерира нула запитвания, е безкрайно по-скъп от уебсайт за €2 000, който носи постоянен бизнес.</p>
 
 <p>Правилната инвестиция зависи от бизнес целите ви. Местна пекарна не се нуждае от същия уебсайт като национален бранд за електронна търговия. Ключът е да съобразите инвестицията с очакваната възвръщаемост.</p>
 
@@ -167,28 +167,28 @@ export const blogPosts: BlogPost[] = [
 
 <p>В E&P Systems предоставяме подробни, детайлизирани предложения без скрити такси. Всяка оферта включва ясен обхват, срокове и технологично описание, за да знаете точно за какво плащате. Независимо дали имате нужда от прост бизнес сайт или сложна платформа за електронна търговия, ще ви помогнем да намерите правилното решение за вашия бюджет.</p>
 
-<p><strong>Вземете безплатната си консултация днес</strong> — разкажете ни за проекта си и ще ви изпратим предложение без обвързване в рамките на 48 часа.</p>`,
+<p><strong>Вземете безплатната си консултация днес</strong> - разкажете ни за проекта си и ще ви изпратим предложение без обвързване в рамките на 48 часа.</p>`,
     },
   },
   {
-    slug: 'seo-tips-small-businesses-bulgaria',
-    category: 'seo',
-    date: '2026-03-15',
-    readTime: '7',
+    slug: "seo-tips-small-businesses-bulgaria",
+    category: "seo",
+    date: "2026-03-15",
+    readTime: "7",
     title: {
-      en: '5 SEO Quick Wins for Small Bulgarian Businesses in 2026',
-      bg: '5 бързи SEO победи за малки български бизнеси през 2026',
+      en: "5 SEO Quick Wins for Small Bulgarian Businesses in 2026",
+      bg: "5 бързи SEO победи за малки български бизнеси през 2026",
     },
     excerpt: {
-      en: 'Practical, actionable SEO tips that small businesses in Bulgaria can implement today to improve their Google visibility — no technical expertise required.',
-      bg: 'Практични SEO съвети, които малките бизнеси в България могат да приложат днес, за да подобрят видимостта си в Google — без нужда от технически познания.',
+      en: "Practical, actionable SEO tips that small businesses in Bulgaria can implement today to improve their Google visibility - no technical expertise required.",
+      bg: "Практични SEO съвети, които малките бизнеси в България могат да приложат днес, за да подобрят видимостта си в Google - без нужда от технически познания.",
     },
     content: {
       en: `<p>Search engine optimization might sound like something only big companies with big budgets can afford. But the truth is, some of the most impactful SEO improvements are completely free and take less than an hour to implement. If you run a small business in Bulgaria, these five quick wins can significantly improve how customers find you online.</p>
 
 <h2>1. Claim and Optimize Your Google Business Profile</h2>
 
-<p>This is the single most important thing a local business can do for online visibility. Your Google Business Profile (formerly Google My Business) is what shows up in Google Maps and in the local pack — that box of three businesses that appears at the top of local search results.</p>
+<p>This is the single most important thing a local business can do for online visibility. Your Google Business Profile (formerly Google My Business) is what shows up in Google Maps and in the local pack - that box of three businesses that appears at the top of local search results.</p>
 
 <p>Here's how to make the most of it:</p>
 
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Fill out every field completely.</strong> Business name, address, phone number, website, hours of operation, business category, and business description. Google rewards complete profiles with better visibility.</li>
 <li><strong>Add high-quality photos.</strong> Businesses with photos receive 42% more requests for directions and 35% more click-throughs to their websites. Upload photos of your storefront, products, team, and interior.</li>
 <li><strong>Post regular updates.</strong> Google Business Profile has a "Posts" feature similar to social media. Use it to share news, offers, and events at least once a week.</li>
-<li><strong>Choose the right categories.</strong> Select your primary category carefully — it has the biggest impact on what searches you appear in. Add all relevant secondary categories as well.</li>
+<li><strong>Choose the right categories.</strong> Select your primary category carefully - it has the biggest impact on what searches you appear in. Add all relevant secondary categories as well.</li>
 </ul>
 
 <h2>2. Build a Steady Stream of Google Reviews</h2>
@@ -215,7 +215,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>3. Target Bulgarian Long-Tail Keywords</h2>
 
-<p>Most small businesses make the mistake of trying to rank for broad, competitive terms like "ресторант София" (restaurant Sofia). Instead, focus on long-tail keywords — longer, more specific phrases that your actual customers are searching for.</p>
+<p>Most small businesses make the mistake of trying to rank for broad, competitive terms like "ресторант София" (restaurant Sofia). Instead, focus on long-tail keywords - longer, more specific phrases that your actual customers are searching for.</p>
 
 <p>Examples of effective long-tail keywords:</p>
 
@@ -231,7 +231,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>4. Fix Your Mobile Speed and Core Web Vitals</h2>
 
-<p>Over 65% of Google searches in Bulgaria happen on mobile devices. If your website loads slowly on a phone, you're losing both customers and search rankings. Google has made page experience — measured through Core Web Vitals — a confirmed ranking factor.</p>
+<p>Over 65% of Google searches in Bulgaria happen on mobile devices. If your website loads slowly on a phone, you're losing both customers and search rankings. Google has made page experience - measured through Core Web Vitals - a confirmed ranking factor.</p>
 
 <p>Here's what to check and fix:</p>
 
@@ -257,15 +257,15 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Start Small, Win Big</h2>
 
-<p>You don't need to do everything at once. Start with your Google Business Profile — it takes 30 minutes and has the biggest immediate impact for local businesses. Then work through the other tips over the coming weeks.</p>
+<p>You don't need to do everything at once. Start with your Google Business Profile - it takes 30 minutes and has the biggest immediate impact for local businesses. Then work through the other tips over the coming weeks.</p>
 
-<p>If you want a professional assessment of your current SEO performance, <strong>E&P Systems offers a free SEO audit</strong> for Bulgarian businesses. We'll analyze your website, identify the biggest opportunities, and give you a prioritized action plan — no strings attached.</p>`,
+<p>If you want a professional assessment of your current SEO performance, <strong>E&P Systems offers a free SEO audit</strong> for Bulgarian businesses. We'll analyze your website, identify the biggest opportunities, and give you a prioritized action plan - no strings attached.</p>`,
 
       bg: `<p>Оптимизацията за търсачки може да звучи като нещо, което само големи компании с големи бюджети могат да си позволят. Но истината е, че някои от най-въздействащите SEO подобрения са напълно безплатни и отнемат по-малко от час за прилагане. Ако управлявате малък бизнес в България, тези пет бързи победи могат значително да подобрят начина, по който клиентите ви намират онлайн.</p>
 
 <h2>1. Заявете и оптимизирайте профила си в Google Business</h2>
 
-<p>Това е най-важното нещо, което местен бизнес може да направи за онлайн видимостта си. Вашият Google Business профил (бивш Google My Business) е това, което се показва в Google Maps и в локалния пакет — кутията с три бизнеса, която се появява в горната част на локалните резултати от търсенето.</p>
+<p>Това е най-важното нещо, което местен бизнес може да направи за онлайн видимостта си. Вашият Google Business профил (бивш Google My Business) е това, което се показва в Google Maps и в локалния пакет - кутията с три бизнеса, която се появява в горната част на локалните резултати от търсенето.</p>
 
 <p>Ето как да извлечете максимума от него:</p>
 
@@ -274,7 +274,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Попълнете всяко поле изцяло.</strong> Име на бизнеса, адрес, телефонен номер, уебсайт, работно време, категория на бизнеса и описание. Google награждава пълните профили с по-добра видимост.</li>
 <li><strong>Добавете висококачествени снимки.</strong> Бизнеси със снимки получават 42% повече заявки за упътвания и 35% повече кликове към уебсайтовете си. Качете снимки на фасадата, продуктите, екипа и интериора си.</li>
 <li><strong>Публикувайте редовни актуализации.</strong> Google Business профилът има функция "Публикации", подобна на социалните мрежи. Използвайте я, за да споделяте новини, оферти и събития поне веднъж седмично.</li>
-<li><strong>Изберете правилните категории.</strong> Подберете основната си категория внимателно — тя има най-голямо влияние върху търсенията, в които се появявате. Добавете и всички релевантни вторични категории.</li>
+<li><strong>Изберете правилните категории.</strong> Подберете основната си категория внимателно - тя има най-голямо влияние върху търсенията, в които се появявате. Добавете и всички релевантни вторични категории.</li>
 </ul>
 
 <h2>2. Изградете постоянен поток от ревюта в Google</h2>
@@ -292,7 +292,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>3. Насочете се към български дълги ключови фрази</h2>
 
-<p>Повечето малки бизнеси допускат грешката да се опитват да се класират за широки, конкурентни термини като "ресторант София". Вместо това, фокусирайте се върху дълги ключови фрази — по-дълги, по-специфични фрази, които истинските ви клиенти търсят.</p>
+<p>Повечето малки бизнеси допускат грешката да се опитват да се класират за широки, конкурентни термини като "ресторант София". Вместо това, фокусирайте се върху дълги ключови фрази - по-дълги, по-специфични фрази, които истинските ви клиенти търсят.</p>
 
 <p>Примери за ефективни дълги ключови фрази:</p>
 
@@ -308,7 +308,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>4. Оправете мобилната скорост и Core Web Vitals</h2>
 
-<p>Над 65% от търсенията в Google в България се случват на мобилни устройства. Ако уебсайтът ви се зарежда бавно на телефон, губите и клиенти, и позиции в търсенията. Google направи Page Experience — измерван чрез Core Web Vitals — потвърден фактор за класиране.</p>
+<p>Над 65% от търсенията в Google в България се случват на мобилни устройства. Ако уебсайтът ви се зарежда бавно на телефон, губите и клиенти, и позиции в търсенията. Google направи Page Experience - измерван чрез Core Web Vitals - потвърден фактор за класиране.</p>
 
 <p>Ето какво да проверите и оправите:</p>
 
@@ -334,47 +334,47 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Започнете малко, спечелете много</h2>
 
-<p>Не е нужно да правите всичко наведнъж. Започнете с Google Business профила си — отнема 30 минути и има най-голямо незабавно въздействие за местните бизнеси. След това работете по останалите съвети през следващите седмици.</p>
+<p>Не е нужно да правите всичко наведнъж. Започнете с Google Business профила си - отнема 30 минути и има най-голямо незабавно въздействие за местните бизнеси. След това работете по останалите съвети през следващите седмици.</p>
 
-<p>Ако искате професионална оценка на текущата ви SEO производителност, <strong>E&P Systems предлага безплатен SEO одит</strong> за български бизнеси. Ще анализираме уебсайта ви, ще идентифицираме най-големите възможности и ще ви дадем приоритизиран план за действие — без обвързване.</p>`,
+<p>Ако искате професионална оценка на текущата ви SEO производителност, <strong>E&P Systems предлага безплатен SEO одит</strong> за български бизнеси. Ще анализираме уебсайта ви, ще идентифицираме най-големите възможности и ще ви дадем приоритизиран план за действие - без обвързване.</p>`,
     },
   },
   {
-    slug: 'what-is-ai-automation-small-business',
-    category: 'ai',
-    date: '2026-03-10',
-    readTime: '7',
+    slug: "what-is-ai-automation-small-business",
+    category: "ai",
+    date: "2026-03-10",
+    readTime: "7",
     title: {
-      en: 'What Is AI Automation and How Can It Help Your Small Business?',
-      bg: 'Какво е AI автоматизация и как може да помогне на вашия малък бизнес?',
+      en: "What Is AI Automation and How Can It Help Your Small Business?",
+      bg: "Какво е AI автоматизация и как може да помогне на вашия малък бизнес?",
     },
     excerpt: {
-      en: 'A plain-language guide to AI automation for small business owners — what it actually is, real-world examples, and how to get started without a huge budget.',
-      bg: 'Разбираемо ръководство за AI автоматизация за собственици на малки бизнеси — какво е всъщност, реални примери и как да започнете без огромен бюджет.',
+      en: "A plain-language guide to AI automation for small business owners - what it actually is, real-world examples, and how to get started without a huge budget.",
+      bg: "Разбираемо ръководство за AI автоматизация за собственици на малки бизнеси - какво е всъщност, реални примери и как да започнете без огромен бюджет.",
     },
     content: {
-      en: `<p>Artificial intelligence and automation are everywhere in the news, but most of the coverage focuses on big tech companies and enterprise solutions. If you own a small business, you might be wondering: <strong>is AI actually relevant to me?</strong> The short answer is yes — and it's more affordable and accessible than you think.</p>
+      en: `<p>Artificial intelligence and automation are everywhere in the news, but most of the coverage focuses on big tech companies and enterprise solutions. If you own a small business, you might be wondering: <strong>is AI actually relevant to me?</strong> The short answer is yes - and it's more affordable and accessible than you think.</p>
 
 <h2>What Is AI Automation, in Plain Language?</h2>
 
 <p>At its core, AI automation means using software to handle tasks that would normally require human time and attention. It's the combination of two things:</p>
 
 <ul>
-<li><strong>Automation:</strong> Setting up processes that run on their own — like automatically sending a confirmation email when someone fills out a form, or syncing data between two systems without manual copy-pasting.</li>
+<li><strong>Automation:</strong> Setting up processes that run on their own - like automatically sending a confirmation email when someone fills out a form, or syncing data between two systems without manual copy-pasting.</li>
 <li><strong>Artificial Intelligence:</strong> Adding a layer of "smart" decision-making. Instead of following rigid rules, AI can understand context, interpret natural language, recognize patterns, and make judgment calls. Think of it as the difference between a thermostat (automation) and a system that learns your temperature preferences and adjusts based on weather forecasts (AI automation).</li>
 </ul>
 
-<p>When you combine the two, you get systems that can handle complex, variable tasks without constant human oversight — like a chatbot that genuinely understands customer questions and provides helpful answers, or a system that reads incoming emails and routes them to the right person based on content and urgency.</p>
+<p>When you combine the two, you get systems that can handle complex, variable tasks without constant human oversight - like a chatbot that genuinely understands customer questions and provides helpful answers, or a system that reads incoming emails and routes them to the right person based on content and urgency.</p>
 
 <h2>Real Examples for Small Businesses</h2>
 
 <p>AI automation isn't just for Silicon Valley startups. Here are practical examples that small businesses in Bulgaria are using right now:</p>
 
 <h3>Customer Service Chatbot</h3>
-<p>An AI chatbot on your website can answer frequently asked questions 24 hours a day, 7 days a week. It handles the repetitive questions — "What are your hours?", "Do you deliver to Plovdiv?", "How much does service X cost?" — while routing complex inquiries to your team. A well-trained chatbot can handle 60-80% of incoming customer queries without human intervention.</p>
+<p>An AI chatbot on your website can answer frequently asked questions 24 hours a day, 7 days a week. It handles the repetitive questions - "What are your hours?", "Do you deliver to Plovdiv?", "How much does service X cost?" - while routing complex inquiries to your team. A well-trained chatbot can handle 60-80% of incoming customer queries without human intervention.</p>
 
 <h3>Automated Appointment Booking</h3>
-<p>If your business relies on appointments — a dental clinic, a hair salon, a consulting firm — an AI-powered booking system eliminates the back-and-forth of scheduling. Customers book online, receive automatic confirmations and reminders, and the system manages your calendar to avoid double-bookings and optimize time slots.</p>
+<p>If your business relies on appointments - a dental clinic, a hair salon, a consulting firm - an AI-powered booking system eliminates the back-and-forth of scheduling. Customers book online, receive automatic confirmations and reminders, and the system manages your calendar to avoid double-bookings and optimize time slots.</p>
 
 <h3>Invoice and Document Processing</h3>
 <p>AI tools can read incoming invoices, extract key information (amounts, dates, vendor names), and enter it into your accounting system automatically. What used to take an accountant 2 hours of manual data entry per week can be done in minutes with near-perfect accuracy.</p>
@@ -416,32 +416,32 @@ export const blogPosts: BlogPost[] = [
 
 <p>The best way to explore AI automation for your business is to have a conversation with someone who understands both the technology and your type of business. A good partner will help you identify where AI can have the biggest impact, recommend the right tools, and implement solutions that fit your budget.</p>
 
-<p>At E&P Systems, we specialize in AI automation for small and medium businesses in Bulgaria. We offer a <strong>free consultation</strong> where we'll review your current processes, identify automation opportunities, and give you a realistic plan with clear pricing — no jargon, no pressure. Whether you need a simple chatbot or a comprehensive workflow automation, we'll help you find the right starting point.</p>
+<p>At E&P Systems, we specialize in AI automation for small and medium businesses in Bulgaria. We offer a <strong>free consultation</strong> where we'll review your current processes, identify automation opportunities, and give you a realistic plan with clear pricing - no jargon, no pressure. Whether you need a simple chatbot or a comprehensive workflow automation, we'll help you find the right starting point.</p>
 
 <p><strong>Book your free consultation today</strong> and discover how AI can give your small business a competitive edge.</p>`,
 
-      bg: `<p>Изкуственият интелект и автоматизацията са навсякъде в новините, но повечето публикации се фокусират върху големи технологични компании и корпоративни решения. Ако притежавате малък бизнес, може би се питате: <strong>AI наистина ли е релевантен за мен?</strong> Краткият отговор е да — и е по-достъпен, отколкото си мислите.</p>
+      bg: `<p>Изкуственият интелект и автоматизацията са навсякъде в новините, но повечето публикации се фокусират върху големи технологични компании и корпоративни решения. Ако притежавате малък бизнес, може би се питате: <strong>AI наистина ли е релевантен за мен?</strong> Краткият отговор е да - и е по-достъпен, отколкото си мислите.</p>
 
 <h2>Какво е AI автоматизация, казано на прост език?</h2>
 
 <p>По същество AI автоматизацията означава използване на софтуер за справяне с задачи, които обикновено изискват човешко време и внимание. Това е комбинация от две неща:</p>
 
 <ul>
-<li><strong>Автоматизация:</strong> Настройване на процеси, които работят сами — като автоматично изпращане на имейл за потвърждение, когато някой попълни формуляр, или синхронизиране на данни между две системи без ръчно копиране.</li>
+<li><strong>Автоматизация:</strong> Настройване на процеси, които работят сами - като автоматично изпращане на имейл за потвърждение, когато някой попълни формуляр, или синхронизиране на данни между две системи без ръчно копиране.</li>
 <li><strong>Изкуствен интелект:</strong> Добавяне на слой "интелигентно" вземане на решения. Вместо да следва строги правила, AI може да разбира контекст, да интерпретира естествен език, да разпознава модели и да взема решения. Представете си разликата между термостат (автоматизация) и система, която научава температурните ви предпочитания и се настройва спрямо прогнозата за времето (AI автоматизация).</li>
 </ul>
 
-<p>Когато комбинирате двете, получавате системи, които могат да се справят със сложни, променливи задачи без постоянен човешки надзор — като чатбот, който наистина разбира въпросите на клиентите и предоставя полезни отговори, или система, която чете входящи имейли и ги насочва към правилния човек въз основа на съдържание и спешност.</p>
+<p>Когато комбинирате двете, получавате системи, които могат да се справят със сложни, променливи задачи без постоянен човешки надзор - като чатбот, който наистина разбира въпросите на клиентите и предоставя полезни отговори, или система, която чете входящи имейли и ги насочва към правилния човек въз основа на съдържание и спешност.</p>
 
 <h2>Реални примери за малки бизнеси</h2>
 
 <p>AI автоматизацията не е само за стартъпи от Силициевата долина. Ето практически примери, които малки бизнеси в България използват точно сега:</p>
 
 <h3>Чатбот за обслужване на клиенти</h3>
-<p>AI чатбот на уебсайта ви може да отговаря на често задавани въпроси 24 часа в денонощието, 7 дни в седмицата. Той обработва повтарящите се въпроси — "Какво е работното ви време?", "Доставяте ли до Пловдив?", "Колко струва услуга X?" — докато насочва сложните запитвания към екипа ви. Добре обучен чатбот може да обработи 60-80% от входящите клиентски запитвания без човешка намеса.</p>
+<p>AI чатбот на уебсайта ви може да отговаря на често задавани въпроси 24 часа в денонощието, 7 дни в седмицата. Той обработва повтарящите се въпроси - "Какво е работното ви време?", "Доставяте ли до Пловдив?", "Колко струва услуга X?" - докато насочва сложните запитвания към екипа ви. Добре обучен чатбот може да обработи 60-80% от входящите клиентски запитвания без човешка намеса.</p>
 
 <h3>Автоматизирано записване на часове</h3>
-<p>Ако бизнесът ви разчита на срещи — дентална клиника, фризьорски салон, консултантска фирма — AI-задвижвана система за записване елиминира комуникацията за насрочване. Клиентите записват онлайн, получават автоматични потвърждения и напомняния, а системата управлява календара ви, за да избегне двойни записвания и да оптимизира времевите интервали.</p>
+<p>Ако бизнесът ви разчита на срещи - дентална клиника, фризьорски салон, консултантска фирма - AI-задвижвана система за записване елиминира комуникацията за насрочване. Клиентите записват онлайн, получават автоматични потвърждения и напомняния, а системата управлява календара ви, за да избегне двойни записвания и да оптимизира времевите интервали.</p>
 
 <h3>Обработка на фактури и документи</h3>
 <p>AI инструменти могат да четат входящи фактури, да извличат ключова информация (суми, дати, имена на доставчици) и да я въвеждат в счетоводната ви система автоматично. Това, което преди отнемаше 2 часа ръчно въвеждане на данни на счетоводител седмично, може да бъде направено за минути с почти перфектна точност.</p>
@@ -483,9 +483,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Най-добрият начин да проучите AI автоматизацията за вашия бизнес е да проведете разговор с някой, който разбира и технологията, и вашия тип бизнес. Добрият партньор ще ви помогне да идентифицирате къде AI може да има най-голямо въздействие, ще препоръча правилните инструменти и ще внедри решения, които отговарят на бюджета ви.</p>
 
-<p>В E&P Systems сме специализирани в AI автоматизация за малки и средни бизнеси в България. Предлагаме <strong>безплатна консултация</strong>, при която ще прегледаме настоящите ви процеси, ще идентифицираме възможности за автоматизация и ще ви дадем реалистичен план с ясни цени — без жаргон, без натиск. Независимо дали имате нужда от прост чатбот или цялостна автоматизация на работни процеси, ще ви помогнем да намерите правилната отправна точка.</p>
+<p>В E&P Systems сме специализирани в AI автоматизация за малки и средни бизнеси в България. Предлагаме <strong>безплатна консултация</strong>, при която ще прегледаме настоящите ви процеси, ще идентифицираме възможности за автоматизация и ще ви дадем реалистичен план с ясни цени - без жаргон, без натиск. Независимо дали имате нужда от прост чатбот или цялостна автоматизация на работни процеси, ще ви помогнем да намерите правилната отправна точка.</p>
 
 <p><strong>Резервирайте безплатната си консултация днес</strong> и открийте как AI може да даде на малкия ви бизнес конкурентно предимство.</p>`,
     },
   },
-]
+];

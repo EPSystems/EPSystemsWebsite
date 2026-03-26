@@ -47,13 +47,13 @@ human_verification:
 
 ### Observable Truths
 
-| # | Truth | Status | Evidence |
-|---|-------|--------|----------|
-| 1 | User can navigate to /en/ and /bg/ and see the homepage at both paths | ? HUMAN | Route `/:lang` renders `<HomePage />` — verified in App.tsx line 12; content is substantive (all sections rendered) |
-| 2 | Visiting the root URL (/) redirects the user to a language-prefixed route | ? HUMAN | `<Navigate to="/en/" replace />` on path="/" in App.tsx line 11 — wiring is real, redirect behavior needs live browser |
-| 3 | All previously working anchor links (#services, #seo, etc.) scroll smoothly to their sections | ? HUMAN | All 5 scroll targets wired to `scrollToSection()` in Navbar; Hero, Footer, Services, CaseStudies all confirmed wired |
-| 4 | No broken or placeholder links exist anywhere on the site | VERIFIED | `grep -rn 'href="#"' src/` returns zero results; Legal column removed from Footer |
-| 5 | Page loads at the top when navigating between routes (scroll restoration works) | ? HUMAN | ScrollToTop calls `window.scrollTo(0, 0)` on `pathname` change (ScrollToTop.tsx line 8); behavior needs live browser |
+| #   | Truth                                                                                         | Status   | Evidence                                                                                                               |
+| --- | --------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 1   | User can navigate to /en/ and /bg/ and see the homepage at both paths                         | ? HUMAN  | Route `/:lang` renders `<HomePage />` - verified in App.tsx line 12; content is substantive (all sections rendered)    |
+| 2   | Visiting the root URL (/) redirects the user to a language-prefixed route                     | ? HUMAN  | `<Navigate to="/en/" replace />` on path="/" in App.tsx line 11 - wiring is real, redirect behavior needs live browser |
+| 3   | All previously working anchor links (#services, #seo, etc.) scroll smoothly to their sections | ? HUMAN  | All 5 scroll targets wired to `scrollToSection()` in Navbar; Hero, Footer, Services, CaseStudies all confirmed wired   |
+| 4   | No broken or placeholder links exist anywhere on the site                                     | VERIFIED | `grep -rn 'href="#"' src/` returns zero results; Legal column removed from Footer                                      |
+| 5   | Page loads at the top when navigating between routes (scroll restoration works)               | ? HUMAN  | ScrollToTop calls `window.scrollTo(0, 0)` on `pathname` change (ScrollToTop.tsx line 8); behavior needs live browser   |
 
 **Automated Score:** 9/9 artifact/link checks pass. Truth #4 fully verified programmatically. Truths #1-3 and #5 require live browser.
 
@@ -63,49 +63,49 @@ human_verification:
 
 #### Plan 01-01 Artifacts
 
-| Artifact | Expected | Status | Details |
-|----------|----------|--------|---------|
-| `src/main.tsx` | BrowserRouter wrapping the app | VERIFIED | Line 9: `<BrowserRouter>` wraps `<App />` inside `<StrictMode>` |
-| `src/App.tsx` | Route definitions with /:lang prefix | VERIFIED | Lines 10-14: Routes with `/`, `/:lang`, `*` — all three routes present and substantive |
-| `src/pages/HomePage.tsx` | Homepage content extracted from old App | VERIFIED | Exports `HomePage`, renders Navbar + Hero + Marquee + Services + 3x ServiceDetail + CTA + CaseStudies + Footer |
-| `src/pages/NotFoundPage.tsx` | 404 page for unmatched routes | VERIFIED | Exports `NotFoundPage`, uses `useParams` for lang-aware back link, styled consistently |
-| `src/components/ScrollToTop.tsx` | Scroll restoration on route change | VERIFIED | Exports `ScrollToTop`, uses `useLocation`, calls `window.scrollTo(0,0)` on `pathname` change, returns null |
+| Artifact                         | Expected                                | Status   | Details                                                                                                        |
+| -------------------------------- | --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `src/main.tsx`                   | BrowserRouter wrapping the app          | VERIFIED | Line 9: `<BrowserRouter>` wraps `<App />` inside `<StrictMode>`                                                |
+| `src/App.tsx`                    | Route definitions with /:lang prefix    | VERIFIED | Lines 10-14: Routes with `/`, `/:lang`, `*` - all three routes present and substantive                         |
+| `src/pages/HomePage.tsx`         | Homepage content extracted from old App | VERIFIED | Exports `HomePage`, renders Navbar + Hero + Marquee + Services + 3x ServiceDetail + CTA + CaseStudies + Footer |
+| `src/pages/NotFoundPage.tsx`     | 404 page for unmatched routes           | VERIFIED | Exports `NotFoundPage`, uses `useParams` for lang-aware back link, styled consistently                         |
+| `src/components/ScrollToTop.tsx` | Scroll restoration on route change      | VERIFIED | Exports `ScrollToTop`, uses `useLocation`, calls `window.scrollTo(0,0)` on `pathname` change, returns null     |
 
 #### Plan 01-02 Artifacts
 
-| Artifact | Expected | Status | Details |
-|----------|----------|--------|---------|
-| `src/utils/scroll.ts` | scrollToSection utility | VERIFIED | Exports `scrollToSection(sectionId)`, calls `getElementById + scrollIntoView({ behavior: 'smooth' })` |
-| `src/components/layout/Navbar.tsx` | Router-aware navigation with smooth scroll | VERIFIED | Imports `scrollToSection`, `Link`, `useParams`; all 5 nav targets use `scrollToSection` onClick handlers; logo uses `<Link to="/${lang||'en'}/">` |
-| `src/components/layout/Footer.tsx` | Cleaned up links, no placeholders | VERIFIED | No `href="#"` present; Home uses `<Link>`; Services/Projects/SEO/E-Commerce/AI use `scrollToSection`; ArrowUpRight calls `window.scrollTo({ top:0 })`; Legal column absent |
-| `src/components/sections/Hero.tsx` | Router-aware CTA links | VERIFIED | "See Our Work" button uses `scrollToSection('services')`; "Get in Touch" is a valid `mailto:` link |
-| `src/components/sections/Services.tsx` | Conditional Learn more links | VERIFIED | `hasDetail = Boolean(service.detailHeadline)` gates rendering; "Learn more" button calls `scrollToSection(service.id)` |
-| `src/components/sections/CaseStudies.tsx` | Router-aware contact link | VERIFIED | "View Project" button calls `scrollToSection('contact')` |
+| Artifact                                  | Expected                                   | Status   | Details                                                                                                                                                                    |
+| ----------------------------------------- | ------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------- |
+| `src/utils/scroll.ts`                     | scrollToSection utility                    | VERIFIED | Exports `scrollToSection(sectionId)`, calls `getElementById + scrollIntoView({ behavior: 'smooth' })`                                                                      |
+| `src/components/layout/Navbar.tsx`        | Router-aware navigation with smooth scroll | VERIFIED | Imports `scrollToSection`, `Link`, `useParams`; all 5 nav targets use `scrollToSection` onClick handlers; logo uses `<Link to="/${lang                                     |     | 'en'}/">` |
+| `src/components/layout/Footer.tsx`        | Cleaned up links, no placeholders          | VERIFIED | No `href="#"` present; Home uses `<Link>`; Services/Projects/SEO/E-Commerce/AI use `scrollToSection`; ArrowUpRight calls `window.scrollTo({ top:0 })`; Legal column absent |
+| `src/components/sections/Hero.tsx`        | Router-aware CTA links                     | VERIFIED | "See Our Work" button uses `scrollToSection('services')`; "Get in Touch" is a valid `mailto:` link                                                                         |
+| `src/components/sections/Services.tsx`    | Conditional Learn more links               | VERIFIED | `hasDetail = Boolean(service.detailHeadline)` gates rendering; "Learn more" button calls `scrollToSection(service.id)`                                                     |
+| `src/components/sections/CaseStudies.tsx` | Router-aware contact link                  | VERIFIED | "View Project" button calls `scrollToSection('contact')`                                                                                                                   |
 
 ---
 
 ### Key Link Verification
 
-| From | To | Via | Status | Details |
-|------|----|-----|--------|---------|
-| `src/main.tsx` | `src/App.tsx` | BrowserRouter wraps App | VERIFIED | Line 9-11 in main.tsx: `<BrowserRouter><App /></BrowserRouter>` |
-| `src/App.tsx` | `src/pages/HomePage.tsx` | Route element at `/:lang` | VERIFIED | `<Route path="/:lang" element={<HomePage />} />` — import on line 3, usage on line 12 |
-| `src/App.tsx` | root redirect | Navigate to /en/ | VERIFIED | `<Route path="/" element={<Navigate to="/en/" replace />} />` line 11 |
-| Navbar anchor links | Section IDs on HomePage | `scrollToSection` with smooth behavior | VERIFIED | Pattern confirmed in Navbar.tsx lines 11,16; `scrollIntoView({ behavior: 'smooth' })` in scroll.ts line 6 |
-| Footer Home link | Router routes | React Router Link | VERIFIED | Footer.tsx line 54: `<Link to={\`/${lang || 'en'}/\`}>Home</Link>` |
-| ServiceDetail sections | DOM IDs for scroll targets | `id={id}` prop | VERIFIED | ServiceDetail.tsx line 47: `<section id={id}>` — seo, ecommerce, ai IDs flow from HomePage.tsx detailSections |
+| From                   | To                         | Via                                    | Status   | Details                                                                                                       |
+| ---------------------- | -------------------------- | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------- | --- | ---------------------- |
+| `src/main.tsx`         | `src/App.tsx`              | BrowserRouter wraps App                | VERIFIED | Line 9-11 in main.tsx: `<BrowserRouter><App /></BrowserRouter>`                                               |
+| `src/App.tsx`          | `src/pages/HomePage.tsx`   | Route element at `/:lang`              | VERIFIED | `<Route path="/:lang" element={<HomePage />} />` - import on line 3, usage on line 12                         |
+| `src/App.tsx`          | root redirect              | Navigate to /en/                       | VERIFIED | `<Route path="/" element={<Navigate to="/en/" replace />} />` line 11                                         |
+| Navbar anchor links    | Section IDs on HomePage    | `scrollToSection` with smooth behavior | VERIFIED | Pattern confirmed in Navbar.tsx lines 11,16; `scrollIntoView({ behavior: 'smooth' })` in scroll.ts line 6     |
+| Footer Home link       | Router routes              | React Router Link                      | VERIFIED | Footer.tsx line 54: `<Link to={\`/${lang                                                                      |     | 'en'}/\`}>Home</Link>` |
+| ServiceDetail sections | DOM IDs for scroll targets | `id={id}` prop                         | VERIFIED | ServiceDetail.tsx line 47: `<section id={id}>` - seo, ecommerce, ai IDs flow from HomePage.tsx detailSections |
 
 ---
 
 ### Requirements Coverage
 
-| Requirement | Source Plan | Description | Status | Evidence |
-|-------------|-------------|-------------|--------|----------|
-| ROUT-01 | 01-01-PLAN.md | Site uses React Router with BrowserRouter | SATISFIED | `react-router-dom@^7.13.2` in package.json; BrowserRouter in main.tsx |
-| ROUT-02 | 01-02-PLAN.md | Existing anchor links continue to work as smooth-scroll | SATISFIED | All 5 nav targets + Services + Hero + CaseStudies + Footer wired to `scrollToSection` |
-| ROUT-03 | 01-01-PLAN.md | Language-prefixed URL structure (/en/..., /bg/...) | SATISFIED | `path="/:lang"` route in App.tsx; Navbar and Footer use `/${lang}/` pattern |
-| ROUT-04 | 01-01-PLAN.md | Root URL (/) redirects to default language route | SATISFIED | `<Navigate to="/en/" replace />` on path="/" in App.tsx |
-| ROUT-05 | 01-02-PLAN.md | All broken and placeholder links fixed or removed | SATISFIED | Zero `href="#"` in codebase; Legal column removed; all dead links eliminated |
+| Requirement | Source Plan   | Description                                             | Status    | Evidence                                                                              |
+| ----------- | ------------- | ------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------- |
+| ROUT-01     | 01-01-PLAN.md | Site uses React Router with BrowserRouter               | SATISFIED | `react-router-dom@^7.13.2` in package.json; BrowserRouter in main.tsx                 |
+| ROUT-02     | 01-02-PLAN.md | Existing anchor links continue to work as smooth-scroll | SATISFIED | All 5 nav targets + Services + Hero + CaseStudies + Footer wired to `scrollToSection` |
+| ROUT-03     | 01-01-PLAN.md | Language-prefixed URL structure (/en/..., /bg/...)      | SATISFIED | `path="/:lang"` route in App.tsx; Navbar and Footer use `/${lang}/` pattern           |
+| ROUT-04     | 01-01-PLAN.md | Root URL (/) redirects to default language route        | SATISFIED | `<Navigate to="/en/" replace />` on path="/" in App.tsx                               |
+| ROUT-05     | 01-02-PLAN.md | All broken and placeholder links fixed or removed       | SATISFIED | Zero `href="#"` in codebase; Legal column removed; all dead links eliminated          |
 
 No orphaned requirements. All 5 Phase 1 requirement IDs (ROUT-01 through ROUT-05) are claimed by a plan and have implementation evidence. REQUIREMENTS.md traceability table marks all 5 as Complete.
 
@@ -113,9 +113,9 @@ No orphaned requirements. All 5 Phase 1 requirement IDs (ROUT-01 through ROUT-05
 
 ### Anti-Patterns Found
 
-| File | Line | Pattern | Severity | Impact |
-|------|------|---------|----------|--------|
-| `src/components/sections/Hero.tsx` | 58 | Button text says "See Our Work" (plan said "Browse Services") | Info | Text copy difference only — scroll target (`services`) is correct; no functional impact |
+| File                               | Line | Pattern                                                       | Severity | Impact                                                                                  |
+| ---------------------------------- | ---- | ------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `src/components/sections/Hero.tsx` | 58   | Button text says "See Our Work" (plan said "Browse Services") | Info     | Text copy difference only - scroll target (`services`) is correct; no functional impact |
 
 No blocker or warning anti-patterns found. No TODO/FIXME/PLACEHOLDER comments. No empty implementations. No bare `return null` in content components. No `href="#"` anywhere.
 
@@ -163,7 +163,7 @@ No blocker or warning anti-patterns found. No TODO/FIXME/PLACEHOLDER comments. N
 
 **Test:** Scroll halfway down the page, then navigate to a different route (or back to home via Footer link)
 **Expected:** New page loads with scroll position at the top
-**Why human:** ScrollToTop fires on pathname change — scroll position requires live browser observation
+**Why human:** ScrollToTop fires on pathname change - scroll position requires live browser observation
 
 ---
 
@@ -171,7 +171,7 @@ No blocker or warning anti-patterns found. No TODO/FIXME/PLACEHOLDER comments. N
 
 No automated gaps found. All artifacts exist, are substantive (not stubs), and are wired into the application. No placeholder links, empty implementations, or disconnected components were detected. The build passes with zero errors.
 
-The only items requiring resolution are behavioral verifications that cannot be confirmed by static analysis — they require running the dev server and manually walking through navigation paths.
+The only items requiring resolution are behavioral verifications that cannot be confirmed by static analysis - they require running the dev server and manually walking through navigation paths.
 
 ---
 

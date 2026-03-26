@@ -14,18 +14,21 @@ Wire up react-i18next with JSON translation files for English and Bulgarian. Imp
 ## Implementation Decisions
 
 ### Language switcher design
+
 - Text toggle format: "EN / BG" (not flags, not dropdown)
-- Simple, minimal — fits the Brutalist aesthetic
+- Simple, minimal - fits the Brutalist aesthetic
 - Current language should be visually distinguished from the inactive one
 
 ### Translation authorship
+
 - Claude drafts Bulgarian translations for nav/footer content
 - User reviews and corrects as needed during verification
 
 ### Claude's Discretion
+
 - Switcher placement in navbar (before or after CTA, wherever fits best)
 - Mobile menu behavior for the switcher (inside menu vs always visible)
-- Active language indicator styling (bold, underline, lime accent — whatever fits Brutalist design)
+- Active language indicator styling (bold, underline, lime accent - whatever fits Brutalist design)
 - Cyrillic font fallback strategy if Bricolage Grotesque doesn't support it
 - Translation file structure and namespace organization
 - Exact scope boundary between Phase 2 (nav/footer only) and Phase 3 (all content)
@@ -35,18 +38,18 @@ Wire up react-i18next with JSON translation files for English and Bulgarian. Imp
 <specifics>
 ## Specific Ideas
 
-No specific requirements — open to standard approaches. User wants a clean, minimal text toggle that doesn't distract from the main navigation.
+No specific requirements - open to standard approaches. User wants a clean, minimal text toggle that doesn't distract from the main navigation.
 
 </specifics>
 
 <deferred>
 ## Deferred Ideas
 
-None — discussion stayed within phase scope
+None - discussion stayed within phase scope
 
 </deferred>
 
 ---
 
-*Phase: 02-i18n-infrastructure*
-*Context gathered: 2026-03-24*
+_Phase: 02-i18n-infrastructure_
+_Context gathered: 2026-03-24_

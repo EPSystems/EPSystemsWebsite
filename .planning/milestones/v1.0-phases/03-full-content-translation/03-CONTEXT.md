@@ -14,11 +14,13 @@ Translate every visible string on the existing site to Bulgarian. This includes 
 ## Implementation Decisions
 
 ### Translation approach
+
 - Claude drafts all Bulgarian translations
 - User reviews during verification checkpoint
 - "Е-Комерс" must be "Онлайн магазин" everywhere (already fixed in nav/footer)
 
 ### Content scope
+
 - All JSX hardcoded strings → t() calls with translation keys
 - services.ts data (titles, descriptions, features) → translated via i18n
 - Case study content → translated
@@ -28,6 +30,7 @@ Translate every visible string on the existing site to Bulgarian. This includes 
 - index.html title and meta description → dynamic per language
 
 ### Claude's Discretion
+
 - Translation file organization (single file vs namespace splitting)
 - How to handle services.ts data translation (inline t() vs separate data structure)
 - Meta tag implementation approach (react-helmet-async or manual DOM manipulation)
@@ -46,11 +49,11 @@ Translate every visible string on the existing site to Bulgarian. This includes 
 <deferred>
 ## Deferred Ideas
 
-None — discussion stayed within phase scope
+None - discussion stayed within phase scope
 
 </deferred>
 
 ---
 
-*Phase: 03-full-content-translation*
-*Context gathered: 2026-03-25*
+_Phase: 03-full-content-translation_
+_Context gathered: 2026-03-25_

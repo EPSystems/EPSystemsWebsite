@@ -38,7 +38,7 @@
     "badge": "We build digital solutions that work",
     "heading1": "Elevate Your",
     "heading2": "Digital Presence",
-    "subheading": "We don't just build websites. We create complete digital solutions — from custom web apps and e-commerce to AI automation and SEO.",
+    "subheading": "We don't just build websites. We create complete digital solutions - from custom web apps and e-commerce to AI automation and SEO.",
     "cta": {
       "contact": "Get in Touch",
       "work": "See Our Work"
@@ -67,7 +67,7 @@
     "software": {
       "title": "Custom",
       "titleBreak": "Software",
-      "description": "Tailored software solutions — from web applications and internal tools to complex platforms built for your exact needs.",
+      "description": "Tailored software solutions - from web applications and internal tools to complex platforms built for your exact needs.",
       "features": {
         "0": "Web Applications",
         "1": "Internal Business Tools",
@@ -176,7 +176,7 @@
   },
   "cta": {
     "heading": "Let's build something great",
-    "description": "Contact us today to discuss how we can help bring your digital vision to life — from websites and e-commerce to AI-powered automation.",
+    "description": "Contact us today to discuss how we can help bring your digital vision to life - from websites and e-commerce to AI-powered automation.",
     "button": "Get your free proposal"
   },
   "servicePages": {
@@ -196,7 +196,7 @@
         "items": {
           "0": {
             "title": "Technical SEO Audits",
-            "description": "Comprehensive analysis of your site's technical health — crawlability, indexing, Core Web Vitals, and structured data."
+            "description": "Comprehensive analysis of your site's technical health - crawlability, indexing, Core Web Vitals, and structured data."
           },
           "1": {
             "title": "On-Page Optimization",
@@ -255,7 +255,7 @@
           },
           "3": {
             "q": "Do you do local SEO?",
-            "a": "Yes, we specialize in local SEO for Bulgarian businesses — including Google Business Profile optimization, local citations, and map pack strategies."
+            "a": "Yes, we specialize in local SEO for Bulgarian businesses - including Google Business Profile optimization, local citations, and map pack strategies."
           },
           "4": {
             "q": "Can I keep my existing website?",
@@ -279,7 +279,7 @@
         "items": {
           "0": {
             "title": "Secure Payment Integration",
-            "description": "Stripe, PayPal, and local payment methods — all PCI-compliant and conversion-optimized."
+            "description": "Stripe, PayPal, and local payment methods - all PCI-compliant and conversion-optimized."
           },
           "1": {
             "title": "Inventory Management",
@@ -304,7 +304,7 @@
           },
           "1": {
             "title": "Design",
-            "description": "We create a storefront that converts — mobile-first, fast, and on-brand."
+            "description": "We create a storefront that converts - mobile-first, fast, and on-brand."
           },
           "2": {
             "title": "Build",
@@ -366,7 +366,7 @@
           },
           "1": {
             "title": "Workflow Automation",
-            "description": "Eliminate repetitive tasks — from data entry and email sequences to invoice processing."
+            "description": "Eliminate repetitive tasks - from data entry and email sequences to invoice processing."
           },
           "2": {
             "title": "Custom AI Tools",
@@ -374,7 +374,7 @@
           },
           "3": {
             "title": "Integration & APIs",
-            "description": "Connect AI capabilities to your existing tools — CRM, helpdesk, e-commerce, and more."
+            "description": "Connect AI capabilities to your existing tools - CRM, helpdesk, e-commerce, and more."
           }
         }
       },
@@ -438,14 +438,14 @@
       "hero": {
         "badge": "Custom Software",
         "heading": "Software Built for You",
-        "subheading": "Tailored solutions — from web applications and internal tools to complex platforms that scale with your business."
+        "subheading": "Tailored solutions - from web applications and internal tools to complex platforms that scale with your business."
       },
       "features": {
         "heading": "What We Build",
         "items": {
           "0": {
             "title": "Web Applications",
-            "description": "Full-stack web apps with modern frameworks — React, Node.js, and cloud-native architecture."
+            "description": "Full-stack web apps with modern frameworks - React, Node.js, and cloud-native architecture."
           },
           "1": {
             "title": "Internal Business Tools",
@@ -669,7 +669,7 @@
   "about": {
     "meta": {
       "title": "About Us - E&P Systems",
-      "description": "Learn about E&P Systems — our story, values, and mission to deliver engineering-grade digital solutions."
+      "description": "Learn about E&P Systems - our story, values, and mission to deliver engineering-grade digital solutions."
     },
     "hero": {
       "badge": "About Us",
@@ -686,7 +686,7 @@
       "heading": "Our Values",
       "precision": {
         "title": "Engineering Precision",
-        "description": "Every line of code, every strategy, every decision is grounded in data and best practices. We don't guess — we measure, test, and deliver."
+        "description": "Every line of code, every strategy, every decision is grounded in data and best practices. We don't guess - we measure, test, and deliver."
       },
       "speed": {
         "title": "Speed & Efficiency",
@@ -746,7 +746,7 @@
     "hero": {
       "badge": "Portfolio",
       "heading": "Our Work",
-      "subheading": "Real projects we've built and shipped — from e-commerce platforms and web apps to AI tools and SEO campaigns."
+      "subheading": "Real projects we've built and shipped - from e-commerce platforms and web apps to AI tools and SEO campaigns."
     },
     "filters": {
       "all": "All",
@@ -821,12 +821,12 @@
   "servicesHub": {
     "meta": {
       "title": "Our Services - E&P Systems",
-      "description": "Explore our full range of digital services — web development, e-commerce, SEO, AI automation, landing pages, and ongoing maintenance."
+      "description": "Explore our full range of digital services - web development, e-commerce, SEO, AI automation, landing pages, and ongoing maintenance."
     },
     "hero": {
       "badge": "What We Do",
       "heading": "Our Services",
-      "subheading": "From custom software and e-commerce to SEO and AI automation — we deliver end-to-end digital solutions engineered for growth."
+      "subheading": "From custom software and e-commerce to SEO and AI automation - we deliver end-to-end digital solutions engineered for growth."
     },
     "grid": {
       "heading": "What We Build",
@@ -843,7 +843,7 @@
         },
         "seo": {
           "title": "SEO",
-          "description": "Data-driven search engine optimization — technical audits, on-page strategy, and authority link building."
+          "description": "Data-driven search engine optimization - technical audits, on-page strategy, and authority link building."
         },
         "ai": {
           "title": "AI Automation",
@@ -868,7 +868,7 @@
         },
         "bilingual": {
           "title": "Bilingual Team",
-          "description": "Fluent in English and Bulgarian — we serve international clients and local businesses with equal ease."
+          "description": "Fluent in English and Bulgarian - we serve international clients and local businesses with equal ease."
         },
         "fullStack": {
           "title": "Full-Stack Delivery",
@@ -882,14 +882,14 @@
     },
     "cta": {
       "heading": "Ready to Get Started?",
-      "description": "Tell us about your project and we'll show you how we can help — no commitments, no pressure.",
+      "description": "Tell us about your project and we'll show you how we can help - no commitments, no pressure.",
       "button": "Get Your Free Proposal"
     }
   },
   "contactPage": {
     "meta": {
       "title": "Contact Us - E&P Systems",
-      "description": "Get in touch with E&P Systems. Let's discuss your project — web development, e-commerce, SEO, or AI automation."
+      "description": "Get in touch with E&P Systems. Let's discuss your project - web development, e-commerce, SEO, or AI automation."
     },
     "hero": {
       "badge": "Contact",
@@ -1163,7 +1163,7 @@
     "notes": "All prices are starting points. Final pricing depends on project scope and requirements. Contact us for a custom quote tailored to your needs.",
     "cta": {
       "heading": "Ready to Get Started?",
-      "description": "Tell us about your project and we'll put together a custom proposal — no obligations, no pressure.",
+      "description": "Tell us about your project and we'll put together a custom proposal - no obligations, no pressure.",
       "button": "Get Your Custom Quote",
       "cardButton": "Get Started"
     }
@@ -1176,7 +1176,7 @@
     "hero": {
       "badge": "Blog",
       "heading": "Insights & Resources",
-      "subheading": "Practical knowledge for growing businesses — from web development and SEO to AI automation."
+      "subheading": "Practical knowledge for growing businesses - from web development and SEO to AI automation."
     },
     "readMore": "Read More",
     "backToBlog": "Back to Blog",
@@ -1188,7 +1188,7 @@
     },
     "cta": {
       "heading": "Ready to Grow Your Business?",
-      "description": "Let's discuss how we can help you achieve your digital goals — from websites and SEO to AI-powered automation.",
+      "description": "Let's discuss how we can help you achieve your digital goals - from websites and SEO to AI-powered automation.",
       "button": "Get a Free Consultation"
     }
   }

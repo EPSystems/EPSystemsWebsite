@@ -23,7 +23,7 @@ export function HomePage() {
       <Services />
       <Testimonials />
       <TrustedBy />
-      <CaseStudies />
+      {/* <CaseStudies /> */}
       <Team />
       <CTA />
       <Footer />
