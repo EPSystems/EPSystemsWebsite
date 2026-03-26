@@ -21,8 +21,9 @@ export function About() {
 
   const teamMembers = [
     { key: 'member1', initials: 'EP', photo: '/team/emil.png' },
-    { key: 'member2', initials: 'PI' },
-    { key: 'member3', initials: 'MD', photo: '/team/emi.jpg' },
+    { key: 'member2', initials: 'PS', photo: '/team/pavel.jpg' },
+    { key: 'member3', initials: 'EL', photo: '/team/emi.jpg' },
+    { key: 'member4', initials: 'YT', photo: '/team/yoana.png', photoPosition: 'center 20%' },
   ]
 
   const stats = [
@@ -113,8 +114,8 @@ export function About() {
             <h2 className="text-4xl lg:text-5xl font-black tracking-tighter mb-12">
               {t('about.team.heading')}
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map(({ key, initials, photo }, i) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamMembers.map(({ key, initials, photo, photoPosition }, i) => (
                 <div
                   key={key}
                   className="bg-white border-4 border-black rounded-[30px] p-8 brutalist-shadow"
@@ -122,7 +123,7 @@ export function About() {
                 >
                   <div className="w-[160px] h-[160px] rounded-full overflow-hidden border-4 border-[#B9FF66] mb-6 mx-auto">
                     {photo ? (
-                      <img src={photo} alt={t(`about.team.members.${key}.name`)} className="w-full h-full object-cover" />
+                      <img src={photo} alt={t(`about.team.members.${key}.name`)} className="w-full h-full object-cover" style={photoPosition ? { objectPosition: photoPosition } : undefined} />
                     ) : (
                       <div className="w-full h-full bg-gray-800 flex items-center justify-center">
                         <span className="text-[#B9FF66] text-3xl font-black">{initials}</span>

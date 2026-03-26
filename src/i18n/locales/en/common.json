@@ -702,19 +702,24 @@
       "heading": "The People Behind E&P Systems",
       "members": {
         "member1": {
-          "name": "Emo",
+          "name": "Emil Dermendzhiev",
           "role": "Co-Founder & Lead Developer",
           "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows that power modern businesses."
         },
         "member2": {
-          "name": "[REPLACE: Add team member name]",
-          "role": "[REPLACE: Add role]",
-          "bio": "[REPLACE: Add bio for this team member]"
+          "name": "Pavel Stefanov",
+          "role": "Co-Founder & Senior Developer",
+          "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications."
         },
         "member3": {
-          "name": "[REPLACE: Add team member name]",
-          "role": "[REPLACE: Add role]",
-          "bio": "[REPLACE: Add bio for this team member]"
+          "name": "Emi Letkova",
+          "role": "UI/UX Designer",
+          "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+        },
+        "member4": {
+          "name": "Yoana Todorova",
+          "role": "Marketing Expert",
+          "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience."
         }
       }
     },
@@ -957,8 +962,13 @@
       },
       "member3": {
         "name": "Emi Letkova",
-        "role": "UI/UX Designer & Marketing Expert",
+        "role": "UI/UX Designer",
         "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+      },
+      "member4": {
+        "name": "Yoana Todorova",
+        "role": "Marketing Expert",
+        "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience."
       }
     }
   },

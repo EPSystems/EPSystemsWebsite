@@ -4,14 +4,17 @@ import { teamMembers } from '../../data/team'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
 const INITIALS: Record<string, string> = {
-  member1: 'EP',
-  member2: 'PI',
-  member3: 'MD',
+  member1: 'ED',
+  member2: 'PS',
+  member3: 'EL',
+  member4: 'YT',
 }
 
-const PHOTOS: Record<string, string> = {
-  member1: '/team/emil.png',
-  member3: '/team/emi.jpg',
+const PHOTOS: Record<string, { src: string; position?: string }> = {
+  member1: { src: '/team/emil.png' },
+  member2: { src: '/team/pavel.jpg' },
+  member3: { src: '/team/emi.jpg' },
+  member4: { src: '/team/yoana.png', position: 'center 20%' },
 }
 
 export function Team() {
@@ -27,7 +30,7 @@ export function Team() {
           {t('team.heading')}
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.id}
@@ -40,9 +43,10 @@ export function Team() {
               <div className="w-[160px] h-[160px] mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#B9FF66]">
                 {PHOTOS[member.id] ? (
                   <img
-                    src={PHOTOS[member.id]}
+                    src={PHOTOS[member.id].src}
                     alt={t(`team.members.${member.id}.name`)}
                     className="w-full h-full object-cover"
+                    style={PHOTOS[member.id].position ? { objectPosition: PHOTOS[member.id].position } : undefined}
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-800 flex items-center justify-center">

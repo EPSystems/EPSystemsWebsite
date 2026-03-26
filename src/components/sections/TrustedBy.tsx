@@ -7,11 +7,11 @@ interface Partner {
 
 const PARTNERS: Partner[] = [
   { key: '0', logo: '/partners/discipline.png' },
-  { key: '1' },
-  { key: '2' },
-  { key: '3' },
-  { key: '4' },
-  { key: '5' },
+  { key: '1', logo: '/partners/gastrolink.png' },
+  { key: '2', logo: '/partners/recoffee.jpg' },
+  { key: '3', logo: '/partners/infiniti.png' },
+  { key: '4', logo: '/partners/bosconsult.png' },
+  { key: '5', logo: '/partners/insurancepro.png' },
 ]
 
 export function TrustedBy() {
