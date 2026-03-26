@@ -98,7 +98,7 @@ export function Footer() {
                     <li><Link to={homePath} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.home')}</Link></li>
                     <li><Link to={`/${lang || 'en'}/about`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.about')}</Link></li>
                     <li><Link to={`/${lang || 'en'}/services`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.services')}</Link></li>
-                    <li><Link to={`/${lang || 'en'}/projects`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.projects')}</Link></li>
+                    {/* <li><Link to={`/${lang || 'en'}/projects`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.projects')}</Link></li> */}
                     <li><Link to={`/${lang || 'en'}/pricing`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.pricing')}</Link></li>
                     <li><Link to={`/${lang || 'en'}/blog`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.blog')}</Link></li>
                   </ul>

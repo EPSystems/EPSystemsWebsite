@@ -6,7 +6,7 @@ import { CookieConsent } from './components/CookieConsent'
 import { HomePage } from './pages/HomePage'
 import { ServicePage } from './pages/ServicePage'
 import { Services } from './pages/Services'
-import { Projects } from './pages/Projects'
+// import { Projects } from './pages/Projects'
 import { Contact } from './pages/Contact'
 import { Pricing } from './pages/Pricing'
 import { Blog } from './pages/Blog'
@@ -24,7 +24,7 @@ function App() {
         <Route path="/:lang" element={<HomePage />} />
         <Route path="/:lang/services" element={<Services />} />
         <Route path="/:lang/services/:slug" element={<ServicePage />} />
-        <Route path="/:lang/projects" element={<Projects />} />
+        {/* <Route path="/:lang/projects" element={<Projects />} /> */}
         <Route path="/:lang/contact" element={<Contact />} />
         <Route path="/:lang/pricing" element={<Pricing />} />
         <Route path="/:lang/blog" element={<Blog />} />
