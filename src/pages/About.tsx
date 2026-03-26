@@ -20,9 +20,9 @@ export function About() {
   ]
 
   const teamMembers = [
-    { key: 'member1', initials: 'EP' }, /* [REPLACE: Upload real headshot for Emo] */
-    { key: 'member2', initials: 'PI' }, /* [REPLACE: Upload real headshot for Member 2] */
-    { key: 'member3', initials: 'MD' }, /* [REPLACE: Upload real headshot for Member 3] */
+    { key: 'member1', initials: 'EP', photo: '/team/emil.png' },
+    { key: 'member2', initials: 'PI' },
+    { key: 'member3', initials: 'MD', photo: '/team/emi.jpg' },
   ]
 
   const stats = [
@@ -114,15 +114,20 @@ export function About() {
               {t('about.team.heading')}
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map(({ key, initials }, i) => (
+              {teamMembers.map(({ key, initials, photo }, i) => (
                 <div
                   key={key}
                   className="bg-white border-4 border-black rounded-[30px] p-8 brutalist-shadow"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  {/* [REPLACE: Upload real headshot for this member] */}
-                  <div className="w-[120px] h-[120px] bg-gray-800 border-2 border-[#B9FF66] rounded-none flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-[#B9FF66] text-3xl font-black">{initials}</span>
+                  <div className="w-[160px] h-[160px] rounded-full overflow-hidden border-4 border-[#B9FF66] mb-6 mx-auto">
+                    {photo ? (
+                      <img src={photo} alt={t(`about.team.members.${key}.name`)} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                        <span className="text-[#B9FF66] text-3xl font-black">{initials}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <h3 className="text-2xl font-black tracking-tight">

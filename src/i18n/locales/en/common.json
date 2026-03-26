@@ -194,19 +194,43 @@
       "features": {
         "heading": "What We Deliver",
         "items": {
-          "0": { "title": "Technical SEO Audits", "description": "Comprehensive analysis of your site's technical health — crawlability, indexing, Core Web Vitals, and structured data." },
-          "1": { "title": "On-Page Optimization", "description": "Strategic keyword placement, meta tags, content structure, and internal linking to maximize relevance." },
-          "2": { "title": "Authority Link Building", "description": "White-hat outreach campaigns that earn high-quality backlinks and build your domain authority." },
-          "3": { "title": "Performance Reporting", "description": "Monthly reports with ranking changes, traffic growth, and actionable recommendations." }
+          "0": {
+            "title": "Technical SEO Audits",
+            "description": "Comprehensive analysis of your site's technical health — crawlability, indexing, Core Web Vitals, and structured data."
+          },
+          "1": {
+            "title": "On-Page Optimization",
+            "description": "Strategic keyword placement, meta tags, content structure, and internal linking to maximize relevance."
+          },
+          "2": {
+            "title": "Authority Link Building",
+            "description": "White-hat outreach campaigns that earn high-quality backlinks and build your domain authority."
+          },
+          "3": {
+            "title": "Performance Reporting",
+            "description": "Monthly reports with ranking changes, traffic growth, and actionable recommendations."
+          }
         }
       },
       "process": {
         "heading": "How We Work",
         "steps": {
-          "0": { "title": "Audit", "description": "We analyze your current SEO health and identify opportunities." },
-          "1": { "title": "Strategy", "description": "We build a custom roadmap based on your goals and competition." },
-          "2": { "title": "Execute", "description": "We implement technical fixes, optimize content, and build links." },
-          "3": { "title": "Report", "description": "We track progress and refine the strategy monthly." }
+          "0": {
+            "title": "Audit",
+            "description": "We analyze your current SEO health and identify opportunities."
+          },
+          "1": {
+            "title": "Strategy",
+            "description": "We build a custom roadmap based on your goals and competition."
+          },
+          "2": {
+            "title": "Execute",
+            "description": "We implement technical fixes, optimize content, and build links."
+          },
+          "3": {
+            "title": "Report",
+            "description": "We track progress and refine the strategy monthly."
+          }
         }
       },
       "cta": {
@@ -217,11 +241,26 @@
       "faq": {
         "heading": "Frequently Asked Questions",
         "items": {
-          "0": { "q": "How long does SEO take to show results?", "a": "SEO is a long-term strategy. Most businesses start seeing measurable improvements in 3–6 months, with compounding results over time." },
-          "1": { "q": "Do you guarantee first page rankings?", "a": "No ethical SEO agency can guarantee specific rankings. What we guarantee is a data-driven approach, transparent reporting, and consistent effort to improve your visibility." },
-          "2": { "q": "What's included in your monthly SEO report?", "a": "Our reports cover keyword rankings, organic traffic trends, backlink profile changes, technical health scores, and actionable recommendations for the next month." },
-          "3": { "q": "Do you do local SEO?", "a": "Yes, we specialize in local SEO for Bulgarian businesses — including Google Business Profile optimization, local citations, and map pack strategies." },
-          "4": { "q": "Can I keep my existing website?", "a": "Absolutely. SEO works with your current site. We optimize what you have and recommend changes only when they'll drive measurable improvements." }
+          "0": {
+            "q": "How long does SEO take to show results?",
+            "a": "SEO is a long-term strategy. Most businesses start seeing measurable improvements in 3–6 months, with compounding results over time."
+          },
+          "1": {
+            "q": "Do you guarantee first page rankings?",
+            "a": "No ethical SEO agency can guarantee specific rankings. What we guarantee is a data-driven approach, transparent reporting, and consistent effort to improve your visibility."
+          },
+          "2": {
+            "q": "What's included in your monthly SEO report?",
+            "a": "Our reports cover keyword rankings, organic traffic trends, backlink profile changes, technical health scores, and actionable recommendations for the next month."
+          },
+          "3": {
+            "q": "Do you do local SEO?",
+            "a": "Yes, we specialize in local SEO for Bulgarian businesses — including Google Business Profile optimization, local citations, and map pack strategies."
+          },
+          "4": {
+            "q": "Can I keep my existing website?",
+            "a": "Absolutely. SEO works with your current site. We optimize what you have and recommend changes only when they'll drive measurable improvements."
+          }
         }
       }
     },
@@ -238,19 +277,43 @@
       "features": {
         "heading": "What We Build",
         "items": {
-          "0": { "title": "Secure Payment Integration", "description": "Stripe, PayPal, and local payment methods — all PCI-compliant and conversion-optimized." },
-          "1": { "title": "Inventory Management", "description": "Real-time stock tracking, automated alerts, and multi-warehouse support." },
-          "2": { "title": "Order Tracking Dashboards", "description": "Customer-facing tracking and admin dashboards for complete order lifecycle visibility." },
-          "3": { "title": "Analytics & Insights", "description": "Sales funnels, customer behavior, and revenue reporting to drive data-backed decisions." }
+          "0": {
+            "title": "Secure Payment Integration",
+            "description": "Stripe, PayPal, and local payment methods — all PCI-compliant and conversion-optimized."
+          },
+          "1": {
+            "title": "Inventory Management",
+            "description": "Real-time stock tracking, automated alerts, and multi-warehouse support."
+          },
+          "2": {
+            "title": "Order Tracking Dashboards",
+            "description": "Customer-facing tracking and admin dashboards for complete order lifecycle visibility."
+          },
+          "3": {
+            "title": "Analytics & Insights",
+            "description": "Sales funnels, customer behavior, and revenue reporting to drive data-backed decisions."
+          }
         }
       },
       "process": {
         "heading": "How We Work",
         "steps": {
-          "0": { "title": "Discovery", "description": "We map your product catalog, payment needs, and customer journey." },
-          "1": { "title": "Design", "description": "We create a storefront that converts — mobile-first, fast, and on-brand." },
-          "2": { "title": "Build", "description": "We develop your store with secure payments, inventory, and shipping." },
-          "3": { "title": "Launch", "description": "We test everything end-to-end and launch with monitoring in place." }
+          "0": {
+            "title": "Discovery",
+            "description": "We map your product catalog, payment needs, and customer journey."
+          },
+          "1": {
+            "title": "Design",
+            "description": "We create a storefront that converts — mobile-first, fast, and on-brand."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop your store with secure payments, inventory, and shipping."
+          },
+          "3": {
+            "title": "Launch",
+            "description": "We test everything end-to-end and launch with monitoring in place."
+          }
         }
       },
       "cta": {
@@ -261,11 +324,26 @@
       "faq": {
         "heading": "Frequently Asked Questions",
         "items": {
-          "0": { "q": "Which platforms do you build on?", "a": "We work with Shopify, WooCommerce, and custom React-based solutions depending on your needs, scale, and budget." },
-          "1": { "q": "Do you handle product uploads?", "a": "Yes, initial product catalog setup is included in all our e-commerce packages." },
-          "2": { "q": "Can you migrate my existing store?", "a": "Yes, we handle full migrations including products, customer data, and order history from your current platform." },
-          "3": { "q": "Do you set up payment gateways?", "a": "Yes, we integrate all major payment providers including Stripe, PayPal, and local Bulgarian payment options." },
-          "4": { "q": "What about ongoing maintenance?", "a": "We offer monthly maintenance plans that cover updates, security patches, performance monitoring, and product support." }
+          "0": {
+            "q": "Which platforms do you build on?",
+            "a": "We work with Shopify, WooCommerce, and custom React-based solutions depending on your needs, scale, and budget."
+          },
+          "1": {
+            "q": "Do you handle product uploads?",
+            "a": "Yes, initial product catalog setup is included in all our e-commerce packages."
+          },
+          "2": {
+            "q": "Can you migrate my existing store?",
+            "a": "Yes, we handle full migrations including products, customer data, and order history from your current platform."
+          },
+          "3": {
+            "q": "Do you set up payment gateways?",
+            "a": "Yes, we integrate all major payment providers including Stripe, PayPal, and local Bulgarian payment options."
+          },
+          "4": {
+            "q": "What about ongoing maintenance?",
+            "a": "We offer monthly maintenance plans that cover updates, security patches, performance monitoring, and product support."
+          }
         }
       }
     },
@@ -282,19 +360,43 @@
       "features": {
         "heading": "What We Build",
         "items": {
-          "0": { "title": "AI Chatbots", "description": "Custom conversational agents that handle customer inquiries, qualify leads, and provide 24/7 support." },
-          "1": { "title": "Workflow Automation", "description": "Eliminate repetitive tasks — from data entry and email sequences to invoice processing." },
-          "2": { "title": "Custom AI Tools", "description": "Purpose-built AI solutions for content generation, data analysis, and business intelligence." },
-          "3": { "title": "Integration & APIs", "description": "Connect AI capabilities to your existing tools — CRM, helpdesk, e-commerce, and more." }
+          "0": {
+            "title": "AI Chatbots",
+            "description": "Custom conversational agents that handle customer inquiries, qualify leads, and provide 24/7 support."
+          },
+          "1": {
+            "title": "Workflow Automation",
+            "description": "Eliminate repetitive tasks — from data entry and email sequences to invoice processing."
+          },
+          "2": {
+            "title": "Custom AI Tools",
+            "description": "Purpose-built AI solutions for content generation, data analysis, and business intelligence."
+          },
+          "3": {
+            "title": "Integration & APIs",
+            "description": "Connect AI capabilities to your existing tools — CRM, helpdesk, e-commerce, and more."
+          }
         }
       },
       "process": {
         "heading": "How We Work",
         "steps": {
-          "0": { "title": "Assess", "description": "We identify which processes benefit most from automation." },
-          "1": { "title": "Prototype", "description": "We build a working proof-of-concept to validate the approach." },
-          "2": { "title": "Develop", "description": "We build the production system with proper error handling and monitoring." },
-          "3": { "title": "Optimize", "description": "We measure results and fine-tune for maximum impact." }
+          "0": {
+            "title": "Assess",
+            "description": "We identify which processes benefit most from automation."
+          },
+          "1": {
+            "title": "Prototype",
+            "description": "We build a working proof-of-concept to validate the approach."
+          },
+          "2": {
+            "title": "Develop",
+            "description": "We build the production system with proper error handling and monitoring."
+          },
+          "3": {
+            "title": "Optimize",
+            "description": "We measure results and fine-tune for maximum impact."
+          }
         }
       },
       "cta": {
@@ -305,11 +407,26 @@
       "faq": {
         "heading": "Frequently Asked Questions",
         "items": {
-          "0": { "q": "What can AI automation do for my business?", "a": "AI automation can handle lead capture and follow-up, appointment scheduling, customer support via chatbots, invoice processing, data entry, and much more." },
-          "1": { "q": "Do I need technical knowledge to use it?", "a": "Not at all. We handle the entire setup, integration, and training. You'll get a simple interface and clear documentation." },
-          "2": { "q": "What integrates with your automations?", "a": "We integrate with Gmail, Slack, CRM systems, WhatsApp, Zapier, Google Sheets, calendars, and most popular business tools." },
-          "3": { "q": "How long does setup take?", "a": "Most automation projects take 1–3 weeks from kickoff to launch, depending on complexity and number of integrations." },
-          "4": { "q": "What's the ROI?", "a": "Most clients save 5–15 hours per week on repetitive tasks. The typical payback period is under 2 months." }
+          "0": {
+            "q": "What can AI automation do for my business?",
+            "a": "AI automation can handle lead capture and follow-up, appointment scheduling, customer support via chatbots, invoice processing, data entry, and much more."
+          },
+          "1": {
+            "q": "Do I need technical knowledge to use it?",
+            "a": "Not at all. We handle the entire setup, integration, and training. You'll get a simple interface and clear documentation."
+          },
+          "2": {
+            "q": "What integrates with your automations?",
+            "a": "We integrate with Gmail, Slack, CRM systems, WhatsApp, Zapier, Google Sheets, calendars, and most popular business tools."
+          },
+          "3": {
+            "q": "How long does setup take?",
+            "a": "Most automation projects take 1–3 weeks from kickoff to launch, depending on complexity and number of integrations."
+          },
+          "4": {
+            "q": "What's the ROI?",
+            "a": "Most clients save 5–15 hours per week on repetitive tasks. The typical payback period is under 2 months."
+          }
         }
       }
     },
@@ -326,19 +443,43 @@
       "features": {
         "heading": "What We Build",
         "items": {
-          "0": { "title": "Web Applications", "description": "Full-stack web apps with modern frameworks — React, Node.js, and cloud-native architecture." },
-          "1": { "title": "Internal Business Tools", "description": "Dashboards, admin panels, and workflow tools that streamline your team's daily operations." },
-          "2": { "title": "API Development", "description": "RESTful and GraphQL APIs that connect your systems and power your digital ecosystem." },
-          "3": { "title": "Cloud & DevOps", "description": "Scalable infrastructure, CI/CD pipelines, and monitoring for reliable, production-grade software." }
+          "0": {
+            "title": "Web Applications",
+            "description": "Full-stack web apps with modern frameworks — React, Node.js, and cloud-native architecture."
+          },
+          "1": {
+            "title": "Internal Business Tools",
+            "description": "Dashboards, admin panels, and workflow tools that streamline your team's daily operations."
+          },
+          "2": {
+            "title": "API Development",
+            "description": "RESTful and GraphQL APIs that connect your systems and power your digital ecosystem."
+          },
+          "3": {
+            "title": "Cloud & DevOps",
+            "description": "Scalable infrastructure, CI/CD pipelines, and monitoring for reliable, production-grade software."
+          }
         }
       },
       "process": {
         "heading": "How We Work",
         "steps": {
-          "0": { "title": "Define", "description": "We map your requirements, user flows, and technical constraints." },
-          "1": { "title": "Architect", "description": "We design the system architecture and choose the right tech stack." },
-          "2": { "title": "Build", "description": "We develop iteratively with regular demos and feedback cycles." },
-          "3": { "title": "Deploy", "description": "We launch to production with testing, documentation, and support." }
+          "0": {
+            "title": "Define",
+            "description": "We map your requirements, user flows, and technical constraints."
+          },
+          "1": {
+            "title": "Architect",
+            "description": "We design the system architecture and choose the right tech stack."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop iteratively with regular demos and feedback cycles."
+          },
+          "3": {
+            "title": "Deploy",
+            "description": "We launch to production with testing, documentation, and support."
+          }
         }
       },
       "cta": {
@@ -349,11 +490,26 @@
       "faq": {
         "heading": "Frequently Asked Questions",
         "items": {
-          "0": { "q": "How long does a website take?", "a": "Most websites take 2–6 weeks depending on complexity, number of pages, and custom features required." },
-          "1": { "q": "Will my site be mobile friendly?", "a": "Yes, every site we build is fully responsive and tested across all major devices and screen sizes." },
-          "2": { "q": "Do you handle hosting?", "a": "Yes, we can set up and manage hosting for you, or work with your existing hosting provider." },
-          "3": { "q": "Can I update the site myself after launch?", "a": "Yes, we build with CMS options so you can easily update content, add pages, and manage media without touching code." },
-          "4": { "q": "What happens after launch?", "a": "Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans for ongoing updates and monitoring." }
+          "0": {
+            "q": "How long does a website take?",
+            "a": "Most websites take 2–6 weeks depending on complexity, number of pages, and custom features required."
+          },
+          "1": {
+            "q": "Will my site be mobile friendly?",
+            "a": "Yes, every site we build is fully responsive and tested across all major devices and screen sizes."
+          },
+          "2": {
+            "q": "Do you handle hosting?",
+            "a": "Yes, we can set up and manage hosting for you, or work with your existing hosting provider."
+          },
+          "3": {
+            "q": "Can I update the site myself after launch?",
+            "a": "Yes, we build with CMS options so you can easily update content, add pages, and manage media without touching code."
+          },
+          "4": {
+            "q": "What happens after launch?",
+            "a": "Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans for ongoing updates and monitoring."
+          }
         }
       }
     }
@@ -397,7 +553,10 @@
           "notSure": "Not sure yet"
         }
       },
-      "notes": { "label": "Tell us about your project", "placeholder": "Describe what you need..." }
+      "notes": {
+        "label": "Tell us about your project",
+        "placeholder": "Describe what you need..."
+      }
     },
     "validation": {
       "nameRequired": "Name is required",
@@ -786,9 +945,21 @@
     "badge": "Our Team",
     "heading": "The People Behind E&P Systems",
     "members": {
-      "member1": { "name": "Emil Petrov", "role": "Founder & Lead Developer", "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows." },
-      "member2": { "name": "Petar Ivanov", "role": "Full-Stack Developer", "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications." },
-      "member3": { "name": "Maria Dimitrova", "role": "UI/UX Designer", "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces." }
+      "member1": {
+        "name": "Emil Dermendzhiev",
+        "role": "Co-Founder & Lead Developer",
+        "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows."
+      },
+      "member2": {
+        "name": "Pavel Stefanov",
+        "role": "Co-Founder & Senior Developer",
+        "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications."
+      },
+      "member3": {
+        "name": "Emi Letkova",
+        "role": "UI/UX Designer & Marketing Expert",
+        "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+      }
     }
   },
   "testimonials": {
