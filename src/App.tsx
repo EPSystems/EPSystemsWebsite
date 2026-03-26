@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ScrollToTop } from './components/ScrollToTop'
 import { ContactModalProvider } from './components/contact/ContactModalProvider'
 import { CookieConsent } from './components/CookieConsent'
@@ -33,6 +34,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CookieConsent />
+      <SpeedInsights />
     </ContactModalProvider>
   )
 }
