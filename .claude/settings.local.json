@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''src/i18n/locales/en/common.json'',''utf8''\\)\\); console.log\\(''EN: Valid JSON''\\)\")",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''src/i18n/locales/bg/common.json'',''utf8''\\)\\); console.log\\(''BG: Valid JSON''\\)\")"
+    ]
+  }
+}
