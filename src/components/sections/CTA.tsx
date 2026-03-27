@@ -19,7 +19,7 @@ export function CTA() {
           </div>
           <button
             onClick={() => openContactForm({ subject: 'general', source: 'homepage-cta' })}
-            className="bg-black text-white text-xl font-bold px-10 py-5 rounded-2xl brutalist-shadow border-4 border-black whitespace-nowrap hover:bg-zinc-800 transition-colors relative z-10 w-full md:w-auto text-center"
+            className="bg-black text-white text-lg sm:text-xl font-bold px-6 sm:px-10 py-5 rounded-2xl brutalist-shadow border-4 border-black hover:bg-zinc-800 transition-colors relative z-10 w-full md:w-auto text-center"
           >
             {t('cta.button')}
           </button>

@@ -43,13 +43,13 @@ export function TrustedBy() {
       </p>
 
       <div className="group relative">
-        <div className="flex gap-10 animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="flex gap-6 sm:gap-10 animate-marquee-fast sm:animate-marquee group-hover:[animation-play-state:paused]">
           {/* First copy */}
-          <div className="flex gap-10 flex-shrink-0">
+          <div className="flex gap-6 sm:gap-10 flex-shrink-0">
             {logos}
           </div>
           {/* Second copy for seamless loop */}
-          <div className="flex gap-10 flex-shrink-0">
+          <div className="flex gap-6 sm:gap-10 flex-shrink-0">
             {logos}
           </div>
         </div>

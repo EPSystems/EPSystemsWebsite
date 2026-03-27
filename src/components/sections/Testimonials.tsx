@@ -27,7 +27,7 @@ export function Testimonials() {
             return (
               <div
                 key={key}
-                className="min-w-[300px] snap-start bg-white border-4 border-black rounded-[30px] p-6 brutalist-shadow flex-shrink-0 lg:flex-shrink lg:min-w-0"
+                className="min-w-[85vw] sm:min-w-[300px] snap-start bg-white border-4 border-black rounded-[30px] p-6 brutalist-shadow flex-shrink-0 lg:flex-shrink lg:min-w-0"
               >
                 {/* Avatar + Info */}
                 <div className="flex items-center gap-4 mb-4">

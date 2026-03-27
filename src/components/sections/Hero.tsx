@@ -25,7 +25,7 @@ export function Hero() {
             {t('hero.badge')}
           </motion.div>
           <motion.h1
-            className="text-6xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.9] mb-8 uppercase"
+            className="text-4xl sm:text-5xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.9] mb-8 uppercase"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}

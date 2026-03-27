@@ -38,11 +38,11 @@ export function Footer() {
         <AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 mb-16 w-full">
             {/* Branding */}
-            <div className="col-span-1 md:col-span-12 flex gap-3 md:gap-5 items-baseline pb-4">
-              <h2 className="text-6xl md:text-9xl lg:text-[10rem] leading-[0.8] tracking-tighter font-black text-white select-none">
+            <div className="col-span-1 md:col-span-12 flex flex-wrap gap-3 md:gap-5 items-baseline pb-4">
+              <h2 className="text-4xl sm:text-6xl md:text-9xl lg:text-[10rem] leading-[0.8] tracking-tighter font-black text-white select-none">
                 E&P Systems
               </h2>
-              <span className="text-xl md:text-3xl font-bold text-[#B9FF66] tracking-tighter relative -top-1 md:-top-3 border-2 border-[#B9FF66] px-3 py-1 rounded-full transform rotate-3">
+              <span className="text-base sm:text-xl md:text-3xl font-bold text-[#B9FF66] tracking-tighter relative -top-1 md:-top-3 border-2 border-[#B9FF66] px-3 py-1 rounded-full transform rotate-3">
                 AGENCY
               </span>
             </div>
