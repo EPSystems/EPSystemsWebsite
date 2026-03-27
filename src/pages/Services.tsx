@@ -7,6 +7,7 @@ import { AnimatedSection } from '../components/ui/AnimatedSection'
 import { useTranslation } from 'react-i18next'
 import { useContactModal } from '../hooks/useContactModal'
 import { motion } from 'framer-motion'
+import { SEOHead } from '../components/SEOHead'
 import { Code2, ShoppingCart, Search, Bot, FileText, Wrench, ArrowUpRight, Cpu, Globe, Layers, DollarSign } from 'lucide-react'
 
 const services = [
@@ -43,6 +44,7 @@ export function Services() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       {/* Hero */}

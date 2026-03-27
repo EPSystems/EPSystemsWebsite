@@ -6,6 +6,7 @@ import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { AnimatedSection } from '../components/ui/AnimatedSection'
 import { blogPosts } from '../data/blogPosts'
+import { SEOHead } from '../components/SEOHead'
 import { Clock, Calendar } from 'lucide-react'
 
 const categoryColors: Record<string, string> = {
@@ -28,6 +29,7 @@ export function Blog() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       {/* Hero */}

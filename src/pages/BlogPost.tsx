@@ -7,6 +7,7 @@ import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { AnimatedSection } from '../components/ui/AnimatedSection'
 import { blogPosts } from '../data/blogPosts'
+import { SEOHead } from '../components/SEOHead'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 
 const categoryColors: Record<string, string> = {
@@ -50,6 +51,7 @@ export function BlogPost() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       <article className="max-w-4xl mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28">

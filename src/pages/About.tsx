@@ -5,6 +5,7 @@ import { Footer } from '../components/layout/Footer'
 import { AnimatedSection } from '../components/ui/AnimatedSection'
 import { useTranslation } from 'react-i18next'
 import { useContactModal } from '../hooks/useContactModal'
+import { SEOHead } from '../components/SEOHead'
 import { Target, Zap, Users } from 'lucide-react'
 
 export function About() {
@@ -35,6 +36,7 @@ export function About() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       {/* Hero */}

@@ -10,6 +10,7 @@ import { Team } from '../components/sections/Team'
 import { CTA } from '../components/sections/CTA'
 import { Testimonials } from '../components/sections/Testimonials'
 import { TrustedBy } from '../components/sections/TrustedBy'
+import { SEOHead } from '../components/SEOHead'
 
 export function HomePage() {
   useLanguageSync()
@@ -17,6 +18,7 @@ export function HomePage() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
       <Hero />
       <Marquee />

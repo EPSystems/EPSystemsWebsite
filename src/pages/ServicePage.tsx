@@ -8,6 +8,7 @@ import { ServiceFeatures } from '../components/sections/ServiceFeatures'
 import { ServiceProcess } from '../components/sections/ServiceProcess'
 import { ServiceFAQ } from '../components/sections/ServiceFAQ'
 import { ServiceCTA } from '../components/sections/ServiceCTA'
+import { SEOHead } from '../components/SEOHead'
 
 const VALID_SLUGS = ['seo', 'ecommerce', 'ai', 'software', 'landing', 'maintenance'] as const
 type ValidSlug = (typeof VALID_SLUGS)[number]
@@ -29,6 +30,7 @@ export function ServicePage() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
       <ServiceHero slug={slug} />
       <ServiceFeatures slug={slug} />

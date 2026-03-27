@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { useContactModal } from '../hooks/useContactModal'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { SEOHead } from '../components/SEOHead'
 import { Check } from 'lucide-react'
 
 type ServiceKey = 'webDev' | 'seo' | 'ecommerce' | 'ai'
@@ -38,6 +39,7 @@ export function Pricing() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       {/* Hero */}

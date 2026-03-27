@@ -7,6 +7,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { useTranslation } from "react-i18next";
 import { useContactModal } from "../hooks/useContactModal";
 import { useContactForm } from "../hooks/useContactForm";
+import { SEOHead } from "../components/SEOHead";
 import {
   Mail,
   Phone,
@@ -125,6 +126,7 @@ export function Contact() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
 
       {/* Hero */}

@@ -2,6 +2,7 @@ import { useLanguageSync } from "../hooks/useLanguageSync";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
+import { SEOHead } from "../components/SEOHead";
 import { useTranslation } from "react-i18next";
 
 export function PrivacyPolicy() {
@@ -17,6 +18,7 @@ export function PrivacyPolicy() {
 
   return (
     <>
+      <SEOHead />
       <Navbar />
       <main className="max-w-4xl mx-auto px-6 py-16 lg:py-24">
         <h1 className="text-4xl lg:text-6xl font-black tracking-tighter mb-4">
