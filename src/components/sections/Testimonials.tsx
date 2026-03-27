@@ -20,14 +20,14 @@ export function Testimonials() {
       </AnimatedSection>
 
       <AnimatedSection delay={0.2}>
-        {/* Mobile: horizontal scroll | Desktop: 3-column grid */}
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0">
+        {/* Mobile: stacked cards | Desktop: 3-column grid */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {TESTIMONIAL_KEYS.map((key) => {
             const initials = t(`testimonials.items.${key}.initials`)
             return (
               <div
                 key={key}
-                className="min-w-[85vw] sm:min-w-[300px] snap-start bg-white border-4 border-black rounded-[30px] p-6 brutalist-shadow flex-shrink-0 lg:flex-shrink lg:min-w-0"
+                className="bg-white border-4 border-black rounded-[30px] p-6 brutalist-shadow"
               >
                 {/* Avatar + Info */}
                 <div className="flex items-center gap-4 mb-4">
