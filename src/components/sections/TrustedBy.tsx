@@ -20,7 +20,7 @@ export function TrustedBy() {
   const logos = PARTNERS.map(({ key, logo }) => (
     <div
       key={key}
-      className="w-72 h-32 flex-shrink-0 bg-white/5 border border-[#B9FF66]/20 rounded-lg flex items-center justify-center"
+      className="w-44 h-24 sm:w-72 sm:h-32 flex-shrink-0 bg-white/5 border border-[#B9FF66]/20 rounded-lg flex items-center justify-center"
     >
       {logo ? (
         <img
