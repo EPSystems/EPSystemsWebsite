@@ -11,7 +11,7 @@ export function Navbar() {
   const { t } = useTranslation()
   const { openContactForm } = useContactModal()
 
-  const homePath = `/${lang || 'en'}/`
+  const homePath = `/${lang || 'bg'}/`
 
   return (
     <nav className="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center relative z-50">
@@ -22,10 +22,10 @@ export function Navbar() {
       </Link>
 
       <div className="hidden lg:flex items-center gap-10 text-lg font-bold text-zinc-800 bg-white px-8 py-3 rounded-full border-2 border-black brutalist-shadow">
-        <Link to={`/${lang || 'en'}/services`} className="hover:text-[#88cc33] transition-colors">{t('nav.services')}</Link>
-        {/* <Link to={`/${lang || 'en'}/projects`} className="hover:text-[#88cc33] transition-colors">{t('nav.projects')}</Link> */}
-        <Link to={`/${lang || 'en'}/pricing`} className="hover:text-[#88cc33] transition-colors">{t('nav.pricing')}</Link>
-        <Link to={`/${lang || 'en'}/about`} className="hover:text-[#88cc33] transition-colors">{t('nav.about')}</Link>
+        <Link to={`/${lang || 'bg'}/services`} className="hover:text-[#88cc33] transition-colors">{t('nav.services')}</Link>
+        {/* <Link to={`/${lang || 'bg'}/projects`} className="hover:text-[#88cc33] transition-colors">{t('nav.projects')}</Link> */}
+        <Link to={`/${lang || 'bg'}/pricing`} className="hover:text-[#88cc33] transition-colors">{t('nav.pricing')}</Link>
+        <Link to={`/${lang || 'bg'}/about`} className="hover:text-[#88cc33] transition-colors">{t('nav.about')}</Link>
       </div>
 
       <div className="hidden lg:flex items-center gap-4">
@@ -48,10 +48,10 @@ export function Navbar() {
       {mobileOpen && (
         <div className="absolute top-full left-0 right-0 bg-white border-2 border-black rounded-2xl mx-6 mt-2 p-6 flex flex-col gap-4 text-lg font-bold brutalist-shadow-static lg:hidden z-50">
           <LanguageSwitcher className="mb-2" />
-          <Link to={`/${lang || 'en'}/services`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.services')}</Link>
-          {/* <Link to={`/${lang || 'en'}/projects`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.projects')}</Link> */}
-          <Link to={`/${lang || 'en'}/pricing`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.pricing')}</Link>
-          <Link to={`/${lang || 'en'}/about`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.about')}</Link>
+          <Link to={`/${lang || 'bg'}/services`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.services')}</Link>
+          {/* <Link to={`/${lang || 'bg'}/projects`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.projects')}</Link> */}
+          <Link to={`/${lang || 'bg'}/pricing`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.pricing')}</Link>
+          <Link to={`/${lang || 'bg'}/about`} onClick={() => setMobileOpen(false)} className="hover:text-[#88cc33] text-left">{t('nav.about')}</Link>
           <button onClick={() => { setMobileOpen(false); openContactForm({ subject: 'general', source: 'navbar-get-started' }) }} className="bg-[#B9FF66] border-2 border-black rounded-xl px-6 py-3 text-center">{t('nav.getStarted')}</button>
         </div>
       )}

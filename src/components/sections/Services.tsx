@@ -82,7 +82,7 @@ export function Services() {
               </div>
               {hasPage && (
                 <Link
-                  to={`/${lang || 'en'}/services/${SERVICE_SLUGS[service.id]}`}
+                  to={`/${lang || 'bg'}/services/${SERVICE_SLUGS[service.id]}`}
                   className={`flex items-center gap-4 text-xl font-bold mt-auto ${styles.text}`}
                 >
                   <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>

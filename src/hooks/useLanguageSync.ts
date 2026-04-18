@@ -13,7 +13,7 @@ export function useLanguageSync(): SupportedLang {
   const { lang } = useParams<{ lang: string }>()
   const { i18n } = useTranslation()
 
-  const resolved: SupportedLang = lang && isSupportedLang(lang) ? lang : 'en'
+  const resolved: SupportedLang = lang && isSupportedLang(lang) ? lang : 'bg'
 
   useEffect(() => {
     if (i18n.language !== resolved) {

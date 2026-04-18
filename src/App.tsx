@@ -20,7 +20,7 @@ function App() {
     <ContactModalProvider>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Navigate to="/en/" replace />} />
+        <Route path="/" element={<Navigate to="/bg/" replace />} />
         <Route path="/:lang" element={<HomePage />} />
         <Route path="/:lang/services" element={<Services />} />
         <Route path="/:lang/services/:slug" element={<ServicePage />} />

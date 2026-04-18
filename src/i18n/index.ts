@@ -8,8 +8,8 @@ i18n.use(initReactI18next).init({
     en: { common: en },
     bg: { common: bg },
   },
-  lng: 'en',
-  fallbackLng: 'en',
+  lng: 'bg',
+  fallbackLng: 'bg',
   defaultNS: 'common',
   interpolation: {
     escapeValue: false,

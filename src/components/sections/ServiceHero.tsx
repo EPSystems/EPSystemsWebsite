@@ -15,7 +15,7 @@ export function ServiceHero({ slug }: ServiceHeroProps) {
     <section className="max-w-7xl mx-auto px-6 pt-32 pb-16">
       <AnimatedSection>
         <Link
-          to={`/${lang || 'en'}/`}
+          to={`/${lang || 'bg'}/`}
           className="inline-flex items-center gap-2 text-lg font-bold hover:text-[#88cc33] transition-colors mb-10"
         >
           <ArrowLeft size={20} />

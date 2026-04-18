@@ -25,7 +25,7 @@ export function ServicePage() {
   usePageMeta(`servicePages.${validSlug}.meta.title`, `servicePages.${validSlug}.meta.description`)
 
   if (!slug || !isValidSlug(slug)) {
-    return <Navigate to={`/${lang || 'en'}/`} replace />
+    return <Navigate to={`/${lang || 'bg'}/`} replace />
   }
 
   return (

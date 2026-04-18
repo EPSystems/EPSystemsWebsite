@@ -109,7 +109,7 @@ export function Services() {
 
                 if (enabled) {
                   return (
-                    <Link key={key} to={`/${lang || 'en'}/services/${href}`} className="block">
+                    <Link key={key} to={`/${lang || 'bg'}/services/${href}`} className="block">
                       {card}
                     </Link>
                   )
