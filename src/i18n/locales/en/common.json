@@ -1483,10 +1483,17 @@
     "backToBlog": "Back to Blog",
     "minRead": "min read",
     "categories": {
-      "web-development": "Web Development",
-      "seo": "SEO",
-      "ai": "AI Automation"
+      "ai-automation": "AI Automation",
+      "ai-agents": "AI Agents",
+      "ai-seo": "AI SEO",
+      "ai-websites": "AI Websites",
+      "ai-ecommerce": "AI E-Commerce"
     },
+    "filters": {
+      "all": "All"
+    },
+    "empty": "No articles yet in this category.",
+    "related": "Related articles",
     "cta": {
       "heading": "Ready to Grow Your Business?",
       "description": "Let's discuss how we can help you achieve your digital goals - from websites and SEO to AI-powered automation.",

@@ -1481,10 +1481,17 @@
     "backToBlog": "Към блога",
     "minRead": "мин четене",
     "categories": {
-      "web-development": "Уеб разработка",
-      "seo": "SEO",
-      "ai": "AI Автоматизация"
+      "ai-automation": "AI Автоматизации",
+      "ai-agents": "AI Агенти",
+      "ai-seo": "AI SEO",
+      "ai-websites": "AI Уеб Сайтове",
+      "ai-ecommerce": "AI E-Commerce"
     },
+    "filters": {
+      "all": "Всички"
+    },
+    "empty": "Все още няма статии в тази категория.",
+    "related": "Свързани статии",
     "cta": {
       "heading": "Готови ли сте да развиете бизнеса си?",
       "description": "Нека обсъдим как можем да ви помогнем да постигнете дигиталните си цели - от уебсайтове и SEO до AI автоматизация.",
