@@ -8,23 +8,24 @@ import { useTranslation } from 'react-i18next'
 import { useContactModal } from '../hooks/useContactModal'
 import { motion } from 'framer-motion'
 import { SEOHead } from '../components/SEOHead'
-import { Code2, ShoppingCart, Search, Bot, FileText, Wrench, ArrowUpRight, Cpu, Globe, Layers, DollarSign } from 'lucide-react'
+import { Globe, Workflow, Bot, Search, ShoppingCart, ArrowUpRight, Cpu, Rocket, Languages, Eye } from 'lucide-react'
 
 const services = [
-  { key: 'webDev', icon: Code2, href: 'software', enabled: true },
-  { key: 'ecommerce', icon: ShoppingCart, href: 'ecommerce', enabled: true },
-  { key: 'seo', icon: Search, href: 'seo', enabled: true },
-  { key: 'ai', icon: Bot, href: 'ai', enabled: true },
-  { key: 'landing', icon: FileText, href: 'landing', enabled: true },
-  { key: 'maintenance', icon: Wrench, href: 'maintenance', enabled: true },
+  { key: 'aiWebsites', icon: Globe, href: 'ai-websites' },
+  { key: 'aiAutomation', icon: Workflow, href: 'ai-automation' },
+  { key: 'aiAgents', icon: Bot, href: 'ai-agents' },
+  { key: 'aiSeo', icon: Search, href: 'ai-seo' },
+  { key: 'aiEcommerce', icon: ShoppingCart, href: 'ai-ecommerce' },
 ] as const
 
 const differentiators = [
   { key: 'engineering', icon: Cpu },
-  { key: 'bilingual', icon: Globe },
-  { key: 'fullStack', icon: Layers },
-  { key: 'pricing', icon: DollarSign },
+  { key: 'production', icon: Rocket },
+  { key: 'native', icon: Languages },
+  { key: 'transparent', icon: Eye },
 ] as const
+
+const processSteps = [0, 1, 2, 3] as const
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -59,6 +60,9 @@ export function Services() {
           <p className="text-xl lg:text-2xl text-zinc-600 font-bold max-w-3xl leading-relaxed">
             {t('servicesHub.hero.subheading')}
           </p>
+          <p className="mt-6 text-lg text-zinc-700 font-medium max-w-3xl leading-relaxed">
+            {t('servicesHub.hero.intro')}
+          </p>
         </AnimatedSection>
       </section>
 
@@ -70,20 +74,15 @@ export function Services() {
               {t('servicesHub.grid.heading')}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map(({ key, icon: Icon, href, enabled }, i) => {
-                const card = (
+              {services.map(({ key, icon: Icon, href }, i) => (
+                <Link key={key} to={`/${lang || 'bg'}/services/${href}`} className="block">
                   <motion.div
-                    key={key}
                     custom={i}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={cardVariants}
-                    className={`bg-zinc-100 border-4 border-black rounded-[30px] p-8 brutalist-shadow transition-transform duration-300 ${
-                      enabled
-                        ? 'hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#B9FF66] cursor-pointer'
-                        : 'opacity-70 cursor-default'
-                    }`}
+                    className="bg-zinc-100 border-4 border-black rounded-[30px] p-8 brutalist-shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#B9FF66] cursor-pointer h-full flex flex-col"
                   >
                     <div className="w-14 h-14 bg-[#B9FF66] rounded-xl flex items-center justify-center mb-6 border-2 border-black">
                       <Icon size={28} strokeWidth={2.5} />
@@ -91,32 +90,47 @@ export function Services() {
                     <h3 className="text-2xl font-black tracking-tight mb-3">
                       {t(`servicesHub.grid.cards.${key}.title`)}
                     </h3>
-                    <p className="text-zinc-600 text-lg leading-relaxed mb-6">
+                    <p className="text-zinc-600 text-lg leading-relaxed mb-6 flex-1">
                       {t(`servicesHub.grid.cards.${key}.description`)}
                     </p>
-                    <span
-                      className={`inline-flex items-center gap-2 text-lg font-black ${
-                        enabled ? 'text-black' : 'text-zinc-400'
-                      }`}
-                    >
-                      {enabled
-                        ? t('servicesHub.grid.learnMore')
-                        : t('servicesHub.grid.comingSoon')}
-                      {enabled && <ArrowUpRight size={20} strokeWidth={2.5} />}
+                    <span className="inline-flex items-center gap-2 text-lg font-black text-black">
+                      {t('servicesHub.grid.learnMore')}
+                      <ArrowUpRight size={20} strokeWidth={2.5} />
                     </span>
                   </motion.div>
-                )
+                </Link>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-                if (enabled) {
-                  return (
-                    <Link key={key} to={`/${lang || 'bg'}/services/${href}`} className="block">
-                      {card}
-                    </Link>
-                  )
-                }
+      {/* How We Work — 4 steps */}
+      <section className="py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="bg-zinc-100 rounded-[50px] border-4 border-black p-10 lg:p-16 brutalist-shadow-static">
+              <h2 className="text-4xl lg:text-5xl font-black tracking-tighter leading-tight mb-12">
+                {t('servicesHub.howWeWork.heading')}
+              </h2>
 
-                return card
-              })}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] border-t-4 border-dashed border-black" />
+
+                {processSteps.map((i) => (
+                  <div key={i} className="relative text-center lg:text-left">
+                    <span className="text-6xl font-black text-[#B9FF66] leading-none">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="text-xl font-black tracking-tighter mt-4 mb-2">
+                      {t(`servicesHub.howWeWork.steps.${i}.title`)}
+                    </h3>
+                    <p className="text-zinc-600">
+                      {t(`servicesHub.howWeWork.steps.${i}.description`)}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
         </div>

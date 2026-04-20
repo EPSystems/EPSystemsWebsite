@@ -7,10 +7,11 @@ interface ServiceFAQProps {
 }
 
 const FAQ_COUNTS: Record<string, number> = {
-  seo: 5,
-  ecommerce: 5,
-  ai: 5,
-  software: 5,
+  'ai-websites': 5,
+  'ai-automation': 5,
+  'ai-agents': 5,
+  'ai-seo': 5,
+  'ai-ecommerce': 5,
 }
 
 export function ServiceFAQ({ slug }: ServiceFAQProps) {

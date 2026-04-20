@@ -205,218 +205,185 @@
     }
   },
   "servicePages": {
-    "backToServices": "All Services",
-    "seo": {
+    "backToServices": "All services",
+    "ai-websites": {
       "meta": {
-        "title": "SEO Services - E&P Systems",
-        "description": "Data-driven SEO strategies to boost your search rankings. Technical audits, on-page optimization, and authority link building."
+        "title": "AI Websites - E&P Systems",
+        "description": "A website that talks to your customers and turns visitors into leads. AI chat, lead qualification, SEO head start."
       },
       "hero": {
-        "badge": "SEO Services",
-        "heading": "Dominate Search Results",
-        "subheading": "Data-driven SEO strategies that push your website to the top of Google and capture high-intent traffic that converts."
+        "badge": "AI Websites",
+        "heading": "A website that talks to your customers.",
+        "subheading": "We turn your website into a 24/7 employee — answering questions, qualifying leads, and collecting data while you sleep."
       },
       "features": {
-        "heading": "What We Deliver",
+        "heading": "What you get",
         "items": {
           "0": {
-            "title": "Technical SEO Audits",
-            "description": "Comprehensive analysis of your site's technical health - crawlability, indexing, Core Web Vitals, and structured data."
+            "title": "Built-in AI chat",
+            "description": "Trained on your services, pricing, and FAQs. Answers in Bulgarian and English without losing nuance."
           },
           "1": {
-            "title": "On-Page Optimization",
-            "description": "Strategic keyword placement, meta tags, content structure, and internal linking to maximize relevance."
+            "title": "Lead qualification",
+            "description": "AI asks the right questions, flags hot leads, and routes them straight to your CRM or inbox."
           },
           "2": {
-            "title": "Authority Link Building",
-            "description": "White-hat outreach campaigns that earn high-quality backlinks and build your domain authority."
+            "title": "AI-powered SEO head start",
+            "description": "Technical audit, structured data, optimized meta tags, and hreflang from day one."
           },
           "3": {
-            "title": "Performance Reporting",
-            "description": "Monthly reports with ranking changes, traffic growth, and actionable recommendations."
+            "title": "Fast front-end",
+            "description": "React or Next.js with modern architecture — under 2s load time, 90+ Lighthouse score."
+          }
+        }
+      },
+      "personas": {
+        "heading": "Who this is for",
+        "items": {
+          "0": {
+            "title": "Insurance brokers",
+            "description": "Clients ask the same questions about policies, deadlines, and documents — let AI answer."
+          },
+          "1": {
+            "title": "E-commerce stores with rising support load",
+            "description": "Most questions are about stock, shipping, or returns. AI resolves them before they become tickets."
+          },
+          "2": {
+            "title": "Service businesses losing leads after hours",
+            "description": "Half of inquiries come in the evening or weekend. AI does not take vacations."
           }
         }
       },
       "process": {
-        "heading": "How We Work",
+        "heading": "How we do it",
         "steps": {
           "0": {
-            "title": "Audit",
-            "description": "We analyze your current SEO health and identify opportunities."
-          },
-          "1": {
-            "title": "Strategy",
-            "description": "We build a custom roadmap based on your goals and competition."
-          },
-          "2": {
-            "title": "Execute",
-            "description": "We implement technical fixes, optimize content, and build links."
-          },
-          "3": {
-            "title": "Report",
-            "description": "We track progress and refine the strategy monthly."
-          }
-        }
-      },
-      "cta": {
-        "heading": "Ready to Rank Higher?",
-        "description": "Get a comprehensive SEO audit and discover untapped growth opportunities for your website.",
-        "button": "Get a Free SEO Audit"
-      },
-      "faq": {
-        "heading": "Frequently Asked Questions",
-        "items": {
-          "0": {
-            "q": "How long does SEO take to show results?",
-            "a": "SEO is a long-term strategy. Most businesses start seeing measurable improvements in 3–6 months, with compounding results over time."
-          },
-          "1": {
-            "q": "Do you guarantee first page rankings?",
-            "a": "No ethical SEO agency can guarantee specific rankings. What we guarantee is a data-driven approach, transparent reporting, and consistent effort to improve your visibility."
-          },
-          "2": {
-            "q": "What's included in your monthly SEO report?",
-            "a": "Our reports cover keyword rankings, organic traffic trends, backlink profile changes, technical health scores, and actionable recommendations for the next month."
-          },
-          "3": {
-            "q": "Do you do local SEO?",
-            "a": "Yes, we specialize in local SEO for Bulgarian businesses - including Google Business Profile optimization, local citations, and map pack strategies."
-          },
-          "4": {
-            "q": "Can I keep my existing website?",
-            "a": "Absolutely. SEO works with your current site. We optimize what you have and recommend changes only when they'll drive measurable improvements."
-          }
-        }
-      }
-    },
-    "ecommerce": {
-      "meta": {
-        "title": "E-Commerce Solutions - E&P Systems",
-        "description": "Full-featured online stores with secure payments, inventory management, and analytics dashboards."
-      },
-      "hero": {
-        "badge": "E-Commerce",
-        "heading": "Launch Your Online Store",
-        "subheading": "Full-featured e-commerce platforms with secure payments, real-time inventory, and analytics that turn browsers into buyers."
-      },
-      "features": {
-        "heading": "What We Build",
-        "items": {
-          "0": {
-            "title": "Secure Payment Integration",
-            "description": "Stripe, PayPal, and local payment methods - all PCI-compliant and conversion-optimized."
-          },
-          "1": {
-            "title": "Inventory Management",
-            "description": "Real-time stock tracking, automated alerts, and multi-warehouse support."
-          },
-          "2": {
-            "title": "Order Tracking Dashboards",
-            "description": "Customer-facing tracking and admin dashboards for complete order lifecycle visibility."
-          },
-          "3": {
-            "title": "Analytics & Insights",
-            "description": "Sales funnels, customer behavior, and revenue reporting to drive data-backed decisions."
-          }
-        }
-      },
-      "process": {
-        "heading": "How We Work",
-        "steps": {
-          "0": {
-            "title": "Discovery",
-            "description": "We map your product catalog, payment needs, and customer journey."
+            "title": "Brief",
+            "description": "We define goals, audience, and what the site needs to do."
           },
           "1": {
             "title": "Design",
-            "description": "We create a storefront that converts - mobile-first, fast, and on-brand."
+            "description": "Neo-brutalist visual with your brand identity, optimized for conversion."
           },
           "2": {
-            "title": "Build",
-            "description": "We develop your store with secure payments, inventory, and shipping."
+            "title": "Build + AI",
+            "description": "We ship the site and train the AI chat on your data."
           },
           "3": {
-            "title": "Launch",
-            "description": "We test everything end-to-end and launch with monitoring in place."
+            "title": "Launch + iterate",
+            "description": "We launch with monitoring and fine-tune the AI weekly."
+          }
+        }
+      },
+      "caseStudy": {
+        "badge": "Real example",
+        "metric": "60-80%",
+        "metricLabel": "of inquiries handled without a human",
+        "title": "AI chat for an insurance broker",
+        "description": "We built an AI assistant for a Bulgarian insurance broker that answers typical questions about auto and property coverage — saving hours of manual communication per week.",
+        "flag": "[REPLACE: add real case study after client approval]"
+      },
+      "pricing": {
+        "heading": "Investment",
+        "description": "Pricing depends on site scope, integrations, and AI chat complexity. We give you a concrete quote after a 30-minute consultation.",
+        "rangeLabel": "From",
+        "range": "€1,500+",
+        "button": "Request a quote",
+        "flag": "[REPLACE: confirm pricing range with Emo]"
+      },
+      "faq": {
+        "heading": "Frequently asked questions",
+        "items": {
+          "0": {
+            "q": "How long does it take to build?",
+            "a": "Typically 3-6 weeks depending on complexity. AI training adds another 1-2 weeks."
+          },
+          "1": {
+            "q": "What languages does the AI chat support?",
+            "a": "Bulgarian and English. Bulgarian quality is on par with English on modern LLMs — not machine-translated."
+          },
+          "2": {
+            "q": "Can I update the site myself?",
+            "a": "Yes, we ship with CMS options. The AI chat has an admin panel to add or edit knowledge."
+          },
+          "3": {
+            "q": "What does the AI cost to run?",
+            "a": "API fees scale with volume — typically €30-150/month for a mid-sized business. Our support is a separate subscription."
+          },
+          "4": {
+            "q": "What about GDPR and personal data?",
+            "a": "We build with privacy by design — no personal data in AI context, clear policy, and full GDPR compliance."
           }
         }
       },
       "cta": {
-        "heading": "Ready to Sell Online?",
-        "description": "Let's build an online store that turns visitors into customers and scales with your business.",
-        "button": "Start Selling Online"
-      },
-      "faq": {
-        "heading": "Frequently Asked Questions",
-        "items": {
-          "0": {
-            "q": "Which platforms do you build on?",
-            "a": "We work with Shopify, WooCommerce, and custom React-based solutions depending on your needs, scale, and budget."
-          },
-          "1": {
-            "q": "Do you handle product uploads?",
-            "a": "Yes, initial product catalog setup is included in all our e-commerce packages."
-          },
-          "2": {
-            "q": "Can you migrate my existing store?",
-            "a": "Yes, we handle full migrations including products, customer data, and order history from your current platform."
-          },
-          "3": {
-            "q": "Do you set up payment gateways?",
-            "a": "Yes, we integrate all major payment providers including Stripe, PayPal, and local Bulgarian payment options."
-          },
-          "4": {
-            "q": "What about ongoing maintenance?",
-            "a": "We offer monthly maintenance plans that cover updates, security patches, performance monitoring, and product support."
-          }
-        }
+        "heading": "Ready for a website that works for you 24/7?",
+        "description": "Free consultation — we'll check whether an AI website is the right fit for your business.",
+        "button": "Free consultation"
       }
     },
-    "ai": {
+    "ai-automation": {
       "meta": {
-        "title": "AI & Automation - E&P Systems",
-        "description": "Intelligent AI chatbots, workflow automation, and custom AI tools to streamline your business operations."
+        "title": "AI Automation - E&P Systems",
+        "description": "We automate the manual processes stealing hours from your week. n8n + Claude API workflows with real ROI."
       },
       "hero": {
-        "badge": "AI & Automation",
-        "heading": "Automate Your Business",
-        "subheading": "Intelligent AI solutions that handle customer inquiries, automate repetitive tasks, and give your team superpowers."
+        "badge": "AI Automation",
+        "heading": "Stop losing hours to manual work.",
+        "subheading": "We automate repetitive processes with n8n + Claude API — from invoice and email handling to CRM syncs and notifications."
       },
       "features": {
-        "heading": "What We Build",
+        "heading": "What you get",
         "items": {
           "0": {
-            "title": "AI Chatbots",
-            "description": "Custom conversational agents that handle customer inquiries, qualify leads, and provide 24/7 support."
+            "title": "n8n + Claude API workflows",
+            "description": "Self-hosted or cloud — a stack you control, with no vendor lock-in."
           },
           "1": {
-            "title": "Workflow Automation",
-            "description": "Eliminate repetitive tasks - from data entry and email sequences to invoice processing."
+            "title": "Integrations with your tools",
+            "description": "Gmail, Slack, Sheets, WhatsApp, CRMs, calendars — we connect everything."
           },
           "2": {
-            "title": "Custom AI Tools",
-            "description": "Purpose-built AI solutions for content generation, data analysis, and business intelligence."
+            "title": "Unstructured data extraction",
+            "description": "Invoices, emails, documents — AI pulls the data and enters it into your systems automatically."
           },
           "3": {
-            "title": "Integration & APIs",
-            "description": "Connect AI capabilities to your existing tools - CRM, helpdesk, e-commerce, and more."
+            "title": "Clear ROI metrics",
+            "description": "We calculate hours saved per month before kickoff and track real numbers after launch."
+          }
+        }
+      },
+      "personas": {
+        "heading": "Who this is for",
+        "items": {
+          "0": {
+            "title": "Accounting and legal firms",
+            "description": "Manual data entry, document processing, deadline tracking — all automatable."
+          },
+          "1": {
+            "title": "Small businesses with repeating processes",
+            "description": "Same tasks every week? Automate once, save forever."
+          },
+          "2": {
+            "title": "Marketing and sales teams",
+            "description": "Lead scoring, follow-up emails, CRM sync — let AI handle the grind."
           }
         }
       },
       "process": {
-        "heading": "How We Work",
+        "heading": "How we do it",
         "steps": {
           "0": {
             "title": "Assess",
-            "description": "We identify which processes benefit most from automation."
+            "description": "We identify which processes yield the biggest ROI when automated."
           },
           "1": {
             "title": "Prototype",
-            "description": "We build a working proof-of-concept to validate the approach."
+            "description": "We build a working proof-of-concept to validate the approach in a week."
           },
           "2": {
-            "title": "Develop",
-            "description": "We build the production system with proper error handling and monitoring."
+            "title": "Production",
+            "description": "We deploy with monitoring, error handling, and documentation."
           },
           "3": {
             "title": "Optimize",
@@ -424,284 +391,399 @@
           }
         }
       },
-      "cta": {
-        "heading": "Ready to Work Smarter?",
-        "description": "Discover how AI and automation can save your team hours of manual work every week.",
-        "button": "Explore AI Solutions"
+      "caseStudy": {
+        "badge": "Real example",
+        "metric": "10+ hrs",
+        "metricLabel": "saved per week",
+        "title": "SMS automation for an insurance broker",
+        "description": "We built a system that automatically sends renewal reminders before a policy expires — eliminating manual follow-up and improving client retention.",
+        "flag": "[REPLACE: add real case study after client approval]"
+      },
+      "pricing": {
+        "heading": "Investment",
+        "description": "Projects start with a one-time setup fee plus a monthly subscription for API and support. We run ROI math before we start.",
+        "rangeLabel": "From",
+        "range": "€800 + €50/mo",
+        "button": "Request ROI estimate",
+        "flag": "[REPLACE: confirm pricing range with Emo]"
       },
       "faq": {
-        "heading": "Frequently Asked Questions",
+        "heading": "Frequently asked questions",
         "items": {
           "0": {
-            "q": "What can AI automation do for my business?",
-            "a": "AI automation can handle lead capture and follow-up, appointment scheduling, customer support via chatbots, invoice processing, data entry, and much more."
+            "q": "Which processes are good candidates?",
+            "a": "Anything repetitive with clear rules or training data — email handling, data entry, syncs, lead qualification, reports."
           },
           "1": {
-            "q": "Do I need technical knowledge to use it?",
-            "a": "Not at all. We handle the entire setup, integration, and training. You'll get a simple interface and clear documentation."
+            "q": "Is AI handling of my data secure?",
+            "a": "Yes. We build with privacy by design — sensitive data is not stored in AI context, we use encryption and clear data flows."
           },
           "2": {
-            "q": "What integrates with your automations?",
-            "a": "We integrate with Gmail, Slack, CRM systems, WhatsApp, Zapier, Google Sheets, calendars, and most popular business tools."
+            "q": "What if an automation breaks?",
+            "a": "Every workflow has error handling and alerts. You get notified before clients notice."
           },
           "3": {
-            "q": "How long does setup take?",
-            "a": "Most automation projects take 1–3 weeks from kickoff to launch, depending on complexity and number of integrations."
+            "q": "How long does implementation take?",
+            "a": "Simple workflow — 1 week. Complex integration — 3-4 weeks. We always give you a concrete timeline after discovery."
           },
           "4": {
-            "q": "What's the ROI?",
-            "a": "Most clients save 5–15 hours per week on repetitive tasks. The typical payback period is under 2 months."
+            "q": "How much will I actually save?",
+            "a": "Typical clients save 5-15 hours per week. Payback under 3 months on medium-complexity projects."
           }
         }
+      },
+      "cta": {
+        "heading": "Ready to get your hours back?",
+        "description": "Free 30-minute consultation — we'll identify the biggest automation opportunity in your business.",
+        "button": "Free consultation"
       }
     },
-    "software": {
+    "ai-agents": {
       "meta": {
-        "title": "Custom Software - E&P Systems",
-        "description": "Tailored web applications, internal tools, and APIs built for your exact business needs."
+        "title": "Custom AI Agents - E&P Systems",
+        "description": "An AI employee that works 24/7 on your data. Trained on your knowledge base, integrated with CRM, human handoff for complex cases."
       },
       "hero": {
-        "badge": "Custom Software",
-        "heading": "Software Built for You",
-        "subheading": "Tailored solutions - from web applications and internal tools to complex platforms that scale with your business."
+        "badge": "AI Agents",
+        "heading": "An AI employee that never sleeps.",
+        "subheading": "A custom AI agent trained on your data — answers customers, processes requests, and integrates with your systems. 24/7, Bulgarian and English."
       },
       "features": {
-        "heading": "What We Build",
+        "heading": "What you get",
         "items": {
           "0": {
-            "title": "Web Applications",
-            "description": "Full-stack web apps with modern frameworks - React, Node.js, and cloud-native architecture."
+            "title": "Trained on your knowledge base",
+            "description": "Documents, FAQs, policies, product catalog — the AI knows exactly what it needs to know."
           },
           "1": {
-            "title": "Internal Business Tools",
-            "description": "Dashboards, admin panels, and workflow tools that streamline your team's daily operations."
+            "title": "Multichannel communication",
+            "description": "Messenger, WhatsApp, email, site chat — one AI agent across every channel."
           },
           "2": {
-            "title": "API Development",
-            "description": "RESTful and GraphQL APIs that connect your systems and power your digital ecosystem."
+            "title": "Human handoff for complex cases",
+            "description": "The AI knows its limits — when something is beyond its reach, it hands off to a human with context."
           },
           "3": {
-            "title": "Cloud & DevOps",
-            "description": "Scalable infrastructure, CI/CD pipelines, and monitoring for reliable, production-grade software."
+            "title": "Analytics and continuous learning",
+            "description": "See what questions come in, where the AI is weak, and how to improve it with new data."
+          }
+        }
+      },
+      "personas": {
+        "heading": "Who this is for",
+        "items": {
+          "0": {
+            "title": "Businesses with heavy customer inquiry load",
+            "description": "If your team answers the same questions day after day — the AI agent is your answer."
+          },
+          "1": {
+            "title": "Online stores with high support volume",
+            "description": "Order status, stock, returns — the AI agent handles 70%+ without human intervention."
+          },
+          "2": {
+            "title": "Training organizations and courses",
+            "description": "Questions about curriculum, enrollment, certificates — an AI agent that knows your program inside out."
           }
         }
       },
       "process": {
-        "heading": "How We Work",
+        "heading": "How we do it",
         "steps": {
           "0": {
-            "title": "Define",
-            "description": "We map your requirements, user flows, and technical constraints."
+            "title": "Data discovery",
+            "description": "We collect and structure your business's knowledge — FAQs, docs, product data."
           },
           "1": {
-            "title": "Architect",
-            "description": "We design the system architecture and choose the right tech stack."
+            "title": "Training",
+            "description": "We configure the AI agent with RAG architecture over your data."
           },
           "2": {
-            "title": "Build",
-            "description": "We develop iteratively with regular demos and feedback cycles."
+            "title": "Integration",
+            "description": "We connect to your channels — Messenger, WhatsApp, email, CRM."
           },
           "3": {
-            "title": "Deploy",
-            "description": "We launch to production with testing, documentation, and support."
+            "title": "Monitoring",
+            "description": "We track answer quality and fine-tune weekly."
+          }
+        }
+      },
+      "caseStudy": {
+        "badge": "Real example",
+        "metric": "24/7",
+        "metricLabel": "coverage, no missed customers",
+        "title": "AI agent for customer service",
+        "description": "We build AI agents for Bulgarian businesses that handle typical inquiries around the clock — from insurance questions to e-commerce support.",
+        "flag": "[REPLACE: add real case study after client approval]"
+      },
+      "pricing": {
+        "heading": "Investment",
+        "description": "An AI agent with training and integrations is a one-time fee plus a monthly subscription for API, hosting, and support.",
+        "rangeLabel": "From",
+        "range": "€1,200 + €80/mo",
+        "button": "Request a quote",
+        "flag": "[REPLACE: confirm pricing range with Emo]"
+      },
+      "faq": {
+        "heading": "Frequently asked questions",
+        "items": {
+          "0": {
+            "q": "How well does it speak Bulgarian?",
+            "a": "Modern models (Claude, GPT-4) speak excellent Bulgarian — they understand idioms, formal register, and technical terms. No machine translation."
+          },
+          "1": {
+            "q": "What happens when the AI doesn't know?",
+            "a": "We configure human handoff — the AI passes the conversation to a human with full context. It does not invent answers."
+          },
+          "2": {
+            "q": "Can I update the knowledge?",
+            "a": "Yes, there is an admin panel for adding or editing documents and FAQs. Changes are live in minutes."
+          },
+          "3": {
+            "q": "What channels does it run on?",
+            "a": "Messenger, WhatsApp, Telegram, email, site chat, Slack — any popular channel with an API."
+          },
+          "4": {
+            "q": "What's the difference vs a regular chatbot?",
+            "a": "Rule-based chatbots follow a decision tree. An AI agent understands context, remembers the conversation, and gives useful answers even to questions you did not anticipate."
           }
         }
       },
       "cta": {
-        "heading": "Have a Project in Mind?",
-        "description": "Tell us about your idea and we'll help you turn it into production-ready software.",
-        "button": "Discuss Your Project"
-      },
-      "faq": {
-        "heading": "Frequently Asked Questions",
-        "items": {
-          "0": {
-            "q": "How long does a website take?",
-            "a": "Most websites take 2–6 weeks depending on complexity, number of pages, and custom features required."
-          },
-          "1": {
-            "q": "Will my site be mobile friendly?",
-            "a": "Yes, every site we build is fully responsive and tested across all major devices and screen sizes."
-          },
-          "2": {
-            "q": "Do you handle hosting?",
-            "a": "Yes, we can set up and manage hosting for you, or work with your existing hosting provider."
-          },
-          "3": {
-            "q": "Can I update the site myself after launch?",
-            "a": "Yes, we build with CMS options so you can easily update content, add pages, and manage media without touching code."
-          },
-          "4": {
-            "q": "What happens after launch?",
-            "a": "Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans for ongoing updates and monitoring."
-          }
-        }
+        "heading": "Want an AI employee for your business?",
+        "description": "Free consultation — show us your data and processes and we'll show you what an AI agent can do.",
+        "button": "Free consultation"
       }
     },
-    "landing": {
+    "ai-seo": {
       "meta": {
-        "title": "Landing Pages - E&P Systems",
-        "description": "High-converting landing pages designed to capture leads, drive action, and maximize your ad spend ROI."
+        "title": "AI SEO - E&P Systems",
+        "description": "More organic traffic without manually writing every article. AI content pipelines, programmatic SEO, technical audits."
       },
       "hero": {
-        "badge": "Landing Pages",
-        "heading": "Pages That Convert",
-        "subheading": "Purpose-built landing pages designed to turn ad clicks into leads, sign-ups, and sales - fast, focused, and optimized for results."
+        "badge": "AI SEO",
+        "heading": "More traffic, less manual work.",
+        "subheading": "AI-powered content pipelines, programmatic SEO, and technical audits — scale your visibility without hiring a copywriter team."
       },
       "features": {
-        "heading": "What We Deliver",
+        "heading": "What you get",
         "items": {
           "0": {
-            "title": "Conversion-First Design",
-            "description": "Every element is placed with intent - compelling headlines, clear CTAs, and layouts proven to drive action."
+            "title": "AI content pipeline with quality control",
+            "description": "Claude drafts, we edit and optimize. We do not ship anything we would not ship on our own name."
           },
           "1": {
-            "title": "A/B Testing Ready",
-            "description": "Built-in support for split testing headlines, CTAs, and layouts so you can continuously improve performance."
+            "title": "Programmatic SEO",
+            "description": "Dozens or hundreds of pages built from data — ideal for e-commerce, services by city, or comparisons."
           },
           "2": {
-            "title": "Lead Capture & Forms",
-            "description": "Smart forms with validation, multi-step flows, and direct integration with your CRM or email platform."
+            "title": "Technical audit + optimization",
+            "description": "Core Web Vitals, crawlability, structured data, hreflang — the foundations Google expects."
           },
           "3": {
-            "title": "Analytics Integration",
-            "description": "Google Analytics, Meta Pixel, and conversion tracking set up from day one so you know exactly what's working."
+            "title": "Keyword strategy + content map",
+            "description": "We build topic clusters and internal linking that show Google authority."
+          }
+        }
+      },
+      "personas": {
+        "heading": "Who this is for",
+        "items": {
+          "0": {
+            "title": "E-commerce with large catalogs",
+            "description": "AI generates unique product descriptions and category pages that rank."
+          },
+          "1": {
+            "title": "Service businesses targeting local search",
+            "description": "Programmatic pages for cities, districts, or service types — covering long-tail keywords you otherwise miss."
+          },
+          "2": {
+            "title": "B2B companies pursuing thought leadership",
+            "description": "AI-assisted long-form content, edited by experts — a blog that actually ranks."
           }
         }
       },
       "process": {
-        "heading": "How We Work",
-        "steps": {
-          "0": {
-            "title": "Brief",
-            "description": "We define your campaign goal, target audience, and key messaging."
-          },
-          "1": {
-            "title": "Design",
-            "description": "We create a high-impact layout optimized for your specific conversion goal."
-          },
-          "2": {
-            "title": "Build",
-            "description": "We develop the page with blazing-fast load times and pixel-perfect responsiveness."
-          },
-          "3": {
-            "title": "Launch",
-            "description": "We deploy with tracking in place and provide optimization recommendations."
-          }
-        }
-      },
-      "cta": {
-        "heading": "Ready to Launch Your Campaign?",
-        "description": "Get a landing page that turns your ad budget into measurable results.",
-        "button": "Get a Landing Page"
-      },
-      "faq": {
-        "heading": "Frequently Asked Questions",
-        "items": {
-          "0": {
-            "q": "How fast can you deliver a landing page?",
-            "a": "Most landing pages are delivered in 5–10 business days, depending on complexity and content readiness."
-          },
-          "1": {
-            "q": "Do you write the copy too?",
-            "a": "Yes, we offer copywriting as part of the package. We craft persuasive, conversion-focused copy tailored to your audience."
-          },
-          "2": {
-            "q": "Can I run A/B tests?",
-            "a": "Absolutely. We build pages with A/B testing in mind so you can test different headlines, images, and CTAs to maximize conversions."
-          },
-          "3": {
-            "q": "Will it work with my ad campaigns?",
-            "a": "Yes. We integrate with Google Ads, Meta Ads, LinkedIn, and any other platform. Tracking pixels and UTM parameters are set up from the start."
-          },
-          "4": {
-            "q": "What platform do you build on?",
-            "a": "We build custom pages with React for maximum performance, or use platforms like WordPress or Webflow if that better fits your workflow."
-          }
-        }
-      }
-    },
-    "maintenance": {
-      "meta": {
-        "title": "Maintenance & Support - E&P Systems",
-        "description": "Ongoing website maintenance, security updates, performance monitoring, and dedicated technical support."
-      },
-      "hero": {
-        "badge": "Maintenance & Support",
-        "heading": "Keep Your Site Running Smoothly",
-        "subheading": "Proactive maintenance, security updates, and dedicated support so your website stays fast, secure, and always online."
-      },
-      "features": {
-        "heading": "What's Included",
-        "items": {
-          "0": {
-            "title": "Security Updates",
-            "description": "Regular patching of frameworks, plugins, and dependencies to keep your site protected against vulnerabilities."
-          },
-          "1": {
-            "title": "Performance Monitoring",
-            "description": "24/7 uptime monitoring, load time tracking, and proactive alerts so issues are caught before your users notice."
-          },
-          "2": {
-            "title": "Content & Feature Updates",
-            "description": "Need a new section, updated pricing, or a seasonal banner? We handle content changes and minor feature additions."
-          },
-          "3": {
-            "title": "Backup & Recovery",
-            "description": "Automated daily backups with tested recovery procedures, so your data is always safe and restorable."
-          }
-        }
-      },
-      "process": {
-        "heading": "How It Works",
+        "heading": "How we do it",
         "steps": {
           "0": {
             "title": "Audit",
-            "description": "We assess your current site's health, security, and performance baseline."
+            "description": "Full technical + content audit with a concrete action plan."
           },
           "1": {
-            "title": "Plan",
-            "description": "We create a tailored maintenance schedule based on your site's needs."
+            "title": "Strategy",
+            "description": "Keyword research, content map, programmatic opportunities."
           },
           "2": {
-            "title": "Maintain",
-            "description": "We handle updates, fixes, and improvements on a regular cadence."
+            "title": "Execute",
+            "description": "Technical fixes, AI content pipeline, on-page optimization."
           },
           "3": {
-            "title": "Report",
-            "description": "You receive monthly reports on uptime, performance, and work completed."
+            "title": "Report + optimize",
+            "description": "Monthly reports with ranking changes, traffic, and recommendations."
+          }
+        }
+      },
+      "caseStudy": {
+        "badge": "Real example",
+        "metric": "+127%",
+        "metricLabel": "organic traffic in 3 months",
+        "title": "Ozonic.bg — full SEO audit + optimization",
+        "description": "A combination of technical audit, keyword strategy, and on-page optimization drove significant organic traffic growth in three months.",
+        "flag": "[REPLACE: confirm +127% Ozonic figure is safe to publish (NDA check)]"
+      },
+      "pricing": {
+        "heading": "Investment",
+        "description": "SEO is a long-term investment — we work on monthly retainers with clear KPIs and reporting.",
+        "rangeLabel": "From",
+        "range": "€500/mo",
+        "button": "Request an SEO audit",
+        "flag": "[REPLACE: confirm pricing range with Emo]"
+      },
+      "faq": {
+        "heading": "Frequently asked questions",
+        "items": {
+          "0": {
+            "q": "How long until results?",
+            "a": "First measurable improvements at 2-3 months, significant growth by 6 months. SEO compounds — the more you work, the more it grows."
+          },
+          "1": {
+            "q": "Does AI-generated content rank in Google?",
+            "a": "Yes, when edited and genuinely valuable. Google penalizes thin, generic AI content — we do not publish that."
+          },
+          "2": {
+            "q": "Do you guarantee rankings?",
+            "a": "No ethical SEO specialist can honestly guarantee specific positions. We guarantee a methodical approach, transparent reporting, and real work."
+          },
+          "3": {
+            "q": "Can I keep my current site?",
+            "a": "Yes, we almost always work on the existing site. We recommend a rebuild only when technical limits force it."
+          },
+          "4": {
+            "q": "What is programmatic SEO?",
+            "a": "Creating dozens or hundreds of pages from template + data — e.g., \"accountant in [city]\" for every city in Bulgaria. Works for long-tail keywords with high collective volume."
           }
         }
       },
       "cta": {
-        "heading": "Want Peace of Mind?",
-        "description": "Let us handle the technical upkeep so you can focus on growing your business.",
-        "button": "Get a Maintenance Plan"
+        "heading": "Ready for more organic traffic?",
+        "description": "Free SEO audit — we'll show you where you're losing traffic and how AI can bring it back.",
+        "button": "Free SEO audit"
+      }
+    },
+    "ai-ecommerce": {
+      "meta": {
+        "title": "AI E-Commerce - E&P Systems",
+        "description": "An online store with AI descriptions, recommendations, and support. Shopify, WooCommerce, or custom — plus an AI layer for growth."
       },
-      "faq": {
-        "heading": "Frequently Asked Questions",
+      "hero": {
+        "badge": "AI E-Commerce",
+        "heading": "A store that sells on its own.",
+        "subheading": "Shopify, WooCommerce, or a custom platform — plus an AI layer for product descriptions, recommendations, and 24/7 support."
+      },
+      "features": {
+        "heading": "What you get",
         "items": {
           "0": {
-            "q": "What does a maintenance plan include?",
-            "a": "Our plans cover security updates, performance monitoring, backups, content changes, and priority support. We tailor each plan to your site's needs."
+            "title": "Shopify, WooCommerce, or custom React",
+            "description": "We pick the right platform for your scale, budget, and future plans."
           },
           "1": {
-            "q": "How much does maintenance cost?",
-            "a": "Plans start from €99/month. The exact cost depends on your site's complexity and the level of support you need."
+            "title": "AI product descriptions",
+            "description": "Unique, SEO-optimized descriptions for every product — hundreds of products in days, not months."
           },
           "2": {
-            "q": "Do I need maintenance if my site is new?",
-            "a": "Yes. Even new sites need regular updates, security patches, and monitoring. Proactive maintenance prevents costly emergency fixes down the line."
+            "title": "AI recommendations for customers",
+            "description": "Real-time personalized recommendations — lift average order value by 15-30%."
           },
           "3": {
-            "q": "How quickly do you respond to issues?",
-            "a": "Critical issues are addressed within 4 hours during business hours. Non-critical requests are handled within 24–48 hours."
-          },
-          "4": {
-            "q": "Can I cancel anytime?",
-            "a": "Yes, our maintenance plans are month-to-month with no long-term commitment. You can cancel or change your plan at any time."
+            "title": "24/7 AI customer support",
+            "description": "Automated answers for order status, returns, stock — 80% of tickets without a human."
           }
         }
+      },
+      "personas": {
+        "heading": "Who this is for",
+        "items": {
+          "0": {
+            "title": "New stores that want a fast start",
+            "description": "From zero to sales in 3-4 weeks with AI content and setup from day one."
+          },
+          "1": {
+            "title": "Existing stores with large catalogs",
+            "description": "Hundreds of products without proper descriptions? AI rewrites them in days with quality control."
+          },
+          "2": {
+            "title": "Stores with growing support volume",
+            "description": "If customer service is taking more time than growth — AI support is your answer."
+          }
+        }
+      },
+      "process": {
+        "heading": "How we do it",
+        "steps": {
+          "0": {
+            "title": "Discovery",
+            "description": "Catalog, payments, logistics, brand — we map everything before we start."
+          },
+          "1": {
+            "title": "Design + platform",
+            "description": "Conversion-optimized design on the right platform for your needs."
+          },
+          "2": {
+            "title": "AI integration",
+            "description": "Descriptions, recommendations, AI support — all connected and tested."
+          },
+          "3": {
+            "title": "Launch + grow",
+            "description": "We launch with monitoring, then work on conversion optimization."
+          }
+        }
+      },
+      "caseStudy": {
+        "badge": "Real example",
+        "metric": "InfinityStore",
+        "metricLabel": "fully custom e-commerce",
+        "title": "InfinityStore — custom online store",
+        "description": "We built a fully customized e-commerce store tailored to the client's brand — clean design, smooth checkout, everything working exactly as they wanted.",
+        "flag": "[REPLACE: add real case study after client approval]"
+      },
+      "pricing": {
+        "heading": "Investment",
+        "description": "Pricing depends on platform, product count, and AI features. Shopify/WooCommerce projects start lower; custom platforms, higher.",
+        "rangeLabel": "From",
+        "range": "€2,000+",
+        "button": "Request a quote",
+        "flag": "[REPLACE: confirm pricing range with Emo]"
+      },
+      "faq": {
+        "heading": "Frequently asked questions",
+        "items": {
+          "0": {
+            "q": "Shopify, WooCommerce, or custom?",
+            "a": "Shopify — fast start, great logistics. WooCommerce — flexibility, data control. Custom — when you have non-standard needs. We recommend after discovery."
+          },
+          "1": {
+            "q": "Do you handle product uploads?",
+            "a": "Yes, initial catalog setup is included. For large catalogs, AI helps with descriptions and categorization."
+          },
+          "2": {
+            "q": "Can you migrate an existing store?",
+            "a": "Yes, full migrations including products, customer data, and order history."
+          },
+          "3": {
+            "q": "How do AI recommendations work?",
+            "a": "AI analyzes customer behavior (viewed products, history, correlations) and suggests relevant items — like Amazon, but for your catalog."
+          },
+          "4": {
+            "q": "What about payments in Bulgaria?",
+            "a": "We integrate all local options — bank cards, ePay, Revolut, cash-on-delivery — plus Stripe and PayPal for international customers."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready for a store that sells on its own?",
+        "description": "Free consultation — we'll recommend the right platform and AI stack for your business.",
+        "button": "Free consultation"
       }
     }
   },
@@ -719,9 +801,18 @@
       "maintenance": "Maintenance & Support"
     },
     "fields": {
-      "name": { "label": "Your Name", "placeholder": "John Doe" },
-      "email": { "label": "Email", "placeholder": "john@example.com" },
-      "phone": { "label": "Phone (optional)", "placeholder": "+359..." },
+      "name": {
+        "label": "Your Name",
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john@example.com"
+      },
+      "phone": {
+        "label": "Phone (optional)",
+        "placeholder": "+359..."
+      },
       "service": {
         "label": "Service of Interest",
         "placeholder": "Select a service...",
@@ -739,10 +830,10 @@
         "label": "Budget Range",
         "placeholder": "Select budget range...",
         "options": {
-          "under500": "Under \u20ac500",
-          "500to1500": "\u20ac500 \u2013 \u20ac1,500",
-          "1500to5000": "\u20ac1,500 \u2013 \u20ac5,000",
-          "5000plus": "\u20ac5,000+",
+          "under500": "Under €500",
+          "500to1500": "€500 – €1,500",
+          "1500to5000": "€1,500 – €5,000",
+          "5000plus": "€5,000+",
           "notSure": "Not sure yet"
         }
       },
@@ -919,10 +1010,22 @@
     "stats": {
       "heading": "By the Numbers",
       "items": {
-        "years": { "value": "3+", "label": "Years Experience" },
-        "projects": { "value": "20+", "label": "Projects Delivered" },
-        "languages": { "value": "2", "label": "Languages Supported" },
-        "focus": { "value": "100%", "label": "Client Focus" }
+        "years": {
+          "value": "3+",
+          "label": "Years Experience"
+        },
+        "projects": {
+          "value": "20+",
+          "label": "Projects Delivered"
+        },
+        "languages": {
+          "value": "2",
+          "label": "Languages Supported"
+        },
+        "focus": {
+          "value": "100%",
+          "label": "Client Focus"
+        }
       }
     },
     "cta": {
@@ -1013,70 +1116,87 @@
   },
   "servicesHub": {
     "meta": {
-      "title": "Our Services - E&P Systems",
-      "description": "Explore our full range of digital services - web development, e-commerce, SEO, AI automation, landing pages, and ongoing maintenance."
+      "title": "Our AI services - E&P Systems",
+      "description": "5 AI pillars for your business: AI websites, AI automation, AI agents, AI SEO, and AI e-commerce."
     },
     "hero": {
-      "badge": "What We Do",
-      "heading": "Our Services",
-      "subheading": "From custom software and e-commerce to SEO and AI automation - we deliver end-to-end digital solutions engineered for growth."
+      "badge": "What we do",
+      "heading": "Our AI services",
+      "subheading": "5 AI pillars that work as one stack — from your site to SEO to automation.",
+      "intro": "Each pillar works standalone, but together they form a complete AI system for your business. Start with one and expand once you see results."
     },
     "grid": {
-      "heading": "What We Build",
-      "learnMore": "Learn More",
-      "comingSoon": "Coming Soon",
+      "heading": "What we build",
+      "learnMore": "Learn more",
       "cards": {
-        "webDev": {
-          "title": "Web Development",
-          "description": "Custom web applications, internal tools, and APIs built with modern frameworks and cloud-native architecture."
+        "aiWebsites": {
+          "title": "AI Websites",
+          "description": "A website that talks to your customers and turns visitors into leads."
         },
-        "ecommerce": {
-          "title": "E-Commerce",
-          "description": "Full-featured online stores with secure payments, inventory management, and conversion-optimized storefronts."
-        },
-        "seo": {
-          "title": "SEO",
-          "description": "Data-driven search engine optimization - technical audits, on-page strategy, and authority link building."
-        },
-        "ai": {
+        "aiAutomation": {
           "title": "AI Automation",
-          "description": "Intelligent chatbots, workflow automation, and custom AI tools that save your team hours every week."
+          "description": "We automate the manual processes stealing hours from your week."
         },
-        "landing": {
-          "title": "Landing Pages",
-          "description": "High-converting campaign pages designed to capture leads, drive action, and maximize ad spend ROI."
+        "aiAgents": {
+          "title": "AI Agents",
+          "description": "A custom AI employee that works 24/7 on your data."
         },
-        "maintenance": {
-          "title": "Maintenance & Support",
-          "description": "Ongoing updates, hosting management, performance monitoring, and dedicated technical support."
+        "aiSeo": {
+          "title": "AI SEO",
+          "description": "More organic traffic without manually writing every article."
+        },
+        "aiEcommerce": {
+          "title": "AI E-Commerce",
+          "description": "An online store with AI descriptions, recommendations, and support."
+        }
+      }
+    },
+    "howWeWork": {
+      "heading": "How we work",
+      "steps": {
+        "0": {
+          "title": "Free consultation",
+          "description": "30-minute conversation to understand your business and processes."
+        },
+        "1": {
+          "title": "Technical discovery",
+          "description": "Audit of the current state and a concrete, step-by-step plan."
+        },
+        "2": {
+          "title": "Implementation",
+          "description": "We build and integrate with your existing tools."
+        },
+        "3": {
+          "title": "Support + growth",
+          "description": "Monitoring, optimization, and new features as you need them."
         }
       }
     },
     "whyUs": {
-      "heading": "Why Choose Us",
+      "heading": "Why choose us",
       "items": {
         "engineering": {
-          "title": "Engineering Depth",
-          "description": "We're engineers first. Every solution is architected for performance, scalability, and long-term maintainability."
+          "title": "Engineering-grade approach",
+          "description": "Background in embedded systems (AUTOSAR) and full-stack. Our code works."
         },
-        "bilingual": {
-          "title": "Bilingual Team",
-          "description": "Fluent in English and Bulgarian - we serve international clients and local businesses with equal ease."
+        "production": {
+          "title": "AI from practice, not tutorials",
+          "description": "We've shipped production AI systems, not just prototypes."
         },
-        "fullStack": {
-          "title": "Full-Stack Delivery",
-          "description": "From front-end design to back-end infrastructure, we handle the entire stack so you have one partner for everything."
+        "native": {
+          "title": "Bilingual team in Sofia",
+          "description": "Full communication in Bulgarian — nothing lost in translation."
         },
-        "pricing": {
-          "title": "Transparent Pricing",
-          "description": "No hidden fees, no surprise invoices. You know exactly what you're paying for before we write a single line of code."
+        "transparent": {
+          "title": "Transparent pricing",
+          "description": "You know what you're paying for and what you're getting — before we write a line of code."
         }
       }
     },
     "cta": {
-      "heading": "Ready to Get Started?",
-      "description": "Tell us about your project and we'll show you how we can help - no commitments, no pressure.",
-      "button": "Get Your Free Proposal"
+      "heading": "Ready to get started?",
+      "description": "Tell us about your business and we'll show you where AI brings the biggest value.",
+      "button": "Free AI consultation"
     }
   },
   "contactPage": {
@@ -1101,7 +1221,7 @@
       "location": "Location",
       "locationValue": "Sofia, Bulgaria",
       "hours": "Hours",
-      "hoursValue": "Mon\u2013Fri 9:00\u201318:00 EET",
+      "hoursValue": "Mon–Fri 9:00–18:00 EET",
       "response": "Response Time",
       "responseValue": "Within 24 hours"
     },
@@ -1118,11 +1238,11 @@
       "items": {
         "0": {
           "question": "How long does a website project take?",
-          "answer": "Typical projects take 2\u20136 weeks depending on complexity. We'll give you a clear timeline before starting."
+          "answer": "Typical projects take 2–6 weeks depending on complexity. We'll give you a clear timeline before starting."
         },
         "1": {
           "question": "Do you offer ongoing support?",
-          "answer": "Yes, we offer monthly maintenance packages starting from \u20ac99/mo."
+          "answer": "Yes, we offer monthly maintenance packages starting from €99/mo."
         },
         "2": {
           "question": "Can you work with clients outside Bulgaria?",
@@ -1371,6 +1491,207 @@
       "heading": "Ready to Grow Your Business?",
       "description": "Let's discuss how we can help you achieve your digital goals - from websites and SEO to AI-powered automation.",
       "button": "Get a Free Consultation"
+    }
+  },
+  "industries": {
+    "backHome": "Back to home",
+    "insurance": {
+      "meta": {
+        "title": "AI for insurance brokers in Bulgaria - E&P Systems",
+        "description": "Save 10+ hours per week. AI assistant, automated quotes, Bulgarian chatbot for insurance brokers."
+      },
+      "hero": {
+        "badge": "Insurance",
+        "heading": "AI for insurance brokers in Bulgaria.",
+        "subheading": "Save 10+ hours per week of manual work. AI assistant, automated quotes, Bulgarian chatbot — built specifically for your sector."
+      },
+      "problems": {
+        "badge": "Problems you know",
+        "heading": "Why broker businesses lose time and customers.",
+        "items": {
+          "0": {
+            "title": "Manual policy comparison",
+            "description": "Hours per week go into comparing offers between carriers — time for real selling disappears."
+          },
+          "1": {
+            "title": "Slow quote turnaround",
+            "description": "The client asks today, gets an offer tomorrow — by then the competitor has already responded."
+          },
+          "2": {
+            "title": "Lost leads after hours",
+            "description": "More than half of inquiries come in the evening and on weekends — most go unanswered."
+          },
+          "3": {
+            "title": "Repetitive FAQ questions",
+            "description": "The same questions about auto insurance, GO, CASCO — from every new client."
+          }
+        }
+      },
+      "solutions": {
+        "badge": "What we solve with AI",
+        "heading": "An AI stack for the broker business.",
+        "items": {
+          "0": {
+            "title": "AI assistant for policy comparison",
+            "description": "You upload the terms, AI compares them and surfaces differences — in seconds, not hours."
+          },
+          "1": {
+            "title": "Automated quotes",
+            "description": "Customer fills a form, AI generates a personalized quote and sends it via email/SMS in minutes."
+          },
+          "2": {
+            "title": "Bulgarian AI chatbot 24/7",
+            "description": "Answers typical questions, qualifies the lead, and delivers ready customers by morning."
+          },
+          "3": {
+            "title": "Automated renewal reminders",
+            "description": "SMS/email reminders before policy expiry — retains clients without manual tracking."
+          }
+        }
+      },
+      "proof": {
+        "badge": "Real example",
+        "heading": "SMS automation for an insurance broker.",
+        "description": "We built a system that automatically sends renewal reminders before policies expire. It saves hours of manual work and improves renewal rate. Expanding with an AI assistant and online quote comparison is the natural next step for most brokers.",
+        "flag": "[REPLACE: confirm which broker is safe to name publicly (NDA check)]"
+      },
+      "cta": {
+        "heading": "Ready for 10+ hours saved per week?",
+        "description": "Free AI audit for brokers — we'll show you concretely where AI will deliver ROI in the next 3 months.",
+        "button": "Free AI audit"
+      }
+    },
+    "ecommerce": {
+      "meta": {
+        "title": "AI for e-commerce in Bulgaria - E&P Systems",
+        "description": "AI descriptions, recommendations, and support for online stores. Boost conversion and AOV with an AI stack."
+      },
+      "hero": {
+        "badge": "E-Commerce",
+        "heading": "AI for online stores in Bulgaria.",
+        "subheading": "[REPLACE: expand this page after insurance wedge approval] Boost conversion, average order value, and reduce support load with an AI stack."
+      },
+      "problems": {
+        "badge": "Problems",
+        "heading": "Why many stores stall.",
+        "items": {
+          "0": {
+            "title": "[REPLACE: problem 1]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "1": {
+            "title": "[REPLACE: problem 2]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "2": {
+            "title": "[REPLACE: problem 3]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "3": {
+            "title": "[REPLACE: problem 4]",
+            "description": "[REPLACE: describe problem]"
+          }
+        }
+      },
+      "solutions": {
+        "badge": "What we solve",
+        "heading": "AI stack for e-commerce.",
+        "items": {
+          "0": {
+            "title": "[REPLACE: solution 1]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "1": {
+            "title": "[REPLACE: solution 2]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "2": {
+            "title": "[REPLACE: solution 3]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "3": {
+            "title": "[REPLACE: solution 4]",
+            "description": "[REPLACE: describe solution]"
+          }
+        }
+      },
+      "proof": {
+        "badge": "Real example",
+        "heading": "[REPLACE: expand with InfinityStore case study]",
+        "description": "[REPLACE: describe real e-commerce project]",
+        "flag": "[REPLACE: expand this page once case studies are confirmed]"
+      },
+      "cta": {
+        "heading": "Ready for AI in your store?",
+        "description": "Free consultation — we'll show concretely what AI can do for your store.",
+        "button": "Free consultation"
+      }
+    },
+    "fitness": {
+      "meta": {
+        "title": "AI for fitness and sports in Bulgaria - E&P Systems",
+        "description": "AI solutions for gyms, coaches, and sports businesses."
+      },
+      "hero": {
+        "badge": "Fitness & Sports",
+        "heading": "AI for fitness and sports businesses.",
+        "subheading": "[REPLACE: expand after ReflexGym case study confirmed] AI assistant for class booking, personalized programs, automated support."
+      },
+      "problems": {
+        "badge": "Problems",
+        "heading": "Why fitness businesses lose time.",
+        "items": {
+          "0": {
+            "title": "[REPLACE: problem 1]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "1": {
+            "title": "[REPLACE: problem 2]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "2": {
+            "title": "[REPLACE: problem 3]",
+            "description": "[REPLACE: describe problem]"
+          },
+          "3": {
+            "title": "[REPLACE: problem 4]",
+            "description": "[REPLACE: describe problem]"
+          }
+        }
+      },
+      "solutions": {
+        "badge": "What we solve",
+        "heading": "AI stack for fitness businesses.",
+        "items": {
+          "0": {
+            "title": "[REPLACE: solution 1]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "1": {
+            "title": "[REPLACE: solution 2]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "2": {
+            "title": "[REPLACE: solution 3]",
+            "description": "[REPLACE: describe solution]"
+          },
+          "3": {
+            "title": "[REPLACE: solution 4]",
+            "description": "[REPLACE: describe solution]"
+          }
+        }
+      },
+      "proof": {
+        "badge": "Real example",
+        "heading": "[REPLACE: expand with ReflexGym case study]",
+        "description": "[REPLACE: describe real fitness project]",
+        "flag": "[REPLACE: expand once case studies are confirmed]"
+      },
+      "cta": {
+        "heading": "AI for your fitness business?",
+        "description": "Free consultation — we'll show where AI saves time and attracts more clients.",
+        "button": "Free consultation"
+      }
     }
   }
 }
