@@ -14,6 +14,7 @@ import { BlogPost } from './pages/BlogPost'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { About } from './pages/About'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { Idiot } from './pages/Idiot'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigate to="/en/" replace />} />
+        <Route path="/idiot" element={<Idiot />} />
         <Route path="/:lang" element={<HomePage />} />
         <Route path="/:lang/services" element={<Services />} />
         <Route path="/:lang/services/:slug" element={<ServicePage />} />
