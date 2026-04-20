@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "E&P Systems - Digital Solutions That Work",
-    "description": "E&P Systems - Web Development & Digital Solutions Agency. Custom websites, e-commerce, AI automation, and SEO services."
+    "title": "E&P Systems - AI Agency from Sofia | AI Solutions for Business",
+    "description": "E&P Systems is a Sofia-based AI agency. We build AI-powered websites, AI automations, custom AI agents, AI SEO, and AI e-commerce for Bulgarian and EU businesses."
   },
   "nav": {
     "services": "Services",
@@ -35,92 +35,71 @@
     "privacyPolicy": "Privacy Policy"
   },
   "hero": {
-    "badge": "We build digital solutions that work",
-    "heading1": "Elevate Your",
-    "heading2": "Digital Presence",
-    "subheading": "We don't just build websites. We create complete digital solutions - from custom web apps and e-commerce to AI automation and SEO.",
+    "badge": "AI agency from Sofia",
+    "heading1": "We build",
+    "heading2": "AI systems",
+    "headingTail": "that make your business smarter.",
+    "subheading": "E&P Systems is a Sofia-based AI agency. We automate manual work, build custom AI assistants, and ship AI-powered websites for Bulgarian and EU businesses.",
     "cta": {
-      "contact": "Get in Touch",
-      "work": "See Our Work"
+      "contact": "Free AI consultation",
+      "work": "See our case studies"
     },
     "dashboard": {
       "title": "Project Growth"
     }
   },
   "services": {
-    "badge": "Our Services",
-    "heading": "We offer a full range of digital services to help your business grow and succeed online.",
+    "badge": "Our AI services",
+    "heading": "5 AI pillars that turn manual work into automated results.",
     "learnMore": "Learn more",
-    "seo": {
-      "title": "Search Engine",
-      "titleBreak": "Optimization",
-      "description": "Data-driven SEO strategies to dominate search results and capture high-intent traffic.",
+    "aiWebsites": {
+      "title": "AI",
+      "titleBreak": "Websites",
+      "description": "A website that talks to your customers and turns visitors into leads.",
       "features": {
-        "0": "Technical SEO Audits",
-        "1": "On-Page Optimization",
-        "2": "Authority Link Building"
-      },
-      "detailHeadline": "Dominate search results and capture high-intent traffic.",
-      "detailDescription": "We use data-driven strategies, technical audits, and high-quality link building to push your website to the top of Google. Stop hiding on page two.",
-      "ctaText": "Get a Free SEO Audit"
-    },
-    "software": {
-      "title": "Custom",
-      "titleBreak": "Software",
-      "description": "Tailored software solutions - from web applications and internal tools to complex platforms built for your exact needs.",
-      "features": {
-        "0": "Web Applications",
-        "1": "Internal Business Tools",
-        "2": "API Development"
-      },
-      "detailHeadline": "Custom software solutions tailored to your business.",
-      "detailDescription": "From web applications and internal tools to complex platforms, we build software that fits your exact needs and scales with your growth.",
-      "ctaText": "Discuss Your Project"
-    },
-    "ecommerce": {
-      "title": "E-Commerce",
-      "titleBreak": "Solutions",
-      "description": "Full-featured online stores with payment integration, inventory management, and analytics.",
-      "features": {
-        "0": "Payment Integration",
-        "1": "Inventory Management",
-        "2": "Order Tracking Dashboards"
-      },
-      "detailHeadline": "Launch your online store and start selling worldwide.",
-      "detailDescription": "We build full-featured e-commerce platforms with secure payments, inventory management, and analytics dashboards that turn browsers into buyers.",
-      "ctaText": "Start Selling Online"
-    },
-    "ai": {
-      "title": "AI &",
-      "titleBreak": "Automation",
-      "description": "Smart chatbots, workflow automation, and AI-powered tools to streamline your business.",
-      "features": {
-        "0": "AI Chatbots",
-        "1": "Workflow Automation",
-        "2": "Custom AI Tools"
-      },
-      "detailHeadline": "Automate your business with intelligent AI solutions.",
-      "detailDescription": "From smart chatbots that handle customer inquiries to workflow automations that save hours of manual work, we build AI-powered tools that let you focus on growth.",
-      "ctaText": "Explore AI Solutions"
-    },
-    "landing": {
-      "title": "Landing",
-      "titleBreak": "Pages",
-      "description": "High-converting campaign pages designed to capture leads and drive action.",
-      "features": {
-        "0": "A/B Testing Ready",
-        "1": "Lead Capture Forms",
-        "2": "Analytics Integration"
+        "0": "Built-in AI chat and lead qualification",
+        "1": "Bilingual Bulgarian + English content",
+        "2": "AI-powered SEO head start"
       }
     },
-    "support": {
-      "title": "Maintenance &",
-      "titleBreak": "Support",
-      "description": "Ongoing updates, hosting management, performance monitoring, and technical support.",
+    "aiAutomation": {
+      "title": "AI",
+      "titleBreak": "Automation",
+      "description": "We automate the manual processes stealing hours from your week.",
       "features": {
-        "0": "24/7 Monitoring",
-        "1": "Regular Updates",
-        "2": "Performance Optimization"
+        "0": "n8n + Claude API workflows",
+        "1": "Integrations with CRM, Gmail, Sheets, WhatsApp",
+        "2": "Clear ROI metrics before kickoff"
+      }
+    },
+    "aiAgents": {
+      "title": "AI",
+      "titleBreak": "Agents",
+      "description": "A custom AI employee that works 24/7 on your data.",
+      "features": {
+        "0": "Trained on your knowledge base",
+        "1": "Bulgarian + English language",
+        "2": "Human handoff for complex cases"
+      }
+    },
+    "aiSeo": {
+      "title": "AI",
+      "titleBreak": "SEO",
+      "description": "More organic traffic without manually writing every article.",
+      "features": {
+        "0": "AI-generated articles with quality control",
+        "1": "Programmatic SEO at scale",
+        "2": "Technical audit + on-page optimization"
+      }
+    },
+    "aiEcommerce": {
+      "title": "AI",
+      "titleBreak": "E-Commerce",
+      "description": "An online store with AI descriptions, recommendations, and support.",
+      "features": {
+        "0": "Shopify / WooCommerce + AI layer",
+        "1": "Personalized product recommendations",
+        "2": "24/7 AI customer support"
       }
     }
   },
@@ -167,17 +146,63 @@
     }
   },
   "marquee": {
-    "0": "Web Development",
-    "1": "E-Commerce",
-    "2": "SEO",
-    "3": "AI Automation",
-    "4": "Landing Pages",
-    "5": "Custom Apps"
+    "0": "AI Websites",
+    "1": "AI Automation",
+    "2": "AI Agents",
+    "3": "AI SEO",
+    "4": "AI E-Commerce",
+    "5": "n8n + Claude API"
   },
   "cta": {
-    "heading": "Let's build something great",
-    "description": "Contact us today to discuss how we can help bring your digital vision to life - from websites and e-commerce to AI-powered automation.",
-    "button": "Get your free proposal"
+    "heading": "Ready to automate your business with AI?",
+    "description": "Free 30-minute consultation. We'll identify the biggest AI opportunity in your process and propose a concrete plan.",
+    "button": "Book a call"
+  },
+  "results": {
+    "badge": "Results",
+    "heading": "Real numbers from real clients.",
+    "featured": {
+      "metric": "+127%",
+      "metricLabel": "organic traffic in 3 months",
+      "client": "Ozonic.bg",
+      "description": "Full SEO audit, keyword strategy, and technical optimization.",
+      "cta": "View case study",
+      "flag": "[REPLACE: confirm +127% Ozonic figure is safe to publish (NDA check)]"
+    },
+    "secondary": [
+      {
+        "metric": "24/7",
+        "label": "Insurance broker",
+        "description": "AI SMS assistant that replies to clients and sends reminders automatically."
+      },
+      {
+        "metric": "InfinityStore",
+        "label": "Custom e-commerce",
+        "description": "Clean design, smooth checkout, built exactly to the client's spec."
+      }
+    ]
+  },
+  "whyUs": {
+    "badge": "Why E&P Systems",
+    "heading": "Not just an agency. Engineers who ship AI.",
+    "items": {
+      "engineering": {
+        "title": "Engineering-grade approach",
+        "description": "Background in embedded systems (AUTOSAR) and full-stack. Our code works."
+      },
+      "production": {
+        "title": "AI from practice, not tutorials",
+        "description": "We've shipped production AI systems, not just prototypes."
+      },
+      "native": {
+        "title": "Bilingual team in Sofia",
+        "description": "Full communication in Bulgarian — nothing lost in translation."
+      },
+      "transparent": {
+        "title": "Transparent pricing",
+        "description": "You know what you're paying for and what you're getting — before we write a line of code."
+      }
+    }
   },
   "servicePages": {
     "backToServices": "All Services",

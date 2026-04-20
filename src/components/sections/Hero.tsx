@@ -30,10 +30,12 @@ export function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
           >
-            {t('hero.heading1')} <br />
+            {t('hero.heading1')}{' '}
             <span className="text-[#B9FF66]" style={{ WebkitTextStroke: '2px black' }}>
               {t('hero.heading2')}
             </span>
+            <br />
+            {t('hero.headingTail')}
           </motion.h1>
           <motion.p
             className="text-2xl text-zinc-800 mb-10 leading-snug font-medium"
@@ -57,7 +59,7 @@ export function Hero() {
               <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform" />
             </button>
             <button
-              onClick={() => scrollToSection('services')}
+              onClick={() => scrollToSection('results')}
               className="bg-white text-black text-xl px-10 py-5 rounded-2xl brutalist-shadow border-2 border-black flex justify-center items-center gap-3"
             >
               {t('hero.cta.work')}

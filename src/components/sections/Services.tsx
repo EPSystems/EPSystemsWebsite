@@ -5,11 +5,14 @@ import { useTranslation } from 'react-i18next'
 import { useServices } from '../../hooks/useServices'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
+// New AI pillar IDs mapped to existing service subpage slugs.
+// Phase 4 will add dedicated /services/ai-websites, /services/ai-agents, etc.
 const SERVICE_SLUGS: Record<string, string> = {
-  seo: 'seo',
-  ecommerce: 'ecommerce',
-  ai: 'ai',
-  software: 'software',
+  aiWebsites: 'software',
+  aiAutomation: 'ai',
+  aiAgents: 'ai',
+  aiSeo: 'seo',
+  aiEcommerce: 'ecommerce',
 }
 
 const variantStyles = {

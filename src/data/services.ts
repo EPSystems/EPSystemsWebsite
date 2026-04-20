@@ -1,11 +1,4 @@
-import {
-  Search,
-  Globe,
-  ShoppingCart,
-  Bot,
-  FileText,
-  Wrench,
-} from "lucide-react";
+import { Globe, Workflow, Bot, Search, ShoppingCart } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface Service {
@@ -23,99 +16,71 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "seo",
-    icon: Search,
-    title: "Search Engine",
-    titleBreak: "Optimization",
+    id: "aiWebsites",
+    icon: Globe,
+    title: "AI",
+    titleBreak: "Websites",
     description:
-      "Data-driven SEO strategies to dominate search results and capture high-intent traffic.",
+      "A website that talks to your customers and turns visitors into leads.",
     features: [
-      "Technical SEO Audits",
-      "On-Page Optimization",
-      "Authority Link Building",
+      "Built-in AI chat and lead qualification",
+      "Bilingual Bulgarian + English content",
+      "AI-powered SEO head start",
     ],
     variant: "light",
-    detailHeadline: "Dominate search results and capture high-intent traffic.",
-    detailDescription:
-      "We use data-driven strategies, technical audits, and high-quality link building to push your website to the top of Google. Stop hiding on page two.",
-    ctaText: "Get a Free SEO Audit",
   },
   {
-    id: "software",
-    icon: Globe,
-    title: "Custom",
-    titleBreak: "Software",
-    description:
-      "Tailored software solutions - from web applications and internal tools to complex platforms built for your exact needs.",
-    features: [
-      "Web Applications",
-      "Internal Business Tools",
-      "API Development",
-    ],
-    variant: "lime",
-    detailHeadline: "Custom software solutions tailored to your business.",
-    detailDescription:
-      "From web applications and internal tools to complex platforms, we build software that fits your exact needs and scales with your growth.",
-    ctaText: "Discuss Your Project",
-  },
-  {
-    id: "ecommerce",
-    icon: ShoppingCart,
-    title: "E-Commerce",
-    titleBreak: "Solutions",
-    description:
-      "Full-featured online stores with payment integration, inventory management, and analytics.",
-    features: [
-      "Payment Integration",
-      "Inventory Management",
-      "Order Tracking Dashboards",
-    ],
-    variant: "dark",
-    detailHeadline: "Launch your online store and start selling worldwide.",
-    detailDescription:
-      "We build full-featured e-commerce platforms with secure payments, inventory management, and analytics dashboards that turn browsers into buyers.",
-    ctaText: "Start Selling Online",
-  },
-  {
-    id: "ai",
-    icon: Bot,
-    title: "AI &",
+    id: "aiAutomation",
+    icon: Workflow,
+    title: "AI",
     titleBreak: "Automation",
     description:
-      "Smart chatbots, workflow automation, and AI-powered tools to streamline your business.",
-    features: ["AI Chatbots", "Workflow Automation", "Custom AI Tools"],
-    variant: "light",
-    detailHeadline: "Automate your business with intelligent AI solutions.",
-    detailDescription:
-      "From smart chatbots that handle customer inquiries to workflow automations that save hours of manual work, we build AI-powered tools that let you focus on growth.",
-    ctaText: "Explore AI Solutions",
-  },
-  {
-    id: "landing",
-    icon: FileText,
-    title: "Landing",
-    titleBreak: "Pages",
-    description:
-      "High-converting campaign pages designed to capture leads and drive action.",
+      "We automate the manual processes stealing hours from your week.",
     features: [
-      "A/B Testing Ready",
-      "Lead Capture Forms",
-      "Analytics Integration",
+      "n8n + Claude API workflows",
+      "Integrations with CRM, Gmail, Sheets, WhatsApp",
+      "Clear ROI metrics before kickoff",
     ],
     variant: "lime",
   },
   {
-    id: "support",
-    icon: Wrench,
-    title: "Maintenance &",
-    titleBreak: "Support",
-    description:
-      "Ongoing updates, hosting management, performance monitoring, and technical support.",
+    id: "aiAgents",
+    icon: Bot,
+    title: "AI",
+    titleBreak: "Agents",
+    description: "A custom AI employee that works 24/7 on your data.",
     features: [
-      "24/7 Monitoring",
-      "Regular Updates",
-      "Performance Optimization",
+      "Trained on your knowledge base",
+      "Bulgarian + English language",
+      "Human handoff for complex cases",
     ],
     variant: "dark",
+  },
+  {
+    id: "aiSeo",
+    icon: Search,
+    title: "AI",
+    titleBreak: "SEO",
+    description: "More organic traffic without manually writing every article.",
+    features: [
+      "AI-generated articles with quality control",
+      "Programmatic SEO at scale",
+      "Technical audit + on-page optimization",
+    ],
+    variant: "light",
+  },
+  {
+    id: "aiEcommerce",
+    icon: ShoppingCart,
+    title: "AI",
+    titleBreak: "E-Commerce",
+    description:
+      "An online store with AI descriptions, recommendations, and support.",
+    features: [
+      "Shopify / WooCommerce + AI layer",
+      "Personalized product recommendations",
+      "24/7 AI customer support",
+    ],
+    variant: "lime",
   },
 ];
