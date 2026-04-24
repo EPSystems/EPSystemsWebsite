@@ -221,6 +221,12 @@
   },
   "servicePages": {
     "backToServices": "Всички услуги",
+    "related": {
+      "heading": "Продължете напред",
+      "serviceTag": "Услуга",
+      "blogTag": "Статия",
+      "industryTag": "Индустрия"
+    },
     "ai-websites": {
       "meta": {
         "title": "AI Уеб Сайтове - E&P Systems",

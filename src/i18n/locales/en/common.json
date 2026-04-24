@@ -221,6 +221,12 @@
   },
   "servicePages": {
     "backToServices": "All services",
+    "related": {
+      "heading": "Continue exploring",
+      "serviceTag": "Service",
+      "blogTag": "Article",
+      "industryTag": "Industry"
+    },
     "ai-websites": {
       "meta": {
         "title": "AI Websites - E&P Systems",
