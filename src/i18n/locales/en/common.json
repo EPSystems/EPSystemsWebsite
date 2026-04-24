@@ -202,16 +202,16 @@
     "heading": "Not just an agency. Engineers who ship AI.",
     "items": {
       "engineering": {
-        "title": "Engineering-grade approach",
-        "description": "Background in embedded systems (AUTOSAR) and full-stack. Our code works."
+        "title": "Engineers, not consultants",
+        "description": "We write working code, not PowerPoint decks. You get a production-grade system from sprint one."
       },
       "production": {
         "title": "AI from practice, not tutorials",
         "description": "We've shipped production AI systems, not just prototypes."
       },
-      "native": {
-        "title": "Bilingual team in Sofia",
-        "description": "Full communication in Bulgarian — nothing lost in translation."
+      "founders": {
+        "title": "Direct founder access",
+        "description": "You work directly with the people who architect and write the system — no account managers between you and the code."
       },
       "transparent": {
         "title": "Transparent pricing",
@@ -1117,16 +1117,16 @@
       "heading": "Why choose us",
       "items": {
         "engineering": {
-          "title": "Engineering-grade approach",
-          "description": "Background in embedded systems (AUTOSAR) and full-stack. Our code works."
+          "title": "Engineers, not consultants",
+          "description": "We write working code, not PowerPoint decks. You get a production-grade system from sprint one."
         },
         "production": {
           "title": "AI from practice, not tutorials",
           "description": "We've shipped production AI systems, not just prototypes."
         },
-        "native": {
-          "title": "Bilingual team in Sofia",
-          "description": "Full communication in Bulgarian — nothing lost in translation."
+        "founders": {
+          "title": "Direct founder access",
+          "description": "You work directly with the people who architect and write the system — no account managers between you and the code."
         },
         "transparent": {
           "title": "Transparent pricing",

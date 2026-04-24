@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { useContactModal } from '../hooks/useContactModal'
 import { motion } from 'framer-motion'
 import { SEOHead } from '../components/SEOHead'
-import { Globe, Workflow, Bot, Search, ShoppingCart, ArrowUpRight, Cpu, Rocket, Languages, Eye } from 'lucide-react'
+import { Globe, Workflow, Bot, Search, ShoppingCart, ArrowUpRight, Cpu, Rocket, Users, Eye } from 'lucide-react'
 
 const services = [
   { key: 'aiWebsites', icon: Globe, href: 'ai-websites' },
@@ -21,7 +21,7 @@ const services = [
 const differentiators = [
   { key: 'engineering', icon: Cpu },
   { key: 'production', icon: Rocket },
-  { key: 'native', icon: Languages },
+  { key: 'founders', icon: Users },
   { key: 'transparent', icon: Eye },
 ] as const
 

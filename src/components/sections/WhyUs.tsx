@@ -1,11 +1,11 @@
-import { Cpu, Rocket, Languages, Eye } from 'lucide-react'
+import { Cpu, Rocket, Users, Eye } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
 const ITEMS = [
   { key: 'engineering', Icon: Cpu },
   { key: 'production', Icon: Rocket },
-  { key: 'native', Icon: Languages },
+  { key: 'founders', Icon: Users },
   { key: 'transparent', Icon: Eye },
 ] as const
 
