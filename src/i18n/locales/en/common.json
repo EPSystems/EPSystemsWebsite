@@ -1591,134 +1591,134 @@
     },
     "ecommerce": {
       "meta": {
-        "title": "AI for e-commerce in Bulgaria - E&P Systems",
-        "description": "AI descriptions, recommendations, and support for online stores. Boost conversion and AOV with an AI stack."
+        "title": "AI for online stores in Bulgaria - E&P Systems",
+        "description": "AI descriptions, recommendations, and 24/7 support for e-commerce. Raise AOV, reduce support load, and scale your catalog with an AI stack."
       },
       "hero": {
         "badge": "E-Commerce",
         "heading": "AI for online stores in Bulgaria.",
-        "subheading": "[REPLACE: expand this page after insurance wedge approval] Boost conversion, average order value, and reduce support load with an AI stack."
+        "subheading": "Raise average order value, reduce support load, and publish unique descriptions for hundreds of products — without growing your team."
       },
       "problems": {
-        "badge": "Problems",
-        "heading": "Why many stores stall.",
+        "badge": "Problems you know",
+        "heading": "Why many online stores stall.",
         "items": {
           "0": {
-            "title": "[REPLACE: problem 1]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Manual product descriptions",
+            "description": "With 500+ items, writing unique descriptions for each is near impossible — most stores copy manufacturer text, which kills SEO."
           },
           "1": {
-            "title": "[REPLACE: problem 2]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Repetitive support inquiries",
+            "description": "\"Where is my order?\", \"Do you have size M in stock?\", \"How do I return?\" — the same questions around the clock, often after hours."
           },
           "2": {
-            "title": "[REPLACE: problem 3]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Low average order value",
+            "description": "Customers don't discover related or complementary products. One order = one item, instead of a basket of 2-3."
           },
           "3": {
-            "title": "[REPLACE: problem 4]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Weak organic rankings",
+            "description": "Duplicate descriptions, thin category pages, no long-tail content — Google sends no traffic and you pay for ads."
           }
         }
       },
       "solutions": {
-        "badge": "What we solve",
-        "heading": "AI stack for e-commerce.",
+        "badge": "What we solve with AI",
+        "heading": "An AI stack for e-commerce that actually works.",
         "items": {
           "0": {
-            "title": "[REPLACE: solution 1]",
-            "description": "[REPLACE: describe solution]"
+            "title": "AI product descriptions with quality control",
+            "description": "Unique, SEO-optimized descriptions for hundreds of items — in days, not months. Human review keeps the brand voice intact."
           },
           "1": {
-            "title": "[REPLACE: solution 2]",
-            "description": "[REPLACE: describe solution]"
+            "title": "24/7 AI customer support",
+            "description": "An AI agent handles 70%+ of inquiries automatically — order status, stock, sizes, returns. Complex cases go to a human with context."
           },
           "2": {
-            "title": "[REPLACE: solution 3]",
-            "description": "[REPLACE: describe solution]"
+            "title": "Real-time personalized recommendations",
+            "description": "AI analyzes behavior and suggests related products — typically lifts average order value by 15-30% without extra marketing spend."
           },
           "3": {
-            "title": "[REPLACE: solution 4]",
-            "description": "[REPLACE: describe solution]"
+            "title": "Programmatic SEO for category pages",
+            "description": "Automatic unique content for every category and long-tail filter — covers keywords you would otherwise miss."
           }
         }
       },
       "proof": {
         "badge": "Real example",
-        "heading": "[REPLACE: expand with InfinityStore case study]",
-        "description": "[REPLACE: describe real e-commerce project]",
-        "flag": "[REPLACE: expand this page once case studies are confirmed]"
+        "heading": "InfinityStore — fully custom e-commerce.",
+        "description": "We built an online store tailored to the smallest detail of the client's brand — clean design, smooth checkout, integrations with local delivery providers. The foundation is ready for the AI layer — descriptions, recommendations, and 24/7 support — whenever the owner is ready to scale.",
+        "flag": ""
       },
       "cta": {
-        "heading": "Ready for AI in your store?",
-        "description": "Free consultation — we'll show concretely what AI can do for your store.",
-        "button": "Free consultation"
+        "heading": "Ready for a store that sells on its own?",
+        "description": "Free consultation — we'll recommend the right combination of platform, integrations, and AI features for your catalog and volume.",
+        "button": "Free AI consultation"
       }
     },
     "fitness": {
       "meta": {
         "title": "AI for fitness and sports in Bulgaria - E&P Systems",
-        "description": "AI solutions for gyms, coaches, and sports businesses."
+        "description": "AI booking assistant, automated reminders, and personalized programs for gyms and coaches."
       },
       "hero": {
         "badge": "Fitness & Sports",
         "heading": "AI for fitness and sports businesses.",
-        "subheading": "[REPLACE: expand after ReflexGym case study confirmed] AI assistant for class booking, personalized programs, automated support."
+        "subheading": "24/7 class booking, automated reminders, personalized programs, and early warning for members who are about to drop off."
       },
       "problems": {
-        "badge": "Problems",
-        "heading": "Why fitness businesses lose time.",
+        "badge": "Problems you know",
+        "heading": "Why fitness businesses lose time and customers.",
         "items": {
           "0": {
-            "title": "[REPLACE: problem 1]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Manual schedule management",
+            "description": "The front desk spends hours on calls — booking, rescheduling, canceling — time that isn't going to real clients."
           },
           "1": {
-            "title": "[REPLACE: problem 2]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Members who skip sessions",
+            "description": "Without proactive reminders, no-show rates climb. A missed slot = a lost chance to sell to a waiting member."
           },
           "2": {
-            "title": "[REPLACE: problem 3]",
-            "description": "[REPLACE: describe problem]"
+            "title": "One-size-fits-all training plans",
+            "description": "Writing individual programs manually does not scale. Most clients get the same template, which hurts results and retention."
           },
           "3": {
-            "title": "[REPLACE: problem 4]",
-            "description": "[REPLACE: describe problem]"
+            "title": "Silent member churn",
+            "description": "Clients skip 2 weeks, then 3, then cancel the membership. Without early warning you have no chance to win them back in time."
           }
         }
       },
       "solutions": {
-        "badge": "What we solve",
-        "heading": "AI stack for fitness businesses.",
+        "badge": "What we solve with AI",
+        "heading": "An AI stack for fitness businesses.",
         "items": {
           "0": {
-            "title": "[REPLACE: solution 1]",
-            "description": "[REPLACE: describe solution]"
+            "title": "24/7 AI booking assistant",
+            "description": "Clients book, reschedule, and cancel via Messenger, WhatsApp, or site chat — no calls to the front desk. The calendar updates itself."
           },
           "1": {
-            "title": "[REPLACE: solution 2]",
-            "description": "[REPLACE: describe solution]"
+            "title": "Automated reminders and re-engagement",
+            "description": "SMS/email reminders 24 hours before a class, plus re-engagement campaigns for members who have not shown up for 14+ days."
           },
           "2": {
-            "title": "[REPLACE: solution 3]",
-            "description": "[REPLACE: describe solution]"
+            "title": "AI personalized programs",
+            "description": "AI generates training plans based on the client's goals, level, and history — the coach reviews and approves, instead of writing from scratch."
           },
           "3": {
-            "title": "[REPLACE: solution 4]",
-            "description": "[REPLACE: describe solution]"
+            "title": "Churn prediction",
+            "description": "AI watches attendance patterns and flags members at risk of dropping off — before they cancel. Time to reach out proactively."
           }
         }
       },
       "proof": {
         "badge": "Real example",
-        "heading": "[REPLACE: expand with ReflexGym case study]",
-        "description": "[REPLACE: describe real fitness project]",
-        "flag": "[REPLACE: expand once case studies are confirmed]"
+        "heading": "Website + operations for a Sofia fitness club.",
+        "description": "We built the digital presence and inquiry flow for a local fitness business — from the storefront to automated lead routing. The stack is ready for AI extensions: booking assistant, reminders, and personalized programs — whenever the club decides to take the next step.",
+        "flag": ""
       },
       "cta": {
         "heading": "AI for your fitness business?",
-        "description": "Free consultation — we'll show where AI saves time and attracts more clients.",
-        "button": "Free consultation"
+        "description": "Free consultation — we'll show which AI features will save the most time and retain the most members in your specific business.",
+        "button": "Free AI consultation"
       }
     }
   }
