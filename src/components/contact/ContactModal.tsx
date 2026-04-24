@@ -160,12 +160,11 @@ export function ContactModal() {
               className={selectClass}
             >
               <option value="">{t('contactForm.fields.service.placeholder')}</option>
-              <option value="web-development">{t('contactForm.fields.service.options.webDev')}</option>
-              <option value="ecommerce">{t('contactForm.fields.service.options.ecommerce')}</option>
-              <option value="seo">{t('contactForm.fields.service.options.seo')}</option>
-              <option value="ai-automation">{t('contactForm.fields.service.options.ai')}</option>
-              <option value="landing-page">{t('contactForm.fields.service.options.landing')}</option>
-              <option value="maintenance">{t('contactForm.fields.service.options.maintenance')}</option>
+              <option value="ai-websites">{t('contactForm.fields.service.options.aiWebsites')}</option>
+              <option value="ai-automation">{t('contactForm.fields.service.options.aiAutomation')}</option>
+              <option value="ai-agents">{t('contactForm.fields.service.options.aiAgents')}</option>
+              <option value="ai-seo">{t('contactForm.fields.service.options.aiSeo')}</option>
+              <option value="ai-ecommerce">{t('contactForm.fields.service.options.aiEcommerce')}</option>
               <option value="other">{t('contactForm.fields.service.options.other')}</option>
             </select>
           </div>

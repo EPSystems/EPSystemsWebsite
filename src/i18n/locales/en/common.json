@@ -813,14 +813,6 @@
       "general": "Get in Touch",
       "service": "Interested in {{service}}?"
     },
-    "services": {
-      "seo": "SEO",
-      "ecommerce": "E-Commerce",
-      "ai": "AI & Automation",
-      "software": "Custom Software",
-      "landing": "Landing Pages",
-      "maintenance": "Maintenance & Support"
-    },
     "fields": {
       "name": {
         "label": "Your Name",
@@ -838,12 +830,11 @@
         "label": "Service of Interest",
         "placeholder": "Select a service...",
         "options": {
-          "webDev": "Web Development",
-          "ecommerce": "E-Commerce",
-          "seo": "SEO",
-          "ai": "AI Automation",
-          "landing": "Landing Page",
-          "maintenance": "Website Maintenance",
+          "aiWebsites": "AI Websites",
+          "aiAutomation": "AI Automation",
+          "aiAgents": "AI Agents",
+          "aiSeo": "AI SEO",
+          "aiEcommerce": "AI E-Commerce",
           "other": "Other"
         }
       },
@@ -886,21 +877,25 @@
         "heading": "Get in Touch",
         "description": "Tell us about your project and we'll get back to you within 24 hours."
       },
-      "seo": {
-        "heading": "Ready to Rank Higher?",
-        "description": "Tell us about your SEO goals and we'll show you the opportunities."
+      "ai-websites": {
+        "heading": "Ready for a website that works for you 24/7?",
+        "description": "Tell us about your business and we'll show how an AI website turns visitors into leads."
       },
-      "ecommerce": {
-        "heading": "Ready to Sell Online?",
-        "description": "Tell us about your store vision and we'll bring it to life."
+      "ai-automation": {
+        "heading": "Ready to get your hours back?",
+        "description": "Tell us which processes are stealing your time — we'll do the ROI math before kickoff."
       },
-      "ai": {
-        "heading": "Ready to Work Smarter?",
-        "description": "Tell us which processes you want to automate."
+      "ai-agents": {
+        "heading": "Want an AI employee for your business?",
+        "description": "Tell us what the agent should do and which channels it should run on."
       },
-      "software": {
-        "heading": "Have a Project in Mind?",
-        "description": "Tell us about your idea and we'll help you build it."
+      "ai-seo": {
+        "heading": "Ready for more organic traffic?",
+        "description": "Tell us about your site and goals — we'll run a free audit."
+      },
+      "ai-ecommerce": {
+        "heading": "Ready for a store that sells on its own?",
+        "description": "Tell us about your catalog and volume — we'll recommend the right platform and AI stack."
       }
     }
   },
