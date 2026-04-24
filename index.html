@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="bg" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="E&P Systems - Web Development & Digital Solutions Agency. Custom websites, e-commerce, AI automation, and SEO services."
+      content="E&P Systems - AI агенция от София. AI уеб сайтове, AI автоматизации, персонални AI агенти, AI SEO и AI e-commerce за български и европейски бизнеси."
     />
-    <title>E&P Systems - Digital Solutions That Work</title>
+    <title>E&P Systems - AI Агенция от София | AI Решения за Бизнеса</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,23 +30,62 @@
          3. Replace G-XXXXXXXXXX above with your ID and uncomment
          4. Verify Search Console with the meta tag above -->
 
-    <!-- LocalBusiness Schema Markup -->
+    <!-- LocalBusiness schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://epsystems.org/#localbusiness",
         "name": "E&P Systems",
-        "description": "Digital agency offering web development, SEO, e-commerce, and AI automation services",
-        "url": "https://epsystems.bg",
-        "telephone": "+359892962810",
+        "alternateName": "E&P Systems AI Agency",
+        "description": "AI агенция от София, България. AI уеб сайтове, AI автоматизации, персонални AI агенти, AI SEO и AI e-commerce.",
+        "url": "https://epsystems.org",
+        "logo": "https://epsystems.org/logo.png",
+        "image": "https://epsystems.org/logo.png",
+        "telephone": "+359879503151",
         "email": "engineering@epsystems.org",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sofia",
+          "addressRegion": "Sofia",
+          "addressCountry": "BG"
+        },
+        "areaServed": ["BG", "EU"],
+        "serviceType": [
+          "AI Websites",
+          "AI Automation",
+          "AI Agents",
+          "AI SEO",
+          "AI E-Commerce"
+        ]
+      }
+    </script>
+
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://epsystems.org/#organization",
+        "name": "E&P Systems",
+        "url": "https://epsystems.org",
+        "logo": "https://epsystems.org/logo.png",
+        "email": "engineering@epsystems.org",
+        "telephone": "+359879503151",
+        "founder": [
+          { "@type": "Person", "name": "Emil Dermendzhiev" },
+          { "@type": "Person", "name": "Pavel Stefanov" }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61587315569860",
+          "https://www.instagram.com/epsystems/"
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Sofia",
           "addressCountry": "BG"
-        },
-        "areaServed": ["BG", "EU"],
-        "serviceType": ["Web Development", "SEO", "E-Commerce", "AI Automation"]
+        }
       }
     </script>
   </head>

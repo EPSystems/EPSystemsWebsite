@@ -6,7 +6,7 @@ import { Footer } from '../components/layout/Footer'
 
 export function NotFoundPage() {
   const { lang } = useParams<{ lang: string }>()
-  const language = lang || 'en'
+  const language = lang || 'bg'
   const { t } = useTranslation()
   usePageMeta('notFound.meta.title')
 

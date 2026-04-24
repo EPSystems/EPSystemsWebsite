@@ -5,7 +5,8 @@ import { Footer } from '../components/layout/Footer'
 import { Hero } from '../components/sections/Hero'
 import { Marquee } from '../components/sections/Marquee'
 import { Services } from '../components/sections/Services'
-// import { CaseStudies } from '../components/sections/CaseStudies'
+import { Results } from '../components/sections/Results'
+import { WhyUs } from '../components/sections/WhyUs'
 import { Team } from '../components/sections/Team'
 import { CTA } from '../components/sections/CTA'
 import { Testimonials } from '../components/sections/Testimonials'
@@ -23,9 +24,10 @@ export function HomePage() {
       <Hero />
       <Marquee />
       <Services />
+      <Results />
+      <WhyUs />
       <Testimonials />
       <TrustedBy />
-      {/* <CaseStudies /> */}
       <Team />
       <CTA />
       <Footer />

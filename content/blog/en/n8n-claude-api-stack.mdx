@@ -1,0 +1,171 @@
+---
+title: "n8n + Claude API: The Stack We Use for Every AI Automation"
+slug: "n8n-claude-api-stack"
+locale: "en"
+date: "2026-04-18"
+author: "Emil Dermendzhiev"
+category: "ai-automation"
+tags: ["n8n", "Claude", "API", "AI", "tech stack"]
+excerpt: "Why n8n + Claude API is the optimal stack for small-to-medium AI automations, template workflows, common pitfalls, and hosting options."
+coverImage: "/blog/n8n-claude-stack-cover.jpg"
+readingTime: 8
+alternateSlug: "n8n-claude-api-stack"
+---
+
+For every new AI automation project we take on, 90% of the time we start with the same stack: **n8n + Claude API**. Not because it's trendy — because it's the combination that gives the best balance of **flexibility, control, and price** for small-to-medium projects.
+
+This is an article for developers and technically-minded business owners who want to understand why.
+
+## Why n8n
+
+n8n is an open-source workflow automation tool — similar to Zapier or Make, but:
+
+- **Self-hosted** option — your data never leaves your server
+- **Node-based** interface — visual, but with full code access (JS/Python)
+- **200+ ready integrations** — Google, Slack, CRMs, databases, webhooks
+- **License** — free for self-hosting, fair-code license
+
+Compared to Zapier/Make:
+
+- **Zapier:** convenient but expensive quickly ($20-70+/month), and workflows live on their servers
+- **Make (Integromat):** more flexible than Zapier, same vendor lock-in
+- **n8n:** slightly more setup effort, but full control + under 10% of the price
+
+For our clients that's often a 10x difference — Zapier/Make typically runs tens of dollars per month, while self-hosted n8n costs about the same as a small production VPS.
+
+## Why Claude API (not GPT or others)
+
+We've worked with every major LLM provider. For Bulgarian-language projects in 2026, Claude is our default:
+
+**Claude 3.5 Sonnet / 3.7 Sonnet:**
+
+- Excellent Bulgarian — no machine-translation feel
+- Long context (200K+ tokens) — matters for RAG with many documents
+- More consistent instruction-following than GPT-4
+- Competitive pricing for our typical volume
+
+**GPT-4 (OpenAI):**
+
+- Broader ecosystem and integrations
+- More mature function calling
+- Fine-tuning options
+
+**Local models (Llama 3, Mistral):**
+
+- Full privacy
+- No monthly API fee
+- Bulgarian-language quality still trails Claude/GPT-4 — fine for internal tools, less so for customer-facing native-language chat
+
+For most Bulgarian clients Claude is the optimal balance. For projects with data-sensitivity concerns we consider a local model.
+
+## Template workflows we reuse
+
+Four patterns that show up in 80% of our projects:
+
+### Pattern 1: Input → AI processing → Action
+
+The simplest. Webhook receives data → Claude processes → result goes somewhere.
+
+**Example:** Customer email inquiry → AI determines inquiry type and priority → if hot lead, fires a Slack notification to sales.
+
+Works for: lead qualification, support-ticket triage, document categorization.
+
+### Pattern 2: RAG (Retrieval-Augmented Generation)
+
+Used for AI agents with a knowledge base.
+
+**How it works:**
+
+1. Customer asks a question
+2. n8n searches a vector DB (Pinecone, Weaviate, Qdrant) for relevant documents
+3. n8n assembles a prompt: system instructions + retrieved documents + customer question
+4. Claude generates the answer
+5. Answer returns to the customer (and is logged for analysis)
+
+Works for: AI chatbots, internal knowledge-base assistants, documentation Q&A.
+
+### Pattern 3: Data extraction from unstructured documents
+
+**Example:** Invoices, contracts, CVs — anything arriving as PDF or text that needs to become structured data.
+
+1. Document arrives (email attachment, upload)
+2. n8n sends it to Claude with instructions on which fields to extract
+3. Claude returns JSON with the data
+4. n8n validates and inserts into the database / CRM
+
+Pay special attention to validation — AI sometimes hallucinates numbers.
+
+### Pattern 4: Scheduled content generation
+
+**Example:** LinkedIn articles, email sequences, SEO drafts.
+
+1. Cron trigger (every Monday 9:00)
+2. n8n pulls the topic from a calendar or database
+3. Claude generates a draft from the brief
+4. Draft is saved to Notion/Drive for human review
+5. Notification to an editor
+
+Important: **we never publish AI content without human review**. It saves writing time; it doesn't skip the editing stage.
+
+## Pitfalls we've seen
+
+From 3+ years of practice:
+
+### 1. No error handling
+
+AI APIs fail. Rate limits, timeouts, sometimes the model just returns an error. Every production workflow must have:
+
+- Retry logic with exponential backoff
+- Fallback behavior (usually "hand off to a human")
+- Alerting when something fails
+
+Without it, one bad API day breaks your workflows.
+
+### 2. Costs scale faster than expected
+
+At scale — especially with RAG where every conversation consumes tokens — costs can take unexpected turns. We recommend:
+
+- Budget alerts in API dashboards
+- Optimization rounds every 3-6 months (shorter prompts, cheaper models for simple tasks)
+- Caching of frequent questions
+
+### 3. Prompt drift
+
+Prompts that work on 10 test inputs can behave strangely on 1,000. Especially on edge cases from real customers. Monitor quality continuously and iterate.
+
+### 4. Privacy and compliance
+
+GDPR is real. For every project, match to requirements:
+
+- What data enters the prompts?
+- Does Claude/OpenAI log it?
+- What does the Data Processing Agreement say?
+
+Anthropic and OpenAI have enterprise tiers that don't train on your data. We use them by default for clients with sensitive data.
+
+## Hosting options
+
+Common question: self-hosted n8n vs n8n Cloud?
+
+**Self-hosted (Hetzner, Digital Ocean, your VPS):**
+- Full control
+- Cost: on par with a standard production VPS — usually the smallest line item in the monthly stack
+- Requires maintenance — updates, backups, monitoring
+
+**n8n Cloud:**
+- Monthly subscription tiered on workflow executions — check n8n.io for current pricing
+- No-ops — automatic updates and backups
+- Some node limits
+
+For most clients in year one we recommend Cloud. Once the value is proven and volume grows, we migrate to self-hosted for cost savings.
+
+## Where to start
+
+If you want to experiment on your own:
+
+1. Install n8n locally (`npm install n8n -g` or Docker)
+2. Grab a Claude API key from [console.anthropic.com](https://console.anthropic.com)
+3. Try the simple "HTTP request → Claude → email" workflow
+4. Expand from there
+
+If you want a production-grade system without becoming a DevOps team — **E&P Systems** has ready templates we adapt to your business. [Get in touch](/en/contact).

@@ -32,7 +32,7 @@ export function CookieConsent() {
         <p className="text-white text-sm sm:text-base font-medium flex-1">
           {t('cookieConsent.message')}{' '}
           <Link
-            to={`/${lang || 'en'}/privacy-policy`}
+            to={`/${lang || 'bg'}/privacy-policy`}
             className="text-[#B9FF66] underline hover:no-underline font-bold"
           >
             {t('cookieConsent.learnMore')}

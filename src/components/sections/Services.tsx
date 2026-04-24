@@ -6,10 +6,11 @@ import { useServices } from '../../hooks/useServices'
 import { AnimatedSection } from '../ui/AnimatedSection'
 
 const SERVICE_SLUGS: Record<string, string> = {
-  seo: 'seo',
-  ecommerce: 'ecommerce',
-  ai: 'ai',
-  software: 'software',
+  aiWebsites: 'ai-websites',
+  aiAutomation: 'ai-automation',
+  aiAgents: 'ai-agents',
+  aiSeo: 'ai-seo',
+  aiEcommerce: 'ai-ecommerce',
 }
 
 const variantStyles = {
@@ -82,7 +83,7 @@ export function Services() {
               </div>
               {hasPage && (
                 <Link
-                  to={`/${lang || 'en'}/services/${SERVICE_SLUGS[service.id]}`}
+                  to={`/${lang || 'bg'}/services/${SERVICE_SLUGS[service.id]}`}
                   className={`flex items-center gap-4 text-xl font-bold mt-auto ${styles.text}`}
                 >
                   <div className={`w-12 h-12 rounded-full border-2 border-black flex items-center justify-center ${styles.arrow} transition-colors`}>

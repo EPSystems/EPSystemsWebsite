@@ -1,0 +1,1351 @@
+{
+  "meta": {
+    "title": "E&P Systems - Digital Solutions That Work",
+    "description": "E&P Systems - Web Development & Digital Solutions Agency. Custom websites, e-commerce, AI automation, and SEO services."
+  },
+  "nav": {
+    "services": "Services",
+    "seo": "SEO",
+    "ecommerce": "E-Commerce",
+    "projects": "Projects",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "getStarted": "Get Started"
+  },
+  "footer": {
+    "cta": "Let's build something great together. We're ready to bring your digital vision to life.",
+    "getInTouch": "Get in touch",
+    "sitemap": "Sitemap",
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "servicesColumn": "Services",
+    "seo": "SEO",
+    "ecommerce": "E-Commerce",
+    "aiAutomation": "AI & Automation",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "about": "About Us",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "copyright": "E&P Systems. All rights reserved.",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "hero": {
+    "badge": "We build digital solutions that work",
+    "heading1": "Elevate Your",
+    "heading2": "Digital Presence",
+    "subheading": "We don't just build websites. We create complete digital solutions - from custom web apps and e-commerce to AI automation and SEO.",
+    "cta": {
+      "contact": "Get in Touch",
+      "work": "See Our Work"
+    },
+    "dashboard": {
+      "title": "Project Growth"
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "heading": "We offer a full range of digital services to help your business grow and succeed online.",
+    "learnMore": "Learn more",
+    "seo": {
+      "title": "Search Engine",
+      "titleBreak": "Optimization",
+      "description": "Data-driven SEO strategies to dominate search results and capture high-intent traffic.",
+      "features": {
+        "0": "Technical SEO Audits",
+        "1": "On-Page Optimization",
+        "2": "Authority Link Building"
+      },
+      "detailHeadline": "Dominate search results and capture high-intent traffic.",
+      "detailDescription": "We use data-driven strategies, technical audits, and high-quality link building to push your website to the top of Google. Stop hiding on page two.",
+      "ctaText": "Get a Free SEO Audit"
+    },
+    "software": {
+      "title": "Custom",
+      "titleBreak": "Software",
+      "description": "Tailored software solutions - from web applications and internal tools to complex platforms built for your exact needs.",
+      "features": {
+        "0": "Web Applications",
+        "1": "Internal Business Tools",
+        "2": "API Development"
+      },
+      "detailHeadline": "Custom software solutions tailored to your business.",
+      "detailDescription": "From web applications and internal tools to complex platforms, we build software that fits your exact needs and scales with your growth.",
+      "ctaText": "Discuss Your Project"
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "titleBreak": "Solutions",
+      "description": "Full-featured online stores with payment integration, inventory management, and analytics.",
+      "features": {
+        "0": "Payment Integration",
+        "1": "Inventory Management",
+        "2": "Order Tracking Dashboards"
+      },
+      "detailHeadline": "Launch your online store and start selling worldwide.",
+      "detailDescription": "We build full-featured e-commerce platforms with secure payments, inventory management, and analytics dashboards that turn browsers into buyers.",
+      "ctaText": "Start Selling Online"
+    },
+    "ai": {
+      "title": "AI &",
+      "titleBreak": "Automation",
+      "description": "Smart chatbots, workflow automation, and AI-powered tools to streamline your business.",
+      "features": {
+        "0": "AI Chatbots",
+        "1": "Workflow Automation",
+        "2": "Custom AI Tools"
+      },
+      "detailHeadline": "Automate your business with intelligent AI solutions.",
+      "detailDescription": "From smart chatbots that handle customer inquiries to workflow automations that save hours of manual work, we build AI-powered tools that let you focus on growth.",
+      "ctaText": "Explore AI Solutions"
+    },
+    "landing": {
+      "title": "Landing",
+      "titleBreak": "Pages",
+      "description": "High-converting campaign pages designed to capture leads and drive action.",
+      "features": {
+        "0": "A/B Testing Ready",
+        "1": "Lead Capture Forms",
+        "2": "Analytics Integration"
+      }
+    },
+    "support": {
+      "title": "Maintenance &",
+      "titleBreak": "Support",
+      "description": "Ongoing updates, hosting management, performance monitoring, and technical support.",
+      "features": {
+        "0": "24/7 Monitoring",
+        "1": "Regular Updates",
+        "2": "Performance Optimization"
+      }
+    }
+  },
+  "caseStudies": {
+    "badge": "Our Projects",
+    "heading": "Real Projects We've Built and Shipped.",
+    "viewProject": "View Project",
+    "cases": {
+      "0": {
+        "description": "For a Bulgarian gift shop, we built a full e-commerce platform with Supabase backend, resulting in a complete digital storefront ready for launch.",
+        "highlight1": "full e-commerce",
+        "highlight2": "ready for launch"
+      },
+      "1": {
+        "description": "For our own agency, we developed an affiliate portal with commission tracking, multi-tier rewards, and bilingual support for partner management.",
+        "highlight1": "affiliate portal",
+        "highlight2": "multi-tier rewards"
+      },
+      "2": {
+        "description": "We created an AI-powered business audit tool that generates comprehensive reports with niche-specific scoring across multiple industries.",
+        "highlight1": "AI-powered",
+        "highlight2": "niche-specific scoring"
+      }
+    }
+  },
+  "serviceDetail": {
+    "illustration": {
+      "roiTracked": "ROI Tracked",
+      "leads": "10.5k Leads",
+      "rankFirst": "Rank #1"
+    },
+    "labels": {
+      "seo": "SEO Services",
+      "ecommerce": "E-Commerce",
+      "ai": "AI & Automation"
+    }
+  },
+  "notFound": {
+    "heading": "404",
+    "message": "Page not found",
+    "backHome": "Back to Home",
+    "meta": {
+      "title": "Page Not Found - E&P Systems"
+    }
+  },
+  "marquee": {
+    "0": "Web Development",
+    "1": "E-Commerce",
+    "2": "SEO",
+    "3": "AI Automation",
+    "4": "Landing Pages",
+    "5": "Custom Apps"
+  },
+  "cta": {
+    "heading": "Let's build something great",
+    "description": "Contact us today to discuss how we can help bring your digital vision to life - from websites and e-commerce to AI-powered automation.",
+    "button": "Get your free proposal"
+  },
+  "servicePages": {
+    "backToServices": "All Services",
+    "seo": {
+      "meta": {
+        "title": "SEO Services - E&P Systems",
+        "description": "Data-driven SEO strategies to boost your search rankings. Technical audits, on-page optimization, and authority link building."
+      },
+      "hero": {
+        "badge": "SEO Services",
+        "heading": "Dominate Search Results",
+        "subheading": "Data-driven SEO strategies that push your website to the top of Google and capture high-intent traffic that converts."
+      },
+      "features": {
+        "heading": "What We Deliver",
+        "items": {
+          "0": {
+            "title": "Technical SEO Audits",
+            "description": "Comprehensive analysis of your site's technical health - crawlability, indexing, Core Web Vitals, and structured data."
+          },
+          "1": {
+            "title": "On-Page Optimization",
+            "description": "Strategic keyword placement, meta tags, content structure, and internal linking to maximize relevance."
+          },
+          "2": {
+            "title": "Authority Link Building",
+            "description": "White-hat outreach campaigns that earn high-quality backlinks and build your domain authority."
+          },
+          "3": {
+            "title": "Performance Reporting",
+            "description": "Monthly reports with ranking changes, traffic growth, and actionable recommendations."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Audit",
+            "description": "We analyze your current SEO health and identify opportunities."
+          },
+          "1": {
+            "title": "Strategy",
+            "description": "We build a custom roadmap based on your goals and competition."
+          },
+          "2": {
+            "title": "Execute",
+            "description": "We implement technical fixes, optimize content, and build links."
+          },
+          "3": {
+            "title": "Report",
+            "description": "We track progress and refine the strategy monthly."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Rank Higher?",
+        "description": "Get a comprehensive SEO audit and discover untapped growth opportunities for your website.",
+        "button": "Get a Free SEO Audit"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "How long does SEO take to show results?",
+            "a": "SEO is a long-term strategy. Most businesses start seeing measurable improvements in 3–6 months, with compounding results over time."
+          },
+          "1": {
+            "q": "Do you guarantee first page rankings?",
+            "a": "No ethical SEO agency can guarantee specific rankings. What we guarantee is a data-driven approach, transparent reporting, and consistent effort to improve your visibility."
+          },
+          "2": {
+            "q": "What's included in your monthly SEO report?",
+            "a": "Our reports cover keyword rankings, organic traffic trends, backlink profile changes, technical health scores, and actionable recommendations for the next month."
+          },
+          "3": {
+            "q": "Do you do local SEO?",
+            "a": "Yes, we specialize in local SEO for Bulgarian businesses - including Google Business Profile optimization, local citations, and map pack strategies."
+          },
+          "4": {
+            "q": "Can I keep my existing website?",
+            "a": "Absolutely. SEO works with your current site. We optimize what you have and recommend changes only when they'll drive measurable improvements."
+          }
+        }
+      }
+    },
+    "ecommerce": {
+      "meta": {
+        "title": "E-Commerce Solutions - E&P Systems",
+        "description": "Full-featured online stores with secure payments, inventory management, and analytics dashboards."
+      },
+      "hero": {
+        "badge": "E-Commerce",
+        "heading": "Launch Your Online Store",
+        "subheading": "Full-featured e-commerce platforms with secure payments, real-time inventory, and analytics that turn browsers into buyers."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": {
+            "title": "Secure Payment Integration",
+            "description": "Stripe, PayPal, and local payment methods - all PCI-compliant and conversion-optimized."
+          },
+          "1": {
+            "title": "Inventory Management",
+            "description": "Real-time stock tracking, automated alerts, and multi-warehouse support."
+          },
+          "2": {
+            "title": "Order Tracking Dashboards",
+            "description": "Customer-facing tracking and admin dashboards for complete order lifecycle visibility."
+          },
+          "3": {
+            "title": "Analytics & Insights",
+            "description": "Sales funnels, customer behavior, and revenue reporting to drive data-backed decisions."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Discovery",
+            "description": "We map your product catalog, payment needs, and customer journey."
+          },
+          "1": {
+            "title": "Design",
+            "description": "We create a storefront that converts - mobile-first, fast, and on-brand."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop your store with secure payments, inventory, and shipping."
+          },
+          "3": {
+            "title": "Launch",
+            "description": "We test everything end-to-end and launch with monitoring in place."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Sell Online?",
+        "description": "Let's build an online store that turns visitors into customers and scales with your business.",
+        "button": "Start Selling Online"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "Which platforms do you build on?",
+            "a": "We work with Shopify, WooCommerce, and custom React-based solutions depending on your needs, scale, and budget."
+          },
+          "1": {
+            "q": "Do you handle product uploads?",
+            "a": "Yes, initial product catalog setup is included in all our e-commerce packages."
+          },
+          "2": {
+            "q": "Can you migrate my existing store?",
+            "a": "Yes, we handle full migrations including products, customer data, and order history from your current platform."
+          },
+          "3": {
+            "q": "Do you set up payment gateways?",
+            "a": "Yes, we integrate all major payment providers including Stripe, PayPal, and local Bulgarian payment options."
+          },
+          "4": {
+            "q": "What about ongoing maintenance?",
+            "a": "We offer monthly maintenance plans that cover updates, security patches, performance monitoring, and product support."
+          }
+        }
+      }
+    },
+    "ai": {
+      "meta": {
+        "title": "AI & Automation - E&P Systems",
+        "description": "Intelligent AI chatbots, workflow automation, and custom AI tools to streamline your business operations."
+      },
+      "hero": {
+        "badge": "AI & Automation",
+        "heading": "Automate Your Business",
+        "subheading": "Intelligent AI solutions that handle customer inquiries, automate repetitive tasks, and give your team superpowers."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": {
+            "title": "AI Chatbots",
+            "description": "Custom conversational agents that handle customer inquiries, qualify leads, and provide 24/7 support."
+          },
+          "1": {
+            "title": "Workflow Automation",
+            "description": "Eliminate repetitive tasks - from data entry and email sequences to invoice processing."
+          },
+          "2": {
+            "title": "Custom AI Tools",
+            "description": "Purpose-built AI solutions for content generation, data analysis, and business intelligence."
+          },
+          "3": {
+            "title": "Integration & APIs",
+            "description": "Connect AI capabilities to your existing tools - CRM, helpdesk, e-commerce, and more."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Assess",
+            "description": "We identify which processes benefit most from automation."
+          },
+          "1": {
+            "title": "Prototype",
+            "description": "We build a working proof-of-concept to validate the approach."
+          },
+          "2": {
+            "title": "Develop",
+            "description": "We build the production system with proper error handling and monitoring."
+          },
+          "3": {
+            "title": "Optimize",
+            "description": "We measure results and fine-tune for maximum impact."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Work Smarter?",
+        "description": "Discover how AI and automation can save your team hours of manual work every week.",
+        "button": "Explore AI Solutions"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "What can AI automation do for my business?",
+            "a": "AI automation can handle lead capture and follow-up, appointment scheduling, customer support via chatbots, invoice processing, data entry, and much more."
+          },
+          "1": {
+            "q": "Do I need technical knowledge to use it?",
+            "a": "Not at all. We handle the entire setup, integration, and training. You'll get a simple interface and clear documentation."
+          },
+          "2": {
+            "q": "What integrates with your automations?",
+            "a": "We integrate with Gmail, Slack, CRM systems, WhatsApp, Zapier, Google Sheets, calendars, and most popular business tools."
+          },
+          "3": {
+            "q": "How long does setup take?",
+            "a": "Most automation projects take 1–3 weeks from kickoff to launch, depending on complexity and number of integrations."
+          },
+          "4": {
+            "q": "What's the ROI?",
+            "a": "Most clients save 5–15 hours per week on repetitive tasks. The typical payback period is under 2 months."
+          }
+        }
+      }
+    },
+    "software": {
+      "meta": {
+        "title": "Custom Software - E&P Systems",
+        "description": "Tailored web applications, internal tools, and APIs built for your exact business needs."
+      },
+      "hero": {
+        "badge": "Custom Software",
+        "heading": "Software Built for You",
+        "subheading": "Tailored solutions - from web applications and internal tools to complex platforms that scale with your business."
+      },
+      "features": {
+        "heading": "What We Build",
+        "items": {
+          "0": {
+            "title": "Web Applications",
+            "description": "Full-stack web apps with modern frameworks - React, Node.js, and cloud-native architecture."
+          },
+          "1": {
+            "title": "Internal Business Tools",
+            "description": "Dashboards, admin panels, and workflow tools that streamline your team's daily operations."
+          },
+          "2": {
+            "title": "API Development",
+            "description": "RESTful and GraphQL APIs that connect your systems and power your digital ecosystem."
+          },
+          "3": {
+            "title": "Cloud & DevOps",
+            "description": "Scalable infrastructure, CI/CD pipelines, and monitoring for reliable, production-grade software."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Define",
+            "description": "We map your requirements, user flows, and technical constraints."
+          },
+          "1": {
+            "title": "Architect",
+            "description": "We design the system architecture and choose the right tech stack."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop iteratively with regular demos and feedback cycles."
+          },
+          "3": {
+            "title": "Deploy",
+            "description": "We launch to production with testing, documentation, and support."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Have a Project in Mind?",
+        "description": "Tell us about your idea and we'll help you turn it into production-ready software.",
+        "button": "Discuss Your Project"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "How long does a website take?",
+            "a": "Most websites take 2–6 weeks depending on complexity, number of pages, and custom features required."
+          },
+          "1": {
+            "q": "Will my site be mobile friendly?",
+            "a": "Yes, every site we build is fully responsive and tested across all major devices and screen sizes."
+          },
+          "2": {
+            "q": "Do you handle hosting?",
+            "a": "Yes, we can set up and manage hosting for you, or work with your existing hosting provider."
+          },
+          "3": {
+            "q": "Can I update the site myself after launch?",
+            "a": "Yes, we build with CMS options so you can easily update content, add pages, and manage media without touching code."
+          },
+          "4": {
+            "q": "What happens after launch?",
+            "a": "Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans for ongoing updates and monitoring."
+          }
+        }
+      }
+    },
+    "landing": {
+      "meta": {
+        "title": "Landing Pages - E&P Systems",
+        "description": "High-converting landing pages designed to capture leads, drive action, and maximize your ad spend ROI."
+      },
+      "hero": {
+        "badge": "Landing Pages",
+        "heading": "Pages That Convert",
+        "subheading": "Purpose-built landing pages designed to turn ad clicks into leads, sign-ups, and sales - fast, focused, and optimized for results."
+      },
+      "features": {
+        "heading": "What We Deliver",
+        "items": {
+          "0": {
+            "title": "Conversion-First Design",
+            "description": "Every element is placed with intent - compelling headlines, clear CTAs, and layouts proven to drive action."
+          },
+          "1": {
+            "title": "A/B Testing Ready",
+            "description": "Built-in support for split testing headlines, CTAs, and layouts so you can continuously improve performance."
+          },
+          "2": {
+            "title": "Lead Capture & Forms",
+            "description": "Smart forms with validation, multi-step flows, and direct integration with your CRM or email platform."
+          },
+          "3": {
+            "title": "Analytics Integration",
+            "description": "Google Analytics, Meta Pixel, and conversion tracking set up from day one so you know exactly what's working."
+          }
+        }
+      },
+      "process": {
+        "heading": "How We Work",
+        "steps": {
+          "0": {
+            "title": "Brief",
+            "description": "We define your campaign goal, target audience, and key messaging."
+          },
+          "1": {
+            "title": "Design",
+            "description": "We create a high-impact layout optimized for your specific conversion goal."
+          },
+          "2": {
+            "title": "Build",
+            "description": "We develop the page with blazing-fast load times and pixel-perfect responsiveness."
+          },
+          "3": {
+            "title": "Launch",
+            "description": "We deploy with tracking in place and provide optimization recommendations."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Ready to Launch Your Campaign?",
+        "description": "Get a landing page that turns your ad budget into measurable results.",
+        "button": "Get a Landing Page"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "How fast can you deliver a landing page?",
+            "a": "Most landing pages are delivered in 5–10 business days, depending on complexity and content readiness."
+          },
+          "1": {
+            "q": "Do you write the copy too?",
+            "a": "Yes, we offer copywriting as part of the package. We craft persuasive, conversion-focused copy tailored to your audience."
+          },
+          "2": {
+            "q": "Can I run A/B tests?",
+            "a": "Absolutely. We build pages with A/B testing in mind so you can test different headlines, images, and CTAs to maximize conversions."
+          },
+          "3": {
+            "q": "Will it work with my ad campaigns?",
+            "a": "Yes. We integrate with Google Ads, Meta Ads, LinkedIn, and any other platform. Tracking pixels and UTM parameters are set up from the start."
+          },
+          "4": {
+            "q": "What platform do you build on?",
+            "a": "We build custom pages with React for maximum performance, or use platforms like WordPress or Webflow if that better fits your workflow."
+          }
+        }
+      }
+    },
+    "maintenance": {
+      "meta": {
+        "title": "Maintenance & Support - E&P Systems",
+        "description": "Ongoing website maintenance, security updates, performance monitoring, and dedicated technical support."
+      },
+      "hero": {
+        "badge": "Maintenance & Support",
+        "heading": "Keep Your Site Running Smoothly",
+        "subheading": "Proactive maintenance, security updates, and dedicated support so your website stays fast, secure, and always online."
+      },
+      "features": {
+        "heading": "What's Included",
+        "items": {
+          "0": {
+            "title": "Security Updates",
+            "description": "Regular patching of frameworks, plugins, and dependencies to keep your site protected against vulnerabilities."
+          },
+          "1": {
+            "title": "Performance Monitoring",
+            "description": "24/7 uptime monitoring, load time tracking, and proactive alerts so issues are caught before your users notice."
+          },
+          "2": {
+            "title": "Content & Feature Updates",
+            "description": "Need a new section, updated pricing, or a seasonal banner? We handle content changes and minor feature additions."
+          },
+          "3": {
+            "title": "Backup & Recovery",
+            "description": "Automated daily backups with tested recovery procedures, so your data is always safe and restorable."
+          }
+        }
+      },
+      "process": {
+        "heading": "How It Works",
+        "steps": {
+          "0": {
+            "title": "Audit",
+            "description": "We assess your current site's health, security, and performance baseline."
+          },
+          "1": {
+            "title": "Plan",
+            "description": "We create a tailored maintenance schedule based on your site's needs."
+          },
+          "2": {
+            "title": "Maintain",
+            "description": "We handle updates, fixes, and improvements on a regular cadence."
+          },
+          "3": {
+            "title": "Report",
+            "description": "You receive monthly reports on uptime, performance, and work completed."
+          }
+        }
+      },
+      "cta": {
+        "heading": "Want Peace of Mind?",
+        "description": "Let us handle the technical upkeep so you can focus on growing your business.",
+        "button": "Get a Maintenance Plan"
+      },
+      "faq": {
+        "heading": "Frequently Asked Questions",
+        "items": {
+          "0": {
+            "q": "What does a maintenance plan include?",
+            "a": "Our plans cover security updates, performance monitoring, backups, content changes, and priority support. We tailor each plan to your site's needs."
+          },
+          "1": {
+            "q": "How much does maintenance cost?",
+            "a": "Plans start from €99/month. The exact cost depends on your site's complexity and the level of support you need."
+          },
+          "2": {
+            "q": "Do I need maintenance if my site is new?",
+            "a": "Yes. Even new sites need regular updates, security patches, and monitoring. Proactive maintenance prevents costly emergency fixes down the line."
+          },
+          "3": {
+            "q": "How quickly do you respond to issues?",
+            "a": "Critical issues are addressed within 4 hours during business hours. Non-critical requests are handled within 24–48 hours."
+          },
+          "4": {
+            "q": "Can I cancel anytime?",
+            "a": "Yes, our maintenance plans are month-to-month with no long-term commitment. You can cancel or change your plan at any time."
+          }
+        }
+      }
+    }
+  },
+  "contactForm": {
+    "heading": {
+      "general": "Get in Touch",
+      "service": "Interested in {{service}}?"
+    },
+    "services": {
+      "seo": "SEO",
+      "ecommerce": "E-Commerce",
+      "ai": "AI & Automation",
+      "software": "Custom Software",
+      "landing": "Landing Pages",
+      "maintenance": "Maintenance & Support"
+    },
+    "fields": {
+      "name": { "label": "Your Name", "placeholder": "John Doe" },
+      "email": { "label": "Email", "placeholder": "john@example.com" },
+      "phone": { "label": "Phone (optional)", "placeholder": "+359..." },
+      "service": {
+        "label": "Service of Interest",
+        "placeholder": "Select a service...",
+        "options": {
+          "webDev": "Web Development",
+          "ecommerce": "E-Commerce",
+          "seo": "SEO",
+          "ai": "AI Automation",
+          "landing": "Landing Page",
+          "maintenance": "Website Maintenance",
+          "other": "Other"
+        }
+      },
+      "budget": {
+        "label": "Budget Range",
+        "placeholder": "Select budget range...",
+        "options": {
+          "under500": "Under \u20ac500",
+          "500to1500": "\u20ac500 \u2013 \u20ac1,500",
+          "1500to5000": "\u20ac1,500 \u2013 \u20ac5,000",
+          "5000plus": "\u20ac5,000+",
+          "notSure": "Not sure yet"
+        }
+      },
+      "notes": {
+        "label": "Tell us about your project",
+        "placeholder": "Describe what you need..."
+      }
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "notesRequired": "Project description is required"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": {
+      "heading": "Message Sent!",
+      "description": "We'll get back to you within 24 hours.",
+      "close": "Close"
+    },
+    "error": {
+      "heading": "Something went wrong",
+      "description": "Please try again or reach out directly.",
+      "retry": "Try Again"
+    },
+    "contexts": {
+      "general": {
+        "heading": "Get in Touch",
+        "description": "Tell us about your project and we'll get back to you within 24 hours."
+      },
+      "seo": {
+        "heading": "Ready to Rank Higher?",
+        "description": "Tell us about your SEO goals and we'll show you the opportunities."
+      },
+      "ecommerce": {
+        "heading": "Ready to Sell Online?",
+        "description": "Tell us about your store vision and we'll bring it to life."
+      },
+      "ai": {
+        "heading": "Ready to Work Smarter?",
+        "description": "Tell us which processes you want to automate."
+      },
+      "software": {
+        "heading": "Have a Project in Mind?",
+        "description": "Tell us about your idea and we'll help you build it."
+      }
+    }
+  },
+  "cookieConsent": {
+    "message": "We use cookies to improve your experience. By continuing to use our site, you agree to our use of cookies.",
+    "accept": "Accept All",
+    "manage": "Manage Preferences",
+    "learnMore": "Learn more"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy - E&P Systems",
+      "description": "Privacy Policy for E&P Systems. Learn how we collect, use, and protect your personal data."
+    },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 2026",
+    "sections": {
+      "intro": {
+        "title": "1. Introduction & Company Information",
+        "text": "E&P Systems, based in Sofia, Bulgaria, is committed to protecting your privacy and personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services, in compliance with the General Data Protection Regulation (GDPR)."
+      },
+      "dataCollect": {
+        "title": "2. Data We Collect",
+        "text": "We collect the following types of personal data:",
+        "items": {
+          "0": "Contact information (name, email address, phone number) submitted through our contact form",
+          "1": "Analytics data collected through cookies (browsing behavior, pages visited, device information)",
+          "2": "Technical data (IP address, browser type, operating system) for website functionality"
+        }
+      },
+      "howWeUse": {
+        "title": "3. How We Use Your Data",
+        "items": {
+          "0": "Responding to your inquiries and providing requested information about our services",
+          "1": "Improving our website experience and services based on analytics data",
+          "2": "Communicating with you about projects and services you have expressed interest in"
+        }
+      },
+      "cookies": {
+        "title": "4. Cookies Policy",
+        "text": "Our website uses the following types of cookies:",
+        "items": {
+          "0": "Essential cookies: Required for basic website functionality (e.g., cookie consent preferences)",
+          "1": "Analytics cookies: Help us understand how visitors interact with our website to improve the user experience"
+        },
+        "optOut": "You can manage your cookie preferences at any time using the cookie consent banner. You can also disable cookies through your browser settings, though this may affect website functionality."
+      },
+      "retention": {
+        "title": "5. Data Retention",
+        "items": {
+          "0": "Contact form inquiries are retained for up to 2 years, then securely deleted",
+          "1": "Analytics data is aggregated and anonymized, and does not contain personally identifiable information"
+        }
+      },
+      "gdpr": {
+        "title": "6. Your Rights Under GDPR",
+        "text": "As a data subject under the GDPR, you have the following rights:",
+        "items": {
+          "0": "Right of access: Request a copy of your personal data we hold",
+          "1": "Right to rectification: Request correction of inaccurate personal data",
+          "2": "Right to erasure: Request deletion of your personal data",
+          "3": "Right to data portability: Request your data in a structured, machine-readable format"
+        }
+      },
+      "contact": {
+        "title": "7. Contact for Data Requests",
+        "text": "To exercise any of your rights or for questions about our data practices, contact us at:"
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us - E&P Systems",
+      "description": "Learn about E&P Systems - our story, values, and mission to deliver engineering-grade digital solutions."
+    },
+    "hero": {
+      "badge": "About Us",
+      "heading": "About E&P Systems",
+      "subheading": "Engineering-grade digital solutions for businesses that refuse to settle for average."
+    },
+    "story": {
+      "heading": "Our Story",
+      "p1": "E&P Systems was founded in Sofia, Bulgaria with a single mission: bring engineering-grade software solutions to small and medium businesses. We combine deep technical expertise in full-stack development, SEO, and AI automation with a results-first mentality.",
+      "p2": "We believe every business deserves the same quality of digital tools that enterprise companies take for granted. That's why we focus on building solutions that are not just functional, but fast, scalable, and designed to drive real growth.",
+      "p3": "From custom web applications and e-commerce platforms to AI-powered automation and data-driven SEO, we deliver end-to-end digital solutions that help our clients compete and win in the digital landscape."
+    },
+    "values": {
+      "heading": "Our Values",
+      "precision": {
+        "title": "Engineering Precision",
+        "description": "Every line of code, every strategy, every decision is grounded in data and best practices. We don't guess - we measure, test, and deliver."
+      },
+      "speed": {
+        "title": "Speed & Efficiency",
+        "description": "We move fast without cutting corners. Our streamlined processes and modern tech stack mean your project goes from idea to launch in record time."
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "description": "No black boxes. You'll always know what we're doing, why we're doing it, and how it impacts your bottom line. We're partners, not vendors."
+      }
+    },
+    "team": {
+      "badge": "Our Team",
+      "heading": "The People Behind E&P Systems",
+      "members": {
+        "member1": {
+          "name": "Emil Dermendzhiev",
+          "role": "Co-Founder & Lead Developer",
+          "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows that power modern businesses."
+        },
+        "member2": {
+          "name": "Pavel Stefanov",
+          "role": "Co-Founder & Senior Developer",
+          "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications."
+        },
+        "member3": {
+          "name": "Emi Letkova",
+          "role": "UI/UX Designer",
+          "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+        },
+        "member4": {
+          "name": "Yoana Todorova",
+          "role": "Marketing Expert",
+          "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience."
+        }
+      }
+    },
+    "stats": {
+      "heading": "By the Numbers",
+      "items": {
+        "years": { "value": "3+", "label": "Years Experience" },
+        "projects": { "value": "20+", "label": "Projects Delivered" },
+        "languages": { "value": "2", "label": "Languages Supported" },
+        "focus": { "value": "100%", "label": "Client Focus" }
+      }
+    },
+    "cta": {
+      "heading": "Work With Us",
+      "description": "Let's discuss how we can help your business grow with the right digital solutions.",
+      "button": "Get in Touch"
+    }
+  },
+  "projects": {
+    "meta": {
+      "title": "Our Projects - E&P Systems",
+      "description": "Explore our portfolio of web development, e-commerce, SEO, and AI projects. Real results for real businesses."
+    },
+    "hero": {
+      "badge": "Portfolio",
+      "heading": "Our Work",
+      "subheading": "Real projects we've built and shipped - from e-commerce platforms and web apps to AI tools and SEO campaigns."
+    },
+    "filters": {
+      "all": "All",
+      "webdev": "Web Dev",
+      "ecommerce": "E-Commerce",
+      "seo": "SEO",
+      "ai": "AI"
+    },
+    "items": {
+      "giftShop": {
+        "name": "Gift Shop E-Commerce",
+        "industry": "Retail / Gifts",
+        "results": {
+          "0": "Full e-commerce platform with product catalog",
+          "1": "Supabase-powered backend with real-time data",
+          "2": "Mobile-responsive storefront ready for launch"
+        }
+      },
+      "affiliatePortal": {
+        "name": "Affiliate Portal",
+        "industry": "Digital Marketing",
+        "results": {
+          "0": "Commission tracking with multi-tier rewards",
+          "1": "Bilingual partner management dashboard",
+          "2": "Automated payout calculations"
+        }
+      },
+      "aiAudit": {
+        "name": "AI Business Audit Tool",
+        "industry": "Business Intelligence",
+        "results": {
+          "0": "AI-generated comprehensive audit reports",
+          "1": "Niche-specific scoring across industries",
+          "2": "Actionable recommendations engine"
+        }
+      },
+      "seoDashboard": {
+        "name": "SEO Campaign Dashboard",
+        "industry": "Digital Marketing",
+        "results": {
+          "0": "[REPLACE: Add real metric]",
+          "1": "[REPLACE: Add real metric]",
+          "2": "[REPLACE: Add real metric]"
+        }
+      },
+      "restaurantSite": {
+        "name": "Restaurant Website",
+        "industry": "Food & Hospitality",
+        "results": {
+          "0": "[REPLACE: Add real metric]",
+          "1": "[REPLACE: Add real metric]",
+          "2": "[REPLACE: Add real metric]"
+        }
+      },
+      "fashionStore": {
+        "name": "Fashion Store",
+        "industry": "Fashion / Retail",
+        "results": {
+          "0": "[REPLACE: Add real metric]",
+          "1": "[REPLACE: Add real metric]",
+          "2": "[REPLACE: Add real metric]"
+        }
+      }
+    },
+    "viewCaseStudy": "View Case Study",
+    "cta": {
+      "heading": "Start Your Project",
+      "description": "Have an idea? Let's turn it into a digital product that drives real results for your business.",
+      "button": "Start your project"
+    }
+  },
+  "servicesHub": {
+    "meta": {
+      "title": "Our Services - E&P Systems",
+      "description": "Explore our full range of digital services - web development, e-commerce, SEO, AI automation, landing pages, and ongoing maintenance."
+    },
+    "hero": {
+      "badge": "What We Do",
+      "heading": "Our Services",
+      "subheading": "From custom software and e-commerce to SEO and AI automation - we deliver end-to-end digital solutions engineered for growth."
+    },
+    "grid": {
+      "heading": "What We Build",
+      "learnMore": "Learn More",
+      "comingSoon": "Coming Soon",
+      "cards": {
+        "webDev": {
+          "title": "Web Development",
+          "description": "Custom web applications, internal tools, and APIs built with modern frameworks and cloud-native architecture."
+        },
+        "ecommerce": {
+          "title": "E-Commerce",
+          "description": "Full-featured online stores with secure payments, inventory management, and conversion-optimized storefronts."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Data-driven search engine optimization - technical audits, on-page strategy, and authority link building."
+        },
+        "ai": {
+          "title": "AI Automation",
+          "description": "Intelligent chatbots, workflow automation, and custom AI tools that save your team hours every week."
+        },
+        "landing": {
+          "title": "Landing Pages",
+          "description": "High-converting campaign pages designed to capture leads, drive action, and maximize ad spend ROI."
+        },
+        "maintenance": {
+          "title": "Maintenance & Support",
+          "description": "Ongoing updates, hosting management, performance monitoring, and dedicated technical support."
+        }
+      }
+    },
+    "whyUs": {
+      "heading": "Why Choose Us",
+      "items": {
+        "engineering": {
+          "title": "Engineering Depth",
+          "description": "We're engineers first. Every solution is architected for performance, scalability, and long-term maintainability."
+        },
+        "bilingual": {
+          "title": "Bilingual Team",
+          "description": "Fluent in English and Bulgarian - we serve international clients and local businesses with equal ease."
+        },
+        "fullStack": {
+          "title": "Full-Stack Delivery",
+          "description": "From front-end design to back-end infrastructure, we handle the entire stack so you have one partner for everything."
+        },
+        "pricing": {
+          "title": "Transparent Pricing",
+          "description": "No hidden fees, no surprise invoices. You know exactly what you're paying for before we write a single line of code."
+        }
+      }
+    },
+    "cta": {
+      "heading": "Ready to Get Started?",
+      "description": "Tell us about your project and we'll show you how we can help - no commitments, no pressure.",
+      "button": "Get Your Free Proposal"
+    }
+  },
+  "contactPage": {
+    "meta": {
+      "title": "Contact Us - E&P Systems",
+      "description": "Get in touch with E&P Systems. Let's discuss your project - web development, e-commerce, SEO, or AI automation."
+    },
+    "hero": {
+      "badge": "Contact",
+      "heading": "Let's Talk",
+      "subheading": "Have a project in mind? Drop us a message and we'll get back to you within 24 hours. No fluff, no runaround."
+    },
+    "form": {
+      "heading": "Send Us a Message",
+      "description": "Fill out the form and we'll be in touch shortly.",
+      "sendAnother": "Send Another Message"
+    },
+    "info": {
+      "heading": "Get in Touch",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Sofia, Bulgaria",
+      "hours": "Hours",
+      "hoursValue": "Mon\u2013Fri 9:00\u201318:00 EET",
+      "response": "Response Time",
+      "responseValue": "Within 24 hours"
+    },
+    "bookCall": {
+      "heading": "Prefer to Talk?",
+      "description": "Book a quick call and we'll discuss your project live.",
+      "button": "Book a Call"
+    },
+    "calendly": {
+      "heading": "Or book a free 30-minute call"
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "items": {
+        "0": {
+          "question": "How long does a website project take?",
+          "answer": "Typical projects take 2\u20136 weeks depending on complexity. We'll give you a clear timeline before starting."
+        },
+        "1": {
+          "question": "Do you offer ongoing support?",
+          "answer": "Yes, we offer monthly maintenance packages starting from \u20ac99/mo."
+        },
+        "2": {
+          "question": "Can you work with clients outside Bulgaria?",
+          "answer": "Absolutely. We work remotely with clients across Europe and beyond."
+        },
+        "3": {
+          "question": "What information do I need to start?",
+          "answer": "A brief description of your business, goals, and timeline is enough to get the conversation started."
+        },
+        "4": {
+          "question": "Do you sign NDAs?",
+          "answer": "Yes, we're happy to sign an NDA before any project discussion."
+        }
+      }
+    }
+  },
+  "team": {
+    "badge": "Our Team",
+    "heading": "The People Behind E&P Systems",
+    "members": {
+      "member1": {
+        "name": "Emil Dermendzhiev",
+        "role": "Co-Founder & Lead Developer",
+        "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows."
+      },
+      "member2": {
+        "name": "Pavel Stefanov",
+        "role": "Co-Founder & Senior Developer",
+        "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications."
+      },
+      "member3": {
+        "name": "Emi Letkova",
+        "role": "UI/UX Designer",
+        "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+      },
+      "member4": {
+        "name": "Yoana Todorova",
+        "role": "Marketing Expert",
+        "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience."
+      }
+    }
+  },
+  "testimonials": {
+    "heading": "What Our Clients Say",
+    "items": {
+      "0": {
+        "initials": "SB",
+        "name": "Silvia Bostandzhieva",
+        "company": "Law Firm Owner",
+        "quote": "E&P Systems built a professional, polished website for our law firm with an automated contact form that sends inquiries straight to our email. The whole process was smooth, fast, and hassle-free. Highly recommend!"
+      },
+      "1": {
+        "initials": "ER",
+        "name": "Emran Raykov",
+        "company": "Owner, InfinityStore",
+        "quote": "They built a fully customized e-commerce store tailored to my brand. Clean design, smooth checkout, and everything works exactly how I wanted. E&P Systems delivered beyond my expectations."
+      },
+      "2": {
+        "initials": "VL",
+        "name": "Velizar Letkov",
+        "company": "Insurance Agent",
+        "quote": "E&P Systems built InsurancePro for me - a custom internal tool that manages all my insurance data and sends automatic SMS reminders to clients. It completely streamlined my workflow and my clients love the timely notifications."
+      }
+    }
+  },
+  "trustedBy": {
+    "heading": "Trusted by growing businesses",
+    "logos": {
+      "0": "[CLIENT LOGO 1]",
+      "1": "[CLIENT LOGO 2]",
+      "2": "[CLIENT LOGO 3]",
+      "3": "[CLIENT LOGO 4]",
+      "4": "[CLIENT LOGO 5]",
+      "5": "[CLIENT LOGO 6]"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing - E&P Systems",
+      "description": "Simple, transparent pricing for web development, SEO, e-commerce, and AI automation services. No hidden fees."
+    },
+    "hero": {
+      "badge": "Pricing",
+      "heading": "Simple, Transparent Pricing",
+      "subheading": "No hidden fees, no surprise invoices. Honest pricing for honest work."
+    },
+    "tabs": {
+      "webDev": "Web Dev",
+      "seo": "SEO",
+      "ecommerce": "E-Commerce",
+      "ai": "AI Automation"
+    },
+    "tiers": {
+      "starter": "Starter",
+      "growth": "Growth",
+      "pro": "Pro"
+    },
+    "mostPopular": "Most Popular",
+    "services": {
+      "webDev": {
+        "starter": {
+          "price": "From €199",
+          "features": {
+            "0": "Single-page website",
+            "1": "Fully responsive design",
+            "2": "Contact form integration",
+            "3": "Basic SEO setup",
+            "4": "1 weeks delivery"
+          }
+        },
+        "growth": {
+          "price": "From €449",
+          "features": {
+            "0": "Up to 5 pages",
+            "1": "Content management system",
+            "2": "Smooth animations",
+            "3": "Analytics integration",
+            "4": "3 weeks delivery"
+          }
+        },
+        "pro": {
+          "price": "From €549",
+          "features": {
+            "0": "Custom multi-page website",
+            "1": "Bilingual support (EN/BG)",
+            "2": "Advanced animations & interactions",
+            "3": "Monthly post-launch support",
+            "4": "Performance optimization"
+          }
+        }
+      },
+      "seo": {
+        "starter": {
+          "price": "€299/mo",
+          "features": {
+            "0": "On-page SEO optimization",
+            "1": "Monthly performance report",
+            "2": "Up to 10 target keywords"
+          }
+        },
+        "growth": {
+          "price": "€599/mo",
+          "features": {
+            "0": "On-page & off-page SEO",
+            "1": "Weekly performance reports",
+            "2": "Up to 30 target keywords",
+            "3": "Content strategy suggestions",
+            "4": "Competitor analysis"
+          }
+        },
+        "pro": {
+          "price": "€1,199/mo",
+          "features": {
+            "0": "Full SEO strategy & execution",
+            "1": "Weekly strategy calls",
+            "2": "Unlimited target keywords",
+            "3": "Blog content creation",
+            "4": "Google Ads integration"
+          }
+        }
+      },
+      "ecommerce": {
+        "starter": {
+          "price": "From €199",
+          "features": {
+            "0": "Up to 50 products",
+            "1": "Shopify or WooCommerce",
+            "2": "Payment gateway integration"
+          }
+        },
+        "growth": {
+          "price": "From €499",
+          "features": {
+            "0": "Up to 500 products",
+            "1": "Custom storefront design",
+            "2": "Email marketing flows",
+            "3": "Sales analytics dashboard",
+            "4": "Inventory management"
+          }
+        },
+        "pro": {
+          "price": "From €599",
+          "features": {
+            "0": "Custom e-commerce platform",
+            "1": "Advanced automation workflows",
+            "2": "Multi-currency support",
+            "3": "Dedicated project manager",
+            "4": "Ongoing technical support"
+          }
+        }
+      },
+      "ai": {
+        "starter": {
+          "price": "€199 + €19/mo",
+          "features": {
+            "0": "1 automation workflow",
+            "1": "AI chatbot setup",
+            "2": "Email integration"
+          }
+        },
+        "growth": {
+          "price": "€499 + €49/mo",
+          "features": {
+            "0": "Up to 5 automation workflows",
+            "1": "CRM integration",
+            "2": "Weekly performance reports"
+          }
+        },
+        "pro": {
+          "price": "Custom",
+          "features": {
+            "0": "Full AI stack implementation",
+            "1": "Custom integrations",
+            "2": "Ongoing development & support"
+          }
+        }
+      }
+    },
+    "notes": "All prices are starting points. Final pricing depends on project scope and requirements. Contact us for a custom quote tailored to your needs.",
+    "cta": {
+      "heading": "Ready to Get Started?",
+      "description": "Tell us about your project and we'll put together a custom proposal - no obligations, no pressure.",
+      "button": "Get Your Custom Quote",
+      "cardButton": "Get Started"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog - E&P Systems",
+      "description": "Practical insights on web development, SEO, e-commerce, and AI automation for growing businesses."
+    },
+    "hero": {
+      "badge": "Blog",
+      "heading": "Insights & Resources",
+      "subheading": "Practical knowledge for growing businesses - from web development and SEO to AI automation."
+    },
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "minRead": "min read",
+    "categories": {
+      "web-development": "Web Development",
+      "seo": "SEO",
+      "ai": "AI Automation"
+    },
+    "cta": {
+      "heading": "Ready to Grow Your Business?",
+      "description": "Let's discuss how we can help you achieve your digital goals - from websites and SEO to AI-powered automation.",
+      "button": "Get a Free Consultation"
+    }
+  }
+}

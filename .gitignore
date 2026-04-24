@@ -3,3 +3,10 @@ dist
 .vite
 .env
 .env.local
+
+# Playwright MCP session artifacts (snapshots, console logs, traces)
+.playwright-mcp/
+
+# Ad-hoc debug screenshots at the repo root
+phase*-*.png
+mobile-*.png
