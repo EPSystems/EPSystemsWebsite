@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatedSection } from '../ui/AnimatedSection'
 import { useContactModal } from '../../hooks/useContactModal'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 const socialLinks = [
   {
@@ -123,7 +124,7 @@ export function Footer() {
           </div>
         </AnimatedSection>
 
-        <div className="border-t-4 border-zinc-900 pt-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="border-t-4 border-zinc-900 pt-8 flex flex-col md:flex-row gap-6 items-center justify-between">
           <p className="text-base text-zinc-500 font-bold tracking-tight">
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>
@@ -142,9 +143,14 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <Link to={`/${lang || 'bg'}/privacy-policy`} className="text-base text-zinc-500 hover:text-[#B9FF66] font-bold tracking-tight transition-colors">
-            {t('footer.privacyPolicy')}
-          </Link>
+          <div className="flex items-center gap-6 flex-wrap justify-center">
+            <Link to={`/${lang || 'bg'}/privacy-policy`} className="text-base text-zinc-500 hover:text-[#B9FF66] font-bold tracking-tight transition-colors">
+              {t('footer.privacyPolicy')}
+            </Link>
+            <div className="text-white">
+              <LanguageSwitcher />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

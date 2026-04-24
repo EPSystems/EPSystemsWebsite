@@ -5,14 +5,19 @@
   },
   "nav": {
     "services": "Services",
+    "industries": "Industries",
     "seo": "SEO",
     "ecommerce": "E-Commerce",
-    "projects": "Projects",
+    "projects": "Case Studies",
     "pricing": "Pricing",
     "about": "About",
     "contact": "Contact",
     "blog": "Blog",
-    "getStarted": "Get Started"
+    "home": "Home",
+    "getStarted": "Get Started",
+    "consultation": "Free consultation",
+    "allServices": "All services",
+    "allIndustries": "All industries"
   },
   "footer": {
     "cta": "Let's build the AI system that frees up your team's hours.",

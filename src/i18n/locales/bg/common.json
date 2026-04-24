@@ -5,14 +5,19 @@
   },
   "nav": {
     "services": "Услуги",
+    "industries": "Индустрии",
     "seo": "SEO",
     "ecommerce": "Онлайн магазин",
-    "projects": "Проекти",
+    "projects": "Казуси",
     "pricing": "Цени",
     "about": "За нас",
-    "contact": "Контакт",
+    "contact": "Контакти",
     "blog": "Блог",
-    "getStarted": "Започнете"
+    "home": "Начало",
+    "getStarted": "Започнете",
+    "consultation": "Безплатна консултация",
+    "allServices": "Всички услуги",
+    "allIndustries": "Всички индустрии"
   },
   "footer": {
     "cta": "Нека изградим AI системата, която ще освободи часовете на екипа ви.",
