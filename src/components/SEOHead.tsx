@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-const BASE_URL = 'https://epsystems.bg'
+const BASE_URL = 'https://epsystems.org'
 const DEFAULT_OG_IMAGE = `${BASE_URL}/logo.png`
 
 interface Breadcrumb {

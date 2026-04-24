@@ -13,7 +13,7 @@ import { mdxComponents } from '../components/blog/MdxComponents'
 import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react'
 import { getPost, getRelatedPosts } from '../lib/blog'
 
-const BASE_URL = 'https://epsystems.bg'
+const BASE_URL = 'https://epsystems.org'
 
 function formatDate(dateStr: string, lang: 'bg' | 'en'): string {
   const d = new Date(dateStr)

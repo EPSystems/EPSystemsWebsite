@@ -16,7 +16,7 @@ import { ServiceRelated } from '../components/sections/ServiceRelated'
 import { ServiceCTA } from '../components/sections/ServiceCTA'
 import { SEOHead } from '../components/SEOHead'
 
-const BASE_URL = 'https://epsystems.bg'
+const BASE_URL = 'https://epsystems.org'
 
 const VALID_SLUGS = [
   'ai-websites',
