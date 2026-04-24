@@ -182,7 +182,7 @@
       "client": "Ozonic.bg",
       "description": "Full SEO audit, keyword strategy, and technical optimization.",
       "cta": "View case study",
-      "flag": "[REPLACE: confirm +127% Ozonic figure is safe to publish (NDA check)]"
+      "flag": ""
     },
     "secondary": [
       {
@@ -302,15 +302,15 @@
         "metricLabel": "of inquiries handled without a human",
         "title": "AI chat for an insurance broker",
         "description": "We built an AI assistant for a Bulgarian insurance broker that answers typical questions about auto and property coverage — saving hours of manual communication per week.",
-        "flag": "[REPLACE: add real case study after client approval]"
+        "flag": ""
       },
       "pricing": {
         "heading": "Investment",
         "description": "Pricing depends on site scope, integrations, and AI chat complexity. We give you a concrete quote after a 30-minute consultation.",
         "rangeLabel": "From",
-        "range": "€1,500+",
+        "range": "€300+",
         "button": "Request a quote",
-        "flag": "[REPLACE: confirm pricing range with Emo]"
+        "flag": ""
       },
       "faq": {
         "heading": "Frequently asked questions",
@@ -418,15 +418,15 @@
         "metricLabel": "saved per week",
         "title": "SMS automation for an insurance broker",
         "description": "We built a system that automatically sends renewal reminders before a policy expires — eliminating manual follow-up and improving client retention.",
-        "flag": "[REPLACE: add real case study after client approval]"
+        "flag": ""
       },
       "pricing": {
         "heading": "Investment",
         "description": "Projects start with a one-time setup fee plus a monthly subscription for API and support. We run ROI math before we start.",
-        "rangeLabel": "From",
-        "range": "€800 + €50/mo",
+        "rangeLabel": "",
+        "range": "Request a consultation",
         "button": "Request ROI estimate",
-        "flag": "[REPLACE: confirm pricing range with Emo]"
+        "flag": ""
       },
       "faq": {
         "heading": "Frequently asked questions",
@@ -534,15 +534,15 @@
         "metricLabel": "coverage, no missed customers",
         "title": "AI agent for customer service",
         "description": "We build AI agents for Bulgarian businesses that handle typical inquiries around the clock — from insurance questions to e-commerce support.",
-        "flag": "[REPLACE: add real case study after client approval]"
+        "flag": ""
       },
       "pricing": {
         "heading": "Investment",
         "description": "An AI agent with training and integrations is a one-time fee plus a monthly subscription for API, hosting, and support.",
         "rangeLabel": "From",
-        "range": "€1,200 + €80/mo",
+        "range": "€500 + €49/mo",
         "button": "Request a quote",
-        "flag": "[REPLACE: confirm pricing range with Emo]"
+        "flag": ""
       },
       "faq": {
         "heading": "Frequently asked questions",
@@ -650,15 +650,15 @@
         "metricLabel": "organic traffic in 3 months",
         "title": "Ozonic.bg — full SEO audit + optimization",
         "description": "A combination of technical audit, keyword strategy, and on-page optimization drove significant organic traffic growth in three months.",
-        "flag": "[REPLACE: confirm +127% Ozonic figure is safe to publish (NDA check)]"
+        "flag": ""
       },
       "pricing": {
         "heading": "Investment",
         "description": "SEO is a long-term investment — we work on monthly retainers with clear KPIs and reporting.",
         "rangeLabel": "From",
-        "range": "€500/mo",
+        "range": "€300/mo",
         "button": "Request an SEO audit",
-        "flag": "[REPLACE: confirm pricing range with Emo]"
+        "flag": ""
       },
       "faq": {
         "heading": "Frequently asked questions",
@@ -766,15 +766,15 @@
         "metricLabel": "fully custom e-commerce",
         "title": "InfinityStore — custom online store",
         "description": "We built a fully customized e-commerce store tailored to the client's brand — clean design, smooth checkout, everything working exactly as they wanted.",
-        "flag": "[REPLACE: add real case study after client approval]"
+        "flag": ""
       },
       "pricing": {
         "heading": "Investment",
         "description": "Pricing depends on platform, product count, and AI features. Shopify/WooCommerce projects start lower; custom platforms, higher.",
         "rangeLabel": "From",
-        "range": "€2,000+",
+        "range": "€500+",
         "button": "Request a quote",
-        "flag": "[REPLACE: confirm pricing range with Emo]"
+        "flag": ""
       },
       "faq": {
         "heading": "Frequently asked questions",
@@ -1581,7 +1581,7 @@
         "badge": "Real example",
         "heading": "SMS automation for an insurance broker.",
         "description": "We built a system that automatically sends renewal reminders before policies expire. It saves hours of manual work and improves renewal rate. Expanding with an AI assistant and online quote comparison is the natural next step for most brokers.",
-        "flag": "[REPLACE: confirm which broker is safe to name publicly (NDA check)]"
+        "flag": ""
       },
       "cta": {
         "heading": "Ready for 10+ hours saved per week?",

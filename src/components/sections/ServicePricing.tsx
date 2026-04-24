@@ -9,6 +9,8 @@ interface ServicePricingProps {
 export function ServicePricing({ slug }: ServicePricingProps) {
   const { t } = useTranslation()
   const { openContactForm } = useContactModal()
+  const flag = t(`servicePages.${slug}.pricing.flag`)
+  const rangeLabel = t(`servicePages.${slug}.pricing.rangeLabel`)
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
@@ -22,16 +24,18 @@ export function ServicePricing({ slug }: ServicePricingProps) {
               <p className="text-lg text-zinc-700 font-medium leading-relaxed mb-4">
                 {t(`servicePages.${slug}.pricing.description`)}
               </p>
-              <p className="text-sm text-zinc-500 italic">
-                {t(`servicePages.${slug}.pricing.flag`)}
-              </p>
+              {flag && flag.trim() !== '' && (
+                <p className="text-sm text-zinc-500 italic">{flag}</p>
+              )}
             </div>
 
             <div className="lg:col-span-5 flex flex-col items-start lg:items-end">
               <div className="bg-[#B9FF66] border-4 border-black rounded-[30px] px-8 py-6 brutalist-shadow-static w-full">
-                <div className="text-sm font-black uppercase tracking-widest mb-2">
-                  {t(`servicePages.${slug}.pricing.rangeLabel`)}
-                </div>
+                {rangeLabel && rangeLabel.trim() !== '' && (
+                  <div className="text-sm font-black uppercase tracking-widest mb-2">
+                    {rangeLabel}
+                  </div>
+                )}
                 <div className="text-4xl lg:text-5xl font-black tracking-tighter">
                   {t(`servicePages.${slug}.pricing.range`)}
                 </div>

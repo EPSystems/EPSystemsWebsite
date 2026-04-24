@@ -8,6 +8,7 @@ interface ServiceCaseStudyProps {
 
 export function ServiceCaseStudy({ slug }: ServiceCaseStudyProps) {
   const { t } = useTranslation()
+  const flag = t(`servicePages.${slug}.caseStudy.flag`)
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
@@ -39,9 +40,9 @@ export function ServiceCaseStudy({ slug }: ServiceCaseStudyProps) {
               <p className="text-lg text-zinc-300 leading-relaxed mb-6">
                 {t(`servicePages.${slug}.caseStudy.description`)}
               </p>
-              <p className="text-sm text-zinc-500 italic">
-                {t(`servicePages.${slug}.caseStudy.flag`)}
-              </p>
+              {flag && flag.trim() !== '' && (
+                <p className="text-sm text-zinc-500 italic">{flag}</p>
+              )}
             </div>
           </div>
         </div>

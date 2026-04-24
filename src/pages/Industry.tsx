@@ -158,9 +158,12 @@ export function Industry() {
               <p className="text-lg text-zinc-300 leading-relaxed max-w-3xl mb-4">
                 {t(`industries.${slug}.proof.description`)}
               </p>
-              <p className="text-sm text-zinc-500 italic">
-                {t(`industries.${slug}.proof.flag`)}
-              </p>
+              {(() => {
+                const flag = t(`industries.${slug}.proof.flag`)
+                return flag && flag.trim() !== '' ? (
+                  <p className="text-sm text-zinc-500 italic">{flag}</p>
+                ) : null
+              })()}
             </div>
           </AnimatedSection>
         </div>
