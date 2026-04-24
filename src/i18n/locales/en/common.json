@@ -15,16 +15,14 @@
     "getStarted": "Get Started"
   },
   "footer": {
-    "cta": "Let's build something great together. We're ready to bring your digital vision to life.",
+    "cta": "Let's build the AI system that frees up your team's hours.",
     "getInTouch": "Get in touch",
     "sitemap": "Sitemap",
     "home": "Home",
     "services": "Services",
     "projects": "Projects",
-    "servicesColumn": "Services",
-    "seo": "SEO",
-    "ecommerce": "E-Commerce",
-    "aiAutomation": "AI & Automation",
+    "servicesColumn": "AI Services",
+    "industriesColumn": "Industries",
     "contact": "Contact",
     "email": "Email",
     "phone": "Phone",
@@ -32,7 +30,19 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "copyright": "E&P Systems. All rights reserved.",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "industries": {
+      "insurance": "Insurance",
+      "ecommerce": "E-Commerce",
+      "fitness": "Fitness & Sports"
+    }
+  },
+  "footerServices": {
+    "aiWebsites": "AI Websites",
+    "aiAutomation": "AI Automation",
+    "aiAgents": "AI Agents",
+    "aiSeo": "AI SEO",
+    "aiEcommerce": "AI E-Commerce"
   },
   "hero": {
     "badge": "AI agency from Sofia",

@@ -15,16 +15,14 @@
     "getStarted": "Започнете"
   },
   "footer": {
-    "cta": "Нека изградим нещо страхотно заедно. Готови сме да превърнем вашата дигитална визия в реалност.",
+    "cta": "Нека изградим AI системата, която ще освободи часовете на екипа ви.",
     "getInTouch": "Свържете се",
     "sitemap": "Карта на сайта",
     "home": "Начало",
     "services": "Услуги",
     "projects": "Проекти",
-    "servicesColumn": "Услуги",
-    "seo": "SEO",
-    "ecommerce": "Онлайн магазин",
-    "aiAutomation": "AI и Автоматизация",
+    "servicesColumn": "AI Услуги",
+    "industriesColumn": "Индустрии",
     "contact": "Контакт",
     "email": "Имейл",
     "phone": "Телефон",
@@ -32,7 +30,19 @@
     "pricing": "Цени",
     "blog": "Блог",
     "copyright": "E&P Systems. Всички права запазени.",
-    "privacyPolicy": "Политика за поверителност"
+    "privacyPolicy": "Политика за поверителност",
+    "industries": {
+      "insurance": "Застраховане",
+      "ecommerce": "E-Commerce",
+      "fitness": "Фитнес & Спорт"
+    }
+  },
+  "footerServices": {
+    "aiWebsites": "AI Уеб Сайтове",
+    "aiAutomation": "AI Автоматизации",
+    "aiAgents": "AI Агенти",
+    "aiSeo": "AI SEO",
+    "aiEcommerce": "AI E-Commerce"
   },
   "hero": {
     "badge": "AI агенция от София",

@@ -43,9 +43,18 @@ export function Services() {
   const { t } = useTranslation()
   const { openContactForm } = useContactModal()
 
+  const breadcrumbs = [
+    { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang || 'bg'}/` },
+    { name: t('nav.services'), url: `/${lang || 'bg'}/services` },
+  ]
+
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={breadcrumbs}
+        title={t('servicesHub.meta.title')}
+        description={t('servicesHub.meta.description')}
+      />
       <Navbar />
 
       {/* Hero */}

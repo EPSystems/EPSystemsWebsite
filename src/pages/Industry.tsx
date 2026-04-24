@@ -32,10 +32,18 @@ export function Industry() {
 
   const problems = [0, 1, 2, 3]
   const solutions = [0, 1, 2, 3]
+  const breadcrumbs = [
+    { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang}/` },
+    { name: t(`industries.${slug}.hero.badge`), url: `/${lang}/industries/${slug}` },
+  ]
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={breadcrumbs}
+        title={t(`industries.${slug}.meta.title`)}
+        description={t(`industries.${slug}.meta.description`)}
+      />
       <Navbar />
 
       {/* Hero */}

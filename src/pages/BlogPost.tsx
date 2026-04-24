@@ -96,9 +96,21 @@ export function BlogPost() {
   const homeLabel = t('nav.home', { defaultValue: 'Home' })
   const blogLabel = t('nav.blog', { defaultValue: 'Blog' })
 
+  const breadcrumbs = [
+    { name: homeLabel, url: `/${lang}/` },
+    { name: blogLabel, url: `/${lang}/blog` },
+    { name: frontmatter.title, url: `/${lang}/blog/${frontmatter.slug}` },
+  ]
+
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={breadcrumbs}
+        title={`${frontmatter.title} - E&P Systems`}
+        description={frontmatter.excerpt}
+        image={frontmatter.coverImage ? `${BASE_URL}${frontmatter.coverImage}` : undefined}
+        type="article"
+      />
       <Navbar />
 
       {/* Breadcrumb */}

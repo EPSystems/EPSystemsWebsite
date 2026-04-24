@@ -71,29 +71,40 @@ export function Footer() {
               </div>
 
               {/* Links */}
-              <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:pl-10 w-full">
-                <div className="flex flex-col gap-6">
-                  <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
-                    {t('footer.sitemap')}
-                  </span>
-                  <ul className="flex flex-col gap-4">
-                    <li><Link to={homePath} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.home')}</Link></li>
-                    <li><Link to={`/${lang || 'bg'}/about`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.about')}</Link></li>
-                    <li><Link to={`/${lang || 'bg'}/services`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.services')}</Link></li>
-                    {/* <li><Link to={`/${lang || 'bg'}/projects`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.projects')}</Link></li> */}
-                    <li><Link to={`/${lang || 'bg'}/pricing`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.pricing')}</Link></li>
-                    <li><Link to={`/${lang || 'bg'}/blog`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.blog')}</Link></li>
-                  </ul>
-                </div>
-
+              <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-10 lg:pl-10 w-full">
                 <div className="flex flex-col gap-6">
                   <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
                     {t('footer.servicesColumn')}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><Link to={`/${lang || 'bg'}/services/seo`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.seo')}</Link></li>
-                    <li><Link to={`/${lang || 'bg'}/services/ecommerce`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.ecommerce')}</Link></li>
-                    <li><Link to={`/${lang || 'bg'}/services/ai`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.aiAutomation')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/services/ai-websites`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footerServices.aiWebsites')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/services/ai-automation`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footerServices.aiAutomation')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/services/ai-agents`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footerServices.aiAgents')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/services/ai-seo`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footerServices.aiSeo')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/services/ai-ecommerce`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footerServices.aiEcommerce')}</Link></li>
+                  </ul>
+                </div>
+
+                <div className="flex flex-col gap-6">
+                  <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
+                    {t('footer.industriesColumn')}
+                  </span>
+                  <ul className="flex flex-col gap-4">
+                    <li><Link to={`/${lang || 'bg'}/industries/insurance`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.industries.insurance')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/industries/ecommerce`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.industries.ecommerce')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/industries/fitness`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.industries.fitness')}</Link></li>
+                  </ul>
+                </div>
+
+                <div className="flex flex-col gap-6">
+                  <span className="text-[13px] uppercase tracking-widest text-[#B9FF66] font-black border-b-2 border-zinc-800 pb-2">
+                    {t('footer.sitemap')}
+                  </span>
+                  <ul className="flex flex-col gap-4">
+                    <li><Link to={homePath} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.home')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/about`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.about')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/pricing`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.pricing')}</Link></li>
+                    <li><Link to={`/${lang || 'bg'}/blog`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.blog')}</Link></li>
                   </ul>
                 </div>
 
@@ -102,9 +113,9 @@ export function Footer() {
                     {t('footer.contact')}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    <li><Link to={`/${lang || 'bg'}/contact`} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.contact')}</Link></li>
-                    <li><button onClick={() => openContactForm({ subject: 'general', source: 'footer-email' })} className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.email')}</button></li>
-                    <li><a href="tel:+359879503151" className="text-lg text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.phone')}</a></li>
+                    <li><Link to={`/${lang || 'bg'}/contact`} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.contact')}</Link></li>
+                    <li><button onClick={() => openContactForm({ subject: 'general', source: 'footer-email' })} className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight text-left">{t('footer.email')}</button></li>
+                    <li><a href="tel:+359879503151" className="text-base text-white hover:text-[#B9FF66] transition-colors font-bold tracking-tight">{t('footer.phone')}</a></li>
                   </ul>
                 </div>
               </div>

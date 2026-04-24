@@ -30,23 +30,62 @@
          3. Replace G-XXXXXXXXXX above with your ID and uncomment
          4. Verify Search Console with the meta tag above -->
 
-    <!-- LocalBusiness Schema Markup -->
+    <!-- LocalBusiness schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://epsystems.bg/#localbusiness",
         "name": "E&P Systems",
+        "alternateName": "E&P Systems AI Agency",
         "description": "AI агенция от София, България. AI уеб сайтове, AI автоматизации, персонални AI агенти, AI SEO и AI e-commerce.",
         "url": "https://epsystems.bg",
-        "telephone": "+359892962810",
+        "logo": "https://epsystems.bg/logo.png",
+        "image": "https://epsystems.bg/logo.png",
+        "telephone": "+359879503151",
         "email": "engineering@epsystems.org",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sofia",
+          "addressRegion": "Sofia",
+          "addressCountry": "BG"
+        },
+        "areaServed": ["BG", "EU"],
+        "serviceType": [
+          "AI Websites",
+          "AI Automation",
+          "AI Agents",
+          "AI SEO",
+          "AI E-Commerce"
+        ]
+      }
+    </script>
+
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://epsystems.bg/#organization",
+        "name": "E&P Systems",
+        "url": "https://epsystems.bg",
+        "logo": "https://epsystems.bg/logo.png",
+        "email": "engineering@epsystems.org",
+        "telephone": "+359879503151",
+        "founder": [
+          { "@type": "Person", "name": "Emil Dermendzhiev" },
+          { "@type": "Person", "name": "Pavel Stefanov" }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61587315569860",
+          "https://www.instagram.com/epsystems/"
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Sofia",
           "addressCountry": "BG"
-        },
-        "areaServed": ["BG", "EU"],
-        "serviceType": ["Web Development", "SEO", "E-Commerce", "AI Automation"]
+        }
       }
     </script>
   </head>
