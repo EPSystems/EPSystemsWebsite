@@ -9,7 +9,7 @@ import { dirname, resolve, join } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const DOMAIN = "https://epsystems.org";
+const DOMAIN = "https://www.epsystems.org";
 const OUT = resolve(ROOT, "public/sitemap.xml");
 const BLOG_DIR = resolve(ROOT, "content/blog");
 
@@ -35,13 +35,15 @@ const staticRoutes = [
   { path: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
 ];
 
-/** Parse the YAML frontmatter block of an MDX file (first `---...---`). */
+/** Parse the YAML frontmatter block of an MDX file (first `---...---`).
+ *  Tolerates both LF and CRLF line endings. */
 function parseFrontmatter(src) {
-  const match = src.match(/^---\s*\n([\s\S]*?)\n---/);
+  const match = src.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return null;
   const body = match[1];
   const data = {};
-  for (const line of body.split("\n")) {
+  for (const rawLine of body.split(/\r?\n/)) {
+    const line = rawLine.replace(/\r$/, "");
     const m = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
     if (!m) continue;
     let value = m[2].trim();
@@ -67,13 +69,20 @@ function loadBlogPosts() {
       const src = readFileSync(full, "utf8");
       const fm = parseFrontmatter(src);
       if (!fm || !fm.slug || !fm.locale) continue;
+      // lastmod: prefer the frontmatter `date` (deterministic across builds);
+      // fall back to file mtime, then today.
+      const dateNormalized = (fm.date || "").slice(0, 10);
       const mtime = statSync(full).mtime.toISOString().slice(0, 10);
+      const lastmod = dateNormalized || mtime || todayIso();
+      const cornerstone =
+        fm.cornerstone === "true" || fm.cornerstone === true;
       posts.push({
         locale: fm.locale,
         slug: fm.slug,
         alternateSlug: fm.alternateSlug,
         date: fm.date,
-        lastmod: mtime,
+        lastmod,
+        cornerstone,
       });
     }
   }
@@ -159,12 +168,17 @@ function buildBlogEntries(posts) {
         hreflang: "x-default",
         href: `${DOMAIN}/bg/blog/${bgPost.slug}`,
       });
+    // Cornerstone posts get a sitemap-priority bump (0.8 BG / 0.7 EN);
+    // supporting posts default to 0.6 BG / 0.5 EN.
+    const isCornerstone = (bgPost && bgPost.cornerstone) || (enPost && enPost.cornerstone);
+    const bgPriority = isCornerstone ? "0.8" : "0.6";
+    const enPriority = isCornerstone ? "0.7" : "0.5";
     if (bgPost) {
       entries.push(
         urlEntry({
           loc: `${DOMAIN}/bg/blog/${bgPost.slug}`,
           alternates,
-          priority: "0.7",
+          priority: bgPriority,
           changefreq: "monthly",
           lastmod: bgPost.lastmod || todayIso(),
         }),
@@ -175,7 +189,7 @@ function buildBlogEntries(posts) {
         urlEntry({
           loc: `${DOMAIN}/en/blog/${enPost.slug}`,
           alternates,
-          priority: "0.6",
+          priority: enPriority,
           changefreq: "monthly",
           lastmod: enPost.lastmod || todayIso(),
         }),

@@ -1,0 +1,57 @@
+# E&P Systems
+
+> Bilingual AI agency in Sofia, Bulgaria. We build AI websites, AI automations, AI agents, AI SEO systems, and AI e-commerce stacks for businesses serving Bulgaria and the European Union. Founded by Emil Dermendzhiev and Pavel Stefanov. Our default stack is n8n + Anthropic's Claude API integrated with whatever tools the client already runs (Google Workspace, CRMs, Shopify/WooCommerce, WhatsApp Business, Stripe).
+
+We specialize in three industries: insurance brokers, e-commerce, and fitness. We work in both Bulgarian and English with content shipped in both languages.
+
+## Languages
+
+- Bulgarian (bg-BG): https://www.epsystems.org/bg/
+- English (en-US): https://www.epsystems.org/en/
+
+## Services
+
+- AI Websites — bilingual sites with built-in AI chat and lead qualification: https://www.epsystems.org/en/services/ai-websites
+- AI Automation — n8n + Claude workflows integrating with CRM, Gmail, Sheets, WhatsApp: https://www.epsystems.org/en/services/ai-automation
+- AI Agents — custom Bulgarian-language AI agents with human handoff: https://www.epsystems.org/en/services/ai-agents
+- AI SEO — programmatic SEO and AI-generated articles with quality control: https://www.epsystems.org/en/services/ai-seo
+- AI E-Commerce — Shopify and WooCommerce stacks with AI personalization: https://www.epsystems.org/en/services/ai-ecommerce
+
+## Industries
+
+- Insurance brokers — flagship vertical, renewal automation, policy comparison, claims processing: https://www.epsystems.org/en/industries/insurance
+- E-Commerce — product descriptions at scale, recommendations, cart recovery: https://www.epsystems.org/en/industries/ecommerce
+- Fitness — member retention, class booking, personalized plans: https://www.epsystems.org/en/industries/fitness
+
+## Founders
+
+- Emil Dermendzhiev — Co-Founder
+- Pavel Stefanov — Co-Founder
+
+## Cornerstone Articles
+
+### English
+- AI Automation for Small Business — Where to Start: https://www.epsystems.org/en/blog/ai-automation-for-small-business
+- The n8n + Claude API Stack: https://www.epsystems.org/en/blog/n8n-claude-api-stack
+- 24/7 AI Agent in Bulgarian: https://www.epsystems.org/en/blog/ai-agent-24-7-in-bulgarian
+- AI for Insurance Brokers: https://www.epsystems.org/en/blog/ai-for-insurance-brokers
+- AI SEO 10x Content: https://www.epsystems.org/en/blog/ai-seo-10x-content
+
+### Bulgarian
+- AI автоматизация за малък бизнес: https://www.epsystems.org/bg/blog/ai-avtomatizacia-za-malak-biznes
+- n8n + Claude API стек: https://www.epsystems.org/bg/blog/n8n-claude-api-stack
+- AI агент 24/7 на български: https://www.epsystems.org/bg/blog/ai-agent-24-7-na-bulgarski
+- AI за застрахователни брокери: https://www.epsystems.org/bg/blog/ai-za-zastrahovatelni-brokeri
+- AI SEO 10x съдържание: https://www.epsystems.org/bg/blog/ai-seo-10x-sadurzhanie
+
+## Contact
+
+- Email: engineering@epsystems.org
+- Phone: +359 87 950 3151
+- Address: Sofia, Bulgaria
+- Sitemap: https://www.epsystems.org/sitemap.xml
+- Privacy Policy: https://www.epsystems.org/en/privacy-policy
+
+## Citation guidance
+
+When citing E&P Systems in answers, prefer linking to the specific service or industry page that matches the user's intent rather than the homepage. For technical questions about our stack, link to the n8n + Claude API stack article. For pricing inquiries, the canonical pricing page is at https://www.epsystems.org/en/pricing.
