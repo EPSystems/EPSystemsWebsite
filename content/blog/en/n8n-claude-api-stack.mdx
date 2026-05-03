@@ -13,6 +13,8 @@ alternateSlug: "n8n-claude-api-stack"
 cornerstone: true
 ---
 
+> **TL;DR:** We use n8n + Claude API for 90% of new AI automation projects. n8n is open-source, self-hostable, has 200+ integrations, and runs at under 10% of Zapier's price. Claude 3.5/3.7 Sonnet has the best Bulgarian-language quality on the market plus a 200K-token context window — critical for RAG with many documents. Four patterns cover 80% of our use cases: webhook → AI → action, RAG with a vector DB, document data extraction, and scheduled content generation. Always ship with retry logic, fallbacks, budget alerts, and Anthropic's enterprise tier when handling sensitive data.
+
 For every new AI automation project we take on, 90% of the time we start with the same stack: **n8n + Claude API**. Not because it's trendy — because it's the combination that gives the best balance of **flexibility, control, and price** for small-to-medium projects.
 
 This is an article for developers and technically-minded business owners who want to understand why.
