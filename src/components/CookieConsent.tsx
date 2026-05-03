@@ -4,6 +4,31 @@ import { useTranslation } from 'react-i18next'
 
 const STORAGE_KEY = 'ep_cookie_consent'
 
+declare global {
+  interface Window {
+    dataLayer: unknown[]
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
+function updateConsent(granted: boolean) {
+  if (typeof window === 'undefined') return
+  window.dataLayer = window.dataLayer || []
+  // Push directly to dataLayer so this works even before gtag.js finishes loading
+  window.dataLayer.push([
+    'consent',
+    'update',
+    {
+      ad_storage: granted ? 'granted' : 'denied',
+      ad_user_data: granted ? 'granted' : 'denied',
+      ad_personalization: granted ? 'granted' : 'denied',
+      analytics_storage: granted ? 'granted' : 'denied',
+      functionality_storage: granted ? 'granted' : 'denied',
+      personalization_storage: granted ? 'granted' : 'denied',
+    },
+  ])
+}
+
 export function CookieConsent() {
   const [visible, setVisible] = useState(false)
   const { lang } = useParams<{ lang: string }>()
@@ -18,11 +43,13 @@ export function CookieConsent() {
 
   const accept = () => {
     localStorage.setItem(STORAGE_KEY, 'accepted')
+    updateConsent(true)
     setVisible(false)
   }
 
   const decline = () => {
     localStorage.setItem(STORAGE_KEY, 'declined')
+    updateConsent(false)
     setVisible(false)
   }
 

@@ -16,10 +16,39 @@
       rel="stylesheet"
     />
 
-    <!-- [ACTIVATE: Replace G-XXXXXXXXXX with your GA4 Measurement ID]
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
-    -->
+    <!-- Google tag (gtag.js) with Consent Mode v2 — GDPR compliant -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Default: deny everything until the user accepts via CookieConsent
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      // Restore prior consent (so returning visitors aren't re-prompted)
+      try {
+        var prior = localStorage.getItem('ep_cookie_consent');
+        if (prior === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+            functionality_storage: 'granted',
+            personalization_storage: 'granted'
+          });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-ZBK171SEN6', { anonymize_ip: true });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBK171SEN6"></script>
 
     <!-- [ACTIVATE: Add your Search Console verification token below] -->
     <!-- <meta name="google-site-verification" content="[YOUR-TOKEN]" /> -->
