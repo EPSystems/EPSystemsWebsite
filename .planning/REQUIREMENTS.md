@@ -77,50 +77,51 @@
 
 ## Traceability
 
-_Pre-mapped by milestone setup; the roadmapper validates 100% coverage and finalizes._
+_Validated by roadmapper: 100% coverage, every requirement maps to exactly one phase. See `.planning/ROADMAP.md` for phase goals + success criteria._
 
 | Requirement | Phase | Type | Status |
 |-------------|-------|------|--------|
-| REPO-01 | Phase 8 | verify | Pending |
-| REPO-02 | Phase 8 | verify | Pending |
-| REPO-03 | Phase 8 | verify | Pending |
-| REPO-04 | Phase 8 | verify | Pending |
-| REPO-05 | Phase 8 | verify | Pending |
-| REPO-06 | Phase 8 | verify | Pending |
-| REPO-07 | Phase 8 | verify | Pending |
-| REPO-08 | Phase 8 | verify | Pending |
-| REPO-09 | Phase 8 | verify | Pending |
-| BLOG-01 | Phase 9 | verify | Pending |
-| BLOG-02 | Phase 9 | verify | Pending |
-| BLOG-03 | Phase 9 | verify | Pending |
-| BLOG-04 | Phase 9 | verify | Pending |
-| BLOG-05 | Phase 9 | verify | Pending |
-| BLOG-06 | Phase 9 | verify | Pending |
-| BLOG-07 | Phase 9 | verify | Pending |
-| BLOG-08 | Phase 9 | verify | Pending |
-| BLOG-09 | Phase 9 | verify | Pending |
-| BLOG-10 | Phase 9 | build | Pending |
-| SEO-01 | Phase 10 | verify | Pending |
-| SEO-02 | Phase 10 | verify | Pending |
-| SEO-03 | Phase 10 | verify | Pending |
-| SEO-04 | Phase 10 | verify | Pending |
-| SEO-05 | Phase 10 | verify | Pending |
-| SEO-06 | Phase 10 | verify | Pending |
-| SEO-07 | Phase 10 | verify | Pending |
-| SEO-08 | Phase 10 | verify | Pending |
-| SEO-09 | Phase 10 | build | Pending |
-| SEO-10 | Phase 10 | build | Pending |
-| ANLY-01 | Phase 10 | verify | Pending |
-| ANLY-02 | Phase 10 | verify | Pending |
-| ANLY-03 | Phase 10 | verify | Pending |
-| ANLY-04 | Phase 10 | verify | Pending |
-| HARD-01 | Phase 10 | build | Pending |
-| HARD-02 | Phase 10 | build | Pending |
+| REPO-01 | Phase 8 | verify | Mapped |
+| REPO-02 | Phase 8 | verify | Mapped |
+| REPO-03 | Phase 8 | verify | Mapped |
+| REPO-04 | Phase 8 | verify | Mapped |
+| REPO-05 | Phase 8 | verify | Mapped |
+| REPO-06 | Phase 8 | verify | Mapped |
+| REPO-07 | Phase 8 | verify | Mapped |
+| REPO-08 | Phase 8 | verify | Mapped |
+| REPO-09 | Phase 8 | verify | Mapped |
+| BLOG-01 | Phase 9 | verify | Mapped |
+| BLOG-02 | Phase 9 | verify | Mapped |
+| BLOG-03 | Phase 9 | verify | Mapped |
+| BLOG-04 | Phase 9 | verify | Mapped |
+| BLOG-05 | Phase 9 | verify | Mapped |
+| BLOG-06 | Phase 9 | verify | Mapped |
+| BLOG-07 | Phase 9 | verify | Mapped |
+| BLOG-08 | Phase 9 | verify | Mapped |
+| BLOG-09 | Phase 9 | verify | Mapped |
+| BLOG-10 | Phase 9 | build | Mapped |
+| SEO-01 | Phase 10 | verify | Mapped |
+| SEO-02 | Phase 10 | verify | Mapped |
+| SEO-03 | Phase 10 | verify | Mapped |
+| SEO-04 | Phase 10 | verify | Mapped |
+| SEO-05 | Phase 10 | verify | Mapped |
+| SEO-06 | Phase 10 | verify | Mapped |
+| SEO-07 | Phase 10 | verify | Mapped |
+| SEO-08 | Phase 10 | verify | Mapped |
+| SEO-09 | Phase 10 | build | Mapped |
+| SEO-10 | Phase 10 | build | Mapped |
+| ANLY-01 | Phase 10 | verify | Mapped |
+| ANLY-02 | Phase 10 | verify | Mapped |
+| ANLY-03 | Phase 10 | verify | Mapped |
+| ANLY-04 | Phase 10 | verify | Mapped |
+| HARD-01 | Phase 10 | build | Mapped |
+| HARD-02 | Phase 10 | build | Mapped |
 
 **Coverage:**
 - v2.0 requirements: 35 total (29 verify, 6 build)
 - Mapped to phases: 35
 - Unmapped: 0
+- Validation: ✓ every requirement maps to exactly one phase; no orphans, no duplicates
 
 ---
 *Requirements defined: 2026-05-23*
