@@ -1,33 +1,33 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
+milestone: v1.1
 milestone_name: CTA Forms
-status: unknown
-last_updated: "2026-03-25T19:10:06.830Z"
+status: completed
+stopped_at: Completed 07-01-PLAN.md
+last_updated: "2026-05-23T16:52:28.165Z"
+last_activity: 2026-05-23
 progress:
   total_phases: 3
   completed_phases: 3
   total_plans: 4
   completed_plans: 4
+  percent: 100
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-25)
+See: .planning/PROJECT.md (updated 2026-05-23)
 
 **Core value:** The site must present E&P Systems as a credible, professional software agency that potential clients trust enough to reach out to.
-**Current focus:** Phase 7 - CTA Conversion
+**Current focus:** Between milestones — next is retroactive capture of post-v1.1 AI-agency/blog/SEO work via `/gsd:new-milestone`
 
 ## Current Position
 
-Phase: 7 of 7 (CTA Conversion)
-Plan: 1 of 1 in current phase (COMPLETE)
-Status: Phase 7 complete -- v1.1 CTA Forms milestone complete
-Last activity: 2026-03-25 - Completed 07-01 CTA conversion wiring
-
-Progress: [█████████████] 100% (13/13 plans complete)
+Status: ✅ v1.1 CTA Forms milestone complete (shipped 2026-03-25, archived 2026-05-23, tagged v1.1 at d7cd8b9)
+No active phase. Codebase has unplanned work past v1.1 awaiting milestone capture (see PROJECT.md → Current State).
+Last activity: 2026-05-23 — completed v1.1 milestone archival
 
 ## Performance Metrics
 
@@ -62,33 +62,21 @@ _Updated after each plan completion_
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- [v1.1 Roadmap]: Three-phase structure -- infrastructure (5), UI/states (6), CTA wiring (7)
-- [v1.1 Roadmap]: Web3Forms as form backend (250 free/month, zero npm deps, JSON POST)
-- [v1.1 Roadmap]: ContactModalProvider context pattern for form triggering across all CTAs
-- [v1.1 Roadmap]: All scrollToSection('contact') calls replaced with openContactForm() via modal context
-- [05-01]: FormContext carries subject and source for analytics-ready form submissions
-- [05-01]: Web3Forms access key via VITE_WEB3FORMS_KEY env var with .env.example documentation
-- [05-02]: Success state replaces entire form with centered message and close button
-- [05-02]: Error state shows inline banner above submit with retry button
-- [06-01]: Flat context key lookup for per-context form copy instead of generic interpolation
-- [06-01]: Kept existing contactForm.heading/services keys for backward compatibility
-- [Phase 07]: Kept scrollToSection in Hero/Navbar/Footer for non-contact navigation; removed from CaseStudies
+Full decision log lives in PROJECT.md Key Decisions table (v1.0 + v1.1 decisions recorded there).
 
 ### Pending Todos
 
-None yet.
+None.
 
-### Blockers/Concerns
+### Blockers/Concerns (carried forward to next milestone)
 
-- hCaptcha lazy-loading strategy needs decision during Phase 5/6 planning (see research SUMMARY.md)
-- Web3Forms free tier has no domain restriction -- hCaptcha is the mitigation for abuse
-- Mobile soft keyboard layout needs real-device iOS Safari testing before Phase 6 closes
+- Form spam protection (SPAM-01) not yet implemented — Web3Forms free tier has no domain restriction; honeypot/hCaptcha is the planned mitigation
+- Mobile soft-keyboard form layout not verified on real iOS Safari
+- ~40 commits of post-v1.1 work (AI-agency, blog, SEO, GA4) are untracked by GSD and need retroactive milestone capture
 
 ## Session Continuity
 
-Last session: 2026-03-25
-Stopped at: Completed 07-01-PLAN.md
+Last session: 2026-05-23
+Stopped at: v1.1 milestone completed and archived
 Resume file: None
+Next: `/gsd:new-milestone` to formalize post-v1.1 work
