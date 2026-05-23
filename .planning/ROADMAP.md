@@ -56,7 +56,10 @@ Full details: `.planning/milestones/v1.1-ROADMAP.md`
   3. All three industry verticals resolve at `/:lang/industries/{insurance, ecommerce, fitness}` and render bilingually.
   4. The navbar exposes the AI-pillar dropdown and industries menu in both languages, and the mobile menu opens and navigates correctly.
   5. The pricing (`/:lang/pricing`), about/team (`/:lang/about`), contact (`/:lang/contact`), and privacy-policy (`/:lang/privacy-policy`) pages all load and render bilingually.
-**Plans**: TBD
+**Plans**: 3 plans
+- [ ] 08-01-PLAN.md — Build gate + route/slug source inventory (REPO-01)
+- [ ] 08-02-PLAN.md — Browser-verify homepage, navbar, pricing/about/contact/privacy (REPO-02, REPO-06, REPO-07, REPO-08, REPO-09)
+- [ ] 08-03-PLAN.md — Browser-verify 5 service pages, services hub, 3 industries (REPO-03, REPO-04, REPO-05)
 **Recommended execution**: `/gsd:verify-work`-style auditing for all nine reqs (all verify-type; no gap items to build).
 **UI hint**: yes
 
