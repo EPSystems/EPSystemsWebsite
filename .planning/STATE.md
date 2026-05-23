@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: CTA Forms
-status: completed
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-05-23T16:52:28.165Z"
+milestone: v2.0
+milestone_name: AI Agency
+status: defining_requirements
+stopped_at: Milestone v2.0 started
+last_updated: "2026-05-23T17:10:00.000Z"
 last_activity: 2026-05-23
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -20,14 +20,15 @@ progress:
 
 See: .planning/PROJECT.md (updated 2026-05-23)
 
-**Core value:** The site must present E&P Systems as a credible, professional software agency that potential clients trust enough to reach out to.
-**Current focus:** Between milestones — next is retroactive capture of post-v1.1 AI-agency/blog/SEO work via `/gsd:new-milestone`
+**Core value:** A credible, results-driven AI agency that Bulgarian businesses trust enough to reach out to — discoverable by both search engines and AI answer engines.
+**Current focus:** v2.0 AI Agency — defining requirements (retroactive: document + verify shipped work, close gaps)
 
 ## Current Position
 
-Status: ✅ v1.1 CTA Forms milestone complete (shipped 2026-03-25, archived 2026-05-23, tagged v1.1 at d7cd8b9)
-No active phase. Codebase has unplanned work past v1.1 awaiting milestone capture (see PROJECT.md → Current State).
-Last activity: 2026-05-23 — completed v1.1 milestone archival
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-05-23 — Milestone v2.0 AI Agency started (continues phase numbering at 8)
 
 ## Performance Metrics
 
