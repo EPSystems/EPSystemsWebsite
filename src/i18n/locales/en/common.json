@@ -175,20 +175,20 @@
   },
   "results": {
     "badge": "Results",
-    "heading": "Real numbers from real clients.",
+    "heading": "Real systems we've built and shipped.",
     "featured": {
-      "metric": "+127%",
-      "metricLabel": "organic traffic in 3 months",
-      "client": "Ozonic.bg",
-      "description": "Full SEO audit, keyword strategy, and technical optimization.",
-      "cta": "View case study",
+      "metric": "24/7",
+      "metricLabel": "automated client communication",
+      "client": "Insurance broker",
+      "description": "AI assistant on self-hosted n8n that answers typical policy questions and sends renewal reminders automatically.",
+      "cta": "Full case study coming soon",
       "flag": ""
     },
     "secondary": [
       {
-        "metric": "24/7",
-        "label": "Insurance broker",
-        "description": "AI SMS assistant that replies to clients and sends reminders automatically."
+        "metric": "Universe Transport",
+        "label": "Lead-gen landing page",
+        "description": "Next.js landing page with Bulgarian copy and LocalBusiness structured data — built for local search from day one."
       },
       {
         "metric": "InfinityStore",
@@ -645,11 +645,11 @@
         }
       },
       "caseStudy": {
-        "badge": "Real example",
-        "metric": "+127%",
-        "metricLabel": "organic traffic in 3 months",
-        "title": "Ozonic.bg — full SEO audit + optimization",
-        "description": "A combination of technical audit, keyword strategy, and on-page optimization drove significant organic traffic growth in three months.",
+        "badge": "Sample audit",
+        "metric": "Ozonic.bg",
+        "metricLabel": "technical SEO audit",
+        "title": "What a real audit from us looks like",
+        "description": "We prepared a technical SEO audit for Ozonic.bg: crawlability and indexation findings, keyword mapping, and a prioritized fix list — the same audit you get when you request one below.",
         "flag": ""
       },
       "pricing": {
