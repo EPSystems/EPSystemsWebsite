@@ -10,8 +10,8 @@ Success criteria at day 90: **2 paid pilots delivered, 2 real case studies publi
 **Week 1**
 - [ ] Founder meeting with Pavel: hours, roles, equity mechanism (D-007). Written outcome, even if one paragraph.
 - [x] Remove/reframe Ozonic case study on epsystems.org (D-004). *Done 2026-07-06: homepage results section rewritten around real builds, SEO page block reframed as "Sample audit", both blog posts cleaned, stale locale script removed. Needs deploy to go live.*
-- [ ] Freeze SaaS code; write the 10-conversation discovery script (D-001). Book first 3 conversations via logistics/construction family contacts.
-- [ ] Draft the two offer one-pagers in Bulgarian (Automation Pilot €1,200; Lead-Gen Website €1,800 + €150/mo) with 3 concrete workflow examples per vertical (D-003).
+- [ ] Freeze SaaS code; ~~write the 10-conversation discovery script (D-001)~~ *script done 2026-07-06: `sales/discovery-script-surveillance.bg.md`*. Book first 3 conversations via logistics/construction family contacts.
+- [x] Draft the two offer one-pagers in Bulgarian (Automation Pilot €1,200; Lead-Gen Website €1,800 + €150/mo) with 3 concrete workflow examples per vertical (D-003). *Done 2026-07-06: `sales/onepager-automation-pilot.bg.md`, `sales/onepager-leadgen-website.bg.md` — add contact details before sending. Warm-network meeting script: `sales/discovery-script-warm-network.bg.md`.*
 
 **Week 2**
 - [ ] Ship the prerender/SSG indexation fix, submit sitemap, request reindexing (D-006). Hard stop after 1 week of effort.
