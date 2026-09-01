@@ -60,8 +60,9 @@ async function resolveChromium(): Promise<{
 export default defineConfig(async () => {
   // Route list is shared with the sitemap generator so the two never drift.
   // (Dynamic import keeps routes.mjs — plain ESM JS — out of TS's type-checking.)
-  const { prerenderRoutes } = await import('./scripts/routes.mjs')
+  const { prerenderRoutes, NOT_FOUND_PRERENDER_ROUTE } = await import('./scripts/routes.mjs')
   const chromium = await resolveChromium()
+  const notFoundOutput = resolve(__dirname, 'dist', '404.html')
 
   return {
     plugins: [
@@ -89,7 +90,17 @@ export default defineConfig(async () => {
       // (npm postbuild) fails the build if any route came out as the bare shell.
       vitePrerender({
         staticDir: resolve(__dirname, 'dist'),
-        routes: prerenderRoutes(),
+        // Real routes + one pseudo-route that renders NotFoundPage. With the
+        // SPA catch-all rewrite removed from vercel.json, Vercel serves
+        // dist/404.html with a genuine 404 status for any path without a
+        // static file (previously every unknown URL was a 200 "soft 404").
+        routes: [...prerenderRoutes(), NOT_FOUND_PRERENDER_ROUTE],
+        postProcess(renderedRoute: { route: string; html: string; outputPath?: string }) {
+          if (renderedRoute.route === NOT_FOUND_PRERENDER_ROUTE) {
+            renderedRoute.outputPath = notFoundOutput
+          }
+          return renderedRoute
+        },
         renderer: new vitePrerender.PuppeteerRenderer({
           executablePath: chromium.executablePath,
           args: chromium.args,

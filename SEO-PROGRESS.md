@@ -130,3 +130,45 @@ Live DOM after JavaScript boot (puppeteer, 2.5 s after load) on `/en/pricing`, `
 
 - Thinnest pages are the four team profiles (132–141 words) and the insurance category (148). Real content, but thin; a content decision, not a rendering defect.
 - `og:image` defaults to `/logo.png` on every page; a 1200×630 social image per section would be better but is a design asset, not code.
+
+## Phase 3 — Status codes
+
+**Status: repo side PASS (verified locally, committed); two items need the Vercel dashboard — see `SEO-DECISION.md` §3–4.**
+
+### Live measurements before the change (2026-09-01)
+
+```
+http://epsystems.org/                        308 -> https://epsystems.org/        (HTTP→HTTPS, Vercel default)
+https://epsystems.org/bg/pricing             307 -> https://www.epsystems.org/bg/pricing
+https://www.epsystems.org/bg/does-not-exist  200   (soft 404: SPA catch-all rewrite)
+https://www.epsystems.org/404.html           200
+```
+
+### What changed
+
+- `vercel.json` — removed the `/(.*) → /index.html` catch-all rewrite. Every real route now exists as a static file (Phase 1), so the rewrite only served to turn unknown URLs into 200s. Added a 308 for locale-less section URLs (`/services/...`, `/pricing`, `/blog/...` etc. → `/bg/...`), consistent with the existing `/ → /bg/` rule. The host redirect stays `permanent: true` (308).
+- `dist/404.html` — the app's `NotFoundPage` is prerendered via a pseudo-route (`NOT_FOUND_PRERENDER_ROUTE` in `scripts/routes.mjs`, written to `404.html` by the plugin's `postProcess`). Vercel serves a root `404.html` with a real 404 status for any path without a static file.
+- `src/pages/NotFoundPage.tsx` — adds `<meta name="robots" content="noindex">` and syncs `<html lang>`.
+- `scripts/verify-prerender.mjs` — gate now requires `dist/404.html` with one `<h1>`, `noindex`, no canonical, non-shell title.
+
+### Why the 307 is not fixed in the repo
+
+`origin/main` has had `permanent: true` on the host redirect since May 2026, yet production returns 307. The redirect is therefore the domain-level one in the Vercel dashboard (defaults to 307), which runs before `vercel.json`. Dashboard action logged in `SEO-DECISION.md` §3. Separately, production has not deployed from this repository since 2026-02-01 (§4), so no phase here is live until that is fixed.
+
+### Verification (actual output, local `dist/` via `npx serve`)
+
+```
+/bg/ -> 78086 bytes        <title>E&amp;P Systems - AI Агенция от София | AI Решения за Бизнеса</title>  canonical /bg/   lang="bg"  <h1>Изграждаме
+/en/ -> 74265 bytes        <title>E&amp;P Systems - AI Agency from Sofia | AI Solutions for Business</title>  canonical /en/  lang="en"  <h1>We build
+/bg/services/ai-websites -> 49270 bytes   <title>AI Уеб Сайтове - E&amp;P Systems</title>  canonical self  <h1>Сайт, който разговаря с клиентите ви.
+/bg/pricing -> 37220 bytes <title>Цени - E&amp;P Systems</title>  canonical self  <h1>Просто, прозрачно ценообразуване
+--- status codes
+/bg/ 200  /en/ 200  /bg/services/ai-websites 200  /bg/pricing 200
+/bg/does-not-exist  404  <title>Страницата не е намерена - E&amp;P Systems</title> robots=noindex <h1>404
+/de/                404  (same 404 page)
+/en/blog/nope       404  (same 404 page)
+/services/ai-websites 404 locally; on Vercel the new rule 308s it to /bg/services/ai-websites
+[verify-prerender] OK — 60 routes … + 404.html checks
+```
+
+`vercel.json` redirects cannot be exercised by the local static server; they are validated by JSON parse and will be confirmed on the first preview deployment.

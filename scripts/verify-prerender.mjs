@@ -167,6 +167,22 @@ function main() {
   const shellTitled = [...pages.values()].filter((p) => p.title === shellTitle && p.route !== "/bg/").map((p) => p.route);
   if (shellTitled.length) failures.push(`routes still carrying the shell <title>: ${shellTitled.join(", ")}`);
 
+  // Phase 3 — dist/404.html: the prerendered NotFoundPage that Vercel serves
+  // with a 404 status for paths without a static file.
+  const notFoundPath = join(DIST, "404.html");
+  if (!existsSync(notFoundPath)) {
+    failures.push("dist/404.html not generated (NOT_FOUND_PRERENDER_ROUTE postProcess)");
+  } else {
+    const nf = readFileSync(notFoundPath, "utf8");
+    const nfProblems = [];
+    if (nf.includes('<div id="root"></div>')) nfProblems.push("empty #root");
+    if ((nf.match(/<h1[\s>]/gi) || []).length !== 1) nfProblems.push("expected exactly 1 <h1>");
+    if (!/<meta[^>]+name="robots"[^>]+content="noindex"/i.test(nf)) nfProblems.push('missing <meta name="robots" content="noindex">');
+    if (titleOf(nf) === shellTitle) nfProblems.push("still has the shell <title>");
+    if (/rel="canonical"/i.test(nf)) nfProblems.push("must not declare a canonical");
+    if (nfProblems.length) failures.push(`404.html: ${nfProblems.join("; ")}`);
+  }
+
   if (failures.length) {
     console.error(`[verify-prerender] FAILED — ${failures.length} problem(s) across ${routes.length} routes:`);
     for (const f of failures) console.error(`  - ${f}`);

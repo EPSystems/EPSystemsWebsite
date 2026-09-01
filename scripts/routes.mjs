@@ -21,6 +21,16 @@ const BLOG_DIR = resolve(ROOT, "content/blog");
 
 export const LOCALES = ["bg", "en"];
 
+/**
+ * Pseudo-route rendered only to produce dist/404.html (Vercel serves that file
+ * with a real 404 status for any path that has no static file, now that the
+ * SPA catch-all rewrite is gone). Two segments with a non-literal second part
+ * match none of the app's routes, so React Router renders NotFoundPage.
+ * Not part of prerenderRoutes(): it must not appear in the sitemap or be
+ * checked for a self-canonical.
+ */
+export const NOT_FOUND_PRERENDER_ROUTE = "/bg/__not-found__";
+
 // Team member slugs — mirror src/data/team.ts (the .ts can't be imported from
 // here). If team.ts slugs change, update this array too.
 export const TEAM_SLUGS = [

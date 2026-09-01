@@ -11,3 +11,18 @@ The prerender now depends on launching headless Chromium during `npm run build`.
 ## 2. `postbuild` gate blocks deploys on any regression (Phase 1)
 
 Assumption made: a build that would reintroduce the single-shell defect should fail rather than deploy. If you would rather deploy-with-warning, change `process.exit(1)` in `scripts/verify-prerender.mjs` to a warning.
+
+## 3. The non-www → www 307 is a Vercel dashboard setting, not `vercel.json` (Phase 3)
+
+Measured 2026-09-01: `https://epsystems.org/bg/pricing` → `307 Temporary Redirect` → `https://www.epsystems.org/bg/pricing`.
+`vercel.json` on `origin/main` has carried `permanent: true` (308) for that host redirect since commit 63d3508. A 307 still being served means the redirect is applied *before* the project's `vercel.json`, i.e. it is the domain-level redirect configured in **Vercel → Project → Settings → Domains → `epsystems.org` → "Redirect to www.epsystems.org"**, which defaults to 307.
+
+**Ask (dashboard, 1 minute):** open that domain's redirect setting and change the status code to **308 Permanent** — or remove the domain-level redirect entirely so the `vercel.json` rule (308) takes over. The repo rule is kept either way.
+
+## 4. Production is not deployed from this repository (blocks *every* phase from reaching users)
+
+`origin/main` commit 4ad1190 (2026-08-03, `strategy/alerts/2026-08-03-site-health.md`) found that the Vercel project bound to `epsystems.org` (`ep-systems`, `prj_BiEAhNazAKP6VxB1SaHlzlmG5nEn`) last deployed on **2026-02-01** from a commit that does not exist in `EPSystems/EPSystemsWebsite`; its Git integration points at `EDermendjiev/EPSystems`. Live probes today are consistent with that: the site still serves the 10 KB shell and the pre-May-2026 redirect behaviour.
+
+**Consequence:** merging this branch changes nothing on the public site until the Vercel project is re-pointed at this repository (Settings → Git → connect `EPSystems/EPSystemsWebsite`, production branch `main`) or a deploy is triggered from it. Verifying the `@sparticuz/chromium` build path (item 1) needs the same connection.
+
+**Ask:** reconnect the Vercel project to this repo, then push this branch to get a preview build before merging.

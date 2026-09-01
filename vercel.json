@@ -6,14 +6,16 @@
       "permanent": true
     },
     {
+      "source": "/:section(services|industries|projects|pricing|about|contact|blog|resources|privacy-policy)/:path*",
+      "destination": "/bg/:section/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "epsystems.org" }],
       "destination": "https://www.epsystems.org/:path*",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
