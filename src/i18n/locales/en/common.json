@@ -1448,8 +1448,8 @@
       "viewProfile": "View profile"
     },
     "categoryMeta": {
-      "title": "AI articles — category",
-      "description": "Browse E&P Systems articles in this category — practical AI guides for Bulgarian and European businesses."
+      "title": "{{category}} — articles and guides | E&P Systems",
+      "description": "E&P Systems articles in the {{category}} category: practical guides, real examples and pricing for Bulgarian and European businesses."
     }
   },
   "industries": {

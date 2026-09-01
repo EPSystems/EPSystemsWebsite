@@ -88,7 +88,8 @@ export function TeamMember() {
 
   return (
     <>
-      <SEOHead breadcrumbs={breadcrumbs} title={`${name} - E&P Systems`} description={bio} />
+      {/* title/description fall back to the page's metaTitle/metaDescription (usePageMeta) */}
+      <SEOHead breadcrumbs={breadcrumbs} />
 
       <Navbar />
 

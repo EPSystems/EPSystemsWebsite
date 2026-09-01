@@ -70,3 +70,63 @@ Aggregate over all 60 prerendered routes: 0 empty `#root`, 0 missing `<h1>`, 0 m
 ### Not verifiable from this machine
 
 - The Vercel build path (`@sparticuz/chromium`) has not been exercised; it needs a preview deployment. Pushing this branch would trigger one. Logged in `SEO-DECISION.md`.
+
+## Phase 2 — Per-route `<head>` and a real `<h1>`
+
+**Status: PASS (verified locally, committed).**
+
+### Found while auditing the Phase 1 output
+
+- **30 of 60 routes had `og:title`/`og:description` that did not match their own title/description.** `SEOHead` read `document.title` inside its effect, but React runs a child's effects before its parent's, so it saw the *previous* page's title (on a cold load: the shell's Bulgarian default, even on `/en/`).
+- Blog-category pages (8) shared one generic title and description per locale; two BG service pages carried English-only titles identical to their EN twins.
+- Every entrance animation was captured at its initial state: 527 inline `opacity: 0` styles across the site, including the home `<h1>`. Root cause measured with puppeteer: with 4 concurrent tabs, 3 are background tabs (`visibilityState === "hidden"`, 0 animation frames in 2 s), so framer-motion never wrote final styles.
+- `SEOHead` appended tags on every run, so after client-side boot the live DOM carried two canonical/OG sets.
+
+### What changed
+
+- `src/components/SEOHead.tsx` — injection deferred by one microtask (runs after the parent's `usePageMeta` effect, still before paint); every owned tag is marked `data-seo-head` and any earlier set is removed first, so prerendered HTML + client render never yield duplicates.
+- `src/hooks/usePageMeta.ts` — accepts i18n interpolation values.
+- `src/pages/BlogCategory.tsx`, locale files — category title/description templates (`{{category}} — статии и ръководства | E&P Systems`, description written in Bulgarian, not translated); BG titles for AI SEO / AI E-Commerce services rewritten in Bulgarian.
+- `src/pages/TeamMember.tsx`, `BlogCategory.tsx` — dropped explicit `SEOHead` titles so `og:title` always equals `<title>`.
+- `src/main.tsx` — prerender mode (flag injected by the renderer): framer-motion `MotionGlobalConfig.skipAnimations` + an IntersectionObserver shim that reports every element visible, so `whileInView` sections below the fold render in final state; a `prerender-ready` event after first commit + 2 frames; Vercel Analytics not injected into the snapshot. On real visits that booted from prerendered HTML, entrance animations are skipped until first interaction (1.5 s max) so the already-visible hero does not blink to `opacity: 0` and fade back in.
+- `vite.config.ts` — `maxConcurrentRoutes: 1` (see root cause above), `renderAfterDocumentEvent: 'prerender-ready'` instead of a fixed 2 s wait. Full build with prerender now takes ~30 s.
+- `scripts/verify-prerender.mjs` — gate extended: unique title and description across all routes; `og:title == title`, `og:description == description`, `og:url == canonical`, `og:image`, `twitter:card`; hreflang bg/en/x-default present, x-default = bg, self entry correct, counterpart prerendered and reciprocal; `<h1>` not inline-hidden.
+
+### Verification (actual output)
+
+```
+/bg/ -> 78086 bytes
+lang="bg"
+<title>E&amp;P Systems - AI Агенция от София | AI Решения за Бизнеса</title>
+rel="canonical" href="https://www.epsystems.org/bg/" data-seo-head=""
+<h1 class="..." style="opacity: 1; transform: none;">Изграждаме
+/en/ -> 74265 bytes
+lang="en"
+<title>E&amp;P Systems - AI Agency from Sofia | AI Solutions for Business</title>
+rel="canonical" href="https://www.epsystems.org/en/" data-seo-head=""
+<h1 class="..." style="opacity: 1; transform: none;">We build
+/bg/services/ai-websites -> 49270 bytes
+lang="bg"
+<title>AI Уеб Сайтове - E&amp;P Systems</title>
+rel="canonical" href="https://www.epsystems.org/bg/services/ai-websites" data-seo-head=""
+<h1 class="...">Сайт, който разговаря с клиентите ви.
+/bg/pricing -> 37220 bytes
+lang="bg"
+<title>Цени - E&amp;P Systems</title>
+rel="canonical" href="https://www.epsystems.org/bg/pricing" data-seo-head=""
+<h1 class="...">Просто, прозрачно ценообразуване
+--- status codes (npx serve)
+/bg/ 200  /en/ 200  /bg/services/ai-websites 200  /bg/pricing 200  /bg/does-not-exist 404
+
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each;
+canonical, lang, single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+```
+
+Aggregate over all 60 routes: 60 distinct titles, 60 distinct descriptions, 0 `opacity: 0` inline styles (was 527), hreflang reciprocal on all 30 bg/en pairs.
+
+Live DOM after JavaScript boot (puppeteer, 2.5 s after load) on `/en/pricing`, `/bg/`, `/en/blog/category/ai-seo`: 1 canonical, 1 `og:title`, 1 meta description, correct title and `lang`, `<h1>` at `opacity: 1`, no page errors.
+
+### Notes for later phases
+
+- Thinnest pages are the four team profiles (132–141 words) and the insurance category (148). Real content, but thin; a content decision, not a rendering defect.
+- `og:image` defaults to `/logo.png` on every page; a 1200×630 social image per section would be better but is a design asset, not code.

@@ -94,11 +94,21 @@ export default defineConfig(async () => {
           executablePath: chromium.executablePath,
           args: chromium.args,
           headless: chromium.headless,
-          // Render 4 routes in parallel (keeps memory bounded on Vercel build).
-          maxConcurrentRoutes: 4,
-          // Wait for SEOHead's useEffect + i18n changeLanguage to settle before
-          // capturing. 2s is generous; this is a build step, not a request.
-          renderAfterTime: 2000,
+          // Exposes window.__PRERENDER_INJECTED = { prerender: true } to the app
+          // before any script runs. main.tsx uses it to complete framer-motion
+          // animations instantly and to treat every whileInView section as
+          // visible, so the snapshot holds final styles, not opacity:0 states.
+          inject: { prerender: true },
+          // One route at a time, on purpose. Extra puppeteer tabs are background
+          // tabs: document.visibilityState === "hidden" and requestAnimationFrame
+          // never fires, so framer-motion never applies its final styles and the
+          // snapshot keeps every entrance animation at `opacity: 0` (measured:
+          // 0 frames in 2s on hidden tabs vs ~400 on the visible one).
+          maxConcurrentRoutes: 1,
+          // main.tsx dispatches this once React has committed and framer-motion
+          // has had two frames to settle (with an 8s safety fallback). Faster and
+          // more deterministic than a fixed renderAfterTime.
+          renderAfterDocumentEvent: 'prerender-ready',
           // Block cross-origin (Google Fonts, gtag) during prerender — the SEO
           // tags we care about are first-party DOM mutations. Faster + avoids
           // consent-banner/cookie noise in the snapshot.

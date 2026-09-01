@@ -577,7 +577,7 @@
     },
     "ai-seo": {
       "meta": {
-        "title": "AI SEO - E&P Systems",
+        "title": "AI SEO оптимизация и съдържание - E&P Systems",
         "description": "Повече органичен трафик без ръчно писане на съдържание. AI content pipelines, programmatic SEO, технически одити."
       },
       "hero": {
@@ -693,7 +693,7 @@
     },
     "ai-ecommerce": {
       "meta": {
-        "title": "AI E-Commerce - E&P Systems",
+        "title": "AI E-Commerce решения за онлайн магазини - E&P Systems",
         "description": "Онлайн магазин с AI описания, препоръки и поддръжка. Shopify, WooCommerce или персонализирано - плюс AI слой за растеж."
       },
       "hero": {
@@ -1448,8 +1448,8 @@
       "viewProfile": "Виж профил"
     },
     "categoryMeta": {
-      "title": "AI статии — категория",
-      "description": "Разгледайте статиите на E&P Systems в тази категория — практични AI ръководства за български и европейски бизнеси."
+      "title": "{{category}} — статии и ръководства | E&P Systems",
+      "description": "Статии на E&P Systems в категория „{{category}}“: практични ръководства, реални примери и цени за български и европейски бизнеси."
     }
   },
   "industries": {

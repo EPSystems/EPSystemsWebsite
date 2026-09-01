@@ -28,10 +28,11 @@ export function BlogCategory() {
     defaultValue: category ?? '',
   })
 
-  usePageMeta(
-    `blog.categoryMeta.title`,
-    `blog.categoryMeta.description`,
-  )
+  // Shared template keys interpolated with the category label, so every
+  // category page gets its own <title> and description.
+  usePageMeta(`blog.categoryMeta.title`, `blog.categoryMeta.description`, {
+    category: categoryLabel,
+  })
 
   // CollectionPage JSON-LD for the category listing.
   useEffect(() => {
@@ -84,7 +85,7 @@ export function BlogCategory() {
 
   return (
     <>
-      <SEOHead breadcrumbs={breadcrumbs} title={`${categoryLabel} — E&P Systems`} />
+      <SEOHead breadcrumbs={breadcrumbs} />
 
       <Navbar />
 
