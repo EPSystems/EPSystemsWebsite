@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "overrides": {
+    "vite-plugin-prerender": {
+      "puppeteer": "$puppeteer"
+    },
+    "puppeteer": "$puppeteer"
+  },
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "generate:sitemap": "node scripts/generate-sitemap.mjs"
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "postbuild": "node scripts/verify-prerender.mjs"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +40,7 @@
     "remark-mdx-frontmatter": "^5.2.0"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^127.0.0",
     "@tailwindcss/vite": "^4.2.2",
     "@types/mdx": "^2.0.13",
     "@types/react": "^19.2.14",
@@ -40,8 +48,10 @@
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.8",
+    "puppeteer": "^22.15.0",
     "tailwindcss": "^3.4.19",
     "typescript": "^6.0.2",
-    "vite": "^5.4.21"
+    "vite": "^5.4.21",
+    "vite-plugin-prerender": "^1.0.8"
   }
 }
