@@ -12,8 +12,26 @@ import { BlogCard } from '../components/blog/BlogCard'
 import { mdxComponents } from '../components/blog/MdxComponents'
 import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react'
 import { getPost, getRelatedPosts } from '../lib/blog'
+import { AuthorByline } from '../components/blog/AuthorByline'
 
-const BASE_URL = 'https://epsystems.org'
+const BASE_URL = 'https://www.epsystems.org'
+
+/**
+ * Maps a frontmatter author name to the standalone Person @id defined in
+ * index.html, so the Article schema links to the canonical Person entity
+ * rather than declaring a disconnected inline Person. Falls back to a bare
+ * name object for unknown authors.
+ */
+function authorRef(authorName: string): { '@id': string } | { '@type': string; name: string } {
+  switch (authorName) {
+    case 'Emil Dermendzhiev':
+      return { '@id': `${BASE_URL}/#person-emil` }
+    case 'Pavel Stefanov':
+      return { '@id': `${BASE_URL}/#person-pavel` }
+    default:
+      return { '@type': 'Person', name: authorName }
+  }
+}
 
 function formatDate(dateStr: string, lang: 'bg' | 'en'): string {
   const d = new Date(dateStr)
@@ -53,10 +71,7 @@ export function BlogPost() {
       description: frontmatter.excerpt,
       datePublished: frontmatter.date,
       dateModified: frontmatter.date,
-      author: {
-        '@type': 'Person',
-        name: frontmatter.author,
-      },
+      author: authorRef(frontmatter.author),
       publisher: {
         '@type': 'Organization',
         name: 'E&P Systems',
@@ -96,6 +111,15 @@ export function BlogPost() {
   const homeLabel = t('nav.home', { defaultValue: 'Home' })
   const blogLabel = t('nav.blog', { defaultValue: 'Blog' })
 
+  // When the counterpart locale uses a different slug, point hreflang at the
+  // real counterpart path instead of the (non-existent) same-slug URL.
+  const ownPath = `/blog/${frontmatter.slug}`
+  const counterpartPath = frontmatter.alternateSlug
+    ? `/blog/${frontmatter.alternateSlug}`
+    : ownPath
+  const alternates =
+    lang === 'bg' ? { bg: ownPath, en: counterpartPath } : { bg: counterpartPath, en: ownPath }
+
   const breadcrumbs = [
     { name: homeLabel, url: `/${lang}/` },
     { name: blogLabel, url: `/${lang}/blog` },
@@ -110,6 +134,7 @@ export function BlogPost() {
         description={frontmatter.excerpt}
         image={frontmatter.coverImage ? `${BASE_URL}${frontmatter.coverImage}` : undefined}
         type="article"
+        alternates={alternates}
       />
       <Navbar />
 
@@ -159,7 +184,9 @@ export function BlogPost() {
               <Clock size={15} />
               {frontmatter.readingTime} {t('blog.minRead')}
             </span>
-            <span className="font-bold text-black">· {frontmatter.author}</span>
+            <span className="font-bold text-black">·{' '}
+              <AuthorByline author={frontmatter.author} lang={lang} />
+            </span>
           </div>
 
           <div className="blog-content">

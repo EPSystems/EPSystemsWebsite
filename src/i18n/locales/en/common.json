@@ -1202,22 +1202,30 @@
       "member1": {
         "name": "Emil Dermendzhiev",
         "role": "Co-Founder & Lead Developer",
-        "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows."
+        "bio": "Background in embedded systems and automotive software (AUTOSAR). Builds full-stack web apps, AI agents, and automated workflows.",
+        "metaTitle": "Emil Dermendzhiev — Co-Founder & Lead Developer | E&P Systems",
+        "metaDescription": "Emil Dermendzhiev, Co-Founder and Lead Developer at E&P Systems. Builds AI automations and AI agents with n8n + Claude API for Bulgarian and European businesses."
       },
       "member2": {
         "name": "Pavel Stefanov",
         "role": "Co-Founder & Senior Developer",
-        "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications."
+        "bio": "Experienced full-stack developer specializing in React, Node.js, and cloud-native applications.",
+        "metaTitle": "Pavel Stefanov — Co-Founder & Senior Developer | E&P Systems",
+        "metaDescription": "Pavel Stefanov, Co-Founder and Senior Developer at E&P Systems. Builds bilingual AI websites and AI e-commerce stacks."
       },
       "member3": {
         "name": "Emi Letkova",
         "role": "UI/UX Designer",
-        "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces."
+        "bio": "Creative designer focused on user-centered design, branding, and high-converting interfaces.",
+        "metaTitle": "Emi Letkova — UI/UX Designer | E&P Systems",
+        "metaDescription": "Emi Letkova, UI/UX Designer at E&P Systems. Designs brutalist, conversion-focused interfaces for AI websites and tools."
       },
       "member4": {
         "name": "Yoana Todorova",
         "role": "Marketing Expert",
-        "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience."
+        "bio": "Drives brand growth through data-driven campaigns, social media strategy, and compelling storytelling that connects businesses with their audience.",
+        "metaTitle": "Yoana Todorova — Marketing Expert | E&P Systems",
+        "metaDescription": "Yoana Todorova, Marketing Expert at E&P Systems. Owns bilingual content and growth for AI services."
       }
     }
   },
@@ -1423,7 +1431,8 @@
       "ai-agents": "AI Agents",
       "ai-seo": "AI SEO",
       "ai-websites": "AI Websites",
-      "ai-ecommerce": "AI E-Commerce"
+      "ai-ecommerce": "AI E-Commerce",
+      "insurance": "Insurance"
     },
     "filters": {
       "all": "All"
@@ -1434,6 +1443,13 @@
       "heading": "Ready to Grow Your Business?",
       "description": "Let's discuss how we can help you achieve your digital goals - from websites and SEO to AI-powered automation.",
       "button": "Get a Free Consultation"
+    },
+    "byline": {
+      "viewProfile": "View profile"
+    },
+    "categoryMeta": {
+      "title": "AI articles — category",
+      "description": "Browse E&P Systems articles in this category — practical AI guides for Bulgarian and European businesses."
     }
   },
   "industries": {
@@ -1634,6 +1650,89 @@
         "heading": "AI for your fitness business?",
         "description": "Free consultation — we'll show which AI features will save the most time and retain the most members in your specific business.",
         "button": "Free AI consultation"
+      }
+    }
+  },
+  "projects": {
+    "meta": {
+      "title": "Case Studies — E&P Systems AI Projects",
+      "description": "Selected AI automation, AI website, and AI e-commerce projects delivered by E&P Systems for Bulgarian and European businesses. Real stacks, real outcomes."
+    },
+    "hero": {
+      "badge": "Case Studies",
+      "heading": "AI projects we've shipped",
+      "subheading": "A selection of AI automations, websites, and e-commerce builds we've delivered for businesses in Bulgaria and the EU. Real stacks, real outcomes — full case studies coming soon."
+    },
+    "filters": {
+      "all": "All",
+      "webdev": "Websites",
+      "ecommerce": "E-commerce",
+      "seo": "SEO",
+      "ai": "AI Automation"
+    },
+    "viewCaseStudy": "View case study",
+    "cta": {
+      "heading": "Want results like these?",
+      "description": "Tell us about your process. We'll show you where AI pays off fastest — in writing, before any commitment.",
+      "button": "Book a discovery call"
+    },
+    "items": {
+      "giftShop": {
+        "name": "Gift Shop",
+        "industry": "E-commerce"
+      },
+      "affiliatePortal": {
+        "name": "Affiliate Portal",
+        "industry": "Web Development"
+      },
+      "aiAudit": {
+        "name": "AI Audit Tool",
+        "industry": "AI Automation"
+      },
+      "seoDashboard": {
+        "name": "SEO Dashboard",
+        "industry": "SEO"
+      },
+      "restaurantSite": {
+        "name": "Restaurant Website",
+        "industry": "Web Development"
+      },
+      "fashionStore": {
+        "name": "Fashion Store",
+        "industry": "E-commerce"
+      }
+    }
+  },
+  "teamMember": {
+    "backToTeam": "Back to team",
+    "authoredPosts": "Articles by"
+  },
+  "resources": {
+    "meta": {
+      "title": "Free AI Resources — Checklists & Playbooks | E&P Systems",
+      "description": "Free, practical AI resources for Bulgarian and European businesses: automation audit checklists and the insurance broker AI playbook."
+    },
+    "hero": {
+      "badge": "Resources",
+      "heading": "Free AI resources",
+      "subheading": "Practical, no-fluff guides and checklists for Bulgarian and European businesses adopting AI."
+    },
+    "comingSoon": "Coming soon",
+    "cta": {
+      "heading": "Can't wait?",
+      "description": "Tell us where your team loses hours. We will send a prioritized AI opportunity map — no commitment.",
+      "button": "Talk to us"
+    },
+    "items": {
+      "automationAudit": {
+        "tagline": "Checklist",
+        "name": "AI Automation Audit Checklist",
+        "description": "A 30-point checklist to find where AI automation pays off fastest in your business — workflows, integrations, and ROI gates."
+      },
+      "insurancePlaybook": {
+        "tagline": "Playbook",
+        "name": "Insurance Broker AI Playbook",
+        "description": "The 4 highest-leverage AI use cases for insurance brokers in Bulgaria, with integrations and ROI math."
       }
     }
   }

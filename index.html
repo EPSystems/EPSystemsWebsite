@@ -138,7 +138,7 @@
       }
     </script>
 
-    <!-- WebSite -->
+    <!-- WebSite + SearchAction -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -147,7 +147,15 @@
         "name": "E&P Systems",
         "url": "https://www.epsystems.org",
         "inLanguage": ["bg-BG", "en-US"],
-        "publisher": { "@id": "https://www.epsystems.org/#organization" }
+        "publisher": { "@id": "https://www.epsystems.org/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.epsystems.org/en/blog?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
 

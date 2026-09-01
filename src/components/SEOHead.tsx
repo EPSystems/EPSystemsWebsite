@@ -20,6 +20,17 @@ interface SEOHeadProps {
   image?: string
   /** og:type — "website" for hubs, "article" for blog posts. */
   type?: 'website' | 'article'
+  /**
+   * Explicit per-locale path overrides for hreflang, used when the BG and EN
+   * paths for the same content differ (e.g. blog posts whose slugs differ by
+   * language). Values are locale-agnostic paths like "/blog/ai-for-insurance-brokers".
+   * When omitted, hreflang is derived from the current path (correct only when
+   * both locales share the slug).
+   */
+  alternates?: {
+    bg?: string
+    en?: string
+  }
 }
 
 /**
@@ -30,7 +41,7 @@ interface SEOHeadProps {
  *
  * Cleans up on unmount so SPA navigation doesn't leak stale tags.
  */
-export function SEOHead({ breadcrumbs, title, description, image, type = 'website' }: SEOHeadProps) {
+export function SEOHead({ breadcrumbs, title, description, image, type = 'website', alternates }: SEOHeadProps) {
   const { lang } = useParams<{ lang: string }>()
   const location = useLocation()
   const { i18n } = useTranslation()
@@ -38,9 +49,15 @@ export function SEOHead({ breadcrumbs, title, description, image, type = 'websit
 
   useEffect(() => {
     const pathWithoutLang = location.pathname.replace(/^\/(en|bg)/, '')
-    const currentUrl = `${BASE_URL}/${currentLang}${pathWithoutLang}`
-    const bgUrl = `${BASE_URL}/bg${pathWithoutLang}`
-    const enUrl = `${BASE_URL}/en${pathWithoutLang}`
+    // When the BG and EN paths differ (different slugs), callers pass the
+    // correct counterpart path via `alternates`. Fall back to the current path
+    // — only correct when both locales share the slug.
+    const bgPath = alternates?.bg ?? pathWithoutLang
+    const enPath = alternates?.en ?? pathWithoutLang
+    const currentUrl =
+      currentLang === 'bg' ? `${BASE_URL}/bg${bgPath}` : `${BASE_URL}/en${enPath}`
+    const bgUrl = `${BASE_URL}/bg${bgPath}`
+    const enUrl = `${BASE_URL}/en${enPath}`
     const ogLocale = currentLang === 'bg' ? 'bg_BG' : 'en_US'
     const ogAltLocale = currentLang === 'bg' ? 'en_US' : 'bg_BG'
 
@@ -111,7 +128,7 @@ export function SEOHead({ breadcrumbs, title, description, image, type = 'websit
     return () => {
       elements.forEach((el) => el.remove())
     }
-  }, [currentLang, location.pathname, breadcrumbs, title, description, image, type])
+  }, [currentLang, location.pathname, breadcrumbs, title, description, image, type, alternates])
 
   return null
 }
