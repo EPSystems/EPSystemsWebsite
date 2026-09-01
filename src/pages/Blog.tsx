@@ -37,7 +37,12 @@ export function Blog() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang}/` },
+          { name: t('nav.blog'), url: `/${lang}/blog` },
+        ]}
+      />
       <Navbar />
 
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-12 lg:pt-24 lg:pb-16">

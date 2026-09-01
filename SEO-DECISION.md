@@ -26,3 +26,13 @@ Measured 2026-09-01: `https://epsystems.org/bg/pricing` → `307 Temporary Redir
 **Consequence:** merging this branch changes nothing on the public site until the Vercel project is re-pointed at this repository (Settings → Git → connect `EPSystems/EPSystemsWebsite`, production branch `main`) or a deploy is triggered from it. Verifying the `@sparticuz/chromium` build path (item 1) needs the same connection.
 
 **Ask:** reconnect the Vercel project to this repo, then push this branch to get a preview build before merging.
+
+## 5. LocalBusiness is as complete as the published facts allow (Phase 4)
+
+The `#organization` entity is now `Organization + LocalBusiness + ProfessionalService`, but three fields that materially strengthen a local-business entity are missing because the site publishes none of them and I will not invent them:
+
+- **Street address** (`PostalAddress.streetAddress`, `postalCode`) — currently locality-level only ("Sofia, BG").
+- **Opening hours** (`openingHoursSpecification`).
+- **Founder LinkedIn URLs** (`Person.sameAs`; `src/data/team.ts` has `linkedin: undefined // TODO(A1.8)`).
+
+**Ask:** if you want a Google Business Profile / map-pack presence, provide the address you are willing to publish and the hours; add the founders' LinkedIn URLs to `src/data/team.ts` and the `Person` blocks in `index.html`. Each is a one-line change once the facts exist.

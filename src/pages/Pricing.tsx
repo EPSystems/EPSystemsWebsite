@@ -24,7 +24,7 @@ const FEATURE_COUNTS: Record<ServiceKey, number[]> = {
 }
 
 export function Pricing() {
-  useLanguageSync()
+  const lang = useLanguageSync()
   usePageMeta('pricing.meta.title', 'pricing.meta.description')
   const { t } = useTranslation()
   const { openContactForm } = useContactModal()
@@ -39,7 +39,12 @@ export function Pricing() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang}/` },
+          { name: t('nav.pricing'), url: `/${lang}/pricing` },
+        ]}
+      />
       <Navbar />
 
       {/* Hero */}

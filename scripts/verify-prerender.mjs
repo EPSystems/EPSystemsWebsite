@@ -83,6 +83,154 @@ function readRoute(route) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// JSON-LD shape validation (Phase 4). Not a full schema.org validator: it checks
+// the properties Google's rich-result docs require/recommend for the types this
+// site emits, that every {"@id"} reference resolves on the same page, and that
+// each page carries exactly the blocks its route type should.
+// ---------------------------------------------------------------------------
+
+function extractJsonLd(html) {
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1].trim());
+  const nodes = [];
+  const errors = [];
+  const seen = new Map();
+  blocks.forEach((raw, i) => {
+    if (seen.has(raw)) errors.push(`duplicate JSON-LD block (#${seen.get(raw)} and #${i})`);
+    seen.set(raw, i);
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      errors.push(`block #${i} is not valid JSON (${e.message.slice(0, 40)})`);
+      return;
+    }
+    if (!parsed["@context"]) errors.push(`block #${i} has no @context`);
+    const list = parsed["@graph"] ? parsed["@graph"] : [parsed];
+    for (const n of list) nodes.push(n);
+  });
+  return { nodes, errors };
+}
+
+const typesOf = (n) => (Array.isArray(n?.["@type"]) ? n["@type"] : n?.["@type"] ? [n["@type"]] : []);
+const has = (n, t) => typesOf(n).includes(t);
+const isUrl = (v) => typeof v === "string" && /^https?:\/\//.test(v);
+const isIsoDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v);
+
+function walkRefs(value, out) {
+  if (Array.isArray(value)) return value.forEach((v) => walkRefs(v, out));
+  if (value && typeof value === "object") {
+    const keys = Object.keys(value);
+    if (keys.length === 1 && keys[0] === "@id") out.push(value["@id"]);
+    for (const k of keys) walkRefs(value[k], out);
+  }
+}
+
+function validateJsonLd(p) {
+  const { route } = p;
+  const { nodes, errors } = extractJsonLd(p.html);
+  const problems = [...errors];
+  const isHome = /^\/(bg|en)\/$/.test(route);
+  const isBlogPost = /^\/(bg|en)\/blog\/(?!category\/)[^/]+$/.test(route);
+  const isService = /^\/(bg|en)\/services\/[^/]+$/.test(route);
+  const isTeam = /^\/(bg|en)\/about\/team\/[^/]+$/.test(route);
+
+  for (const n of nodes) if (typesOf(n).length === 0) problems.push("node without @type");
+
+  // Every reference-only {"@id"} must resolve to a node on this page.
+  const declaredIds = new Set(nodes.map((n) => n["@id"]).filter(Boolean));
+  const refs = [];
+  for (const n of nodes) walkRefs(n, refs);
+  for (const id of new Set(refs)) if (!declaredIds.has(id)) problems.push(`dangling @id reference ${id}`);
+
+  // Sitewide organisation entity.
+  const orgs = nodes.filter((n) => n["@id"] === `${BASE_URL}/#organization`);
+  if (orgs.length !== 1) problems.push(`expected 1 #organization node, found ${orgs.length}`);
+  else {
+    const o = orgs[0];
+    for (const t of ["Organization", "LocalBusiness"]) if (!has(o, t)) problems.push(`#organization lacks @type ${t}`);
+    for (const k of ["name", "url", "telephone", "email", "logo", "image", "priceRange"]) if (!o[k]) problems.push(`#organization missing ${k}`);
+    if (!o.address || o.address["@type"] !== "PostalAddress" || !o.address.addressLocality || !o.address.addressCountry)
+      problems.push("#organization address must be a PostalAddress with locality + country");
+    if (!Array.isArray(o.sameAs) || o.sameAs.length === 0) problems.push("#organization missing sameAs");
+  }
+  const sites = nodes.filter((n) => has(n, "WebSite"));
+  if (sites.length !== 1) problems.push(`expected 1 WebSite, found ${sites.length}`);
+  else if (sites[0].potentialAction) problems.push("WebSite declares a SearchAction the site does not implement");
+
+  // Breadcrumbs: every page except home, exactly one, well-formed, ends at this page.
+  const crumbs = nodes.filter((n) => has(n, "BreadcrumbList"));
+  if (isHome) {
+    if (crumbs.length) problems.push("home page should not carry a BreadcrumbList");
+  } else if (crumbs.length !== 1) problems.push(`expected 1 BreadcrumbList, found ${crumbs.length}`);
+  else {
+    const items = crumbs[0].itemListElement;
+    if (!Array.isArray(items) || items.length < 2) problems.push("BreadcrumbList needs >= 2 items");
+    else {
+      items.forEach((it, i) => {
+        if (it["@type"] !== "ListItem") problems.push(`breadcrumb ${i} not a ListItem`);
+        if (it.position !== i + 1) problems.push(`breadcrumb ${i} position ${it.position} != ${i + 1}`);
+        if (!it.name || typeof it.name !== "string") problems.push(`breadcrumb ${i} has no name`);
+        if (!isUrl(it.item)) problems.push(`breadcrumb ${i} item is not an absolute URL`);
+      });
+      const last = items[items.length - 1]?.item;
+      if (last !== `${BASE_URL}${route}`) problems.push(`last breadcrumb ${last} != ${BASE_URL}${route}`);
+    }
+  }
+
+  // Blog posts: one Article with what Google requires.
+  const articles = nodes.filter((n) => typesOf(n).some((t) => /Article$/.test(t)));
+  if (isBlogPost) {
+    if (articles.length !== 1) problems.push(`expected 1 Article, found ${articles.length}`);
+    else {
+      const a = articles[0];
+      if (!a.headline) problems.push("Article missing headline");
+      else if (a.headline.length > 110) problems.push(`Article headline > 110 chars (${a.headline.length})`);
+      if (!isIsoDate(a.datePublished)) problems.push("Article datePublished not ISO");
+      if (!isIsoDate(a.dateModified)) problems.push("Article dateModified not ISO");
+      if (!a.author || !a.author.name) problems.push("Article author.name missing");
+      if (!isUrl(a.image) && !isUrl(a.image?.url)) problems.push("Article image missing");
+      if (!a.publisher?.name || !a.publisher?.logo) problems.push("Article publisher needs name + logo");
+      if (!a.mainEntityOfPage) problems.push("Article missing mainEntityOfPage");
+      if (!a.inLanguage) problems.push("Article missing inLanguage");
+      if (!a.description) problems.push("Article missing description");
+    }
+  } else if (articles.length) problems.push("Article on a non-post route");
+
+  // Service pages: Service + FAQPage.
+  if (isService) {
+    const services = nodes.filter((n) => has(n, "Service") && n.url);
+    if (services.length !== 1) problems.push(`expected 1 page-level Service, found ${services.length}`);
+    else {
+      const s = services[0];
+      if (!s.name || !s.description || !s.provider) problems.push("Service needs name, description, provider");
+    }
+  }
+  const faqs = nodes.filter((n) => has(n, "FAQPage"));
+  if (faqs.length > 1) problems.push(`more than one FAQPage (${faqs.length})`);
+  for (const f of faqs) {
+    if (!Array.isArray(f.mainEntity) || f.mainEntity.length === 0) problems.push("FAQPage without questions");
+    else
+      f.mainEntity.forEach((q, i) => {
+        if (q["@type"] !== "Question" || !q.name) problems.push(`FAQ ${i} not a named Question`);
+        if (q.acceptedAnswer?.["@type"] !== "Answer" || !q.acceptedAnswer?.text) problems.push(`FAQ ${i} lacks acceptedAnswer.text`);
+      });
+  }
+
+  // Team profiles: exactly one Person *entity* whose url is this page. Nodes
+  // sharing an @id are one entity (the founders appear in the sitewide block
+  // and again on their own page), so count distinct @ids, not nodes.
+  if (isTeam) {
+    const persons = nodes.filter((n) => has(n, "Person") && n.url === `${BASE_URL}${route}`);
+    const entities = new Map();
+    persons.forEach((n, i) => entities.set(n["@id"] ?? `anon-${i}`, n));
+    if (entities.size !== 1) problems.push(`expected 1 Person entity with url == page, found ${entities.size}`);
+    else if (![...entities.values()][0].name) problems.push("Person missing name");
+  }
+
+  return problems;
+}
+
 function main() {
   const shellPath = join(DIST, "index.html");
   if (!existsSync(shellPath)) {
@@ -166,6 +314,12 @@ function main() {
 
   const shellTitled = [...pages.values()].filter((p) => p.title === shellTitle && p.route !== "/bg/").map((p) => p.route);
   if (shellTitled.length) failures.push(`routes still carrying the shell <title>: ${shellTitled.join(", ")}`);
+
+  // Phase 4 — structured data shape, per page.
+  for (const p of pages.values()) {
+    const problems = validateJsonLd(p);
+    if (problems.length) failures.push(`${p.route} [json-ld]: ${problems.join("; ")}`);
+  }
 
   // Phase 3 — dist/404.html: the prerendered NotFoundPage that Vercel serves
   // with a 404 status for paths without a static file.

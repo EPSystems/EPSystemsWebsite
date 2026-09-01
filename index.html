@@ -59,14 +59,19 @@
          3. Replace G-XXXXXXXXXX above with your ID and uncomment
          4. Verify Search Console with the meta tag above -->
 
-    <!-- ProfessionalService + Organization (unified entity) -->
+    <!-- Organization + LocalBusiness + ProfessionalService (one entity, three types).
+         LocalBusiness/ProfessionalService carry the local-agency signals (address,
+         telephone, priceRange, areaServed); Organization is what publisher/worksFor
+         references and knowledge panels key on. Street address and opening hours
+         are intentionally absent: none are published anywhere on the site. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["ProfessionalService", "Organization"],
+        "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
         "@id": "https://www.epsystems.org/#organization",
         "name": "E&P Systems",
         "alternateName": "E&P Systems AI Agency",
+        "legalName": "E&P Systems",
         "description": "AI агенция от София, България. AI уеб сайтове, AI автоматизации, персонални AI агенти, AI SEO и AI e-commerce за български и европейски бизнеси.",
         "url": "https://www.epsystems.org",
         "logo": {
@@ -77,12 +82,22 @@
         "telephone": "+359879503151",
         "email": "engineering@epsystems.org",
         "priceRange": "€€",
+        "currenciesAccepted": "EUR, BGN",
         "foundingDate": "2024",
+        "knowsLanguage": ["bg", "en"],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Sofia",
           "addressRegion": "Sofia",
           "addressCountry": "BG"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+359879503151",
+          "email": "engineering@epsystems.org",
+          "availableLanguage": ["Bulgarian", "English"],
+          "areaServed": ["BG", "EU"]
         },
         "areaServed": [
           { "@type": "Country", "name": "Bulgaria" },
@@ -117,7 +132,7 @@
         "familyName": "Dermendzhiev",
         "jobTitle": "Co-Founder",
         "worksFor": { "@id": "https://www.epsystems.org/#organization" },
-        "url": "https://www.epsystems.org/bg/about",
+        "url": "https://www.epsystems.org/bg/about/team/emil-dermendzhiev",
         "image": "https://www.epsystems.org/team/emil.png"
       }
     </script>
@@ -133,12 +148,13 @@
         "familyName": "Stefanov",
         "jobTitle": "Co-Founder",
         "worksFor": { "@id": "https://www.epsystems.org/#organization" },
-        "url": "https://www.epsystems.org/bg/about",
+        "url": "https://www.epsystems.org/bg/about/team/pavel-stefanov",
         "image": "https://www.epsystems.org/team/pavel.jpg"
       }
     </script>
 
-    <!-- WebSite + SearchAction -->
+    <!-- WebSite. No SearchAction: the blog does not implement a ?q= search, and
+         claiming one is a false structured-data statement. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -147,15 +163,7 @@
         "name": "E&P Systems",
         "url": "https://www.epsystems.org",
         "inLanguage": ["bg-BG", "en-US"],
-        "publisher": { "@id": "https://www.epsystems.org/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.epsystems.org/en/blog?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
+        "publisher": { "@id": "https://www.epsystems.org/#organization" }
       }
     </script>
 

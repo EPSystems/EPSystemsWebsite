@@ -172,3 +172,32 @@ https://www.epsystems.org/404.html           200
 ```
 
 `vercel.json` redirects cannot be exercised by the local static server; they are validated by JSON parse and will be confirmed on the first preview deployment.
+
+## Phase 4 — Structured data
+
+**Status: PASS (verified locally, committed).**
+
+### Inventory before (from the prerendered HTML, 60 routes)
+
+`ProfessionalService+Organization` ×60 (sitewide), `Person` ×128, `WebSite` ×60 (with a SearchAction), `ItemList` ×60, `BreadcrumbList` ×48, `Article` ×10, `CollectionPage` ×8, `FAQPage` ×10, `Service` ×10. No `LocalBusiness` type literal; 12 routes without breadcrumbs (home, about, blog, contact, pricing, privacy-policy × 2 locales); `Article.author` was a bare `{"@id"}` reference to a Person declared in a different script block — fine for graph-aware parsers, a dangling reference for anything that validates the Article block alone (Google requires `author.name`).
+
+### What changed
+
+- `index.html` — the single entity `#organization` is now typed `["Organization", "LocalBusiness", "ProfessionalService"]` with `PostalAddress` (Sofia, BG), `telephone`, `email`, `priceRange`, `currenciesAccepted`, `knowsLanguage`, `contactPoint`, `areaServed`, founders, `sameAs`. No street address or opening hours were invented — none are published anywhere on the site (see `SEO-DECISION.md` §5). Founder `Person.url` now points at the team profile pages. The `WebSite.potentialAction` SearchAction was removed: the blog has no `?q=` search, so the claim was false.
+- `src/pages/BlogPost.tsx` — `Article.author` is a full Person (`@type`, `@id`, `name`, `url`), `publisher` carries `@id` + `logo`, `image` falls back to the logo when a post has no cover.
+- `About`, `Blog`, `Contact`, `Pricing`, `PrivacyPolicy` — now pass breadcrumbs to `SEOHead`, so `BreadcrumbList` is on every non-home route (58/60).
+- `scripts/verify-prerender.mjs` — JSON-LD validator: every block parses and has `@context`/`@type`; no duplicate blocks; every reference-only `{"@id"}` resolves on the same page; `#organization` has both `Organization` and `LocalBusiness` plus name/url/telephone/email/logo/image/priceRange/PostalAddress/sameAs; exactly one `WebSite` without SearchAction; exactly one well-formed `BreadcrumbList` per non-home page whose last item is the page itself; one `Article` per post with headline ≤ 110 chars, ISO dates, `author.name`, image, publisher name + logo, `mainEntityOfPage`, `inLanguage`; `Service` + `FAQPage` shape on service pages; one Person entity per team profile.
+
+### Verification (actual output)
+
+```
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each;
+canonical, lang, single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+TYPE COUNTS: Organization+LocalBusiness+ProfessionalService ×60, Person ×128, WebSite ×60,
+ItemList ×60, BreadcrumbList ×58, Article ×10, CollectionPage ×8, FAQPage ×10, Service ×10
+ROUTES WITHOUT BreadcrumbList: /bg/, /en/ (by design)   PARSE ERRORS: none
+Definition-of-done block: /bg/ 78722 B, /en/ 74901 B, /bg/services/ai-websites 49906 B,
+/bg/pricing 38218 B — distinct titles, self-canonicals, visible <h1>, /en/ lang="en"; unknown URL → 404
+```
+
+Sample `Article` (`/en/blog/n8n-claude-api-stack`): author `{Person, #person-emil, "Emil Dermendzhiev", /en/about/team/emil-dermendzhiev}`, publisher `{Organization, #organization, logo}`, image = cover JPG, `datePublished 2026-04-18`, `inLanguage en-US`.

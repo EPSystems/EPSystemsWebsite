@@ -17,17 +17,30 @@ import { AuthorByline } from '../components/blog/AuthorByline'
 const BASE_URL = 'https://www.epsystems.org'
 
 /**
- * Maps a frontmatter author name to the standalone Person @id defined in
- * index.html, so the Article schema links to the canonical Person entity
- * rather than declaring a disconnected inline Person. Falls back to a bare
- * name object for unknown authors.
+ * Article author as a Person node. For the founders it carries the same @id as
+ * the standalone Person block in index.html, so graph-aware consumers merge the
+ * two, while `name`/`url` are inlined so validators that read the Article block
+ * on its own (Google requires author.name) never see a dangling reference.
  */
-function authorRef(authorName: string): { '@id': string } | { '@type': string; name: string } {
+function authorRef(
+  authorName: string,
+  lang: 'bg' | 'en',
+): { '@type': 'Person'; '@id'?: string; name: string; url?: string } {
   switch (authorName) {
     case 'Emil Dermendzhiev':
-      return { '@id': `${BASE_URL}/#person-emil` }
+      return {
+        '@type': 'Person',
+        '@id': `${BASE_URL}/#person-emil`,
+        name: authorName,
+        url: `${BASE_URL}/${lang}/about/team/emil-dermendzhiev`,
+      }
     case 'Pavel Stefanov':
-      return { '@id': `${BASE_URL}/#person-pavel` }
+      return {
+        '@type': 'Person',
+        '@id': `${BASE_URL}/#person-pavel`,
+        name: authorName,
+        url: `${BASE_URL}/${lang}/about/team/pavel-stefanov`,
+      }
     default:
       return { '@type': 'Person', name: authorName }
   }
@@ -71,15 +84,20 @@ export function BlogPost() {
       description: frontmatter.excerpt,
       datePublished: frontmatter.date,
       dateModified: frontmatter.date,
-      author: authorRef(frontmatter.author),
+      author: authorRef(frontmatter.author, lang),
       publisher: {
         '@type': 'Organization',
+        '@id': `${BASE_URL}/#organization`,
         name: 'E&P Systems',
         url: BASE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${BASE_URL}/logo.png`,
+        },
       },
-      image: frontmatter.coverImage
-        ? `${BASE_URL}${frontmatter.coverImage}`
-        : undefined,
+      // Google requires an image on Article; fall back to the site logo when a
+      // post has no cover image.
+      image: frontmatter.coverImage ? `${BASE_URL}${frontmatter.coverImage}` : `${BASE_URL}/logo.png`,
       inLanguage: frontmatter.locale === 'bg' ? 'bg-BG' : 'en-US',
       mainEntityOfPage: {
         '@type': 'WebPage',

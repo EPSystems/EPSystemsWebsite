@@ -9,7 +9,7 @@ import { SEOHead } from '../components/SEOHead'
 import { Target, Zap, Users } from 'lucide-react'
 
 export function About() {
-  useLanguageSync()
+  const lang = useLanguageSync()
   usePageMeta('about.meta.title', 'about.meta.description')
   const { t } = useTranslation()
   const { openContactForm } = useContactModal()
@@ -36,7 +36,12 @@ export function About() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang}/` },
+          { name: t('nav.about'), url: `/${lang}/about` },
+        ]}
+      />
       <Navbar />
 
       {/* Hero */}
