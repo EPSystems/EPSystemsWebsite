@@ -206,15 +206,30 @@ function validateJsonLd(p) {
       if (!s.name || !s.description || !s.provider) problems.push("Service needs name, description, provider");
     }
   }
+  // FAQPage (Phase 5 GEO): required on every service page and on /pricing —
+  // at least 5 buyer questions, each a real question with a substantive
+  // answer, and at least one price question ("Колко струва…" / "How much…").
   const faqs = nodes.filter((n) => has(n, "FAQPage"));
+  const isPricing = /^\/(bg|en)\/pricing$/.test(route);
   if (faqs.length > 1) problems.push(`more than one FAQPage (${faqs.length})`);
+  if ((isService || isPricing) && faqs.length !== 1) problems.push(`expected 1 FAQPage on this page, found ${faqs.length}`);
   for (const f of faqs) {
     if (!Array.isArray(f.mainEntity) || f.mainEntity.length === 0) problems.push("FAQPage without questions");
-    else
+    else {
       f.mainEntity.forEach((q, i) => {
         if (q["@type"] !== "Question" || !q.name) problems.push(`FAQ ${i} not a named Question`);
+        else if (!/\?\s*$/.test(q.name)) problems.push(`FAQ ${i} question does not end with "?": ${q.name}`);
         if (q.acceptedAnswer?.["@type"] !== "Answer" || !q.acceptedAnswer?.text) problems.push(`FAQ ${i} lacks acceptedAnswer.text`);
+        else if (q.acceptedAnswer.text.length < 40) problems.push(`FAQ ${i} answer too short to be useful`);
       });
+      if (isService || isPricing) {
+        if (f.mainEntity.length < 5) problems.push(`FAQPage has only ${f.mainEntity.length} questions (need >= 5)`);
+        if (!f.mainEntity.some((q) => /колко струва|how much/i.test(q.name || ""))) problems.push("FAQPage has no price question");
+        // GEO: the Q&A text must be in the page body too, not only in JSON-LD.
+        const first = f.mainEntity[0]?.name;
+        if (first && !p.html.includes(first.replace(/&/g, "&amp;"))) problems.push("FAQ question text not present in page body");
+      }
+    }
   }
 
   // Team profiles: exactly one Person *entity* whose url is this page. Nodes
@@ -319,6 +334,21 @@ function main() {
   for (const p of pages.values()) {
     const problems = validateJsonLd(p);
     if (problems.length) failures.push(`${p.route} [json-ld]: ${problems.join("; ")}`);
+  }
+
+  // Phase 5 — llms.txt must only link to URLs that actually exist in dist.
+  const llmsPath = join(DIST, "llms.txt");
+  if (!existsSync(llmsPath)) failures.push("dist/llms.txt missing");
+  else {
+    const llms = readFileSync(llmsPath, "utf8");
+    const urls = [...new Set([...llms.matchAll(/https:\/\/www\.epsystems\.org(\/[^\s)]*)/g)].map((m) => m[1]))];
+    const dead = urls.filter((path) => {
+      const clean = path.replace(/[.,;:]+$/, "");
+      if (/\.[a-z0-9]+$/i.test(clean)) return !existsSync(join(DIST, clean));
+      return !existsSync(join(DIST, clean, "index.html"));
+    });
+    if (dead.length) failures.push(`llms.txt links to routes that are not built: ${dead.join(", ")}`);
+    if (urls.length < 20) failures.push(`llms.txt looks truncated (${urls.length} URLs)`);
   }
 
   // Phase 3 — dist/404.html: the prerendered NotFoundPage that Vercel serves

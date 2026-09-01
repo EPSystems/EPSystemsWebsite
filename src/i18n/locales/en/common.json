@@ -334,6 +334,10 @@
           "4": {
             "q": "What about GDPR and personal data?",
             "a": "We build with privacy by design — no personal data in AI context, clear policy, and full GDPR compliance."
+          },
+          "5": {
+            "q": "How much does an AI website cost?",
+            "a": "A website starts at €199 for a single page, €449 for up to 5 pages with a CMS, and €549 for a custom bilingual multi-page site. The AI layer — chat, lead qualification and training on your material — is scoped in a custom quote, and running API costs are typically €30–150 per month."
           }
         }
       },
@@ -450,6 +454,10 @@
           "4": {
             "q": "How much will I actually save?",
             "a": "Typical clients save 5-15 hours per week. Payback under 3 months on medium-complexity projects."
+          },
+          "5": {
+            "q": "How much does AI automation cost for a small business?",
+            "a": "One automated workflow costs €199 one-off plus €19 per month; up to 5 workflows with CRM integration and weekly reports is €499 plus €49 per month. A full AI-stack implementation is quoted individually after a short discovery call, where we also fix the timeline."
           }
         }
       },
@@ -566,6 +574,10 @@
           "4": {
             "q": "What's the difference vs a regular chatbot?",
             "a": "Rule-based chatbots follow a decision tree. An AI agent understands context, remembers the conversation, and gives useful answers even to questions you did not anticipate."
+          },
+          "5": {
+            "q": "How much does a custom AI agent cost?",
+            "a": "The starter package — AI chatbot setup, one automated workflow and email integration — is €199 one-off plus €19 per month; an agent with CRM integration and up to 5 workflows is €499 plus €49 per month. Model API costs are billed separately, typically €30–150 per month for a mid-sized business."
           }
         }
       },
@@ -682,6 +694,10 @@
           "4": {
             "q": "What is programmatic SEO?",
             "a": "Creating dozens or hundreds of pages from template + data — e.g., \"accountant in [city]\" for every city in Bulgaria. Works for long-tail keywords with high collective volume."
+          },
+          "5": {
+            "q": "How much does AI SEO cost per month?",
+            "a": "SEO retainers are €299 per month for on-page optimisation of up to 10 keywords, €599 per month for on-page and off-page work on up to 30 keywords, and €1,199 per month for a full strategy with unlimited keywords and blog content. All prices are starting points — the final quote depends on scope, and the first measurable results arrive within 2–3 months."
           }
         }
       },
@@ -798,6 +814,10 @@
           "4": {
             "q": "What about payments in Bulgaria?",
             "a": "We integrate all local options — bank cards, ePay, Revolut, cash-on-delivery — plus Stripe and PayPal for international customers."
+          },
+          "5": {
+            "q": "How much does an online store cost?",
+            "a": "An online store starts at €199 for up to 50 products on Shopify or WooCommerce with payments integrated, €499 for up to 500 products with a custom storefront, email flows and a sales dashboard, and €599 for a custom e-commerce platform with multi-currency support. AI descriptions and recommendations are added as a separate layer sized to your catalogue."
           }
         }
       },
@@ -1411,6 +1431,35 @@
       "description": "Tell us about your project and we'll put together a custom proposal - no obligations, no pressure.",
       "button": "Get Your Custom Quote",
       "cardButton": "Get Started"
+    },
+    "faq": {
+      "heading": "Pricing FAQ",
+      "items": {
+        "0": {
+          "q": "How much does a website cost?",
+          "a": "A website from E&P Systems starts at €199 for a single-page responsive site with a contact form and basic SEO, €449 for up to 5 pages with a CMS and analytics, and €549 for a custom bilingual (EN/BG) multi-page site with monthly post-launch support. The final price depends on scope and is fixed in the quote."
+        },
+        "1": {
+          "q": "How much does an online store cost?",
+          "a": "An online store starts at €199 for up to 50 products on Shopify or WooCommerce, €499 for up to 500 products with a custom storefront and email marketing, and €599 for a custom e-commerce platform with multi-currency support and a dedicated project manager."
+        },
+        "2": {
+          "q": "How much does SEO cost per month?",
+          "a": "SEO retainers are €299/month (on-page, up to 10 keywords, monthly report), €599/month (on-page and off-page, up to 30 keywords, weekly reports) or €1,199/month (full strategy, unlimited keywords, blog content, Google Ads integration)."
+        },
+        "3": {
+          "q": "How much does AI automation cost?",
+          "a": "AI automation is €199 one-off + €19/month for one automated workflow with AI chatbot and email integration, €499 + €49/month for up to 5 workflows with CRM integration and weekly reports; a full AI-stack implementation is quoted individually."
+        },
+        "4": {
+          "q": "Are the listed prices final?",
+          "a": "No — all prices are starting points, and the final price depends on project scope and requirements. There are no hidden fees: you get a custom quote with a fixed scope before we start."
+        },
+        "5": {
+          "q": "How long does delivery take?",
+          "a": "A single-page site ships in about 1 week, a site of up to 5 pages in about 3 weeks, and an AI website with chat and training typically takes 3–6 weeks plus 1–2 weeks of AI training. A simple automation workflow is live in 1 week; a complex integration in 3–4 weeks."
+        }
+      }
     }
   },
   "blog": {

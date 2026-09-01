@@ -201,3 +201,35 @@ Definition-of-done block: /bg/ 78722 B, /en/ 74901 B, /bg/services/ai-websites 4
 ```
 
 Sample `Article` (`/en/blog/n8n-claude-api-stack`): author `{Person, #person-emil, "Emil Dermendzhiev", /en/about/team/emil-dermendzhiev}`, publisher `{Organization, #organization, logo}`, image = cover JPG, `datePublished 2026-04-18`, `inLanguage en-US`.
+
+## Phase 5 — GEO layer
+
+**Status: PASS (verified locally, committed).**
+
+### What existed
+
+- `public/llms.txt` — good overview, but stale against the new routes (team profiles, case studies, resources, blog categories) and silent on pricing.
+- Service pages already had a 5-question FAQ with `FAQPage` JSON-LD (`ServiceFAQ`), answer-first and well written — but none asked the buyer's first question, price. The pricing page had no FAQ at all.
+- FAQ answers are always in the DOM (collapsed via CSS), so non-JS crawlers read them.
+
+### What changed
+
+- **Buyer price question on every service page** (`servicePages.<slug>.faq.items.5`, BG written in Bulgarian, EN separately): "Колко струва изработка на онлайн магазин?", "Колко струва AI автоматизация за малък бизнес?", "Колко струва персонален AI агент?", "Колко струва AI SEO оптимизация на месец?", "Колко струва изработка на AI уеб сайт?" — each answered in the first sentence with the tiers published on the pricing page (no new prices invented).
+- **Pricing page FAQ** (`pricing.faq`, 6 questions × 2 locales): website cost, online-store cost, SEO per month, AI automation cost, "are prices final?", delivery time — rendered with `FAQAccordion` and marked up as `FAQPage`.
+- `src/hooks/useFaqSchema.ts` — one idempotent FAQPage injector (`faqItemsFromBundle` + `useFaqSchema`) used by `ServiceFAQ` and `Pricing`; `ServiceFAQ` no longer hard-codes question counts. `FAQAccordion` buttons expose `aria-expanded`.
+- `public/llms.txt` — rewritten: BG + EN URLs per service, a "Pricing (starting points)" section with the published tiers and delivery times, team profile URLs, case studies, resources, blog categories, citation guidance for BG vs EN, last-updated date, and a note that all pages are static HTML with FAQPage blocks.
+- `scripts/verify-prerender.mjs` — gate: every service page and `/pricing` must carry exactly one `FAQPage` with ≥ 5 questions, each ending in "?", each answer ≥ 40 chars, at least one price question, and the first question's text present in the page body (not JSON-LD only); every URL in `dist/llms.txt` must resolve to a built route or file.
+
+### Verification (actual output)
+
+```
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each; canonical, lang,
+single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+FAQPage ×12 (5 services × 2 locales + pricing × 2); /bg/pricing 6 Qs, price Q in body, answer 306 chars;
+/bg/services/ai-ecommerce 6 Qs, "Колко струва изработка на онлайн магазин?" in body, answer 353 chars
+dist/llms.txt == public/llms.txt, 34 URLs, all resolve
+Definition-of-done block: /bg/ 78722 B, /en/ 74901 B, /bg/services/ai-websites 52206 B, /bg/pricing 49324 B —
+distinct titles, self-canonicals, visible <h1>, /en/ lang="en"; unknown URL → 404
+```
+
+`robots.txt` left as `User-agent: * / Allow: /` — AI crawlers are already permitted; explicitly blocking training bots is a policy call, not made here.
