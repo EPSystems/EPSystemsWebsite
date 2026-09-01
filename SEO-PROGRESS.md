@@ -233,3 +233,52 @@ distinct titles, self-canonicals, visible <h1>, /en/ lang="en"; unknown URL → 
 ```
 
 `robots.txt` left as `User-agent: * / Allow: /` — AI crawlers are already permitted; explicitly blocking training bots is a policy call, not made here.
+
+## Phase 6 — Performance
+
+**Status: PASS (re-measured, committed).**
+
+### Re-measurement first
+
+`audit-performance.json` (pre-fix, live site): mobile average 75 (min 58 on `/bg/`), LCP average 6.2 s (max 13.5 s); desktop average 95. Those numbers were taken against the client-rendered shell, so they were re-measured against the prerendered `dist/` before changing anything (Lighthouse 12.8, simulated mobile, local static server):
+
+| Route | Perf | FCP | LCP | Bytes | Top causes |
+|---|---|---|---|---|---|
+| /bg/ | 66 | 3.4 s | 12.7 s | 3,924 KB | images 3.2 MB oversized, fonts block 1.4 s, unused JS 172 KB |
+| /bg/about | 64 | 3.4 s | 16.1 s | 2,787 KB | one 1.9 MB headshot rendered at 160 px |
+| /bg/services/ai-websites | 74 | 3.4 s | 4.5 s | 510 KB | fonts block 1.4 s, unused JS |
+
+Real regressions, not shell artifacts: a 1,937 KB PNG headshot and 500 KB partner logos (one 5000×5000) displayed at 160 px / ~100 px; render-blocking Google Fonts CSS; one 837 KB JS bundle (235 KB gz) holding every page and every blog post.
+
+### What changed
+
+- `scripts/optimize-images.mjs` (+ `npm run optimize:images`, `sharp` devDependency) — WebP variants sized to their display budget: `team/emil.png` 1,937 KB → 17 KB, `partners/discipline.png` 498 KB → 2 KB, `partners/infiniti.png` 523 KB → 24 KB, `logo.png` 621 KB → 189 KB (og:image, kept PNG). Originals kept for the static JSON-LD. `<img>` tags now carry `width`/`height`, `loading="lazy"`/`decoding="async"` below the fold and `fetchPriority="high"` on the profile hero.
+- `index.html` — Google Fonts stylesheet loads via `preload` + media-swap with a `<noscript>` fallback: render-blocking time 1.4 s → 0.
+- `src/App.tsx`, `src/main.tsx` — route-level code splitting with React Router's data router (`createBrowserRouter` + `lazy` routes). `main.tsx` waits for the router to load the current route's chunk before mounting, so prerendered HTML is never replaced by a fallback. Main chunk 837 KB → 504 KB raw (235 → 154 KB gz); blog MDX (133 KB) now loads only on blog pages; home downloads ~208 KB gz of JS instead of 235 KB.
+- `scripts/generate-blog-covers.mjs` (+ `npm run generate:covers`) — the gate's new image check found every post's `og:image` / `Article.image` pointed at a file that never existed; ten branded placeholder covers were generated (BG posts got `-bg.jpg` files so titles match the language). See `SEO-DECISION.md` §6.
+- `scripts/verify-prerender.mjs` — every local `<img src>` must exist and be ≤ 250 KB; every `og:image` must exist and be ≤ 400 KB.
+
+### Verification (actual output)
+
+Mobile, same three routes, before → after:
+
+| Route | Perf | FCP | LCP | TBT | CLS | Bytes |
+|---|---|---|---|---|---|---|
+| /bg/ | 66 → **81** | 3.4 → 2.4 s | 12.7 → **3.5 s** | 159 → 298 ms | 0.010 → 0.011 | 3,924 → 492 KB |
+| /bg/about | 64 → **91** | 3.4 → 2.3 s | 16.1 → **2.5 s** | 192 → 188 ms | 0.060 → 0.060 | 2,787 → 483 KB |
+| /bg/services/ai-websites | 74 → **81** | 3.4 → 2.5 s | 4.5 → 3.7 s | 202 → 253 ms | 0.027 → 0.022 | 510 → 518 KB |
+
+Desktop `/bg/`: 98 (FCP 0.8 s, LCP 1.0 s, TBT 0, CLS 0) vs 86 / LCP 2.5 s in the old audit. Remaining opportunity on every page is unused framework JS (138–167 KB); the about page's 0.06 CLS comes from one section and was identical before this pass. Both are logged in `SEO-DECISION.md` §7.
+
+```
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each; canonical, lang,
+single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+Definition-of-done block: /bg/ 80875 B, /en/ 77054 B, /bg/services/ai-websites 53656 B, /bg/pricing 50680 B —
+distinct titles, self-canonicals, visible <h1>, /en/ lang="en"; unknown URL → 404
+Client boot (puppeteer, lazy routes): /en/pricing, /bg/, /en/blog/category/ai-seo — 1 canonical, 1 og:title,
+1 description, h1 visible, no page errors
+```
+
+## Status at the end of the loop
+
+All six phases are committed on `seo/prerender-and-technical-seo` and the definition-of-done block passes. Nothing here is live until the items in `SEO-DECISION.md` are actioned — above all §4 (production is not deploying from this repository) and §1 (first Vercel preview build exercises the `@sparticuz/chromium` path).

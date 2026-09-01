@@ -1,50 +1,56 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import { createBrowserRouter, Navigate, Outlet, type RouteObject } from 'react-router-dom'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ScrollToTop } from './components/ScrollToTop'
 import { ContactModalProvider } from './components/contact/ContactModalProvider'
 import { CookieConsent } from './components/CookieConsent'
-import { HomePage } from './pages/HomePage'
-import { ServicePage } from './pages/ServicePage'
-import { Services } from './pages/Services'
-import { Industry } from './pages/Industry'
-import { Projects } from './pages/Projects'
-import { Contact } from './pages/Contact'
-import { Pricing } from './pages/Pricing'
-import { Blog } from './pages/Blog'
-import { BlogPost } from './pages/BlogPost'
-import { BlogCategory } from './pages/BlogCategory'
-import { PrivacyPolicy } from './pages/PrivacyPolicy'
-import { About } from './pages/About'
-import { TeamMember } from './pages/TeamMember'
-import { Resources } from './pages/Resources'
-import { NotFoundPage } from './pages/NotFoundPage'
 
-function App() {
+/**
+ * Everything that must exist on every page. `extras` lets main.tsx append
+ * prerender-only helpers (the "prerender-ready" signal) without the routes
+ * knowing about them.
+ */
+function RootLayout({ extras }: { extras?: ReactNode }) {
   return (
     <ContactModalProvider>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Navigate to="/bg/" replace />} />
-        <Route path="/:lang" element={<HomePage />} />
-        <Route path="/:lang/services" element={<Services />} />
-        <Route path="/:lang/services/:slug" element={<ServicePage />} />
-        <Route path="/:lang/industries/:slug" element={<Industry />} />
-        <Route path="/:lang/projects" element={<Projects />} />
-        <Route path="/:lang/contact" element={<Contact />} />
-        <Route path="/:lang/pricing" element={<Pricing />} />
-        <Route path="/:lang/blog" element={<Blog />} />
-        <Route path="/:lang/blog/category/:slug" element={<BlogCategory />} />
-        <Route path="/:lang/blog/:slug" element={<BlogPost />} />
-        <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/:lang/about" element={<About />} />
-        <Route path="/:lang/about/team/:slug" element={<TeamMember />} />
-        <Route path="/:lang/resources" element={<Resources />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Outlet />
       <CookieConsent />
       <SpeedInsights />
+      {extras}
     </ContactModalProvider>
   )
 }
 
-export default App
+/**
+ * Route table. Every page is a lazy route, so each URL downloads only its own
+ * chunk (plus shared vendor code) instead of one bundle holding every page and
+ * every blog post. main.tsx waits for the router to finish loading the current
+ * route before mounting, so prerendered HTML is never replaced by a fallback.
+ */
+export function createAppRouter(extras?: ReactNode) {
+  const routes: RouteObject[] = [
+    {
+      element: <RootLayout extras={extras} />,
+      children: [
+        { path: '/', element: <Navigate to="/bg/" replace /> },
+        { path: '/:lang', lazy: () => import('./pages/HomePage').then((m) => ({ Component: m.HomePage })) },
+        { path: '/:lang/services', lazy: () => import('./pages/Services').then((m) => ({ Component: m.Services })) },
+        { path: '/:lang/services/:slug', lazy: () => import('./pages/ServicePage').then((m) => ({ Component: m.ServicePage })) },
+        { path: '/:lang/industries/:slug', lazy: () => import('./pages/Industry').then((m) => ({ Component: m.Industry })) },
+        { path: '/:lang/projects', lazy: () => import('./pages/Projects').then((m) => ({ Component: m.Projects })) },
+        { path: '/:lang/contact', lazy: () => import('./pages/Contact').then((m) => ({ Component: m.Contact })) },
+        { path: '/:lang/pricing', lazy: () => import('./pages/Pricing').then((m) => ({ Component: m.Pricing })) },
+        { path: '/:lang/blog', lazy: () => import('./pages/Blog').then((m) => ({ Component: m.Blog })) },
+        { path: '/:lang/blog/category/:slug', lazy: () => import('./pages/BlogCategory').then((m) => ({ Component: m.BlogCategory })) },
+        { path: '/:lang/blog/:slug', lazy: () => import('./pages/BlogPost').then((m) => ({ Component: m.BlogPost })) },
+        { path: '/:lang/privacy-policy', lazy: () => import('./pages/PrivacyPolicy').then((m) => ({ Component: m.PrivacyPolicy })) },
+        { path: '/:lang/about', lazy: () => import('./pages/About').then((m) => ({ Component: m.About })) },
+        { path: '/:lang/about/team/:slug', lazy: () => import('./pages/TeamMember').then((m) => ({ Component: m.TeamMember })) },
+        { path: '/:lang/resources', lazy: () => import('./pages/Resources').then((m) => ({ Component: m.Resources })) },
+        { path: '*', lazy: () => import('./pages/NotFoundPage').then((m) => ({ Component: m.NotFoundPage })) },
+      ],
+    },
+  ]
+  return createBrowserRouter(routes)
+}

@@ -36,3 +36,17 @@ The `#organization` entity is now `Organization + LocalBusiness + ProfessionalSe
 - **Founder LinkedIn URLs** (`Person.sameAs`; `src/data/team.ts` has `linkedin: undefined // TODO(A1.8)`).
 
 **Ask:** if you want a Google Business Profile / map-pack presence, provide the address you are willing to publish and the hours; add the founders' LinkedIn URLs to `src/data/team.ts` and the `Person` blocks in `index.html`. Each is a one-line change once the facts exist.
+
+## 6. Blog cover images are generated placeholders (Phase 6)
+
+Every post's frontmatter pointed at a cover (`/blog/*-cover.jpg`) that had never been added, so `og:image`, `twitter:image` and `Article.image` were 404s on all ten posts. `scripts/generate-blog-covers.mjs` now renders a simple branded 1200×630 JPG per post (dark ground, lime accent, post title; BG posts got their own `-bg.jpg` so the title matches the language) and skips any file that already exists.
+
+**Ask:** if you want designed covers, drop JPGs with the same names into `public/blog/` — nothing else changes. Until then the placeholders keep previews and Article rich results valid.
+
+## 7. Performance follow-ups not done in this pass (Phase 6)
+
+Measured after this pass (Lighthouse 12, simulated mobile, local static server): home 81, about 91, service page 81 (was 66 / 64 / 74). What remains is framework weight, not assets:
+
+- **Both locale bundles ship on every page** (bg 110 KB + en 75 KB raw inside the main chunk). Loading only the active language via `i18next-resources-to-backend` would save ~15 KB gzipped per page but changes i18n boot and language switching; left for a dedicated change.
+- **`createRoot` re-renders the prerendered DOM on boot.** Switching to `hydrateRoot` would skip that work but requires the client's first render to match the snapshot byte-for-byte (framer-motion initial styles differ). Not attempted.
+- **Google Fonts still come from a third-party origin.** Self-hosting the two families would remove a connection but is a design/licensing call.

@@ -21,10 +21,10 @@ export function About() {
   ]
 
   const teamMembers = [
-    { key: 'member1', initials: 'EP', photo: '/team/emil.png' },
-    { key: 'member2', initials: 'PS', photo: '/team/pavel.jpg' },
-    { key: 'member3', initials: 'EL', photo: '/team/emi.jpg' },
-    { key: 'member4', initials: 'YT', photo: '/team/yoana.png', photoPosition: 'center 20%' },
+    { key: 'member1', initials: 'EP', photo: '/team/emil.webp' },
+    { key: 'member2', initials: 'PS', photo: '/team/pavel.webp' },
+    { key: 'member3', initials: 'EL', photo: '/team/emi.webp' },
+    { key: 'member4', initials: 'YT', photo: '/team/yoana.webp', photoPosition: 'center 20%' },
   ]
 
   const stats = [
@@ -130,7 +130,16 @@ export function About() {
                 >
                   <div className="w-[160px] h-[160px] rounded-full overflow-hidden border-4 border-[#B9FF66] mb-6 mx-auto">
                     {photo ? (
-                      <img src={photo} alt={t(`about.team.members.${key}.name`)} className="w-full h-full object-cover" style={photoPosition ? { objectPosition: photoPosition } : undefined} />
+                      <img
+                        src={photo}
+                        alt={t(`about.team.members.${key}.name`)}
+                        width={160}
+                        height={160}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                        style={photoPosition ? { objectPosition: photoPosition } : undefined}
+                      />
                     ) : (
                       <div className="w-full h-full bg-gray-800 flex items-center justify-center">
                         <span className="text-[#B9FF66] text-3xl font-black">{initials}</span>

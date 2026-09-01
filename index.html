@@ -11,10 +11,28 @@
     <title>E&P Systems - AI Агенция от София | AI Решения за Бизнеса</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Web fonts load without blocking first paint: the stylesheet is fetched
+         at high priority via preload, applied once it arrives (media swap), and
+         falls back to a plain stylesheet when JavaScript is off. Text renders in
+         the system fallback first (display=swap); Lighthouse measured ~1.4 s of
+         render-blocking time from the blocking version. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
+      />
+    </noscript>
 
     <!-- Google tag (gtag.js) with Consent Mode v2 — GDPR compliant -->
     <script>

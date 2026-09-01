@@ -24,6 +24,10 @@ export function AuthorByline({ author, lang }: AuthorBylineProps) {
         <img
           src={photo}
           alt={author}
+          width={36}
+          height={36}
+          loading="lazy"
+          decoding="async"
           className="w-9 h-9 rounded-full object-cover border-2 border-black"
           style={member?.photoPosition ? { objectPosition: member.photoPosition } : undefined}
         />

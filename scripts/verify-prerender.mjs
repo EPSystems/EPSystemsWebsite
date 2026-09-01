@@ -336,6 +336,32 @@ function main() {
     if (problems.length) failures.push(`${p.route} [json-ld]: ${problems.join("; ")}`);
   }
 
+  // Phase 6 — image weight budget. Every local <img src> and the og:image must
+  // exist in dist and stay under budget (the pre-fix site shipped a 1.9 MB
+  // headshot rendered at 160 px, which alone put mobile LCP past 12 s).
+  const IMG_BUDGET = 250 * 1024;
+  const OG_BUDGET = 400 * 1024;
+  const checkedImages = new Map();
+  for (const p of pages.values()) {
+    const srcs = [...p.html.matchAll(/<img[^>]+src="(\/[^"]+)"/gi)].map((m) => m[1]);
+    const oversized = [];
+    for (const src of new Set(srcs)) {
+      if (!checkedImages.has(src)) {
+        const file = join(DIST, src);
+        checkedImages.set(src, existsSync(file) ? readFileSync(file).length : -1);
+      }
+      const size = checkedImages.get(src);
+      if (size < 0) oversized.push(`${src} (missing)`);
+      else if (size > IMG_BUDGET) oversized.push(`${src} (${Math.round(size / 1024)} KB)`);
+    }
+    if (oversized.length) failures.push(`${p.route} [images]: over ${IMG_BUDGET / 1024} KB or missing: ${oversized.join(", ")}`);
+    if (p.ogImage && p.ogImage.startsWith(BASE_URL)) {
+      const og = join(DIST, p.ogImage.slice(BASE_URL.length));
+      if (!existsSync(og)) failures.push(`${p.route} [images]: og:image ${p.ogImage} not in dist`);
+      else if (readFileSync(og).length > OG_BUDGET) failures.push(`${p.route} [images]: og:image over ${OG_BUDGET / 1024} KB`);
+    }
+  }
+
   // Phase 5 — llms.txt must only link to URLs that actually exist in dist.
   const llmsPath = join(DIST, "llms.txt");
   if (!existsSync(llmsPath)) failures.push("dist/llms.txt missing");

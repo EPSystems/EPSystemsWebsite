@@ -123,6 +123,10 @@ export function TeamMember() {
                 <img
                   src={member.photo}
                   alt={name}
+                  width={160}
+                  height={160}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   style={member.photoPosition ? { objectPosition: member.photoPosition } : undefined}
                 />

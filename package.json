@@ -15,7 +15,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "postbuild": "node scripts/verify-prerender.mjs"
+    "postbuild": "node scripts/verify-prerender.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:covers": "node scripts/generate-blog-covers.mjs"
   },
   "keywords": [],
   "author": "",
@@ -49,6 +51,7 @@
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.8",
     "puppeteer": "^22.15.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "typescript": "^6.0.2",
     "vite": "^5.4.21",
