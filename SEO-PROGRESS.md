@@ -298,3 +298,68 @@ BUILD_EXIT=0   dist/404.html present   /en/pricing <title>Pricing - E&P Systems<
 ```
 
 Local Windows build unaffected (uses puppeteer's own Chrome). Definition-of-done block unchanged from Phase 6.
+
+## Post-merge — the Linux prerender fix was itself broken on Vercel
+
+`d2a3074` shipped the `@sparticuz/chromium` runtime hint behind a guard:
+
+```ts
+if (process.platform === 'linux' && !process.env.AWS_LAMBDA_JS_RUNTIME && !process.env.AWS_EXECUTION_ENV)
+```
+
+Vercel's build container sets `AWS_EXECUTION_ENV` to a value that is **not** an
+`AWS_Lambda_nodejs` runtime, which is the one case that breaks both halves at once:
+the guard skips our hint, and sparticuz's own `isRunningInAwsLambda()` /
+`isRunningInAwsLambdaNode20()` (`build/helper.js`) also return false. So neither
+`bin/al2.tar.br` nor `bin/al2023.tar.br` is unpacked and `LD_LIBRARY_PATH` is never
+set — while `chromium.br` *is* still inflated, so `executablePath()` returns
+`/tmp/chromium`, a binary with no libraries. Hence, after the merge:
+
+```
+Error: Failed to launch the browser process! undefined
+/tmp/chromium: error while loading shared libraries: libnss3.so: cannot open shared object file
+```
+
+The `d2a3074` Docker check passed because it ran on `node:22` (Debian), where
+`AWS_EXECUTION_ENV` is unset — the only condition under which that guard lets the
+fix through. Re-verified on `amazonlinux:2023`, the documented base of Vercel's
+build image (https://vercel.com/docs/builds/build-image), same code path as shipped:
+
+| Case | guard | libs unpacked | result |
+|---|---|---|---|
+| clean env (the old Debian repro) | applied | `/tmp/al2023/lib` | LAUNCH OK — HeadlessChrome/127.0.6533.0 |
+| `AWS_EXECUTION_ENV=AWS_ECS_EC2` | **skipped** | none | `libnss3.so: cannot open shared object file` |
+| stale `/tmp/chromium`, clean env | applied | none | different error (empty stderr) — not the observed symptom |
+
+Two things this also settles: the failing build *was* running the merged code (a
+pre-`d2a3074` build dies at `ERR_PNPM_OUTDATED_LOCKFILE` during install and never
+reaches a launch), and the puppeteer override works (the binary launched is
+sparticuz's `/tmp/chromium`, not puppeteer's own Chrome).
+
+### What changed (`vite.config.ts`)
+
+- The Linux hint is **unconditional**, and `AWS_EXECUTION_ENV` is deleted in-process,
+  so sparticuz's al2-vs-al2023 choice no longer depends on what the host set.
+- `LD_LIBRARY_PATH` is re-asserted after `executablePath()` — sparticuz only writes
+  it at `require()` time, from the environment as it was then.
+- A leftover `/tmp/chromium` without `/tmp/al2023/lib` is removed first, so a reused
+  build container cannot short-circuit `executablePath()` past the library unpack.
+- New `assertSharedLibraries()` throws *before* the launch when `libnss3` is missing,
+  and logs one line carrying `VERCEL` / `AWS_EXECUTION_ENV` / `AWS_LAMBDA_JS_RUNTIME` /
+  `LD_LIBRARY_PATH`. The prerender plugin swallows renderer errors, so without this a
+  recurrence surfaces as a misleading `verify-prerender` failure and needs another
+  blind push to diagnose.
+
+### Verification (actual output, amazonlinux:2023, `VERCEL=1 AWS_EXECUTION_ENV=AWS_ECS_EC2`)
+
+```
+Done in 32.4s using pnpm v9.15.9        INSTALL_EXIT=0
+[vite-plugin-prerender] All routes rendered successfully!
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each;
+canonical, lang, single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+BUILD_EXIT=0   dist/404.html present   61 html files
+/en/pricing <title>Pricing - E&P Systems</title>
+/bg/        <title>E&P Systems - AI Агенция от София | AI Решения за Бизнеса</title>
+```
+
+`tsc --noEmit` clean. Windows/local build unaffected (still puppeteer's own Chrome).
