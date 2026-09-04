@@ -61,3 +61,29 @@ Pushing the branch showed this repo *is* linked to a Vercel project (`ep-systems
 Verified in Docker (Debian, pnpm 9.15.9, `VERCEL=1`): frozen-lockfile install OK, 60 routes prerendered, gate OK. The next push re-triggers the Vercel preview build; its status is visible on the commit in GitHub.
 
 **Still yours:** the production domain is served by project `ep-systems` (linked to `EDermendjiev/EPSystems`). Either point that project at this repo, or move the domains to `ep-systems-website`.
+
+## 1b. Update — §1a's fix was incomplete; corrected and re-verified (post-merge)
+
+§1a claimed the Vercel Chromium path was "reproduced and fixed". It was not. The
+runtime hint was applied only when `AWS_EXECUTION_ENV` was unset, and Vercel's build
+container sets it to a non-Lambda value — so the hint was skipped, `@sparticuz/chromium`
+unpacked no shared libraries, and the merged build failed with the same
+`libnss3.so: cannot open shared object file`. The §1a Docker check passed only because
+`node:22` (Debian) leaves `AWS_EXECUTION_ENV` unset.
+
+Corrected in `vite.config.ts` (unconditional hint, deterministic al2023 selection,
+`LD_LIBRARY_PATH` re-asserted, pre-launch assertion + env diagnostic) and re-verified on
+`amazonlinux:2023` under `VERCEL=1` **with** a non-Lambda `AWS_EXECUTION_ENV`: install OK,
+60 routes prerendered, gate OK, `BUILD_EXIT=0`. Detail and the three-case table are in
+`SEO-PROGRESS.md`.
+
+**Still yours:** push so the Vercel build re-runs. The build log will now carry a
+`[prerender] chromium=… libs=… env={…}` line — that line reports Vercel's actual
+`AWS_EXECUTION_ENV` value, which is worth reading once even on a green build.
+
+**Unchanged from §4:** the production domain is still served by project `ep-systems`
+(Vercel team `edermendjievs-projects`, linked to `EDermendjiev/EPSystems`), whose last
+deployment is `dpl_2bemWCJTtMERMecqGhpzdDqzCDfw`, 2026-02-01, from a commit not in this
+repository — confirmed again today via the Vercel API. Nothing in this branch reaches
+epsystems.org until that project is re-pointed at `EPSystems/EPSystemsWebsite` or the
+domains move to `ep-systems-website`.
