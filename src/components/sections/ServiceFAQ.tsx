@@ -1,58 +1,28 @@
 import { useTranslation } from 'react-i18next'
 import { FAQAccordion } from '../ui/FAQAccordion'
-import { useEffect } from 'react'
+import { faqItemsFromBundle, useFaqSchema } from '../../hooks/useFaqSchema'
 
 interface ServiceFAQProps {
   slug: string
 }
 
-const FAQ_COUNTS: Record<string, number> = {
-  'ai-websites': 5,
-  'ai-automation': 5,
-  'ai-agents': 5,
-  'ai-seo': 5,
-  'ai-ecommerce': 5,
-}
-
+/**
+ * Service-page FAQ. Items live in the locale bundles under
+ * `servicePages.<slug>.faq.items.<n>.{q,a}`; the count is whatever the bundle
+ * holds, so adding a question is a locale-only change. Emits FAQPage JSON-LD.
+ */
 export function ServiceFAQ({ slug }: ServiceFAQProps) {
-  const { t, i18n } = useTranslation()
-  const count = FAQ_COUNTS[slug]
+  const { t } = useTranslation()
 
-  if (!count) return null
+  const items = faqItemsFromBundle(
+    t(`servicePages.${slug}.faq.items`, { returnObjects: true, defaultValue: {} }),
+  )
 
-  const items = Array.from({ length: count }, (_, i) => ({
-    question: t(`servicePages.${slug}.faq.items.${i}.q`),
-    answer: t(`servicePages.${slug}.faq.items.${i}.a`),
-  }))
+  useFaqSchema(slug, items)
+
+  if (items.length === 0) return null
 
   const heading = t(`servicePages.${slug}.faq.heading`)
-
-  // Inject FAQPage schema for SEO
-  useEffect(() => {
-    const schema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: items.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.answer,
-        },
-      })),
-    }
-
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.setAttribute('data-faq-schema', slug)
-    script.textContent = JSON.stringify(schema)
-    document.head.appendChild(script)
-
-    return () => {
-      const existing = document.querySelector(`script[data-faq-schema="${slug}"]`)
-      if (existing) existing.remove()
-    }
-  }, [slug, i18n.language])
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">

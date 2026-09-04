@@ -6,7 +6,7 @@ import { SEOHead } from "../components/SEOHead";
 import { useTranslation } from "react-i18next";
 
 export function PrivacyPolicy() {
-  useLanguageSync();
+  const lang = useLanguageSync();
   usePageMeta("privacy.meta.title", "privacy.meta.description");
   const { t } = useTranslation();
 
@@ -18,7 +18,12 @@ export function PrivacyPolicy() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t("nav.home", { defaultValue: "Home" }), url: `/${lang}/` },
+          { name: t("footer.privacyPolicy"), url: `/${lang}/privacy-policy` },
+        ]}
+      />
       <Navbar />
       <main className="max-w-4xl mx-auto px-6 py-16 lg:py-24">
         <h1 className="text-4xl lg:text-6xl font-black tracking-tighter mb-4">

@@ -6,6 +6,7 @@
 import { readFileSync, readdirSync, writeFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
+import { STATIC_ROUTE_PATHS, parseFrontmatter, TEAM_SLUGS, blogCategories } from "./routes.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -16,48 +17,35 @@ const BLOG_DIR = resolve(ROOT, "content/blog");
 /**
  * Static routes, priority + changefreq.
  * `path` is appended after the locale prefix.
+ * Path list is sourced from scripts/routes.mjs (shared with the prerenderer)
+ * so sitemap and prerender can never drift. Priority/changefreq stay here.
  */
-const staticRoutes = [
-  { path: "/", priority: "1.0", changefreq: "weekly" },
-  { path: "/services", priority: "0.9", changefreq: "monthly" },
-  { path: "/services/ai-websites", priority: "0.9", changefreq: "monthly" },
-  { path: "/services/ai-automation", priority: "0.9", changefreq: "monthly" },
-  { path: "/services/ai-agents", priority: "0.9", changefreq: "monthly" },
-  { path: "/services/ai-seo", priority: "0.9", changefreq: "monthly" },
-  { path: "/services/ai-ecommerce", priority: "0.9", changefreq: "monthly" },
-  { path: "/industries/insurance", priority: "0.85", changefreq: "monthly" },
-  { path: "/industries/ecommerce", priority: "0.7", changefreq: "monthly" },
-  { path: "/industries/fitness", priority: "0.7", changefreq: "monthly" },
-  { path: "/pricing", priority: "0.8", changefreq: "monthly" },
-  { path: "/about", priority: "0.7", changefreq: "monthly" },
-  { path: "/contact", priority: "0.7", changefreq: "monthly" },
-  { path: "/blog", priority: "0.8", changefreq: "weekly" },
-  { path: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
-];
+const STATIC_PRIORITIES = {
+  "/": { priority: "1.0", changefreq: "weekly" },
+  "/services": { priority: "0.9", changefreq: "monthly" },
+  "/services/ai-websites": { priority: "0.9", changefreq: "monthly" },
+  "/services/ai-automation": { priority: "0.9", changefreq: "monthly" },
+  "/services/ai-agents": { priority: "0.9", changefreq: "monthly" },
+  "/services/ai-seo": { priority: "0.9", changefreq: "monthly" },
+  "/services/ai-ecommerce": { priority: "0.9", changefreq: "monthly" },
+  "/industries/insurance": { priority: "0.85", changefreq: "monthly" },
+  "/industries/ecommerce": { priority: "0.7", changefreq: "monthly" },
+  "/industries/fitness": { priority: "0.7", changefreq: "monthly" },
+  "/projects": { priority: "0.7", changefreq: "monthly" },
+  "/pricing": { priority: "0.8", changefreq: "monthly" },
+  "/about": { priority: "0.7", changefreq: "monthly" },
+  "/contact": { priority: "0.7", changefreq: "monthly" },
+  "/blog": { priority: "0.8", changefreq: "weekly" },
+  "/resources": { priority: "0.7", changefreq: "monthly" },
+  "/privacy-policy": { priority: "0.3", changefreq: "yearly" },
+};
+const staticRoutes = STATIC_ROUTE_PATHS.map((path) => ({
+  path,
+  priority: STATIC_PRIORITIES[path]?.priority ?? "0.6",
+  changefreq: STATIC_PRIORITIES[path]?.changefreq ?? "monthly",
+}));
 
-/** Parse the YAML frontmatter block of an MDX file (first `---...---`).
- *  Tolerates both LF and CRLF line endings. */
-function parseFrontmatter(src) {
-  const match = src.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
-  if (!match) return null;
-  const body = match[1];
-  const data = {};
-  for (const rawLine of body.split(/\r?\n/)) {
-    const line = rawLine.replace(/\r$/, "");
-    const m = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
-    if (!m) continue;
-    let value = m[2].trim();
-    // strip quotes
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
-    }
-    data[m[1]] = value;
-  }
-  return data;
-}
+
 
 function loadBlogPosts() {
   const posts = [];
@@ -199,9 +187,44 @@ function buildBlogEntries(posts) {
   return entries;
 }
 
+// Dynamic-but-enumerable routes: team-member pages and blog-category pages.
+// These get hreflang alternates (same slug both locales) and modest priority.
+function buildDynamicDirEntries(prefix, slugs, { bgPriority, enPriority, changefreq }) {
+  const lastmod = todayIso();
+  const entries = [];
+  for (const slug of slugs) {
+    const bgLoc = `${DOMAIN}/bg/${prefix}/${slug}`;
+    const enLoc = `${DOMAIN}/en/${prefix}/${slug}`;
+    const alternates = [
+      { hreflang: "bg", href: bgLoc },
+      { hreflang: "en", href: enLoc },
+      { hreflang: "x-default", href: bgLoc },
+    ];
+    entries.push(
+      urlEntry({ loc: bgLoc, alternates, priority: bgPriority, changefreq, lastmod }),
+      urlEntry({ loc: enLoc, alternates, priority: enPriority, changefreq, lastmod }),
+    );
+  }
+  return entries;
+}
+
 function build() {
   const posts = loadBlogPosts();
-  const entries = [...buildStaticEntries(), ...buildBlogEntries(posts)];
+  const categories = blogCategories();
+  const entries = [
+    ...buildStaticEntries(),
+    ...buildBlogEntries(posts),
+    ...buildDynamicDirEntries("about/team", TEAM_SLUGS, {
+      bgPriority: "0.5",
+      enPriority: "0.4",
+      changefreq: "monthly",
+    }),
+    ...buildDynamicDirEntries("blog/category", categories, {
+      bgPriority: "0.5",
+      enPriority: "0.4",
+      changefreq: "weekly",
+    }),
+  ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">

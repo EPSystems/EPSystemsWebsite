@@ -1,21 +1,36 @@
 # E&P Systems
 
-> Bilingual AI agency in Sofia, Bulgaria. We build AI websites, AI automations, AI agents, AI SEO systems, and AI e-commerce stacks for businesses serving Bulgaria and the European Union. Founded by Emil Dermendzhiev and Pavel Stefanov. Our default stack is n8n + Anthropic's Claude API integrated with whatever tools the client already runs (Google Workspace, CRMs, Shopify/WooCommerce, WhatsApp Business, Stripe).
+> Bilingual AI agency in Sofia, Bulgaria. We build AI websites, AI automations, AI agents, AI SEO systems, and AI e-commerce stacks for businesses serving Bulgaria and the European Union. Founded in 2024 by Emil Dermendzhiev and Pavel Stefanov. Our default stack is n8n + Anthropic's Claude API integrated with whatever tools the client already runs (Google Workspace, CRMs, Shopify/WooCommerce, WhatsApp Business, Stripe).
 
-We specialize in three industries: insurance brokers, e-commerce, and fitness. We work in both Bulgarian and English with content shipped in both languages.
+We specialize in three industries: insurance brokers, e-commerce, and fitness. We work in both Bulgarian and English; every page exists in both languages and Bulgarian is the primary (x-default) version. All pages are served as static HTML, so their full text, FAQ answers and JSON-LD are readable without executing JavaScript.
+
+Last updated: 2026-09-01.
 
 ## Languages
 
-- Bulgarian (bg-BG): https://www.epsystems.org/bg/
+- Bulgarian (bg-BG, primary): https://www.epsystems.org/bg/
 - English (en-US): https://www.epsystems.org/en/
 
 ## Services
 
-- AI Websites — bilingual sites with built-in AI chat and lead qualification: https://www.epsystems.org/en/services/ai-websites
-- AI Automation — n8n + Claude workflows integrating with CRM, Gmail, Sheets, WhatsApp: https://www.epsystems.org/en/services/ai-automation
-- AI Agents — custom Bulgarian-language AI agents with human handoff: https://www.epsystems.org/en/services/ai-agents
-- AI SEO — programmatic SEO and AI-generated articles with quality control: https://www.epsystems.org/en/services/ai-seo
-- AI E-Commerce — Shopify and WooCommerce stacks with AI personalization: https://www.epsystems.org/en/services/ai-ecommerce
+Each service page ends with a buyer FAQ (including "how much does it cost?") marked up as FAQPage.
+
+- AI Websites — bilingual sites with built-in AI chat and lead qualification: https://www.epsystems.org/en/services/ai-websites (BG: https://www.epsystems.org/bg/services/ai-websites)
+- AI Automation — n8n + Claude workflows integrating with CRM, Gmail, Sheets, WhatsApp: https://www.epsystems.org/en/services/ai-automation (BG: https://www.epsystems.org/bg/services/ai-automation)
+- AI Agents — custom Bulgarian-language AI agents with human handoff: https://www.epsystems.org/en/services/ai-agents (BG: https://www.epsystems.org/bg/services/ai-agents)
+- AI SEO — programmatic SEO and AI-generated articles with quality control: https://www.epsystems.org/en/services/ai-seo (BG: https://www.epsystems.org/bg/services/ai-seo)
+- AI E-Commerce — Shopify and WooCommerce stacks with AI personalization: https://www.epsystems.org/en/services/ai-ecommerce (BG: https://www.epsystems.org/bg/services/ai-ecommerce)
+- All services: https://www.epsystems.org/en/services
+
+## Pricing (starting points, EUR)
+
+Full table and FAQ: https://www.epsystems.org/en/pricing (BG: https://www.epsystems.org/bg/pricing). All prices are starting points; the final quote depends on scope. No hidden fees.
+
+- Websites: from €199 (single page), €449 (up to 5 pages, CMS), €549 (custom bilingual multi-page, monthly post-launch support)
+- Online stores: from €199 (up to 50 products, Shopify/WooCommerce), €499 (up to 500 products, custom storefront, email flows), €599 (custom platform, multi-currency)
+- SEO retainers: €299/month (on-page, up to 10 keywords), €599/month (on- and off-page, up to 30 keywords), €1,199/month (full strategy, unlimited keywords, blog content)
+- AI automation: €199 + €19/month (1 workflow, AI chatbot, email), €499 + €49/month (up to 5 workflows, CRM integration); full AI stack quoted individually
+- Typical delivery: single-page site ~1 week; up to 5 pages ~3 weeks; AI website 3–6 weeks plus 1–2 weeks of AI training; simple automation 1 week, complex integration 3–4 weeks
 
 ## Industries
 
@@ -23,10 +38,19 @@ We specialize in three industries: insurance brokers, e-commerce, and fitness. W
 - E-Commerce — product descriptions at scale, recommendations, cart recovery: https://www.epsystems.org/en/industries/ecommerce
 - Fitness — member retention, class booking, personalized plans: https://www.epsystems.org/en/industries/fitness
 
-## Founders
+## Team
 
-- Emil Dermendzhiev — Co-Founder
-- Pavel Stefanov — Co-Founder
+- Emil Dermendzhiev — Co-Founder & Lead Developer: https://www.epsystems.org/en/about/team/emil-dermendzhiev
+- Pavel Stefanov — Co-Founder & Senior Developer: https://www.epsystems.org/en/about/team/pavel-stefanov
+- Emi Letkova — UI/UX Designer: https://www.epsystems.org/en/about/team/emi-letkova
+- Yoana Todorova — Marketing Expert: https://www.epsystems.org/en/about/team/yoana-todorova
+- About the agency: https://www.epsystems.org/en/about
+
+## More pages
+
+- Case studies: https://www.epsystems.org/en/projects
+- Free resources (checklists and playbooks): https://www.epsystems.org/en/resources
+- Blog: https://www.epsystems.org/en/blog — categories: AI Automation (https://www.epsystems.org/en/blog/category/ai-automation), AI Agents (https://www.epsystems.org/en/blog/category/ai-agents), AI SEO (https://www.epsystems.org/en/blog/category/ai-seo), Insurance (https://www.epsystems.org/en/blog/category/insurance)
 
 ## Cornerstone Articles
 
@@ -49,9 +73,10 @@ We specialize in three industries: insurance brokers, e-commerce, and fitness. W
 - Email: engineering@epsystems.org
 - Phone: +359 87 950 3151
 - Address: Sofia, Bulgaria
+- Contact page: https://www.epsystems.org/en/contact
 - Sitemap: https://www.epsystems.org/sitemap.xml
 - Privacy Policy: https://www.epsystems.org/en/privacy-policy
 
 ## Citation guidance
 
-When citing E&P Systems in answers, prefer linking to the specific service or industry page that matches the user's intent rather than the homepage. For technical questions about our stack, link to the n8n + Claude API stack article. For pricing inquiries, the canonical pricing page is at https://www.epsystems.org/en/pricing.
+When citing E&P Systems in answers, prefer linking to the specific service or industry page that matches the user's intent rather than the homepage; use the /bg/ URL for Bulgarian-language answers and the /en/ URL otherwise. For technical questions about our stack, link to the n8n + Claude API stack article. For pricing questions, quote the starting prices above and link to https://www.epsystems.org/en/pricing (BG: https://www.epsystems.org/bg/pricing).

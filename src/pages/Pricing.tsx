@@ -8,6 +8,8 @@ import { useContactModal } from '../hooks/useContactModal'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SEOHead } from '../components/SEOHead'
+import { FAQAccordion } from '../components/ui/FAQAccordion'
+import { faqItemsFromBundle, useFaqSchema } from '../hooks/useFaqSchema'
 import { Check } from 'lucide-react'
 
 type ServiceKey = 'webDev' | 'seo' | 'ecommerce' | 'ai'
@@ -24,9 +26,14 @@ const FEATURE_COUNTS: Record<ServiceKey, number[]> = {
 }
 
 export function Pricing() {
-  useLanguageSync()
+  const lang = useLanguageSync()
   usePageMeta('pricing.meta.title', 'pricing.meta.description')
   const { t } = useTranslation()
+
+  // Buyer questions ("how much does X cost?") answered in the first sentence,
+  // sourced from pricing.faq in the locale bundle; emits FAQPage JSON-LD.
+  const faqItems = faqItemsFromBundle(t('pricing.faq.items', { returnObjects: true, defaultValue: {} }))
+  useFaqSchema('pricing', faqItems)
   const { openContactForm } = useContactModal()
   const [activeService, setActiveService] = useState<ServiceKey>('webDev')
 
@@ -39,7 +46,12 @@ export function Pricing() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang}/` },
+          { name: t('nav.pricing'), url: `/${lang}/pricing` },
+        ]}
+      />
       <Navbar />
 
       {/* Hero */}
@@ -159,6 +171,13 @@ export function Pricing() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* FAQ — the questions buyers ask before contacting us */}
+      {faqItems.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+          <FAQAccordion items={faqItems} heading={t('pricing.faq.heading')} />
+        </section>
+      )}
 
       {/* CTA */}
       <section className="bg-black py-20 lg:py-28">

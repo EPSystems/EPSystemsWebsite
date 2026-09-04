@@ -68,7 +68,7 @@ function FAQItem({
 }
 
 export function Contact() {
-  useLanguageSync();
+  const lang = useLanguageSync();
   usePageMeta("contactPage.meta.title", "contactPage.meta.description");
   const { t } = useTranslation();
   useContactModal(); // keep provider active
@@ -126,7 +126,12 @@ export function Contact() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        breadcrumbs={[
+          { name: t("nav.home", { defaultValue: "Home" }), url: `/${lang}/` },
+          { name: t("nav.contact"), url: `/${lang}/contact` },
+        ]}
+      />
       <Navbar />
 
       {/* Hero */}

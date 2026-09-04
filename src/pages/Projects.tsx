@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { useLanguageSync } from '../hooks/useLanguageSync'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { SEOHead } from '../components/SEOHead'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { AnimatedSection } from '../components/ui/AnimatedSection'
@@ -66,6 +68,7 @@ const filterCategories: { key: FilterCategory; labelKey: string }[] = [
 ]
 
 export function Projects() {
+  const { lang } = useParams<{ lang: string }>()
   useLanguageSync()
   usePageMeta('projects.meta.title', 'projects.meta.description')
   const { t } = useTranslation()
@@ -77,8 +80,18 @@ export function Projects() {
       ? projects
       : projects.filter((p) => p.category === activeFilter)
 
+  const breadcrumbs = [
+    { name: t('nav.home', { defaultValue: 'Home' }), url: `/${lang || 'bg'}/` },
+    { name: t('nav.projects'), url: `/${lang || 'bg'}/projects` },
+  ]
+
   return (
     <>
+      <SEOHead
+        breadcrumbs={breadcrumbs}
+        title={t('projects.meta.title')}
+        description={t('projects.meta.description')}
+      />
       <Navbar />
 
       {/* Hero */}

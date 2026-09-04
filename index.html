@@ -11,10 +11,28 @@
     <title>E&P Systems - AI Агенция от София | AI Решения за Бизнеса</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Web fonts load without blocking first paint: the stylesheet is fetched
+         at high priority via preload, applied once it arrives (media swap), and
+         falls back to a plain stylesheet when JavaScript is off. Text renders in
+         the system fallback first (display=swap); Lighthouse measured ~1.4 s of
+         render-blocking time from the blocking version. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@200..900&display=swap"
+      />
+    </noscript>
 
     <!-- Google tag (gtag.js) with Consent Mode v2 — GDPR compliant -->
     <script>
@@ -59,14 +77,19 @@
          3. Replace G-XXXXXXXXXX above with your ID and uncomment
          4. Verify Search Console with the meta tag above -->
 
-    <!-- ProfessionalService + Organization (unified entity) -->
+    <!-- Organization + LocalBusiness + ProfessionalService (one entity, three types).
+         LocalBusiness/ProfessionalService carry the local-agency signals (address,
+         telephone, priceRange, areaServed); Organization is what publisher/worksFor
+         references and knowledge panels key on. Street address and opening hours
+         are intentionally absent: none are published anywhere on the site. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["ProfessionalService", "Organization"],
+        "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
         "@id": "https://www.epsystems.org/#organization",
         "name": "E&P Systems",
         "alternateName": "E&P Systems AI Agency",
+        "legalName": "E&P Systems",
         "description": "AI агенция от София, България. AI уеб сайтове, AI автоматизации, персонални AI агенти, AI SEO и AI e-commerce за български и европейски бизнеси.",
         "url": "https://www.epsystems.org",
         "logo": {
@@ -77,12 +100,22 @@
         "telephone": "+359879503151",
         "email": "engineering@epsystems.org",
         "priceRange": "€€",
+        "currenciesAccepted": "EUR, BGN",
         "foundingDate": "2024",
+        "knowsLanguage": ["bg", "en"],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Sofia",
           "addressRegion": "Sofia",
           "addressCountry": "BG"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+359879503151",
+          "email": "engineering@epsystems.org",
+          "availableLanguage": ["Bulgarian", "English"],
+          "areaServed": ["BG", "EU"]
         },
         "areaServed": [
           { "@type": "Country", "name": "Bulgaria" },
@@ -117,7 +150,7 @@
         "familyName": "Dermendzhiev",
         "jobTitle": "Co-Founder",
         "worksFor": { "@id": "https://www.epsystems.org/#organization" },
-        "url": "https://www.epsystems.org/bg/about",
+        "url": "https://www.epsystems.org/bg/about/team/emil-dermendzhiev",
         "image": "https://www.epsystems.org/team/emil.png"
       }
     </script>
@@ -133,12 +166,13 @@
         "familyName": "Stefanov",
         "jobTitle": "Co-Founder",
         "worksFor": { "@id": "https://www.epsystems.org/#organization" },
-        "url": "https://www.epsystems.org/bg/about",
+        "url": "https://www.epsystems.org/bg/about/team/pavel-stefanov",
         "image": "https://www.epsystems.org/team/pavel.jpg"
       }
     </script>
 
-    <!-- WebSite -->
+    <!-- WebSite. No SearchAction: the blog does not implement a ?q= search, and
+         claiming one is a false structured-data statement. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
