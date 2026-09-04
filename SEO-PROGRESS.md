@@ -282,3 +282,19 @@ Client boot (puppeteer, lazy routes): /en/pricing, /bg/, /en/blog/category/ai-se
 ## Status at the end of the loop
 
 All six phases are committed on `seo/prerender-and-technical-seo` and the definition-of-done block passes. Nothing here is live until the items in `SEO-DECISION.md` are actioned — above all §4 (production is not deploying from this repository) and §1 (first Vercel preview build exercises the `@sparticuz/chromium` path).
+
+## Post-loop — Vercel preview build (first real Linux run)
+
+Pushing the branch triggered a preview build on Vercel project `ep-systems-website` (linked to this repo; not the project that serves the domain). It **failed**. Reproduced in Docker with the same flow (`pnpm install --frozen-lockfile` + `pnpm run build`, `VERCEL=1`):
+
+1. `ERR_PNPM_OUTDATED_LOCKFILE` — `pnpm-lock.yaml` was stale (Vercel uses pnpm because that lockfile exists; it predated puppeteer, the prerender plugin, sharp and sparticuz). Regenerated, plus `pnpm.overrides.puppeteer` so the prerender plugin gets puppeteer 22 instead of its declared `^1.7.0`.
+2. `/tmp/chromium: error while loading shared libraries: libnss3.so` — `@sparticuz/chromium` extracts its bundled libraries only when it detects a Node 20 Lambda runtime. `vite.config.ts` now sets that hint on Linux.
+
+```
+Done in 10s using pnpm v9.15.9
+[vite-plugin-prerender] All routes rendered successfully!
+[verify-prerender] OK — 60 routes prerendered; unique title + description on each; canonical, lang, single visible <h1>, OG/Twitter and reciprocal hreflang verified.
+BUILD_EXIT=0   dist/404.html present   /en/pricing <title>Pricing - E&P Systems</title>
+```
+
+Local Windows build unaffected (uses puppeteer's own Chrome). Definition-of-done block unchanged from Phase 6.

@@ -50,3 +50,14 @@ Measured after this pass (Lighthouse 12, simulated mobile, local static server):
 - **Both locale bundles ship on every page** (bg 110 KB + en 75 KB raw inside the main chunk). Loading only the active language via `i18next-resources-to-backend` would save ~15 KB gzipped per page but changes i18n boot and language switching; left for a dedicated change.
 - **`createRoot` re-renders the prerendered DOM on boot.** Switching to `hydrateRoot` would skip that work but requires the client's first render to match the snapshot byte-for-byte (framer-motion initial styles differ). Not attempted.
 - **Google Fonts still come from a third-party origin.** Self-hosting the two families would remove a connection but is a design/licensing call.
+
+## 1a. Update — the Vercel build path is now reproduced and fixed (post-loop)
+
+Pushing the branch showed this repo *is* linked to a Vercel project (`ep-systems-website`, team `epsystems-projects` — a different project from `ep-systems`, which serves the domain from the personal repo). Its preview build for 05452b5 **failed**. Reproduced in Docker (node:22 + the same install/build) and fixed:
+
+1. **Stale `pnpm-lock.yaml`.** The repo carries both lockfiles; Vercel builds with pnpm and `--frozen-lockfile`, and `pnpm-lock.yaml` predated every new dependency. Regenerated with pnpm 9 (lockfile only). `pnpm.overrides.puppeteer` mirrors the npm override — without it pnpm would nest `puppeteer@1.x` under the prerender plugin, which cannot drive Chromium 127.
+2. **`@sparticuz/chromium` only unpacks its bundled shared libraries inside an AWS Lambda Node 20 runtime.** On any other Linux host (Vercel's build container included) the launch died with `libnss3.so: cannot open shared object file`. `vite.config.ts` now sets the runtime hint on Linux so the al2023 library bundle is extracted and put on `LD_LIBRARY_PATH`.
+
+Verified in Docker (Debian, pnpm 9.15.9, `VERCEL=1`): frozen-lockfile install OK, 60 routes prerendered, gate OK. The next push re-triggers the Vercel preview build; its status is visible on the commit in GitHub.
+
+**Still yours:** the production domain is served by project `ep-systems` (linked to `EDermendjiev/EPSystems`). Either point that project at this repo, or move the domains to `ep-systems-website`.

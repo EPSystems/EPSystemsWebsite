@@ -38,6 +38,16 @@ async function resolveChromium(): Promise<{
 }> {
   const useSparticuz = process.env.VERCEL === '1' || process.env.PRERENDER_CHROMIUM === 'sparticuz'
   if (useSparticuz) {
+    // @sparticuz/chromium ships the shared libraries its binary needs
+    // (libnss3, libatk, …) as bin/al2023.tar.br, but only unpacks them — and
+    // prepends /tmp/al2023/lib to LD_LIBRARY_PATH — when it detects a Node 20
+    // AWS Lambda runtime via AWS_EXECUTION_ENV / AWS_LAMBDA_JS_RUNTIME. A build
+    // container is not Lambda, so without this hint the launch dies with
+    // "libnss3.so: cannot open shared object file" (reproduced in Docker).
+    // The check runs at require() time, so the variable must be set first.
+    if (process.platform === 'linux' && !process.env.AWS_LAMBDA_JS_RUNTIME && !process.env.AWS_EXECUTION_ENV) {
+      process.env.AWS_LAMBDA_JS_RUNTIME = 'nodejs20.x'
+    }
     const mod = require('@sparticuz/chromium')
     const chromium = mod.default ?? mod
     return {
